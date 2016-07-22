@@ -13,6 +13,10 @@ using Explorer.Utility;
 using RawMaterialManagement.Supplier_Management;
 using RawMaterialManagement.Invoice_Management;
 using RawMaterialManagement.Items_Management;
+using HR_Management;
+using FinanceManagement;
+using InventoryManagement;
+using SalesManagement.Buyer;
 
 namespace Explorer
 {
@@ -25,6 +29,8 @@ namespace Explorer
         {
             if(ActiveMdiChild != null)
                 ActiveMdiChild.Close();
+            childForm.BackColor = Color.White;
+            childForm.ControlBox = false;
             childForm.MdiParent = this;
             childForm.WindowState = FormWindowState.Maximized;
             childForm.Show();
@@ -117,6 +123,73 @@ namespace Explorer
             this.Close();
         }
 
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            loadForm(new Employee());
+        }
+
+        private void checkLeaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm(new CheckLeave());
+        }
+
+        private void leaveRequestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm(new LeaveRequest());
+        }
+
+        private void toolStripMenuItem16_Click(object sender, EventArgs e)
+        {
+            loadForm(new Salary());
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            loadForm(new BudgetAllocation());
+
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            loadForm(new AssetsManagement());
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            loadForm(new ExpensesManager());
+        }
+
+        private void toolStripMenuItem33_Click(object sender, EventArgs e)
+        {
+            loadForm(new Inventory());
+        }
+
+        private void toolStripMenuItem35_Click(object sender, EventArgs e)
+        {
+            loadForm(new Order());
+        }
+
+        private void toolStripMenuItem37_Click(object sender, EventArgs e)
+        {
+            loadForm(new Request());
+        }
+
+        private void toolStripMenuItem27_Click(object sender, EventArgs e)
+        {
+            loadForm(new addNew());
+        }
+
+        private void updateBuyerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm(new updateBuyer());
+        }
+
+        private void viewAllBuyersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm(new viewAllBuyers());
+        }
 
     }
+
+        
 }
