@@ -32,5 +32,29 @@ namespace RawMaterialManagement.Properties {
                 return ((string)(this["itpConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arial, 9.75pt")]
+        public global::System.Drawing.Font systemfont {
+            get {
+                return ((global::System.Drawing.Font)(this["systemfont"]));
+            }
+            set {
+                this["systemfont"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("EditOnEnter")]
+        public global::System.Windows.Forms.DataGridViewEditMode DataGridEditMode {
+            get {
+                return ((global::System.Windows.Forms.DataGridViewEditMode)(this["DataGridEditMode"]));
+            }
+            set {
+                this["DataGridEditMode"] = value;
+            }
+        }
     }
 }

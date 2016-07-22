@@ -33,15 +33,36 @@ namespace Explorer.Properties {
             }
         }
         
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enterprise Resource Planner - Teemah")]
+        public string Title {
+            get {
+                return ((string)(this["Title"]));
+            }
+        }
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Panda")]
-        public string User {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string menuStripDock {
             get {
-                return ((string)(this["User"]));
+                return ((string)(this["menuStripDock"]));
             }
             set {
-                this["User"] = value;
+                this["menuStripDock"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Left")]
+        public global::System.Windows.Forms.DockStyle menuDockMode {
+            get {
+                return ((global::System.Windows.Forms.DockStyle)(this["menuDockMode"]));
+            }
+            set {
+                this["menuDockMode"] = value;
             }
         }
     }

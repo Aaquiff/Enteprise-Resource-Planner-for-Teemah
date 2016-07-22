@@ -37,7 +37,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(910, 440);
             this.ControlBox = false;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmStartup";
             this.Text = "frmStartup";
             this.ResumeLayout(false);

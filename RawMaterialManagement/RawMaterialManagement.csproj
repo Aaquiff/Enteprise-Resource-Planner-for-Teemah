@@ -67,24 +67,33 @@
     <Compile Include="Items Management\dlgSearchItem.Designer.cs">
       <DependentUpon>dlgSearchItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order Management\OrderDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order Management\OrderDetail.Designer.cs">
+      <DependentUpon>OrderDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Items Management\ItemDetail.cs">
+    <Compile Include="Items Management\ItemTab.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Items Management\ItemDetail.Designer.cs">
-      <DependentUpon>ItemDetail.cs</DependentUpon>
+    <Compile Include="Items Management\ItemTab.Designer.cs">
+      <DependentUpon>ItemTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="Supplier Management\SupplierDetail.cs">
+    <Compile Include="Supplier Management\SupplierTab.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Supplier Management\SupplierDetail.Designer.cs">
-      <DependentUpon>SupplierDetail.cs</DependentUpon>
+    <Compile Include="Supplier Management\SupplierTab.Designer.cs">
+      <DependentUpon>SupplierTab.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Invoice Management\InvoiceDetail.resx">
       <DependentUpon>InvoiceDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Items Management\dlgSearchItem.resx">
       <DependentUpon>dlgSearchItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order Management\OrderDetail.resx">
+      <DependentUpon>OrderDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,11 +104,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Items Management\ItemDetail.resx">
-      <DependentUpon>ItemDetail.cs</DependentUpon>
+    <EmbeddedResource Include="Items Management\ItemTab.resx">
+      <DependentUpon>ItemTab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Supplier Management\SupplierDetail.resx">
-      <DependentUpon>SupplierDetail.cs</DependentUpon>
+    <EmbeddedResource Include="Supplier Management\SupplierTab.resx">
+      <DependentUpon>SupplierTab.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DataSetRawMaterial.xsc">
       <DependentUpon>DataSetRawMaterial.xsd</DependentUpon>

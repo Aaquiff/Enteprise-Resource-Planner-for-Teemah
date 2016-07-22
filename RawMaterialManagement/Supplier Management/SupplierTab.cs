@@ -10,9 +10,9 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data;
 
-namespace RawMaterialManagement.Items_Management
+namespace RawMaterialManagement.Supplier_Management
 {
-    public partial class ItemDetail : Form
+    public partial class SupplierTab : Form
     {
         MySqlConnection con;
         MySqlDataAdapter itemAdapter;
@@ -20,29 +20,34 @@ namespace RawMaterialManagement.Items_Management
          
         DataSet itemDataset = new DataSet();
 
-        public ItemDetail()
+        public SupplierTab()
         {
             InitializeComponent();
 
             con = new MySqlConnection("server=localhost;database=itp;user id=root;");
-            itemAdapter = new MySqlDataAdapter("select * from item_tab", con);
+            itemAdapter = new MySqlDataAdapter("select * from supplier_tab", con);
 
-            MySqlCommand insertCommand = new MySqlCommand("insert into item_tab values (@itemid,@itemname,@description)",con);
-            insertCommand.Parameters.Add("@itemid", MySqlDbType.VarChar, 200, "item_id");
-            insertCommand.Parameters.Add("@itemname", MySqlDbType.VarChar, 200, "item_name");
-            insertCommand.Parameters.Add("@description", MySqlDbType.VarChar, 2000, "description");
+            MySqlCommand insertCommand = new MySqlCommand("insert into supplier_tab values (@supplierid,@suppliername,@address,@phone,@email)",con);
+            insertCommand.Parameters.Add("@supplierid", MySqlDbType.VarChar, 20, "supplier_id");
+            insertCommand.Parameters.Add("@suppliername", MySqlDbType.VarChar, 200, "supplier_name");
+            insertCommand.Parameters.Add("@address", MySqlDbType.VarChar, 200, "address");
+            insertCommand.Parameters.Add("@phone", MySqlDbType.VarChar, 200, "phone");
+            insertCommand.Parameters.Add("@email", MySqlDbType.VarChar, 200, "email");
+
 
             itemAdapter.InsertCommand = insertCommand;
 
-            MySqlCommand updateCommand = new MySqlCommand("update item_tab set item_name = @itemname, description = @description where item_id = @itemid", con);
-            updateCommand.Parameters.Add("@itemname", MySqlDbType.VarChar, 200, "item_name");
-            updateCommand.Parameters.Add("@description", MySqlDbType.VarChar, 2000, "description");
-            updateCommand.Parameters.Add("@itemid", MySqlDbType.VarChar, 200, "item_id");
+            MySqlCommand updateCommand = new MySqlCommand("update supplier_tab set supplier_name = @suppliername, address = @address, phone = @phone, email = @email where supplier_id = @supplierid", con);
+            updateCommand.Parameters.Add("@suppliername", MySqlDbType.VarChar, 200, "supplier_name");
+            updateCommand.Parameters.Add("@address", MySqlDbType.VarChar, 200, "address");
+            updateCommand.Parameters.Add("@phone", MySqlDbType.VarChar, 200, "phone");
+            updateCommand.Parameters.Add("@email", MySqlDbType.VarChar, 200, "email");
+            updateCommand.Parameters.Add("@supplierid", MySqlDbType.VarChar, 200, "supplier_id");
 
             itemAdapter.UpdateCommand = updateCommand;
 
-            MySqlCommand deleteCommand = new MySqlCommand("delete from item_tab where item_id = @itemid", con);
-            deleteCommand.Parameters.Add("@itemid", MySqlDbType.VarChar, 200, "item_id");
+            MySqlCommand deleteCommand = new MySqlCommand("delete from supplier_tab where supplier_id = @supplierid", con);
+            deleteCommand.Parameters.Add("@supplierid", MySqlDbType.VarChar, 200, "supplier_id");
 
             itemAdapter.DeleteCommand = deleteCommand;
 
@@ -148,14 +153,14 @@ namespace RawMaterialManagement.Items_Management
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
-            dlgSearchItem f1 = new dlgSearchItem();
+            /*dlgSearchItem f1 = new dlgSearchItem();
             f1.ShowDialog();
             if(f1.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
                 MySqlDataAdapter searchItemAdapter = new MySqlDataAdapter(f1.SearchSql,con);
                 itemDataset.Clear();
                 searchItemAdapter.Fill(itemDataset);
-            }
+            }*/
         }
     }
 }

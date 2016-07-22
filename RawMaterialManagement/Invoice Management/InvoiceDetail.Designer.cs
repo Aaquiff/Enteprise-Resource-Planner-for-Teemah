@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InvoiceDetail));
+            System.Windows.Forms.Label label6;
+            System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label8;
+            System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label label5;
             System.Windows.Forms.Label supplier_idLabel;
+            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label3;
             System.Windows.Forms.Label invoice_idLabel;
-            System.Windows.Forms.Label dateLabel;
-            System.Windows.Forms.Label totalLabel;
             System.Windows.Forms.Label payment_statusLabel;
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.colInvoiceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.Label totalLabel;
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,86 +48,50 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.supplier_idTextBox = new System.Windows.Forms.TextBox();
-            this.invoice_tabBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.invoice_tabBindingSource = new System.Windows.Forms.BindingSource();
             this.dataSetRawMaterial = new RawMaterialManagement.DataSetRawMaterial();
             this.invoice_tabTableAdapter = new RawMaterialManagement.DataSetRawMaterialTableAdapters.invoice_tabTableAdapter();
             this.tableAdapterManager = new RawMaterialManagement.DataSetRawMaterialTableAdapters.TableAdapterManager();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageSupplier = new System.Windows.Forms.TabPage();
+            this.tabPageOrder = new System.Windows.Forms.TabPage();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.supplier_idTextBox = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.invoice_idTextBox = new System.Windows.Forms.TextBox();
-            this.dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.totalTextBox = new System.Windows.Forms.TextBox();
-            this.payment_statusTextBox = new System.Windows.Forms.TextBox();
-            this.invoice_tabDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel4 = new System.Windows.Forms.Panel();
+            label6 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
             supplier_idLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
             invoice_idLabel = new System.Windows.Forms.Label();
-            dateLabel = new System.Windows.Forms.Label();
-            totalLabel = new System.Windows.Forms.Label();
             payment_statusLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            totalLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.invoice_tabBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRawMaterial)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoice_tabDataGridView)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPageSupplier.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colInvoiceId,
-            this.colItemId,
-            this.colQuantity,
-            this.colUnitPrice});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.MediumSlateBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1001, 245);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // colInvoiceId
-            // 
-            this.colInvoiceId.DataPropertyName = "invoice_id";
-            this.colInvoiceId.HeaderText = "Invoice Id";
-            this.colInvoiceId.Name = "colInvoiceId";
-            // 
-            // colItemId
-            // 
-            this.colItemId.DataPropertyName = "item_id";
-            this.colItemId.HeaderText = "Item Id";
-            this.colItemId.Name = "colItemId";
-            // 
-            // colQuantity
-            // 
-            this.colQuantity.DataPropertyName = "quantity";
-            this.colQuantity.HeaderText = "Quantity";
-            this.colQuantity.Name = "colQuantity";
-            // 
-            // colUnitPrice
-            // 
-            this.colUnitPrice.DataPropertyName = "unit_price";
-            this.colUnitPrice.HeaderText = "Unit Price";
-            this.colUnitPrice.Name = "colUnitPrice";
             // 
             // menuStrip1
             // 
@@ -141,8 +105,8 @@
             this.toolStripMenuItem4});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1001, 72);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(843, 72);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -203,58 +167,24 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 72);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1001, 446);
+            this.panel1.Size = new System.Drawing.Size(843, 431);
             this.panel1.TabIndex = 4;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 201);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1001, 245);
-            this.panel3.TabIndex = 13;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.invoice_tabDataGridView);
-            this.panel2.Controls.Add(payment_statusLabel);
-            this.panel2.Controls.Add(this.payment_statusTextBox);
-            this.panel2.Controls.Add(totalLabel);
-            this.panel2.Controls.Add(this.totalTextBox);
-            this.panel2.Controls.Add(dateLabel);
-            this.panel2.Controls.Add(this.dateDateTimePicker);
-            this.panel2.Controls.Add(invoice_idLabel);
-            this.panel2.Controls.Add(this.invoice_idTextBox);
-            this.panel2.Controls.Add(supplier_idLabel);
-            this.panel2.Controls.Add(this.supplier_idTextBox);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1001, 201);
+            this.panel2.Size = new System.Drawing.Size(843, 431);
             this.panel2.TabIndex = 12;
-            // 
-            // supplier_idLabel
-            // 
-            supplier_idLabel.AutoSize = true;
-            supplier_idLabel.Location = new System.Drawing.Point(405, 3);
-            supplier_idLabel.Name = "supplier_idLabel";
-            supplier_idLabel.Size = new System.Drawing.Size(57, 13);
-            supplier_idLabel.TabIndex = 12;
-            supplier_idLabel.Text = "Supplier Id";
-            // 
-            // supplier_idTextBox
-            // 
-            this.supplier_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.invoice_tabBindingSource, "supplier_id", true));
-            this.supplier_idTextBox.Location = new System.Drawing.Point(405, 19);
-            this.supplier_idTextBox.Name = "supplier_idTextBox";
-            this.supplier_idTextBox.Size = new System.Drawing.Size(242, 20);
-            this.supplier_idTextBox.TabIndex = 13;
             // 
             // invoice_tabBindingSource
             // 
@@ -279,125 +209,339 @@
             this.tableAdapterManager.supplier_tabTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = RawMaterialManagement.DataSetRawMaterialTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageSupplier);
+            this.tabControl1.Controls.Add(this.tabPageOrder);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.HotTrack = true;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(843, 317);
+            this.tabControl1.TabIndex = 25;
+            // 
+            // tabPageSupplier
+            // 
+            this.tabPageSupplier.Controls.Add(label6);
+            this.tabPageSupplier.Controls.Add(this.textBox5);
+            this.tabPageSupplier.Controls.Add(label7);
+            this.tabPageSupplier.Controls.Add(this.textBox6);
+            this.tabPageSupplier.Controls.Add(label8);
+            this.tabPageSupplier.Controls.Add(this.textBox7);
+            this.tabPageSupplier.Controls.Add(label2);
+            this.tabPageSupplier.Controls.Add(this.textBox2);
+            this.tabPageSupplier.Controls.Add(label5);
+            this.tabPageSupplier.Controls.Add(this.textBox4);
+            this.tabPageSupplier.Controls.Add(supplier_idLabel);
+            this.tabPageSupplier.Controls.Add(this.supplier_idTextBox);
+            this.tabPageSupplier.Location = new System.Drawing.Point(4, 25);
+            this.tabPageSupplier.Name = "tabPageSupplier";
+            this.tabPageSupplier.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSupplier.Size = new System.Drawing.Size(835, 288);
+            this.tabPageSupplier.TabIndex = 0;
+            this.tabPageSupplier.Text = "Supplier Details";
+            this.tabPageSupplier.UseVisualStyleBackColor = true;
+            // 
+            // tabPageOrder
+            // 
+            this.tabPageOrder.Location = new System.Drawing.Point(4, 25);
+            this.tabPageOrder.Name = "tabPageOrder";
+            this.tabPageOrder.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageOrder.Size = new System.Drawing.Size(835, 288);
+            this.tabPageOrder.TabIndex = 1;
+            this.tabPageOrder.Text = "Order Detail";
+            this.tabPageOrder.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(411, 49);
+            label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(99, 16);
+            label6.TabIndex = 34;
+            label6.Text = "Contact Person";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(414, 69);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(197, 22);
+            this.textBox5.TabIndex = 35;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(206, 49);
+            label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(59, 16);
+            label7.TabIndex = 32;
+            label7.Text = "Address";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(209, 69);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(197, 22);
+            this.textBox6.TabIndex = 33;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(4, 49);
+            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(47, 16);
+            label8.TabIndex = 30;
+            label8.Text = "Phone";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(10, 69);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(191, 22);
+            this.textBox7.TabIndex = 31;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(411, 3);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(42, 16);
+            label2.TabIndex = 28;
+            label2.Text = "Email";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(414, 23);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(197, 22);
+            this.textBox2.TabIndex = 29;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(206, 3);
+            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(45, 16);
+            label5.TabIndex = 26;
+            label5.Text = "Name";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(209, 23);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(197, 22);
+            this.textBox4.TabIndex = 27;
+            // 
+            // supplier_idLabel
+            // 
+            supplier_idLabel.AutoSize = true;
+            supplier_idLabel.Location = new System.Drawing.Point(4, 3);
+            supplier_idLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            supplier_idLabel.Name = "supplier_idLabel";
+            supplier_idLabel.Size = new System.Drawing.Size(72, 16);
+            supplier_idLabel.TabIndex = 24;
+            supplier_idLabel.Text = "Supplier Id";
+            // 
+            // supplier_idTextBox
+            // 
+            this.supplier_idTextBox.Location = new System.Drawing.Point(10, 23);
+            this.supplier_idTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.supplier_idTextBox.Name = "supplier_idTextBox";
+            this.supplier_idTextBox.ReadOnly = true;
+            this.supplier_idTextBox.Size = new System.Drawing.Size(191, 22);
+            this.supplier_idTextBox.TabIndex = 25;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(label1);
+            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(label4);
+            this.panel3.Controls.Add(this.dateTimePicker1);
+            this.panel3.Controls.Add(label3);
+            this.panel3.Controls.Add(this.textBox3);
+            this.panel3.Controls.Add(invoice_idLabel);
+            this.panel3.Controls.Add(this.invoice_idTextBox);
+            this.panel3.Controls.Add(this.comboBox1);
+            this.panel3.Controls.Add(payment_statusLabel);
+            this.panel3.Controls.Add(totalLabel);
+            this.panel3.Controls.Add(this.totalTextBox);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(843, 114);
+            this.panel3.TabIndex = 26;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(379, 58);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(61, 16);
+            label1.TabIndex = 38;
+            label1.Text = "Currency";
+            // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.invoice_tabBindingSource, "payment_status", true));
+            this.textBox1.Location = new System.Drawing.Point(382, 78);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(241, 22);
+            this.textBox1.TabIndex = 39;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(378, 12);
+            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(88, 16);
+            label4.TabIndex = 34;
+            label4.Text = "Created Date";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.invoice_tabBindingSource, "date", true));
+            this.dateTimePicker1.Location = new System.Drawing.Point(382, 32);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(240, 22);
+            this.dateTimePicker1.TabIndex = 36;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(207, 58);
+            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(60, 16);
+            label3.TabIndex = 35;
+            label3.Text = "Discount";
+            // 
+            // textBox3
+            // 
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.invoice_tabBindingSource, "payment_status", true));
+            this.textBox3.Location = new System.Drawing.Point(210, 78);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(164, 22);
+            this.textBox3.TabIndex = 37;
+            // 
             // invoice_idLabel
             // 
             invoice_idLabel.AutoSize = true;
-            invoice_idLabel.Location = new System.Drawing.Point(208, 3);
+            invoice_idLabel.Location = new System.Drawing.Point(8, 12);
+            invoice_idLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             invoice_idLabel.Name = "invoice_idLabel";
-            invoice_idLabel.Size = new System.Drawing.Size(54, 13);
-            invoice_idLabel.TabIndex = 13;
+            invoice_idLabel.Size = new System.Drawing.Size(65, 16);
+            invoice_idLabel.TabIndex = 28;
             invoice_idLabel.Text = "Invoice Id";
             // 
             // invoice_idTextBox
             // 
             this.invoice_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.invoice_tabBindingSource, "invoice_id", true));
-            this.invoice_idTextBox.Location = new System.Drawing.Point(208, 19);
+            this.invoice_idTextBox.Location = new System.Drawing.Point(11, 32);
+            this.invoice_idTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.invoice_idTextBox.Name = "invoice_idTextBox";
-            this.invoice_idTextBox.Size = new System.Drawing.Size(191, 20);
-            this.invoice_idTextBox.TabIndex = 14;
+            this.invoice_idTextBox.Size = new System.Drawing.Size(191, 22);
+            this.invoice_idTextBox.TabIndex = 29;
             // 
-            // dateLabel
+            // comboBox1
             // 
-            dateLabel.AutoSize = true;
-            dateLabel.Location = new System.Drawing.Point(650, 3);
-            dateLabel.Name = "dateLabel";
-            dateLabel.Size = new System.Drawing.Size(30, 13);
-            dateLabel.TabIndex = 14;
-            dateLabel.Text = "Date";
-            // 
-            // dateDateTimePicker
-            // 
-            this.dateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.invoice_tabBindingSource, "date", true));
-            this.dateDateTimePicker.Location = new System.Drawing.Point(653, 19);
-            this.dateDateTimePicker.Name = "dateDateTimePicker";
-            this.dateDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.dateDateTimePicker.TabIndex = 15;
-            // 
-            // totalLabel
-            // 
-            totalLabel.AutoSize = true;
-            totalLabel.Location = new System.Drawing.Point(208, 51);
-            totalLabel.Name = "totalLabel";
-            totalLabel.Size = new System.Drawing.Size(31, 13);
-            totalLabel.TabIndex = 15;
-            totalLabel.Text = "Total";
-            // 
-            // totalTextBox
-            // 
-            this.totalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.invoice_tabBindingSource, "total", true));
-            this.totalTextBox.Location = new System.Drawing.Point(211, 67);
-            this.totalTextBox.Name = "totalTextBox";
-            this.totalTextBox.Size = new System.Drawing.Size(188, 20);
-            this.totalTextBox.TabIndex = 16;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "PAID",
+            "NOT PAID"});
+            this.comboBox1.Location = new System.Drawing.Point(11, 76);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(191, 24);
+            this.comboBox1.TabIndex = 33;
             // 
             // payment_statusLabel
             // 
             payment_statusLabel.AutoSize = true;
-            payment_statusLabel.Location = new System.Drawing.Point(405, 51);
+            payment_statusLabel.Location = new System.Drawing.Point(8, 58);
+            payment_statusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             payment_statusLabel.Name = "payment_statusLabel";
-            payment_statusLabel.Size = new System.Drawing.Size(81, 13);
-            payment_statusLabel.TabIndex = 16;
+            payment_statusLabel.Size = new System.Drawing.Size(101, 16);
+            payment_statusLabel.TabIndex = 31;
             payment_statusLabel.Text = "Payment Status";
             // 
-            // payment_statusTextBox
+            // totalLabel
             // 
-            this.payment_statusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.invoice_tabBindingSource, "payment_status", true));
-            this.payment_statusTextBox.Location = new System.Drawing.Point(405, 67);
-            this.payment_statusTextBox.Name = "payment_statusTextBox";
-            this.payment_statusTextBox.Size = new System.Drawing.Size(100, 20);
-            this.payment_statusTextBox.TabIndex = 17;
+            totalLabel.AutoSize = true;
+            totalLabel.Location = new System.Drawing.Point(207, 12);
+            totalLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            totalLabel.Name = "totalLabel";
+            totalLabel.Size = new System.Drawing.Size(53, 16);
+            totalLabel.TabIndex = 30;
+            totalLabel.Text = "Amount";
             // 
-            // invoice_tabDataGridView
+            // totalTextBox
             // 
-            this.invoice_tabDataGridView.AllowUserToAddRows = false;
-            this.invoice_tabDataGridView.AllowUserToDeleteRows = false;
-            this.invoice_tabDataGridView.AutoGenerateColumns = false;
-            this.invoice_tabDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.invoice_tabDataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.invoice_tabDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.invoice_tabDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1});
-            this.invoice_tabDataGridView.DataSource = this.invoice_tabBindingSource;
-            this.invoice_tabDataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.invoice_tabDataGridView.Location = new System.Drawing.Point(12, 3);
-            this.invoice_tabDataGridView.Name = "invoice_tabDataGridView";
-            this.invoice_tabDataGridView.ReadOnly = true;
-            this.invoice_tabDataGridView.RowHeadersVisible = false;
-            this.invoice_tabDataGridView.Size = new System.Drawing.Size(190, 189);
-            this.invoice_tabDataGridView.TabIndex = 17;
+            this.totalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.invoice_tabBindingSource, "total", true));
+            this.totalTextBox.Location = new System.Drawing.Point(210, 32);
+            this.totalTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.totalTextBox.Name = "totalTextBox";
+            this.totalTextBox.Size = new System.Drawing.Size(164, 22);
+            this.totalTextBox.TabIndex = 32;
             // 
-            // dataGridViewTextBoxColumn1
+            // panel4
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "invoice_id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Invoice Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.panel4.Controls.Add(this.tabControl1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 114);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(843, 317);
+            this.panel4.TabIndex = 27;
             // 
             // InvoiceDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1001, 518);
+            this.ClientSize = new System.Drawing.Size(843, 503);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "InvoiceDetail";
             this.Text = "Invoice Detail";
             this.Load += new System.EventHandler(this.InvoiceDetail_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.invoice_tabBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRawMaterial)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoice_tabDataGridView)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPageSupplier.ResumeLayout(false);
+            this.tabPageSupplier.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,7 +549,6 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -413,22 +556,27 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colInvoiceId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItemId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUnitPrice;
         private DataSetRawMaterial dataSetRawMaterial;
         private System.Windows.Forms.BindingSource invoice_tabBindingSource;
         private DataSetRawMaterialTableAdapters.invoice_tabTableAdapter invoice_tabTableAdapter;
         private DataSetRawMaterialTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPageSupplier;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox supplier_idTextBox;
+        private System.Windows.Forms.TabPage tabPageOrder;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox invoice_idTextBox;
-        private System.Windows.Forms.TextBox payment_statusTextBox;
+        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox totalTextBox;
-        private System.Windows.Forms.DateTimePicker dateDateTimePicker;
-        private System.Windows.Forms.DataGridView invoice_tabDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }

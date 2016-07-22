@@ -62,12 +62,11 @@ namespace Explorer
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            loadForm(new ItemDetail());
+            loadForm(new ItemTab());
         }
 
         private void supplierDetailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            loadForm(new SupplierDetail());
         }
 
         private void ExplorerForm_Load(object sender, EventArgs e)
@@ -82,9 +81,40 @@ namespace Explorer
 
         }
 
+
+        private void topToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.menuDockMode = DockStyle.Top;
+        }
+
+        private void leftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.menuDockMode = DockStyle.Left;
+        }
+
+        private void rightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.menuDockMode = DockStyle.Right;
+        }
+
         private void invoiceDetailToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            loadForm(new RawMaterialManagement.Order_Management.OrderDetail());
+        }
+
+        private void supplierTabToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm(new RawMaterialManagement.Supplier_Management.SupplierTab());
+        }
+
+        private void invoiceDetailToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
             loadForm(new InvoiceDetail());
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
 

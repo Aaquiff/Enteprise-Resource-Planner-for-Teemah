@@ -1,6 +1,6 @@
-﻿namespace RawMaterialManagement.Supplier_Management
+﻿namespace RawMaterialManagement.Items_Management
 {
-    partial class SupplierDetail
+    partial class ItemTab
     {
         /// <summary>
         /// Required designer variable.
@@ -30,19 +30,20 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SupplierDetail));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemTab));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.colSupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.colsItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colsItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colsDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStockLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitOfMeasure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colItemCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -54,20 +55,22 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colSupplierId,
-            this.colSupplierName,
-            this.colAddress,
-            this.colPhone,
-            this.colEmail});
+            this.colsItemId,
+            this.colsItemName,
+            this.colsDescription,
+            this.colStockLevel,
+            this.colUnitOfMeasure,
+            this.colItemCategory});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -77,6 +80,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.Location = new System.Drawing.Point(0, 72);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
@@ -84,36 +88,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(986, 450);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // colSupplierId
-            // 
-            this.colSupplierId.DataPropertyName = "supplier_id";
-            this.colSupplierId.HeaderText = "Supplier Id";
-            this.colSupplierId.Name = "colSupplierId";
-            // 
-            // colSupplierName
-            // 
-            this.colSupplierName.DataPropertyName = "supplier_name";
-            this.colSupplierName.HeaderText = "Supplier Name";
-            this.colSupplierName.Name = "colSupplierName";
-            // 
-            // colAddress
-            // 
-            this.colAddress.DataPropertyName = "address";
-            this.colAddress.HeaderText = "Address";
-            this.colAddress.Name = "colAddress";
-            // 
-            // colPhone
-            // 
-            this.colPhone.DataPropertyName = "phone";
-            this.colPhone.HeaderText = "Phone";
-            this.colPhone.Name = "colPhone";
-            // 
-            // colEmail
-            // 
-            this.colEmail.DataPropertyName = "email";
-            this.colEmail.HeaderText = "Email";
-            this.colEmail.Name = "colEmail";
             // 
             // menuStrip1
             // 
@@ -192,7 +166,40 @@
             this.toolStripMenuItem4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
-            // SupplierDetail
+            // colsItemId
+            // 
+            this.colsItemId.DataPropertyName = "item_id";
+            this.colsItemId.HeaderText = "Item Id";
+            this.colsItemId.Name = "colsItemId";
+            // 
+            // colsItemName
+            // 
+            this.colsItemName.DataPropertyName = "item_name";
+            this.colsItemName.HeaderText = "Item Name";
+            this.colsItemName.Name = "colsItemName";
+            // 
+            // colsDescription
+            // 
+            this.colsDescription.DataPropertyName = "description";
+            this.colsDescription.HeaderText = "Description";
+            this.colsDescription.Name = "colsDescription";
+            // 
+            // colStockLevel
+            // 
+            this.colStockLevel.HeaderText = "Stock Level";
+            this.colStockLevel.Name = "colStockLevel";
+            // 
+            // colUnitOfMeasure
+            // 
+            this.colUnitOfMeasure.HeaderText = "Unit Of Measure";
+            this.colUnitOfMeasure.Name = "colUnitOfMeasure";
+            // 
+            // colItemCategory
+            // 
+            this.colItemCategory.HeaderText = "Item Category";
+            this.colItemCategory.Name = "colItemCategory";
+            // 
+            // ItemTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -200,9 +207,10 @@
             this.ControlBox = false;
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "SupplierDetail";
+            this.Name = "ItemTab";
             this.Text = "Item Detail";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -221,10 +229,11 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSupplierId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSupplierName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colsItemId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colsItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colsDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStockLevel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUnitOfMeasure;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colItemCategory;
     }
 }
