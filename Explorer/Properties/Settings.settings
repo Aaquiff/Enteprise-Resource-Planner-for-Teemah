@@ -19,5 +19,8 @@
     <Setting Name="menuDockMode" Type="System.Windows.Forms.DockStyle" Scope="User">
       <Value Profile="(Default)">Left</Value>
     </Setting>
+    <Setting Name="ThemeBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

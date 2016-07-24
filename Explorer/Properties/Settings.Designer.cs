@@ -65,5 +65,17 @@ namespace Explorer.Properties {
                 this["menuDockMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("White")]
+        public global::System.Drawing.Color ThemeBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["ThemeBackColor"]));
+            }
+            set {
+                this["ThemeBackColor"] = value;
+            }
+        }
     }
 }

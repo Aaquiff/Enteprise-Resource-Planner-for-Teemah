@@ -33,7 +33,9 @@ namespace Explorer
             childForm.ControlBox = false;
             childForm.MdiParent = this;
             childForm.WindowState = FormWindowState.Maximized;
+            childForm.AutoScroll = true;
             childForm.Show();
+            label1.Text = childForm.Text;
         }
 
         public ExplorerForm()
@@ -187,6 +189,11 @@ namespace Explorer
         private void viewAllBuyersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loadForm(new viewAllBuyers());
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            loadForm(new frmStartup());
         }
 
     }
