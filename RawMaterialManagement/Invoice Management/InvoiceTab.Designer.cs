@@ -1,6 +1,6 @@
-﻿namespace RawMaterialManagement.Supplier_Management
+﻿namespace RawMaterialManagement.Invoice_Management
 {
-    partial class SupplierTab
+    partial class InvoiceTab
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SupplierTab));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InvoiceTab));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -38,12 +38,14 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.colSupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colContactPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colInvoiceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCurrency = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNetValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTaxValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGrossValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -61,8 +63,8 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1258, 72);
-            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Size = new System.Drawing.Size(1022, 72);
+            this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
             // 
@@ -76,7 +78,6 @@
             this.toolStripMenuItem3.Size = new System.Drawing.Size(62, 68);
             this.toolStripMenuItem3.Text = "New";
             this.toolStripMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // saveToolStripMenuItem
             // 
@@ -88,7 +89,6 @@
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(62, 68);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -100,7 +100,6 @@
             this.toolStripMenuItem1.Size = new System.Drawing.Size(62, 68);
             this.toolStripMenuItem1.Text = "Delete";
             this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -112,7 +111,6 @@
             this.toolStripMenuItem2.Size = new System.Drawing.Size(70, 68);
             this.toolStripMenuItem2.Text = "Populate";
             this.toolStripMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem4
             // 
@@ -124,7 +122,6 @@
             this.toolStripMenuItem4.Size = new System.Drawing.Size(62, 68);
             this.toolStripMenuItem4.Text = "Search";
             this.toolStripMenuItem4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // dataGridView1
             // 
@@ -143,12 +140,14 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colSupplierId,
-            this.colSupplierName,
-            this.colAddress,
-            this.colPhone,
-            this.colEmail,
-            this.colContactPerson});
+            this.colInvoiceId,
+            this.colOrderNumber,
+            this.colCurrency,
+            this.colDate,
+            this.colStatus,
+            this.colNetValue,
+            this.colTaxValue,
+            this.colGrossValue});
             this.dataGridView1.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RawMaterialManagement.Properties.Settings.Default, "systemfont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.dataGridView1.DataBindings.Add(new System.Windows.Forms.Binding("EditMode", global::RawMaterialManagement.Properties.Settings.Default, "DataGridEditMode", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -164,61 +163,62 @@
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Font = global::RawMaterialManagement.Properties.Settings.Default.systemfont;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 72);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1258, 509);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Size = new System.Drawing.Size(1022, 481);
+            this.dataGridView1.TabIndex = 4;
             // 
-            // colSupplierId
+            // colInvoiceId
             // 
-            this.colSupplierId.DataPropertyName = "supplier_id";
-            this.colSupplierId.HeaderText = "Supplier Id";
-            this.colSupplierId.Name = "colSupplierId";
+            this.colInvoiceId.HeaderText = "Invoice Id";
+            this.colInvoiceId.Name = "colInvoiceId";
             // 
-            // colSupplierName
+            // colOrderNumber
             // 
-            this.colSupplierName.DataPropertyName = "supplier_name";
-            this.colSupplierName.HeaderText = "Supplier Name";
-            this.colSupplierName.Name = "colSupplierName";
+            this.colOrderNumber.HeaderText = "Order Number";
+            this.colOrderNumber.Name = "colOrderNumber";
             // 
-            // colAddress
+            // colCurrency
             // 
-            this.colAddress.DataPropertyName = "address";
-            this.colAddress.HeaderText = "Address";
-            this.colAddress.Name = "colAddress";
+            this.colCurrency.HeaderText = "Currency";
+            this.colCurrency.Name = "colCurrency";
             // 
-            // colPhone
+            // colDate
             // 
-            this.colPhone.DataPropertyName = "phone";
-            this.colPhone.HeaderText = "Phone";
-            this.colPhone.Name = "colPhone";
+            this.colDate.HeaderText = "Date";
+            this.colDate.Name = "colDate";
             // 
-            // colEmail
+            // colStatus
             // 
-            this.colEmail.DataPropertyName = "email";
-            this.colEmail.HeaderText = "Email";
-            this.colEmail.Name = "colEmail";
+            this.colStatus.HeaderText = "Status";
+            this.colStatus.Name = "colStatus";
             // 
-            // colContactPerson
+            // colNetValue
             // 
-            this.colContactPerson.HeaderText = "Contact Person";
-            this.colContactPerson.Name = "colContactPerson";
+            this.colNetValue.HeaderText = "Net Value";
+            this.colNetValue.Name = "colNetValue";
             // 
-            // SupplierTab
+            // colTaxValue
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.colTaxValue.HeaderText = "TaxValue";
+            this.colTaxValue.Name = "colTaxValue";
+            // 
+            // colGrossValue
+            // 
+            this.colGrossValue.HeaderText = "Gross Value";
+            this.colGrossValue.Name = "colGrossValue";
+            // 
+            // InvoiceTab
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1258, 581);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(1022, 481);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "SupplierTab";
-            this.Text = "Supplier Detail";
+            this.Name = "InvoiceTab";
+            this.Text = "InvoiceTab";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -229,18 +229,20 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSupplierId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSupplierName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colContactPerson;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colInvoiceId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOrderNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCurrency;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNetValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTaxValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGrossValue;
     }
 }

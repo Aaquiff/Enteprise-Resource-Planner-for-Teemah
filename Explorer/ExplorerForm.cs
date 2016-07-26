@@ -13,6 +13,7 @@ using Explorer.Utility;
 using RawMaterialManagement.Supplier_Management;
 using RawMaterialManagement.Invoice_Management;
 using RawMaterialManagement.Items_Management;
+using RawMaterialManagement.Order_Management;
 using HR_Management;
 using FinanceManagement;
 using InventoryManagement;
@@ -41,16 +42,7 @@ namespace Explorer
         public ExplorerForm()
         {
             InitializeComponent();
-
-            /*frmStartup form = new frmStartup();
-            form.MdiParent = this;
-            form.WindowState = FormWindowState.Maximized;
-            form.ControlBox = false;
-            form.Show();*/
-
             con = ConnectionManager.getConnection();
-            
-            //toolStripStatusLabel.Text = getUserNameFromConnectionString(con.ConnectionString);
         }
 
         private string getUserNameFromConnectionString(string cstring)
@@ -107,12 +99,12 @@ namespace Explorer
 
         private void invoiceDetailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            loadForm(new RawMaterialManagement.Order_Management.OrderDetail());
+            loadForm(new OrderDetail());
         }
 
         private void supplierTabToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            loadForm(new RawMaterialManagement.Supplier_Management.SupplierTab());
+            loadForm(new SupplierTab());
         }
 
         private void invoiceDetailToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -194,6 +186,21 @@ namespace Explorer
         private void toolStripMenuItem8_Click(object sender, EventArgs e)
         {
             loadForm(new frmStartup());
+        }
+
+        private void orderTabToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm(new OrderTab());
+        }
+
+        private void invoiceTabToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm(new InvoiceTab());
+        }
+
+        private void webToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm(new WebBrowser("http://localhost/phpmyadmin/"));
         }
 
     }

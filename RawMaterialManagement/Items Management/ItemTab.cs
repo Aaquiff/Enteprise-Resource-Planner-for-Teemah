@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data;
+using MySQLDatabaseAccess;
 
 namespace RawMaterialManagement.Items_Management
 {
@@ -24,8 +25,8 @@ namespace RawMaterialManagement.Items_Management
         {
             InitializeComponent();
 
-            con = new MySqlConnection("server=localhost;database=itp;user id=root;");
-            itemAdapter = new MySqlDataAdapter("select * from item_tab", con);
+            con = Connection.getConnection();
+            itemAdapter = new MySqlDataAdapter("select * from item_tab",con);
 
             MySqlCommand insertCommand = new MySqlCommand("insert into item_tab values (@itemid,@itemname,@description)",con);
             insertCommand.Parameters.Add("@itemid", MySqlDbType.VarChar, 200, "item_id");

@@ -32,18 +32,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemTab));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.colsItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colsItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colsDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStockLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUnitOfMeasure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colItemCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +57,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -70,10 +71,11 @@
             this.colsDescription,
             this.colStockLevel,
             this.colUnitOfMeasure,
-            this.colItemCategory});
+            this.colItemCategory,
+            this.colBarcode});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.MediumSlateBlue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -83,11 +85,49 @@
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.Location = new System.Drawing.Point(0, 72);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(986, 450);
+            this.dataGridView1.Size = new System.Drawing.Size(1179, 476);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // colsItemId
+            // 
+            this.colsItemId.DataPropertyName = "item_id";
+            this.colsItemId.HeaderText = "Item Id";
+            this.colsItemId.Name = "colsItemId";
+            // 
+            // colsItemName
+            // 
+            this.colsItemName.DataPropertyName = "item_name";
+            this.colsItemName.HeaderText = "Item Name";
+            this.colsItemName.Name = "colsItemName";
+            // 
+            // colsDescription
+            // 
+            this.colsDescription.DataPropertyName = "description";
+            this.colsDescription.HeaderText = "Description";
+            this.colsDescription.Name = "colsDescription";
+            // 
+            // colStockLevel
+            // 
+            this.colStockLevel.HeaderText = "Stock Level";
+            this.colStockLevel.Name = "colStockLevel";
+            // 
+            // colUnitOfMeasure
+            // 
+            this.colUnitOfMeasure.HeaderText = "Unit Of Measure";
+            this.colUnitOfMeasure.Name = "colUnitOfMeasure";
+            // 
+            // colItemCategory
+            // 
+            this.colItemCategory.HeaderText = "Item Category";
+            this.colItemCategory.Name = "colItemCategory";
+            // 
+            // colBarcode
+            // 
+            this.colBarcode.HeaderText = "Bar Code";
+            this.colBarcode.Name = "colBarcode";
             // 
             // menuStrip1
             // 
@@ -101,10 +141,11 @@
             this.toolStripMenuItem4});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(986, 72);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1179, 72);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Visible = false;
             // 
             // toolStripMenuItem3
             // 
@@ -166,50 +207,18 @@
             this.toolStripMenuItem4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
-            // colsItemId
-            // 
-            this.colsItemId.DataPropertyName = "item_id";
-            this.colsItemId.HeaderText = "Item Id";
-            this.colsItemId.Name = "colsItemId";
-            // 
-            // colsItemName
-            // 
-            this.colsItemName.DataPropertyName = "item_name";
-            this.colsItemName.HeaderText = "Item Name";
-            this.colsItemName.Name = "colsItemName";
-            // 
-            // colsDescription
-            // 
-            this.colsDescription.DataPropertyName = "description";
-            this.colsDescription.HeaderText = "Description";
-            this.colsDescription.Name = "colsDescription";
-            // 
-            // colStockLevel
-            // 
-            this.colStockLevel.HeaderText = "Stock Level";
-            this.colStockLevel.Name = "colStockLevel";
-            // 
-            // colUnitOfMeasure
-            // 
-            this.colUnitOfMeasure.HeaderText = "Unit Of Measure";
-            this.colUnitOfMeasure.Name = "colUnitOfMeasure";
-            // 
-            // colItemCategory
-            // 
-            this.colItemCategory.HeaderText = "Item Category";
-            this.colItemCategory.Name = "colItemCategory";
-            // 
             // ItemTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(986, 522);
+            this.ClientSize = new System.Drawing.Size(1179, 548);
             this.ControlBox = false;
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ItemTab";
             this.Text = "Item Detail";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -235,5 +244,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colStockLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnitOfMeasure;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBarcode;
     }
 }

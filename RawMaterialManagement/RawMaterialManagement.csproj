@@ -60,6 +60,12 @@
     <Compile Include="Invoice Management\InvoiceDetail.Designer.cs">
       <DependentUpon>InvoiceDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Invoice Management\InvoiceTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice Management\InvoiceTab.Designer.cs">
+      <DependentUpon>InvoiceTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Items Management\DBItems.cs" />
     <Compile Include="Items Management\dlgSearchItem.cs">
       <SubType>Form</SubType>
@@ -72,6 +78,12 @@
     </Compile>
     <Compile Include="Order Management\OrderDetail.Designer.cs">
       <DependentUpon>OrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order Management\OrderTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order Management\OrderTab.Designer.cs">
+      <DependentUpon>OrderTab.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Items Management\ItemTab.cs">
@@ -89,11 +101,17 @@
     <EmbeddedResource Include="Invoice Management\InvoiceDetail.resx">
       <DependentUpon>InvoiceDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Invoice Management\InvoiceTab.resx">
+      <DependentUpon>InvoiceTab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Items Management\dlgSearchItem.resx">
       <DependentUpon>dlgSearchItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order Management\OrderDetail.resx">
       <DependentUpon>OrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order Management\OrderTab.resx">
+      <DependentUpon>OrderTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -136,6 +154,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MySQLDatabaseAccess\MySQLDatabaseAccess.csproj">
+      <Project>{7a1f3ab0-c5e3-4234-a9d5-d15ef65714b0}</Project>
+      <Name>MySQLDatabaseAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
