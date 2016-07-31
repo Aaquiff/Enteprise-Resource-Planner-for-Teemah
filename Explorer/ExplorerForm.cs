@@ -18,6 +18,7 @@ using HR_Management;
 using FinanceManagement;
 using InventoryManagement;
 using SalesManagement.Buyer;
+using RawMaterialManagement;
 
 namespace Explorer
 {
@@ -26,7 +27,7 @@ namespace Explorer
         private int childFormNumber = 0;
         private MySqlConnection con;
 
-        private void loadForm(Form childForm)
+        public void loadForm(Form childForm)
         {
             if(ActiveMdiChild != null)
                 ActiveMdiChild.Close();
@@ -37,6 +38,10 @@ namespace Explorer
             childForm.AutoScroll = true;
             childForm.Show();
             label1.Text = childForm.Text;
+            if (menuStripMain.Items.Count == 0)
+                menuStripMain.Hide();
+            else
+                menuStripMain.Show();
         }
 
         public ExplorerForm()
@@ -60,15 +65,6 @@ namespace Explorer
         }
 
 
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            loadForm(new ItemTab());
-        }
-
-        private void supplierDetailToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
         private void ExplorerForm_Load(object sender, EventArgs e)
         {
             toolStripUser.Text = getUserNameFromConnectionString(con.ConnectionString);
@@ -76,11 +72,26 @@ namespace Explorer
             loadForm(new frmStartup());
         }
 
-        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
+
+
+        private void btnRMM_Click(object sender, EventArgs e)
+        {
+            if (panelRawMaterial.Visible)
+                panelRawMaterial.Hide();
+            else
+                panelRawMaterial.Show();
+        }
+
+        private void btnItems_Click_1(object sender, EventArgs e)
+        {
+            loadForm(new ItemTab());
+        }
 
         private void topToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -97,110 +108,34 @@ namespace Explorer
             Properties.Settings.Default.menuDockMode = DockStyle.Right;
         }
 
-        private void invoiceDetailToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            loadForm(new OrderDetail());
-        }
-
-        private void supplierTabToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnSupplier_Click(object sender, EventArgs e)
         {
             loadForm(new SupplierTab());
         }
 
-        private void invoiceDetailToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void btnOrderDetails_Click(object sender, EventArgs e)
         {
-            loadForm(new InvoiceDetail());
+            loadForm(new OrderDetail());
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnInvoiceDetails_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
         }
 
-        private void toolStripMenuItem12_Click(object sender, EventArgs e)
-        {
-            loadForm(new Employee());
-        }
-
-        private void checkLeaveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            loadForm(new CheckLeave());
-        }
-
-        private void leaveRequestToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            loadForm(new LeaveRequest());
-        }
-
-        private void toolStripMenuItem16_Click(object sender, EventArgs e)
-        {
-            loadForm(new Salary());
-        }
-
-        private void toolStripMenuItem5_Click(object sender, EventArgs e)
-        {
-            loadForm(new BudgetAllocation());
-
-        }
-
-        private void toolStripMenuItem7_Click(object sender, EventArgs e)
-        {
-            loadForm(new AssetsManagement());
-        }
-
-        private void toolStripMenuItem9_Click(object sender, EventArgs e)
-        {
-            loadForm(new ExpensesManager());
-        }
-
-        private void toolStripMenuItem33_Click(object sender, EventArgs e)
-        {
-            loadForm(new Inventory());
-        }
-
-        private void toolStripMenuItem35_Click(object sender, EventArgs e)
-        {
-            loadForm(new Order());
-        }
-
-        private void toolStripMenuItem37_Click(object sender, EventArgs e)
-        {
-            loadForm(new Request());
-        }
-
-        private void toolStripMenuItem27_Click(object sender, EventArgs e)
-        {
-            loadForm(new addNew());
-        }
-
-        private void updateBuyerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            loadForm(new updateBuyer());
-        }
-
-        private void viewAllBuyersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            loadForm(new viewAllBuyers());
-        }
-
-        private void toolStripMenuItem8_Click(object sender, EventArgs e)
-        {
-            loadForm(new frmStartup());
-        }
-
-        private void orderTabToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            loadForm(new OrderTab());
-        }
-
-        private void invoiceTabToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnInvoiceTab_Click(object sender, EventArgs e)
         {
             loadForm(new InvoiceTab());
         }
 
-        private void webToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnOrderTab_Click(object sender, EventArgs e)
         {
-            loadForm(new WebBrowser("http://localhost/phpmyadmin/"));
+            loadForm(new OrderTab());
+        }
+
+        private void toolStripMenuItemHome_Click(object sender, EventArgs e)
+        {
+            loadForm(new frmStartup());
         }
 
     }

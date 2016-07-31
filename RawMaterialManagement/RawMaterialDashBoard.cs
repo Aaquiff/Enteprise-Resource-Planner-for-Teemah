@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace InventoryManagement
+namespace RawMaterialManagement
 {
-    public partial class Inventory : Form
+    public partial class RawMaterialDashBoard : Form
     {
-        public Inventory()
+        public RawMaterialDashBoard()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

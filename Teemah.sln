@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesManagement", "SalesMan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySQLDatabaseAccess", "MySQLDatabaseAccess\MySQLDatabaseAccess.csproj", "{7A1F3AB0-C5E3-4234-A9D5-D15EF65714B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributionManagement", "DistributionManagement\DistributionManagement.csproj", "{F4A36B10-84A9-4376-A8BF-BE3E33E6458A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{7A1F3AB0-C5E3-4234-A9D5-D15EF65714B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A1F3AB0-C5E3-4234-A9D5-D15EF65714B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A1F3AB0-C5E3-4234-A9D5-D15EF65714B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A36B10-84A9-4376-A8BF-BE3E33E6458A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A36B10-84A9-4376-A8BF-BE3E33E6458A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A36B10-84A9-4376-A8BF-BE3E33E6458A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A36B10-84A9-4376-A8BF-BE3E33E6458A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

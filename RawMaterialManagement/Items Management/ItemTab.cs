@@ -9,40 +9,47 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data;
-using MySQLDatabaseAccess;
 
 namespace RawMaterialManagement.Items_Management
 {
     public partial class ItemTab : Form
     {
+
+        #region properties
+
         MySqlConnection con;
         MySqlDataAdapter itemAdapter;
         BindingSource itemBindingSource = new BindingSource();
-         
         DataSet itemDataset = new DataSet();
+
+        #endregion
 
         public ItemTab()
         {
             InitializeComponent();
 
             con = Connection.getConnection();
-            itemAdapter = new MySqlDataAdapter("select * from item_tab",con);
+            itemAdapter = new MySqlDataAdapter("select * from raw_item_tab",con);
 
-            MySqlCommand insertCommand = new MySqlCommand("insert into item_tab values (@itemid,@itemname,@description)",con);
+            MySqlCommand insertCommand = new MySqlCommand("insert into raw_item_tab values (@itemid,@name,@description,@stock_level,@unit_of_measure)", con);
             insertCommand.Parameters.Add("@itemid", MySqlDbType.VarChar, 200, "item_id");
-            insertCommand.Parameters.Add("@itemname", MySqlDbType.VarChar, 200, "item_name");
+            insertCommand.Parameters.Add("@name", MySqlDbType.VarChar, 2000, "name");
             insertCommand.Parameters.Add("@description", MySqlDbType.VarChar, 2000, "description");
+            insertCommand.Parameters.Add("@stock_level", MySqlDbType.Int32, 11, "stock_level");
+            insertCommand.Parameters.Add("@unit_of_measure", MySqlDbType.VarChar, 20, "unit_of_measure");
 
             itemAdapter.InsertCommand = insertCommand;
 
-            MySqlCommand updateCommand = new MySqlCommand("update item_tab set item_name = @itemname, description = @description where item_id = @itemid", con);
-            updateCommand.Parameters.Add("@itemname", MySqlDbType.VarChar, 200, "item_name");
+            MySqlCommand updateCommand = new MySqlCommand("update raw_item_tab set name = @itemname, description = @description, stock_level = @stock_level, unit_of_measure = @unit_of_measure where item_id = @itemid", con);
+            updateCommand.Parameters.Add("@itemname", MySqlDbType.VarChar, 200, "name");
             updateCommand.Parameters.Add("@description", MySqlDbType.VarChar, 2000, "description");
+            updateCommand.Parameters.Add("@stock_level", MySqlDbType.Int32, 11, "stock_level");
+            updateCommand.Parameters.Add("@unit_of_measure", MySqlDbType.VarChar, 20, "unit_of_measure");
             updateCommand.Parameters.Add("@itemid", MySqlDbType.VarChar, 200, "item_id");
 
             itemAdapter.UpdateCommand = updateCommand;
 
-            MySqlCommand deleteCommand = new MySqlCommand("delete from item_tab where item_id = @itemid", con);
+            MySqlCommand deleteCommand = new MySqlCommand("delete from raw_item_tab where item_id = @itemid", con);
             deleteCommand.Parameters.Add("@itemid", MySqlDbType.VarChar, 200, "item_id");
 
             itemAdapter.DeleteCommand = deleteCommand;
@@ -51,6 +58,8 @@ namespace RawMaterialManagement.Items_Management
             itemBindingSource.DataSource = itemDataset.Tables[0];
             dataGridView1.DataSource = itemBindingSource;  
         }
+
+        #region methods
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -127,6 +136,10 @@ namespace RawMaterialManagement.Items_Management
             }
         }
 
+        #endregion
+
+        #region events
+
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Save();
@@ -158,5 +171,7 @@ namespace RawMaterialManagement.Items_Management
                 searchItemAdapter.Fill(itemDataset);
             }
         }
+
+        #endregion
     }
 }

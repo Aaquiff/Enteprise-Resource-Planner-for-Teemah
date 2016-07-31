@@ -156,7 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ApplicationSettings\" />
-    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teamah logo transparent small.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

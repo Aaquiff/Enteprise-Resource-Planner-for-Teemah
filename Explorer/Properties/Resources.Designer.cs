@@ -59,5 +59,15 @@ namespace Explorer.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap teamah_logo_transparent_small {
+            get {
+                object obj = ResourceManager.GetObject("teamah logo transparent small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

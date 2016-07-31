@@ -15,45 +15,46 @@ namespace RawMaterialManagement.Supplier_Management
     public partial class SupplierTab : Form
     {
         MySqlConnection con;
-        MySqlDataAdapter itemAdapter;
-        BindingSource itemBindingSource = new BindingSource();
+        MySqlDataAdapter supplierAdapter;
+        BindingSource supplierBindingSource = new BindingSource();
          
-        DataSet itemDataset = new DataSet();
+        DataSet supplierDataSet = new DataSet();
 
         public SupplierTab()
         {
             InitializeComponent();
 
-            con = new MySqlConnection("server=localhost;database=itp;user id=root;");
-            itemAdapter = new MySqlDataAdapter("select * from supplier_tab", con);
+            con = Connection.getConnection();
+            supplierAdapter = new MySqlDataAdapter("select * from raw_supplier_tab", con);
 
-            MySqlCommand insertCommand = new MySqlCommand("insert into supplier_tab values (@supplierid,@suppliername,@address,@phone,@email)",con);
-            insertCommand.Parameters.Add("@supplierid", MySqlDbType.VarChar, 20, "supplier_id");
-            insertCommand.Parameters.Add("@suppliername", MySqlDbType.VarChar, 200, "supplier_name");
-            insertCommand.Parameters.Add("@address", MySqlDbType.VarChar, 200, "address");
+            MySqlCommand insertCommand = new MySqlCommand("insert into raw_supplier_tab values (@supplier_id,@name,@contact_person,@phone,@email,@address)", con);
+            insertCommand.Parameters.Add("@supplier_id", MySqlDbType.VarChar, 20, "supplier_id");
+            insertCommand.Parameters.Add("@name", MySqlDbType.VarChar, 200, "name");            
+            insertCommand.Parameters.Add("@contact_person", MySqlDbType.VarChar, 200, "contact_person");
             insertCommand.Parameters.Add("@phone", MySqlDbType.VarChar, 200, "phone");
             insertCommand.Parameters.Add("@email", MySqlDbType.VarChar, 200, "email");
+            insertCommand.Parameters.Add("@address", MySqlDbType.VarChar, 200, "address");
 
+            supplierAdapter.InsertCommand = insertCommand;
 
-            itemAdapter.InsertCommand = insertCommand;
-
-            MySqlCommand updateCommand = new MySqlCommand("update supplier_tab set supplier_name = @suppliername, address = @address, phone = @phone, email = @email where supplier_id = @supplierid", con);
-            updateCommand.Parameters.Add("@suppliername", MySqlDbType.VarChar, 200, "supplier_name");
-            updateCommand.Parameters.Add("@address", MySqlDbType.VarChar, 200, "address");
+            MySqlCommand updateCommand = new MySqlCommand("update raw_supplier_tab set name = @name, address = @address, phone = @phone, email = @email where supplier_id = @supplier_id", con);
+            updateCommand.Parameters.Add("@name", MySqlDbType.VarChar, 200, "name");
+            updateCommand.Parameters.Add("@contact_person", MySqlDbType.VarChar, 200, "contact_person");
             updateCommand.Parameters.Add("@phone", MySqlDbType.VarChar, 200, "phone");
             updateCommand.Parameters.Add("@email", MySqlDbType.VarChar, 200, "email");
-            updateCommand.Parameters.Add("@supplierid", MySqlDbType.VarChar, 200, "supplier_id");
+            updateCommand.Parameters.Add("@address", MySqlDbType.VarChar, 200, "address");
+            updateCommand.Parameters.Add("@supplier_id", MySqlDbType.VarChar, 200, "supplier_id");
 
-            itemAdapter.UpdateCommand = updateCommand;
+            supplierAdapter.UpdateCommand = updateCommand;
 
             MySqlCommand deleteCommand = new MySqlCommand("delete from supplier_tab where supplier_id = @supplierid", con);
             deleteCommand.Parameters.Add("@supplierid", MySqlDbType.VarChar, 200, "supplier_id");
 
-            itemAdapter.DeleteCommand = deleteCommand;
+            supplierAdapter.DeleteCommand = deleteCommand;
 
-            itemAdapter.Fill(itemDataset);
-            itemBindingSource.DataSource = itemDataset.Tables[0];
-            dataGridView1.DataSource = itemBindingSource;  
+            supplierAdapter.Fill(supplierDataSet);
+            supplierBindingSource.DataSource = supplierDataSet.Tables[0];
+            dataGridView1.DataSource = supplierBindingSource;  
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -61,7 +62,7 @@ namespace RawMaterialManagement.Supplier_Management
             base.OnFormClosing(e);
             if (e.CloseReason == CloseReason.WindowsShutDown) return;
 
-            if (itemDataset.HasChanges())
+            if (supplierDataSet.HasChanges())
             {
                 switch (MessageBox.Show(this, "Do you want to save your changes?", "Closing", MessageBoxButtons.YesNoCancel))
                 {
@@ -85,7 +86,7 @@ namespace RawMaterialManagement.Supplier_Management
             try
             {
                 this.Validate();
-                itemAdapter.Update(itemDataset);
+                supplierAdapter.Update(supplierDataSet);
                 MessageBox.Show("Saved");
             }
             catch (Exception ex)
@@ -98,7 +99,7 @@ namespace RawMaterialManagement.Supplier_Management
         {
             try
             {
-                itemBindingSource.RemoveCurrent();
+                supplierBindingSource.RemoveCurrent();
             }
             catch (Exception ex)
             {
@@ -110,8 +111,8 @@ namespace RawMaterialManagement.Supplier_Management
         {
             try
             {
-                itemDataset.Clear();
-                itemAdapter.Fill(itemDataset);
+                supplierDataSet.Clear();
+                supplierAdapter.Fill(supplierDataSet);
             }
             catch (Exception ex)
             {
@@ -123,7 +124,7 @@ namespace RawMaterialManagement.Supplier_Management
         {
             try
             {
-                itemBindingSource.AddNew();
+                supplierBindingSource.AddNew();
             }
             catch (Exception ex)
             {
@@ -157,9 +158,9 @@ namespace RawMaterialManagement.Supplier_Management
             f1.ShowDialog();
             if(f1.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
-                MySqlDataAdapter searchItemAdapter = new MySqlDataAdapter(f1.SearchSql,con);
-                itemDataset.Clear();
-                searchItemAdapter.Fill(itemDataset);
+                MySqlDataAdapter searchsupplierAdapter = new MySqlDataAdapter(f1.SearchSql,con);
+                supplierDataSet.Clear();
+                searchsupplierAdapter.Fill(supplierDataSet);
             }*/
         }
     }

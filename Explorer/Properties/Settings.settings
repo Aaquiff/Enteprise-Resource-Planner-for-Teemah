@@ -17,10 +17,10 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="menuDockMode" Type="System.Windows.Forms.DockStyle" Scope="User">
-      <Value Profile="(Default)">Left</Value>
+      <Value Profile="(Default)">Top</Value>
     </Setting>
     <Setting Name="ThemeBackColor" Type="System.Drawing.Color" Scope="Application">
-      <Value Profile="(Default)">DimGray</Value>
+      <Value Profile="(Default)">OliveDrab</Value>
     </Setting>
     <Setting Name="ThemeForeColor" Type="System.Drawing.Color" Scope="Application">
       <Value Profile="(Default)">WhiteSmoke</Value>

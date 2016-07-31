@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace InventoryManagement
+namespace DistributionManagement
 {
-    public partial class Request : Form
+    public partial class Vehicle : Form
     {
-        public Request()
+        public Vehicle()
         {
             InitializeComponent();
         }

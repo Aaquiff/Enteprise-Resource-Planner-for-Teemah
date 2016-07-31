@@ -49,17 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSetRawMaterial.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetRawMaterial.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Invoice Management\InvoiceDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Invoice Management\InvoiceDetail.Designer.cs">
-      <DependentUpon>InvoiceDetail.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Connection.cs" />
     <Compile Include="Invoice Management\InvoiceTab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,15 +82,18 @@
     <Compile Include="Items Management\ItemTab.Designer.cs">
       <DependentUpon>ItemTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="RawMaterialDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RawMaterialDashBoard.Designer.cs">
+      <DependentUpon>RawMaterialDashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Supplier Management\SupplierTab.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Supplier Management\SupplierTab.Designer.cs">
       <DependentUpon>SupplierTab.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Invoice Management\InvoiceDetail.resx">
-      <DependentUpon>InvoiceDetail.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Invoice Management\InvoiceTab.resx">
       <DependentUpon>InvoiceTab.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,24 +114,17 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Items Management\ItemTab.resx">
       <DependentUpon>ItemTab.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RawMaterialDashBoard.resx">
+      <DependentUpon>RawMaterialDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Supplier Management\SupplierTab.resx">
       <DependentUpon>SupplierTab.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSetRawMaterial.xsc">
-      <DependentUpon>DataSetRawMaterial.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetRawMaterial.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetRawMaterial.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSetRawMaterial.xss">
-      <DependentUpon>DataSetRawMaterial.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -160,6 +146,21 @@
       <Project>{7a1f3ab0-c5e3-4234-a9d5-d15ef65714b0}</Project>
       <Name>MySQLDatabaseAccess</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_add_circle_outline_2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_save_2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_delete_2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_file_download_2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_search_2x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
