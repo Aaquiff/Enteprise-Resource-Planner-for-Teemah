@@ -63,6 +63,26 @@ namespace Explorer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_menu_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_menu_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_menu_black_24dp1 {
+            get {
+                object obj = ResourceManager.GetObject("ic_menu_black_24dp1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap teamah_logo_transparent_small {
             get {
                 object obj = ResourceManager.GetObject("teamah logo transparent small", resourceCulture);

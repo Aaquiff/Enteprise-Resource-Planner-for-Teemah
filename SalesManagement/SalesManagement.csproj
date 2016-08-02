@@ -64,6 +64,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>itpDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="paymentInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="paymentInfo.designer.cs">
+      <DependentUpon>paymentInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Buyer\updateBuyer.cs">
       <SubType>Form</SubType>
@@ -79,6 +85,9 @@
     </Compile>
     <EmbeddedResource Include="Buyer\addNew.resx">
       <DependentUpon>addNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="paymentInfo.resx">
+      <DependentUpon>paymentInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

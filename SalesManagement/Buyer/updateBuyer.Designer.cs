@@ -503,7 +503,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
             this.Name = "updateBuyer";
-            this.Text = "update2";
+            this.Text = "Update Buyer";
             this.Load += new System.EventHandler(this.update2_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

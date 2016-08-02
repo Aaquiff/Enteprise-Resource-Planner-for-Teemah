@@ -18,8 +18,10 @@ using HR_Management;
 using FinanceManagement;
 using InventoryManagement;
 using SalesManagement.Buyer;
+using SalesManagement;
 using RawMaterialManagement;
 using DistributionManagement;
+using ProductProcessManagement;
 
 namespace Explorer
 {
@@ -53,6 +55,7 @@ namespace Explorer
                 menuStripMain.Show();
         }
 
+
         private string getUserNameFromConnectionString(string cstring)
         {
             int useridindexstart = cstring.IndexOf("user id=")+8;
@@ -76,6 +79,14 @@ namespace Explorer
         }
 
         #endregion
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.NavigatorVisible)
+                Properties.Settings.Default.NavigatorVisible = false;
+            else
+                Properties.Settings.Default.NavigatorVisible = true;
+        }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -126,7 +137,7 @@ namespace Explorer
 
         private void btnInvoiceDetails_Click(object sender, EventArgs e)
         {
-            
+            loadForm(new InvoiceDetails());
         }
 
         private void btnInvoiceTab_Click(object sender, EventArgs e)
@@ -173,7 +184,157 @@ namespace Explorer
 
         #endregion
 
+        #region Employee
+
+        private void btnEM_Click(object sender, EventArgs e)
+        {
+            if (panelEmployee.Visible)
+                panelEmployee.Hide();
+            else
+                panelEmployee.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            loadForm(new CheckLeave());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            loadForm(new Employee());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            loadForm(new LeaveRequest());
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            loadForm(new Salary());
+        }
+
         #endregion
+
+        #region Inventory
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            loadForm(new Inventory());
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            loadForm(new Order());
+        }
+
+        private void btnIM_Click(object sender, EventArgs e)
+        {
+            if (panelInventory.Visible)
+                panelInventory.Hide();
+            else
+                panelInventory.Show();
+        }
+
+        #endregion
+
+        #region Finance
+
+        private void btnFM_Click(object sender, EventArgs e)
+        {
+            if (panelFinance.Visible)
+                panelFinance.Hide();
+            else
+                panelFinance.Show();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            loadForm(new AssetsManagement());
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            loadForm(new BudgetAllocation());
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            loadForm(new ExpensesManager());
+        }
+        #endregion
+
+        #region sales
+
+        private void btnSM_Click(object sender, EventArgs e)
+        {
+            if (panelSales.Visible)
+                panelSales.Hide();
+            else
+                panelSales.Show();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            loadForm(new addNew());
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            loadForm(new updateBuyer());
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            loadForm(new viewAllBuyers());
+        }
+
+        #endregion
+
+        #region ProductProcess
+
+        private void btnPPM_Click(object sender, EventArgs e)
+        {
+            if (panelProdcutProcess.Visible)
+                panelProdcutProcess.Hide();
+            else
+                panelProdcutProcess.Show();
+        }
+
+
+        #endregion
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            loadForm(new Dashboard());
+        }
+
+        #endregion
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            loadForm(new productRequets());
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            loadForm(new remarks());
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            loadForm(new workOrder());
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            loadForm(new workOrders());
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            loadForm(new paymentInfo());
+        }
 
     }
 

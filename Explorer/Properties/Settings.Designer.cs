@@ -95,5 +95,17 @@ namespace Explorer.Properties {
                 this["Setting"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NavigatorVisible {
+            get {
+                return ((bool)(this["NavigatorVisible"]));
+            }
+            set {
+                this["NavigatorVisible"] = value;
+            }
+        }
     }
 }
