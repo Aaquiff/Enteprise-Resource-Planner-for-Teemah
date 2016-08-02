@@ -41,17 +41,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vehicle.cs">
+    <Compile Include="DeliveryDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vehicle.Designer.cs">
-      <DependentUpon>Vehicle.cs</DependentUpon>
+    <Compile Include="DeliveryDetails.designer.cs">
+      <DependentUpon>DeliveryDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="RouteDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RouteDetails.designer.cs">
+      <DependentUpon>RouteDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VehicleDetails.designer.cs">
+      <DependentUpon>VehicleDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Vehicle.resx">
-      <DependentUpon>Vehicle.cs</DependentUpon>
+    <EmbeddedResource Include="DeliveryDetails.resx">
+      <DependentUpon>DeliveryDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RouteDetails.resx">
+      <DependentUpon>RouteDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VehicleDetails.resx">
+      <DependentUpon>VehicleDetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

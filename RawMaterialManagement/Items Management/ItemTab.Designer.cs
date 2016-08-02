@@ -174,6 +174,7 @@
             this.colsItemId.DataPropertyName = "item_id";
             this.colsItemId.HeaderText = "Item Id";
             this.colsItemId.Name = "colsItemId";
+            this.colsItemId.ReadOnly = true;
             // 
             // colsItemName
             // 

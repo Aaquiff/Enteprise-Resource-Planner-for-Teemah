@@ -30,7 +30,7 @@ namespace RawMaterialManagement.Order_Management
             con = Connection.getConnection();
             orderAdapter = new MySqlDataAdapter("select * from raw_purchase_order_tab", con);
 
-            MySqlCommand insertCommand = new MySqlCommand("insert into raw_item_tab values (@itemid,@name,@description,@stock_level,@unit_of_measure)", con);
+            /*MySqlCommand insertCommand = new MySqlCommand("insert into raw_item_tab values (@itemid,@name,@description,@stock_level,@unit_of_measure)", con);
             insertCommand.Parameters.Add("@itemid", MySqlDbType.VarChar, 200, "item_id");
             insertCommand.Parameters.Add("@name", MySqlDbType.VarChar, 2000, "name");
             insertCommand.Parameters.Add("@description", MySqlDbType.VarChar, 2000, "description");
@@ -50,20 +50,21 @@ namespace RawMaterialManagement.Order_Management
 
             MySqlCommand deleteCommand = new MySqlCommand("delete from raw_item_tab where item_id = @itemid", con);
             deleteCommand.Parameters.Add("@itemid", MySqlDbType.VarChar, 200, "item_id");
-
-            orderAdapter.DeleteCommand = deleteCommand;
+            
+            orderAdapter.DeleteCommand = deleteCommand;*/
             orderAdapter.Fill(orderDataSet);
+            dataGridViewNavigator.DataSource = orderDataSet.Tables[0];
         }
 
         public OrderDetail(string orderid)
         {
             InitializeComponent();
-            con = Connection.getConnection();
+            /*con = Connection.getConnection();
             orderAdapter = new MySqlDataAdapter("select * from raw_purchase_order_tab where order_id = '" + orderid + "'", con);
             orderAdapter.Fill(orderDataSet);
             orderBindingSource.DataSource = orderDataSet.Tables[0];
             
-            DataRowView row = orderBindingSource.Current as DataRowView;
+            DataRowView row = orderBindingSource.Current as DataRowView;*/
             //continue from here
         }
 
@@ -145,5 +146,11 @@ namespace RawMaterialManagement.Order_Management
         }
 
         #endregion
+
+        private void dataGridViewNavigator_SelectionChanged(object sender, EventArgs e)
+        {
+            DataRowView row = orderBindingSource.Current as DataRowView;
+            //MessageBox.Show(dataGridViewNavigator.CurrentRow);
+        }
     }
 }

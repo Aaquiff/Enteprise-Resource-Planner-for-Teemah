@@ -116,6 +116,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DistributionManagement\DistributionManagement.csproj">
+      <Project>{f4a36b10-84a9-4376-a8bf-be3e33e6458a}</Project>
+      <Name>DistributionManagement</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FinanceManagement\FinanceManagement.csproj">
       <Project>{a91848ae-3044-4c59-b940-8f021fa4e4c5}</Project>
       <Name>FinanceManagement</Name>
@@ -127,6 +131,10 @@
     <ProjectReference Include="..\InventoryManagement\InventoryManagement.csproj">
       <Project>{2a1b25e8-1dc9-46fd-9a2a-f3537b9325b7}</Project>
       <Name>InventoryManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySQLDatabaseAccess\MySQLDatabaseAccess.csproj">
+      <Project>{7a1f3ab0-c5e3-4234-a9d5-d15ef65714b0}</Project>
+      <Name>MySQLDatabaseAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\RawMaterialManagement\RawMaterialManagement.csproj">
       <Project>{075cc06a-38b4-4f27-84ba-29078bb5c4a8}</Project>

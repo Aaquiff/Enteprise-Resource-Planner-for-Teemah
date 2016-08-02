@@ -175,6 +175,7 @@
             this.colSupplierId.DataPropertyName = "supplier_id";
             this.colSupplierId.HeaderText = "Supplier Id";
             this.colSupplierId.Name = "colSupplierId";
+            this.colSupplierId.ReadOnly = true;
             // 
             // colSupplierName
             // 

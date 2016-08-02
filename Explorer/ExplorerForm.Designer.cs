@@ -60,6 +60,10 @@
             this.btnItems = new System.Windows.Forms.Button();
             this.btnRMM = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelDistribution = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.contextMenuStripToolbar.SuspendLayout();
             this.panelBreadCrumbs.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -67,6 +71,7 @@
             this.panelNavigation.SuspendLayout();
             this.panelRawMaterial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelDistribution.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStripToolbar
@@ -230,6 +235,7 @@
             this.panelNavigation.BackColor = System.Drawing.Color.DimGray;
             this.panelNavigation.Controls.Add(this.btnFM);
             this.panelNavigation.Controls.Add(this.btnEM);
+            this.panelNavigation.Controls.Add(this.panelDistribution);
             this.panelNavigation.Controls.Add(this.btnDM);
             this.panelNavigation.Controls.Add(this.btnSM);
             this.panelNavigation.Controls.Add(this.btnIM);
@@ -252,7 +258,7 @@
             this.btnFM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFM.Font = new System.Drawing.Font("Liberation Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFM.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnFM.Location = new System.Drawing.Point(0, 404);
+            this.btnFM.Location = new System.Drawing.Point(0, 568);
             this.btnFM.Name = "btnFM";
             this.btnFM.Size = new System.Drawing.Size(252, 40);
             this.btnFM.TabIndex = 6;
@@ -270,7 +276,7 @@
             this.btnEM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEM.Font = new System.Drawing.Font("Liberation Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEM.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEM.Location = new System.Drawing.Point(0, 364);
+            this.btnEM.Location = new System.Drawing.Point(0, 528);
             this.btnEM.Name = "btnEM";
             this.btnEM.Size = new System.Drawing.Size(252, 40);
             this.btnEM.TabIndex = 5;
@@ -295,6 +301,7 @@
             this.btnDM.Text = "Distribution Management";
             this.btnDM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDM.UseVisualStyleBackColor = false;
+            this.btnDM.Click += new System.EventHandler(this.btnDM_Click);
             // 
             // btnSM
             // 
@@ -508,6 +515,74 @@
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
+            // panelDistribution
+            // 
+            this.panelDistribution.Controls.Add(this.button4);
+            this.panelDistribution.Controls.Add(this.button5);
+            this.panelDistribution.Controls.Add(this.button6);
+            this.panelDistribution.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelDistribution.Location = new System.Drawing.Point(0, 364);
+            this.panelDistribution.Name = "panelDistribution";
+            this.panelDistribution.Size = new System.Drawing.Size(252, 164);
+            this.panelDistribution.TabIndex = 13;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button4.Location = new System.Drawing.Point(0, 50);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(252, 25);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "Vehicle Details";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button5.Location = new System.Drawing.Point(0, 25);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(252, 25);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "Route Details";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button6.Location = new System.Drawing.Point(0, 0);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(252, 25);
+            this.button6.TabIndex = 11;
+            this.button6.Text = "Delivery Details";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // ExplorerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -537,6 +612,7 @@
             this.panelNavigation.ResumeLayout(false);
             this.panelRawMaterial.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelDistribution.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -574,6 +650,10 @@
         private System.Windows.Forms.Button btnOrderTab;
         private System.Windows.Forms.Button btnInvoiceTab;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelDistribution;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
 

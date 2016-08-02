@@ -19,6 +19,7 @@ using FinanceManagement;
 using InventoryManagement;
 using SalesManagement.Buyer;
 using RawMaterialManagement;
+using DistributionManagement;
 
 namespace Explorer
 {
@@ -27,9 +28,17 @@ namespace Explorer
         private int childFormNumber = 0;
         private MySqlConnection con;
 
+        public ExplorerForm()
+        {
+            InitializeComponent();
+            con = ConnectionManager.getConnection();
+        }
+
+        #region methods
+
         public void loadForm(Form childForm)
         {
-            if(ActiveMdiChild != null)
+            if (ActiveMdiChild != null)
                 ActiveMdiChild.Close();
             childForm.BackColor = Color.White;
             childForm.ControlBox = false;
@@ -42,12 +51,6 @@ namespace Explorer
                 menuStripMain.Hide();
             else
                 menuStripMain.Show();
-        }
-
-        public ExplorerForm()
-        {
-            InitializeComponent();
-            con = ConnectionManager.getConnection();
         }
 
         private string getUserNameFromConnectionString(string cstring)
@@ -72,13 +75,31 @@ namespace Explorer
             loadForm(new frmStartup());
         }
 
+        #endregion
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        private void leftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.menuDockMode = DockStyle.Left;
+        }
 
+        private void topToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.menuDockMode = DockStyle.Top;
+        }
+
+        private void rightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.menuDockMode = DockStyle.Right;
+        }
+
+        #region navigation
+
+        #region raw material
 
         private void btnRMM_Click(object sender, EventArgs e)
         {
@@ -91,21 +112,6 @@ namespace Explorer
         private void btnItems_Click_1(object sender, EventArgs e)
         {
             loadForm(new ItemTab());
-        }
-
-        private void topToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.menuDockMode = DockStyle.Top;
-        }
-
-        private void leftToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.menuDockMode = DockStyle.Left;
-        }
-
-        private void rightToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.menuDockMode = DockStyle.Right;
         }
 
         private void btnSupplier_Click(object sender, EventArgs e)
@@ -137,6 +143,37 @@ namespace Explorer
         {
             loadForm(new frmStartup());
         }
+
+        #endregion
+
+        #region distribution
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            loadForm(new DeliveryDetails());
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            loadForm(new RouteDetails());
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            loadForm(new VehicleDetails());
+        }
+
+        private void btnDM_Click(object sender, EventArgs e)
+        {
+            if (panelDistribution.Visible)
+                panelDistribution.Hide();
+            else
+                panelDistribution.Show();
+        }
+
+        #endregion
+
+        #endregion
 
     }
 

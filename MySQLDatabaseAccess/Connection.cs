@@ -13,8 +13,8 @@ namespace MySQLDatabaseAccess
         {
             try
             {
-                MySqlConnection con = new MySqlConnection("server=ap-cdbr-azure-southeast-b.cloudapp.net;database=teemah;user id=b7fc625b31e37d;password=303b29c6");
-                //MySqlConnection con = new MySqlConnection("server=localhost;database=itp;user id=root");
+                //MySqlConnection con = new MySqlConnection("server=ap-cdbr-azure-southeast-b.cloudapp.net;database=teemah;user id=b7fc625b31e37d;password=303b29c6");
+                MySqlConnection con = new MySqlConnection("server=localhost;database=itp;user id=root");
                 return con;
             }
             catch (Exception ex)
