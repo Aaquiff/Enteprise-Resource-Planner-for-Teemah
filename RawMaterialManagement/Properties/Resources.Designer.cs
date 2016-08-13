@@ -93,6 +93,16 @@ namespace RawMaterialManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_filter_list_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_filter_list_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_save_2x {
             get {
                 object obj = ResourceManager.GetObject("ic_save_2x", resourceCulture);

@@ -110,6 +110,20 @@ namespace RawMaterialManagement.Order_Management
             }
         }
 
+        private void PopulateOrdersToBeApproved()
+        {
+            try
+            {
+                // TODO: This line of code loads data into the 'rawDataSet.raw_purchase_order' table. You can move, or remove it, as needed.
+                this.raw_order_lineTableAdapter.Connection = con;
+                this.raw_purchase_orderTableAdapter.FillByOrderStatus(this.rawDataSet.raw_purchase_order,"Created");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void New()
         {
             try
@@ -135,12 +149,25 @@ namespace RawMaterialManagement.Order_Management
                 string name = dlg.name;
                 string unitOfMeasure = dlg.unitOfMeasure;
 
-                //DataRowView row = raw_order_lineBindingSource.AddNew() as DataRowView;
-                /*row.Row.SetField("item_id", itemId);
+                DataRowView row = fKrawpurchaseorderraworderlineBindingSource.AddNew() as DataRowView;
+                row.Row.SetField("item_id", itemId);
                 row.Row.SetField("unit_price", unitPrice);
                 row.Row.SetField("quantity", quantity);
                 row.Row.SetField("item_name", name);
-                row.Row.SetField("unit_of_measure", unitOfMeasure);*/
+                row.Row.SetField("unit_of_measure", unitOfMeasure);
+            }
+        }
+
+        private void RemoveOrderItem()
+        {
+            try
+            {
+                fKrawpurchaseorderraworderlineBindingSource.RemoveCurrent();
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
 
@@ -199,6 +226,21 @@ namespace RawMaterialManagement.Order_Management
         private void button1_Click(object sender, EventArgs e)
         {
             ChooseSupplier();
+        }
+
+        private void addItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddOrderItem();
+        }
+
+        private void removeItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveOrderItem();
+        }
+
+        private void toBeApprovedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PopulateOrdersToBeApproved();
         }
     }
 }

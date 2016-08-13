@@ -30,12 +30,19 @@ namespace RawMaterialManagement.Order_Management
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            itemId = raw_item_tabDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumnItemId"].Value.ToString();
-            unitOfMeasure = raw_item_tabDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumnUnitOfMeasure"].Value.ToString();
-            name = raw_item_tabDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumnName"].Value.ToString();
+            itemId = raw_item_tabDataGridView.CurrentRow.Cells["itemidDataGridViewTextBoxColumn"].Value.ToString();
+            unitOfMeasure = raw_item_tabDataGridView.CurrentRow.Cells["UnitOfMeasureDataGridViewTextBoxColumn"].Value.ToString();
+            name = raw_item_tabDataGridView.CurrentRow.Cells["nameDataGridViewTextBoxColumn"].Value.ToString();
             unitPrice = txtUnitPrice.Text;
             quantity = txtQuantity.Text;
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
+        }
+
+        private void dlgChooseItem_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'rawDataSet.raw_item_tab' table. You can move, or remove it, as needed.
+            this.raw_item_tabTableAdapter.Fill(this.rawDataSet.raw_item_tab);
+
         }
     }
 }

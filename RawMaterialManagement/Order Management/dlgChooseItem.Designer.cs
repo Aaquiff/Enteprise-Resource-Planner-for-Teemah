@@ -38,16 +38,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumnItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumnUnitOfMeasure = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rawDataSet = new RawMaterialManagement.RawDataSet();
+            this.rawitemtabBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.raw_item_tabTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_item_tabTableAdapter();
+            this.itemidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stocklevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitofmeasureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.raw_item_tabDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rawDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rawitemtabBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // raw_item_tabDataGridView
@@ -58,13 +63,14 @@
             this.raw_item_tabDataGridView.BackgroundColor = System.Drawing.SystemColors.Window;
             this.raw_item_tabDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.raw_item_tabDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumnItemId,
-            this.dataGridViewTextBoxColumnName,
-            this.dataGridViewTextBoxColumnDescription,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumnUnitOfMeasure,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
+            this.itemidDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.stocklevelDataGridViewTextBoxColumn,
+            this.unitofmeasureDataGridViewTextBoxColumn,
+            this.itemcategoryDataGridViewTextBoxColumn,
+            this.barcodeDataGridViewTextBoxColumn});
+            this.raw_item_tabDataGridView.DataSource = this.rawitemtabBindingSource;
             this.raw_item_tabDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.raw_item_tabDataGridView.GridColor = System.Drawing.SystemColors.Control;
             this.raw_item_tabDataGridView.Location = new System.Drawing.Point(0, 0);
@@ -159,56 +165,69 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // rawDataSet
+            // 
+            this.rawDataSet.DataSetName = "RawDataSet";
+            this.rawDataSet.EnforceConstraints = false;
+            this.rawDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rawitemtabBindingSource
+            // 
+            this.rawitemtabBindingSource.DataMember = "raw_item_tab";
+            this.rawitemtabBindingSource.DataSource = this.rawDataSet;
+            // 
             // raw_item_tabTableAdapter
-            //          // 
-            // dataGridViewTextBoxColumnItemId
             // 
-            this.dataGridViewTextBoxColumnItemId.DataPropertyName = "item_id";
-            this.dataGridViewTextBoxColumnItemId.HeaderText = "Item Id";
-            this.dataGridViewTextBoxColumnItemId.Name = "dataGridViewTextBoxColumnItemId";
-            this.dataGridViewTextBoxColumnItemId.ReadOnly = true;
+            this.raw_item_tabTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumnName
+            // itemidDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumnName.DataPropertyName = "name";
-            this.dataGridViewTextBoxColumnName.HeaderText = "Name";
-            this.dataGridViewTextBoxColumnName.Name = "dataGridViewTextBoxColumnName";
-            this.dataGridViewTextBoxColumnName.ReadOnly = true;
+            this.itemidDataGridViewTextBoxColumn.DataPropertyName = "item_id";
+            this.itemidDataGridViewTextBoxColumn.HeaderText = "item_id";
+            this.itemidDataGridViewTextBoxColumn.Name = "itemidDataGridViewTextBoxColumn";
+            this.itemidDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumnDescription
+            // nameDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumnDescription.DataPropertyName = "description";
-            this.dataGridViewTextBoxColumnDescription.HeaderText = "Description";
-            this.dataGridViewTextBoxColumnDescription.Name = "dataGridViewTextBoxColumnDescription";
-            this.dataGridViewTextBoxColumnDescription.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // descriptionDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "stock_level";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Stock Level";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumnUnitOfMeasure
+            // stocklevelDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumnUnitOfMeasure.DataPropertyName = "unit_of_measure";
-            this.dataGridViewTextBoxColumnUnitOfMeasure.HeaderText = "Unit Of Measure";
-            this.dataGridViewTextBoxColumnUnitOfMeasure.Name = "dataGridViewTextBoxColumnUnitOfMeasure";
-            this.dataGridViewTextBoxColumnUnitOfMeasure.ReadOnly = true;
+            this.stocklevelDataGridViewTextBoxColumn.DataPropertyName = "stock_level";
+            this.stocklevelDataGridViewTextBoxColumn.HeaderText = "stock_level";
+            this.stocklevelDataGridViewTextBoxColumn.Name = "stocklevelDataGridViewTextBoxColumn";
+            this.stocklevelDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn6
+            // unitofmeasureDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "item_category";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Item Category";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.unitofmeasureDataGridViewTextBoxColumn.DataPropertyName = "unit_of_measure";
+            this.unitofmeasureDataGridViewTextBoxColumn.HeaderText = "unit_of_measure";
+            this.unitofmeasureDataGridViewTextBoxColumn.Name = "unitofmeasureDataGridViewTextBoxColumn";
+            this.unitofmeasureDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn7
+            // itemcategoryDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "bar_code";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Bar Code";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.itemcategoryDataGridViewTextBoxColumn.DataPropertyName = "item_category";
+            this.itemcategoryDataGridViewTextBoxColumn.HeaderText = "item_category";
+            this.itemcategoryDataGridViewTextBoxColumn.Name = "itemcategoryDataGridViewTextBoxColumn";
+            this.itemcategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // barcodeDataGridViewTextBoxColumn
+            // 
+            this.barcodeDataGridViewTextBoxColumn.DataPropertyName = "bar_code";
+            this.barcodeDataGridViewTextBoxColumn.HeaderText = "bar_code";
+            this.barcodeDataGridViewTextBoxColumn.Name = "barcodeDataGridViewTextBoxColumn";
+            this.barcodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dlgChooseItem
             // 
@@ -224,9 +243,13 @@
             this.Name = "dlgChooseItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Item";
+            this.Load += new System.EventHandler(this.dlgChooseItem_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.raw_item_tabDataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rawDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rawitemtabBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -249,5 +272,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumnUnitOfMeasure;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private RawDataSet rawDataSet;
+        private System.Windows.Forms.BindingSource rawitemtabBindingSource;
+        private RawDataSetTableAdapters.raw_item_tabTableAdapter raw_item_tabTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stocklevelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitofmeasureDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemcategoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeDataGridViewTextBoxColumn;
     }
 }
