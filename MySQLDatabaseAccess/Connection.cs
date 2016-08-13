@@ -21,7 +21,20 @@ namespace MySQLDatabaseAccess
             {
                 throw ex;
             }
-            return null;
+        }
+
+        public static string getUserNameFromConnectionString(string cstring)
+        {
+            int useridindexstart = cstring.IndexOf("user id=") + 8;
+            int useridindexend = cstring.IndexOf(";", useridindexstart);
+            return cstring.Substring(useridindexstart, useridindexend - useridindexstart);
+        }
+
+        public static string getServerFromConnectionString(string cstring)
+        {
+            int useridindexstart = cstring.IndexOf("server=") + 7;
+            int useridindexend = cstring.IndexOf(";", useridindexstart);
+            return cstring.Substring(useridindexstart, useridindexend - useridindexstart);
         }
     }
 }
