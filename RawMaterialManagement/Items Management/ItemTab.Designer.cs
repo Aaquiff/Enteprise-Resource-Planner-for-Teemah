@@ -202,11 +202,13 @@
             // 
             // colItemCategory
             // 
+            this.colItemCategory.DataPropertyName = "item_category";
             this.colItemCategory.HeaderText = "Item Category";
             this.colItemCategory.Name = "colItemCategory";
             // 
             // colBarcode
             // 
+            this.colBarcode.DataPropertyName = "bar_code";
             this.colBarcode.HeaderText = "Bar Code";
             this.colBarcode.Name = "colBarcode";
             // 

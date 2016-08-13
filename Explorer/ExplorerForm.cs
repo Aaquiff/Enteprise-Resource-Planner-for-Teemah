@@ -27,7 +27,7 @@ namespace Explorer
 {
     public partial class ExplorerForm : Form
     {
-        private int childFormNumber = 0;
+
         private MySqlConnection con;
 
         public ExplorerForm()

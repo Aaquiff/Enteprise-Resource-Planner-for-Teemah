@@ -36,6 +36,9 @@
             this.leftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
+            this.toolStripUser = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemHome = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.panelNavigation = new System.Windows.Forms.Panel();
             this.panelFinance = new System.Windows.Forms.Panel();
@@ -54,11 +57,22 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.btnDM = new System.Windows.Forms.Button();
+            this.panelSales = new System.Windows.Forms.Panel();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
             this.btnSM = new System.Windows.Forms.Button();
             this.panelInventory = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.btnIM = new System.Windows.Forms.Button();
+            this.panelProdcutProcess = new System.Windows.Forms.Panel();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button22 = new System.Windows.Forms.Button();
             this.btnPPM = new System.Windows.Forms.Button();
             this.panelRawMaterial = new System.Windows.Forms.Panel();
             this.btnOrderTab = new System.Windows.Forms.Button();
@@ -69,38 +83,24 @@
             this.btnItems = new System.Windows.Forms.Button();
             this.btnRMM = new System.Windows.Forms.Button();
             this.panelBreadCrumbs = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.toolStripUser = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemHome = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelSales = new System.Windows.Forms.Panel();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.panelProdcutProcess = new System.Windows.Forms.Panel();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
             this.contextMenuStripToolbar.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.panelNavigation.SuspendLayout();
             this.panelFinance.SuspendLayout();
             this.panelEmployee.SuspendLayout();
             this.panelDistribution.SuspendLayout();
+            this.panelSales.SuspendLayout();
             this.panelInventory.SuspendLayout();
+            this.panelProdcutProcess.SuspendLayout();
             this.panelRawMaterial.SuspendLayout();
             this.panelBreadCrumbs.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelSales.SuspendLayout();
-            this.panelProdcutProcess.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStripToolbar
@@ -156,6 +156,44 @@
             this.toolStripMain.TabIndex = 10;
             this.toolStripMain.Text = "toolStrip1";
             // 
+            // toolStripUser
+            // 
+            this.toolStripUser.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripUser.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripUser.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem6});
+            this.toolStripUser.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripUser.ForeColor = System.Drawing.Color.Black;
+            this.toolStripUser.Image = ((System.Drawing.Image)(resources.GetObject("toolStripUser.Image")));
+            this.toolStripUser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripUser.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripUser.Name = "toolStripUser";
+            this.toolStripUser.Size = new System.Drawing.Size(63, 69);
+            this.toolStripUser.Text = "User";
+            this.toolStripUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(121, 22);
+            this.toolStripMenuItem6.Text = "Log Out";
+            // 
+            // toolStripMenuItemHome
+            // 
+            this.toolStripMenuItemHome.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripMenuItemHome.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItemHome.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.toolStripMenuItemHome.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemHome.Image")));
+            this.toolStripMenuItemHome.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItemHome.ImageTransparentColor = System.Drawing.Color.Black;
+            this.toolStripMenuItemHome.Name = "toolStripMenuItemHome";
+            this.toolStripMenuItemHome.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.toolStripMenuItemHome.Size = new System.Drawing.Size(62, 72);
+            this.toolStripMenuItemHome.Text = "Home";
+            this.toolStripMenuItemHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripMenuItemHome.Click += new System.EventHandler(this.toolStripMenuItemHome_Click);
+            // 
             // menuStripMain
             // 
             this.menuStripMain.AllowItemReorder = true;
@@ -173,7 +211,7 @@
             // panelNavigation
             // 
             this.panelNavigation.AutoScroll = true;
-            this.panelNavigation.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panelNavigation.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.panelNavigation.Controls.Add(this.panelFinance);
             this.panelNavigation.Controls.Add(this.btnFM);
             this.panelNavigation.Controls.Add(this.panelEmployee);
@@ -477,6 +515,94 @@
             this.btnDM.UseVisualStyleBackColor = false;
             this.btnDM.Click += new System.EventHandler(this.btnDM_Click);
             // 
+            // panelSales
+            // 
+            this.panelSales.Controls.Add(this.button17);
+            this.panelSales.Controls.Add(this.button14);
+            this.panelSales.Controls.Add(this.button15);
+            this.panelSales.Controls.Add(this.button16);
+            this.panelSales.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSales.Location = new System.Drawing.Point(0, 517);
+            this.panelSales.Name = "panelSales";
+            this.panelSales.Size = new System.Drawing.Size(252, 120);
+            this.panelSales.TabIndex = 16;
+            // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.Transparent;
+            this.button17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button17.FlatAppearance.BorderSize = 0;
+            this.button17.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.button17.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button17.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button17.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button17.Location = new System.Drawing.Point(0, 75);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(252, 25);
+            this.button17.TabIndex = 14;
+            this.button17.Text = "Payment Info";
+            this.button17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button14
+            // 
+            this.button14.BackColor = System.Drawing.Color.Transparent;
+            this.button14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button14.FlatAppearance.BorderSize = 0;
+            this.button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button14.Location = new System.Drawing.Point(0, 50);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(252, 25);
+            this.button14.TabIndex = 13;
+            this.button14.Text = "View Buyers";
+            this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.Transparent;
+            this.button15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button15.FlatAppearance.BorderSize = 0;
+            this.button15.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button15.Location = new System.Drawing.Point(0, 25);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(252, 25);
+            this.button15.TabIndex = 12;
+            this.button15.Text = "Update Buyer";
+            this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // button16
+            // 
+            this.button16.BackColor = System.Drawing.Color.Transparent;
+            this.button16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button16.FlatAppearance.BorderSize = 0;
+            this.button16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button16.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button16.Location = new System.Drawing.Point(0, 0);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(252, 25);
+            this.button16.TabIndex = 11;
+            this.button16.Text = "Add Buyer";
+            this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button16.UseVisualStyleBackColor = false;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
             // btnSM
             // 
             this.btnSM.BackColor = System.Drawing.Color.Transparent;
@@ -562,6 +688,114 @@
             this.btnIM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIM.UseVisualStyleBackColor = false;
             this.btnIM.Click += new System.EventHandler(this.btnIM_Click);
+            // 
+            // panelProdcutProcess
+            // 
+            this.panelProdcutProcess.Controls.Add(this.button18);
+            this.panelProdcutProcess.Controls.Add(this.button19);
+            this.panelProdcutProcess.Controls.Add(this.button20);
+            this.panelProdcutProcess.Controls.Add(this.button21);
+            this.panelProdcutProcess.Controls.Add(this.button22);
+            this.panelProdcutProcess.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelProdcutProcess.Location = new System.Drawing.Point(0, 244);
+            this.panelProdcutProcess.Name = "panelProdcutProcess";
+            this.panelProdcutProcess.Size = new System.Drawing.Size(252, 135);
+            this.panelProdcutProcess.TabIndex = 17;
+            // 
+            // button18
+            // 
+            this.button18.BackColor = System.Drawing.Color.Transparent;
+            this.button18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button18.FlatAppearance.BorderSize = 0;
+            this.button18.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.button18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button18.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button18.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button18.Location = new System.Drawing.Point(0, 100);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(252, 25);
+            this.button18.TabIndex = 15;
+            this.button18.Text = "Work Orders";
+            this.button18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // button19
+            // 
+            this.button19.BackColor = System.Drawing.Color.Transparent;
+            this.button19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button19.FlatAppearance.BorderSize = 0;
+            this.button19.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.button19.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button19.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button19.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button19.Location = new System.Drawing.Point(0, 75);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(252, 25);
+            this.button19.TabIndex = 14;
+            this.button19.Text = "Work Order";
+            this.button19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // button20
+            // 
+            this.button20.BackColor = System.Drawing.Color.Transparent;
+            this.button20.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button20.FlatAppearance.BorderSize = 0;
+            this.button20.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.button20.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button20.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button20.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button20.Location = new System.Drawing.Point(0, 50);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(252, 25);
+            this.button20.TabIndex = 13;
+            this.button20.Text = "Remarks";
+            this.button20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button20.UseVisualStyleBackColor = false;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
+            // 
+            // button21
+            // 
+            this.button21.BackColor = System.Drawing.Color.Transparent;
+            this.button21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button21.FlatAppearance.BorderSize = 0;
+            this.button21.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.button21.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button21.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button21.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button21.Location = new System.Drawing.Point(0, 25);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(252, 25);
+            this.button21.TabIndex = 12;
+            this.button21.Text = "Product Request";
+            this.button21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button21.UseVisualStyleBackColor = false;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
+            // 
+            // button22
+            // 
+            this.button22.BackColor = System.Drawing.Color.Transparent;
+            this.button22.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button22.FlatAppearance.BorderSize = 0;
+            this.button22.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.button22.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button22.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button22.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button22.Location = new System.Drawing.Point(0, 0);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(252, 25);
+            this.button22.TabIndex = 11;
+            this.button22.Text = "Dashboard";
+            this.button22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button22.UseVisualStyleBackColor = false;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // btnPPM
             // 
@@ -743,6 +977,18 @@
             this.panelBreadCrumbs.Size = new System.Drawing.Size(1258, 48);
             this.panelBreadCrumbs.TabIndex = 8;
             // 
+            // button8
+            // 
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Image = global::Explorer.Properties.Resources.ic_menu_black_24dp;
+            this.button8.Location = new System.Drawing.Point(4, 4);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(49, 32);
+            this.button8.TabIndex = 1;
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -791,252 +1037,6 @@
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
-            // button8
-            // 
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Image = global::Explorer.Properties.Resources.ic_menu_black_24dp;
-            this.button8.Location = new System.Drawing.Point(4, 4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(49, 32);
-            this.button8.TabIndex = 1;
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // toolStripUser
-            // 
-            this.toolStripUser.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripUser.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripUser.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem6});
-            this.toolStripUser.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripUser.ForeColor = System.Drawing.Color.Black;
-            this.toolStripUser.Image = ((System.Drawing.Image)(resources.GetObject("toolStripUser.Image")));
-            this.toolStripUser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripUser.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripUser.Name = "toolStripUser";
-            this.toolStripUser.Size = new System.Drawing.Size(63, 69);
-            this.toolStripUser.Text = "User";
-            this.toolStripUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(121, 22);
-            this.toolStripMenuItem6.Text = "Log Out";
-            // 
-            // toolStripMenuItemHome
-            // 
-            this.toolStripMenuItemHome.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripMenuItemHome.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItemHome.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.toolStripMenuItemHome.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemHome.Image")));
-            this.toolStripMenuItemHome.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItemHome.ImageTransparentColor = System.Drawing.Color.Black;
-            this.toolStripMenuItemHome.Name = "toolStripMenuItemHome";
-            this.toolStripMenuItemHome.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.toolStripMenuItemHome.Size = new System.Drawing.Size(62, 72);
-            this.toolStripMenuItemHome.Text = "Home";
-            this.toolStripMenuItemHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripMenuItemHome.Click += new System.EventHandler(this.toolStripMenuItemHome_Click);
-            // 
-            // panelSales
-            // 
-            this.panelSales.Controls.Add(this.button17);
-            this.panelSales.Controls.Add(this.button14);
-            this.panelSales.Controls.Add(this.button15);
-            this.panelSales.Controls.Add(this.button16);
-            this.panelSales.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSales.Location = new System.Drawing.Point(0, 517);
-            this.panelSales.Name = "panelSales";
-            this.panelSales.Size = new System.Drawing.Size(252, 120);
-            this.panelSales.TabIndex = 16;
-            // 
-            // button14
-            // 
-            this.button14.BackColor = System.Drawing.Color.Transparent;
-            this.button14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
-            this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button14.Location = new System.Drawing.Point(0, 50);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(252, 25);
-            this.button14.TabIndex = 13;
-            this.button14.Text = "View Buyers";
-            this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button14.UseVisualStyleBackColor = false;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
-            // button15
-            // 
-            this.button15.BackColor = System.Drawing.Color.Transparent;
-            this.button15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
-            this.button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button15.Location = new System.Drawing.Point(0, 25);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(252, 25);
-            this.button15.TabIndex = 12;
-            this.button15.Text = "Update Buyer";
-            this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button15.UseVisualStyleBackColor = false;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
-            // 
-            // button16
-            // 
-            this.button16.BackColor = System.Drawing.Color.Transparent;
-            this.button16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button16.FlatAppearance.BorderSize = 0;
-            this.button16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
-            this.button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button16.Location = new System.Drawing.Point(0, 0);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(252, 25);
-            this.button16.TabIndex = 11;
-            this.button16.Text = "Add Buyer";
-            this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button16.UseVisualStyleBackColor = false;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
-            // 
-            // panelProdcutProcess
-            // 
-            this.panelProdcutProcess.Controls.Add(this.button18);
-            this.panelProdcutProcess.Controls.Add(this.button19);
-            this.panelProdcutProcess.Controls.Add(this.button20);
-            this.panelProdcutProcess.Controls.Add(this.button21);
-            this.panelProdcutProcess.Controls.Add(this.button22);
-            this.panelProdcutProcess.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelProdcutProcess.Location = new System.Drawing.Point(0, 244);
-            this.panelProdcutProcess.Name = "panelProdcutProcess";
-            this.panelProdcutProcess.Size = new System.Drawing.Size(252, 135);
-            this.panelProdcutProcess.TabIndex = 17;
-            // 
-            // button18
-            // 
-            this.button18.BackColor = System.Drawing.Color.Transparent;
-            this.button18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button18.FlatAppearance.BorderSize = 0;
-            this.button18.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
-            this.button18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button18.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button18.Location = new System.Drawing.Point(0, 100);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(252, 25);
-            this.button18.TabIndex = 15;
-            this.button18.Text = "Work Orders";
-            this.button18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button18.UseVisualStyleBackColor = false;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
-            // 
-            // button19
-            // 
-            this.button19.BackColor = System.Drawing.Color.Transparent;
-            this.button19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button19.FlatAppearance.BorderSize = 0;
-            this.button19.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
-            this.button19.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
-            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button19.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button19.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button19.Location = new System.Drawing.Point(0, 75);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(252, 25);
-            this.button19.TabIndex = 14;
-            this.button19.Text = "Work Order";
-            this.button19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button19.UseVisualStyleBackColor = false;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
-            // 
-            // button20
-            // 
-            this.button20.BackColor = System.Drawing.Color.Transparent;
-            this.button20.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button20.FlatAppearance.BorderSize = 0;
-            this.button20.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
-            this.button20.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
-            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button20.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button20.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button20.Location = new System.Drawing.Point(0, 50);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(252, 25);
-            this.button20.TabIndex = 13;
-            this.button20.Text = "Remarks";
-            this.button20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button20.UseVisualStyleBackColor = false;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
-            // 
-            // button21
-            // 
-            this.button21.BackColor = System.Drawing.Color.Transparent;
-            this.button21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button21.FlatAppearance.BorderSize = 0;
-            this.button21.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
-            this.button21.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
-            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button21.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button21.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button21.Location = new System.Drawing.Point(0, 25);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(252, 25);
-            this.button21.TabIndex = 12;
-            this.button21.Text = "Product Request";
-            this.button21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button21.UseVisualStyleBackColor = false;
-            this.button21.Click += new System.EventHandler(this.button21_Click);
-            // 
-            // button22
-            // 
-            this.button22.BackColor = System.Drawing.Color.Transparent;
-            this.button22.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button22.FlatAppearance.BorderSize = 0;
-            this.button22.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
-            this.button22.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
-            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button22.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button22.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button22.Location = new System.Drawing.Point(0, 0);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(252, 25);
-            this.button22.TabIndex = 11;
-            this.button22.Text = "Dashboard";
-            this.button22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button22.UseVisualStyleBackColor = false;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
-            // 
-            // button17
-            // 
-            this.button17.BackColor = System.Drawing.Color.Transparent;
-            this.button17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button17.FlatAppearance.BorderSize = 0;
-            this.button17.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
-            this.button17.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button17.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button17.Location = new System.Drawing.Point(0, 75);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(252, 25);
-            this.button17.TabIndex = 14;
-            this.button17.Text = "Payment Info";
-            this.button17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button17.UseVisualStyleBackColor = false;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
-            // 
             // ExplorerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1063,15 +1063,15 @@
             this.panelFinance.ResumeLayout(false);
             this.panelEmployee.ResumeLayout(false);
             this.panelDistribution.ResumeLayout(false);
+            this.panelSales.ResumeLayout(false);
             this.panelInventory.ResumeLayout(false);
+            this.panelProdcutProcess.ResumeLayout(false);
             this.panelRawMaterial.ResumeLayout(false);
             this.panelBreadCrumbs.ResumeLayout(false);
             this.panelBreadCrumbs.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelSales.ResumeLayout(false);
-            this.panelProdcutProcess.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

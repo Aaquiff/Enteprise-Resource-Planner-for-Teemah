@@ -69,6 +69,24 @@
     <Compile Include="Items Management\dlgSearchItem.Designer.cs">
       <DependentUpon>dlgSearchItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order Management\AddOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order Management\AddOrder.Designer.cs">
+      <DependentUpon>AddOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order Management\dlgChooseItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order Management\dlgChooseItem.Designer.cs">
+      <DependentUpon>dlgChooseItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order Management\dlgChooseSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order Management\dlgChooseSupplier.Designer.cs">
+      <DependentUpon>dlgChooseSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order Management\OrderDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +98,15 @@
     </Compile>
     <Compile Include="Order Management\OrderTab.Designer.cs">
       <DependentUpon>OrderTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RawDataSet.cs">
+      <DependentUpon>RawDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RawDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RawDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Items Management\ItemTab.cs">
@@ -109,6 +136,15 @@
     <EmbeddedResource Include="Items Management\dlgSearchItem.resx">
       <DependentUpon>dlgSearchItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Order Management\AddOrder.resx">
+      <DependentUpon>AddOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order Management\dlgChooseItem.resx">
+      <DependentUpon>dlgChooseItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order Management\dlgChooseSupplier.resx">
+      <DependentUpon>dlgChooseSupplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Order Management\OrderDetail.resx">
       <DependentUpon>OrderDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +170,17 @@
     <EmbeddedResource Include="Supplier Management\SupplierTab.resx">
       <DependentUpon>SupplierTab.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="RawDataSet.xsc">
+      <DependentUpon>RawDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RawDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RawDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RawDataSet.xss">
+      <DependentUpon>RawDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

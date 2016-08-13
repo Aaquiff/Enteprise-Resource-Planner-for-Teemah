@@ -27,8 +27,8 @@ namespace RawMaterialManagement.Supplier_Management
             con = Connection.getConnection();
             supplierAdapter = new MySqlDataAdapter("select * from raw_supplier_tab", con);
 
-            MySqlCommand insertCommand = new MySqlCommand("insert into raw_supplier_tab values (@supplier_id,@name,@contact_person,@phone,@email,@address)", con);
-            insertCommand.Parameters.Add("@supplier_id", MySqlDbType.VarChar, 20, "supplier_id");
+            MySqlCommand insertCommand = new MySqlCommand("insert into raw_supplier_tab (name,contact_person,phone,email,address) values (@name,@contact_person,@phone,@email,@address)", con);
+            //insertCommand.Parameters.Add("@supplier_id", MySqlDbType.VarChar, 20, "supplier_id");
             insertCommand.Parameters.Add("@name", MySqlDbType.VarChar, 200, "name");            
             insertCommand.Parameters.Add("@contact_person", MySqlDbType.VarChar, 200, "contact_person");
             insertCommand.Parameters.Add("@phone", MySqlDbType.VarChar, 200, "phone");
@@ -43,7 +43,7 @@ namespace RawMaterialManagement.Supplier_Management
             updateCommand.Parameters.Add("@phone", MySqlDbType.VarChar, 200, "phone");
             updateCommand.Parameters.Add("@email", MySqlDbType.VarChar, 200, "email");
             updateCommand.Parameters.Add("@address", MySqlDbType.VarChar, 200, "address");
-            updateCommand.Parameters.Add("@supplier_id", MySqlDbType.VarChar, 200, "supplier_id");
+            updateCommand.Parameters.Add("@supplier_id", MySqlDbType.Int32, 200, "supplier_id");
 
             supplierAdapter.UpdateCommand = updateCommand;
 
@@ -87,6 +87,7 @@ namespace RawMaterialManagement.Supplier_Management
             {
                 this.Validate();
                 supplierAdapter.Update(supplierDataSet);
+                Populate();
                 MessageBox.Show("Saved");
             }
             catch (Exception ex)

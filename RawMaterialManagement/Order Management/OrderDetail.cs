@@ -17,65 +17,35 @@ namespace RawMaterialManagement.Order_Management
         #region properties
 
         MySqlConnection con;
-        MySqlDataAdapter orderAdapter;
-        BindingSource orderBindingSource = new BindingSource();
-        DataSet orderDataSet = new DataSet();
 
         #endregion
 
         public OrderDetail()
         {
             InitializeComponent();
-
-            con = Connection.getConnection();
-            orderAdapter = new MySqlDataAdapter("select * from raw_purchase_order_tab", con);
-
-            /*MySqlCommand insertCommand = new MySqlCommand("insert into raw_item_tab values (@itemid,@name,@description,@stock_level,@unit_of_measure)", con);
-            insertCommand.Parameters.Add("@itemid", MySqlDbType.VarChar, 200, "item_id");
-            insertCommand.Parameters.Add("@name", MySqlDbType.VarChar, 2000, "name");
-            insertCommand.Parameters.Add("@description", MySqlDbType.VarChar, 2000, "description");
-            insertCommand.Parameters.Add("@stock_level", MySqlDbType.Int32, 11, "stock_level");
-            insertCommand.Parameters.Add("@unit_of_measure", MySqlDbType.VarChar, 20, "unit_of_measure");
-
-            orderAdapter.InsertCommand = insertCommand;
-
-            MySqlCommand updateCommand = new MySqlCommand("update raw_item_tab set name = @itemname, description = @description, stock_level = @stock_level, unit_of_measure = @unit_of_measure where item_id = @itemid", con);
-            updateCommand.Parameters.Add("@itemname", MySqlDbType.VarChar, 200, "name");
-            updateCommand.Parameters.Add("@description", MySqlDbType.VarChar, 2000, "description");
-            updateCommand.Parameters.Add("@stock_level", MySqlDbType.Int32, 11, "stock_level");
-            updateCommand.Parameters.Add("@unit_of_measure", MySqlDbType.VarChar, 20, "unit_of_measure");
-            updateCommand.Parameters.Add("@itemid", MySqlDbType.VarChar, 200, "item_id");
-
-            orderAdapter.UpdateCommand = updateCommand;
-
-            MySqlCommand deleteCommand = new MySqlCommand("delete from raw_item_tab where item_id = @itemid", con);
-            deleteCommand.Parameters.Add("@itemid", MySqlDbType.VarChar, 200, "item_id");
-            
-            orderAdapter.DeleteCommand = deleteCommand;*/
-            orderAdapter.Fill(orderDataSet);
-            dataGridViewNavigator.DataSource = orderDataSet.Tables[0];
+            con = MySQLDatabaseAccess.Connection.getConnection();
+            PopulateOrder(null);            
         }
 
         public OrderDetail(string orderid)
         {
             InitializeComponent();
-            /*con = Connection.getConnection();
-            orderAdapter = new MySqlDataAdapter("select * from raw_purchase_order_tab where order_id = '" + orderid + "'", con);
-            orderAdapter.Fill(orderDataSet);
-            orderBindingSource.DataSource = orderDataSet.Tables[0];
-            
-            DataRowView row = orderBindingSource.Current as DataRowView;*/
-            //continue from here
+            //con = Connection.getConnection();
+            //orderAdapter = new MySqlDataAdapter("select * from raw_purchase_order_tab where order_id = '" + orderid + "'", con);
+            PopulateOrder("select * from raw_purchase_order where order_id = '" + orderid + "'");
+
+            splitContainerMain.Panel1Collapsed = true;
+            splitContainerMain.Panel1.Hide();   
         }
 
         #region methods
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            base.OnFormClosing(e);
+            /*base.OnFormClosing(e);
             if (e.CloseReason == CloseReason.WindowsShutDown) return;
 
-            if (orderDataSet.HasChanges())
+            if (orderDataSet1.HasChanges())
             {
                 switch (MessageBox.Show(this, "Do you want to save your changes?", "Closing", MessageBoxButtons.YesNoCancel))
                 {
@@ -90,7 +60,7 @@ namespace RawMaterialManagement.Order_Management
                     default:
                         break;
                 }
-            }
+            }*/
 
         }
 
@@ -99,10 +69,13 @@ namespace RawMaterialManagement.Order_Management
             try
             {
                 this.Validate();
-                orderAdapter.Update(orderDataSet);
+                rawpurchaseorderBindingSource.EndEdit();
+                
+                raw_purchase_orderTableAdapter.Update(rawDataSet.raw_purchase_order);
+                raw_order_lineTableAdapter.Adapter.Update(rawDataSet.raw_order_line);
                 MessageBox.Show("Saved");
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -112,7 +85,7 @@ namespace RawMaterialManagement.Order_Management
         {
             try
             {
-                orderBindingSource.RemoveCurrent();
+                rawpurchaseorderBindingSource.RemoveCurrent();
             }
             catch (Exception ex)
             {
@@ -120,12 +93,16 @@ namespace RawMaterialManagement.Order_Management
             }
         }
 
-        private void Populate()
+        private void PopulateOrder(string query)
         {
             try
             {
-                orderDataSet.Clear();
-                orderAdapter.Fill(orderDataSet);
+                // TODO: This line of code loads data into the 'rawDataSet.raw_order_line' table. You can move, or remove it, as needed.
+                this.raw_purchase_orderTableAdapter.Connection = con;
+                this.raw_order_lineTableAdapter.Fill(this.rawDataSet.raw_order_line);
+                // TODO: This line of code loads data into the 'rawDataSet.raw_purchase_order' table. You can move, or remove it, as needed.
+                this.raw_order_lineTableAdapter.Connection = con;
+                this.raw_purchase_orderTableAdapter.Fill(this.rawDataSet.raw_purchase_order);
             }
             catch (Exception ex)
             {
@@ -137,20 +114,91 @@ namespace RawMaterialManagement.Order_Management
         {
             try
             {
-                orderBindingSource.AddNew();
+                rawpurchaseorderBindingSource.AddNew();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                
+                throw;
+            }
+        }
+
+        private void AddOrderItem()
+        {
+            dlgChooseItem dlg = new dlgChooseItem();
+            dlg.ShowDialog(this);
+            if (dlg.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                int itemId = Convert.ToInt32(dlg.itemId);
+                string unitPrice = dlg.unitPrice;
+                string quantity = dlg.quantity;
+                string name = dlg.name;
+                string unitOfMeasure = dlg.unitOfMeasure;
+
+                //DataRowView row = raw_order_lineBindingSource.AddNew() as DataRowView;
+                /*row.Row.SetField("item_id", itemId);
+                row.Row.SetField("unit_price", unitPrice);
+                row.Row.SetField("quantity", quantity);
+                row.Row.SetField("item_name", name);
+                row.Row.SetField("unit_of_measure", unitOfMeasure);*/
+            }
+        }
+
+        private void ChooseSupplier()
+        {
+            dlgChooseSupplier dlg = new dlgChooseSupplier();
+            dlg.ShowDialog();
+            if(dlg.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                txtSupplierId.Text = dlg.SupplierId;
+                txtSupplierName.Text = dlg.SupplierName;
             }
         }
 
         #endregion
 
+        #region Events
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            New();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            PopulateOrder(null);
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Delete();
+        }
+
         private void dataGridViewNavigator_SelectionChanged(object sender, EventArgs e)
         {
-            DataRowView row = orderBindingSource.Current as DataRowView;
-            //MessageBox.Show(dataGridViewNavigator.CurrentRow);
+
+        }
+
+        private void OrderDetail_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            AddOrderItem();
+        }
+
+        #endregion      
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ChooseSupplier();
         }
     }
 }
