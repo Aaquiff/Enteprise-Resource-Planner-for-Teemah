@@ -99,21 +99,21 @@
     <Compile Include="Order Management\OrderTab.Designer.cs">
       <DependentUpon>OrderTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="RawDataSet.cs">
-      <DependentUpon>RawDataSet.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="RawDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RawDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Items Management\ItemTab.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Items Management\ItemTab.Designer.cs">
       <DependentUpon>ItemTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RawDataSet.cs">
+      <DependentUpon>RawDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RawDataSet.Designer.cs">
+      <DependentUpon>RawDataSet.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="RawMaterialDashBoard.cs">
       <SubType>Form</SubType>
@@ -170,16 +170,6 @@
     <EmbeddedResource Include="Supplier Management\SupplierTab.resx">
       <DependentUpon>SupplierTab.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="RawDataSet.xsc">
-      <DependentUpon>RawDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="RawDataSet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-    </None>
-    <None Include="RawDataSet.xss">
-      <DependentUpon>RawDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -203,6 +193,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="RawDataSet.xsc">
+      <DependentUpon>RawDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RawDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>RawDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RawDataSet.xss">
+      <DependentUpon>RawDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\ic_add_circle_outline_2x.png" />
   </ItemGroup>
   <ItemGroup>

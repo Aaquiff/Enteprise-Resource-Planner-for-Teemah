@@ -128,7 +128,11 @@ namespace RawMaterialManagement.Order_Management
         {
             try
             {
-                rawpurchaseorderBindingSource.AddNew();
+                DataRowView row = rawpurchaseorderBindingSource.AddNew() as DataRowView;
+
+                row.Row.SetField("creator",MySQLDatabaseAccess.Connection.getUserNameFromConnectionString(con.ConnectionString));
+                row.Row.SetField("status", "Created");
+                
             }
             catch (Exception)
             {
@@ -179,6 +183,30 @@ namespace RawMaterialManagement.Order_Management
             {
                 txtSupplierId.Text = dlg.SupplierId;
                 txtSupplierName.Text = dlg.SupplierName;
+            }
+        }
+
+        private void ApproveOrder()
+        {
+            try
+            {
+                raw_purchase_orderTableAdapter.raw_change_order_status(txtOrderId.Text, "Approved", MySQLDatabaseAccess.Connection.getUserNameFromConnectionString(con.ConnectionString));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void CancelOrder()
+        {
+            try
+            {
+                raw_purchase_orderTableAdapter.raw_change_order_status(txtOrderId.Text, "Cancelled", MySQLDatabaseAccess.Connection.getUserNameFromConnectionString(con.ConnectionString));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -241,6 +269,16 @@ namespace RawMaterialManagement.Order_Management
         private void toBeApprovedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PopulateOrdersToBeApproved();
+        }
+
+        private void approveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApproveOrder();
+        }
+
+        private void cancelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CancelOrder();
         }
     }
 }

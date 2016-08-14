@@ -26,7 +26,13 @@ namespace MySQLDatabaseAccess
         public static string getUserNameFromConnectionString(string cstring)
         {
             int useridindexstart = cstring.IndexOf("user id=") + 8;
+                if(useridindexstart == -1 )
+                {
+                    return null;
+                }
             int useridindexend = cstring.IndexOf(";", useridindexstart);
+            if (useridindexend == -1)
+                useridindexend = cstring.Length;
             return cstring.Substring(useridindexstart, useridindexend - useridindexstart);
         }
 
