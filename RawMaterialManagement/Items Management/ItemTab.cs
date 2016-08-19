@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data;
+using MySQLDatabaseAccess;
 
 namespace RawMaterialManagement.Items_Management
 {
@@ -60,7 +61,8 @@ namespace RawMaterialManagement.Items_Management
 
             itemAdapter.DeleteCommand = deleteCommand;
 
-            itemAdapter.Fill(itemDataset,"raw_item_tab");
+            Populate();
+            
             itemBindingSource.DataSource = itemDataset.Tables["raw_item_tab"];
             dataGridView1.DataSource = itemBindingSource;  
         }
@@ -70,8 +72,9 @@ namespace RawMaterialManagement.Items_Management
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
-            if (e.CloseReason == CloseReason.WindowsShutDown) return;
 
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+            itemBindingSource.EndEdit();
             if (itemDataset.HasChanges())
             {
                 switch (MessageBox.Show(this, "Do you want to save your changes?", "Closing", MessageBoxButtons.YesNoCancel))
@@ -96,7 +99,8 @@ namespace RawMaterialManagement.Items_Management
             try
             {
                 this.Validate();
-                itemAdapter.Update(itemDataset);
+                itemBindingSource.EndEdit();
+                itemAdapter.Update(itemDataset.Tables["raw_item_tab"]);
                 Populate();
                 MessageBox.Show("Saved");
             }
@@ -123,7 +127,7 @@ namespace RawMaterialManagement.Items_Management
             try
             {
                 itemDataset.Clear();
-                itemAdapter.Fill(itemDataset);
+                itemAdapter.Fill(itemDataset, "raw_item_tab");
             }
             catch (Exception ex)
             {

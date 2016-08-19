@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data;
-using Explorer.Utility;
+
 using RawMaterialManagement.Supplier_Management;
 using RawMaterialManagement.Invoice_Management;
 using RawMaterialManagement.Items_Management;
@@ -22,6 +22,8 @@ using SalesManagement;
 using RawMaterialManagement;
 using DistributionManagement;
 using ProductProcessManagement;
+using MySQLDatabaseAccess;
+using UserManagement;
 
 namespace Explorer
 {
@@ -30,83 +32,71 @@ namespace Explorer
 
         private MySqlConnection con;
 
+        //private Form[] formCollection = new Form[5];
+        Stack<Form> fc = new Stack<Form>();
+
         public ExplorerForm()
         {
             InitializeComponent();
-            con = ConnectionManager.getConnection();
+            con = Connection.getConnection();
+
+            try
+            {
+                con.Open();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         #region methods
 
+        protected override void OnMdiChildActivate(EventArgs e)
+        {
+            base.OnMdiChildActivate(e);
+            if (ActiveMdiChild != null)
+                label1.Text = ActiveMdiChild.Text;
+        }
+
         public void loadForm(Form childForm)
         {
-            if (ActiveMdiChild != null)
+            while (ActiveMdiChild != null)
+            {
                 ActiveMdiChild.Close();
-            childForm.BackColor = Color.White;
-            childForm.ControlBox = false;
-            childForm.MdiParent = this;
-            childForm.WindowState = FormWindowState.Maximized;
-            childForm.AutoScroll = true;
-            childForm.Show();
-            label1.Text = childForm.Text;
-            if (menuStripMain.Items.Count == 0)
-                menuStripMain.Hide();
+            }
+                childForm.BackColor = Color.White;
+                childForm.ControlBox = false;
+                childForm.MdiParent = this;
+                childForm.WindowState = FormWindowState.Maximized;
+                childForm.AutoScroll = true;
+                childForm.Show();
+                //label1.Text = childForm.Text;
+                if (menuStripMain.Items.Count == 0)
+                    menuStripMain.Hide();
+                else
+                    menuStripMain.Show();
+
+        }
+
+        private void ToggleNavigator()
+        {
+            if (panelSettings.Visible)
+                panelSettings.Hide();
             else
-                menuStripMain.Show();
+                panelSettings.Show();
         }
-
-
-        private string getUserNameFromConnectionString(string cstring)
-        {
-            int useridindexstart = cstring.IndexOf("user id=")+8;
-            int useridindexend = cstring.IndexOf(";",useridindexstart);
-            return cstring.Substring(useridindexstart, useridindexend - useridindexstart);
-        }
-
-        private string getServerFromConnectionString(string cstring)
-        {
-            int useridindexstart = cstring.IndexOf("server=")+7;
-            int useridindexend = cstring.IndexOf(";",useridindexstart);
-            return cstring.Substring(useridindexstart, useridindexend - useridindexstart);
-        }
-
 
         private void ExplorerForm_Load(object sender, EventArgs e)
         {
-            toolStripUser.Text = getUserNameFromConnectionString(con.ConnectionString);
-            toolStripStatusLabel.Text = "Connected to : " + getServerFromConnectionString(con.ConnectionString);
+            toolStripUser.Text = Connection.getUserNameFromConnectionString(con.ConnectionString);
+            toolStripStatusLabel.Text = "Connected to : " + Connection.getServerFromConnectionString(con.ConnectionString);
             loadForm(new frmStartup());
         }
 
         #endregion
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            if (Properties.Settings.Default.NavigatorVisible)
-                Properties.Settings.Default.NavigatorVisible = false;
-            else
-                Properties.Settings.Default.NavigatorVisible = true;
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void leftToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.menuDockMode = DockStyle.Left;
-        }
-
-        private void topToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.menuDockMode = DockStyle.Top;
-        }
-
-        private void rightToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.menuDockMode = DockStyle.Right;
-        }
 
         #region navigation
 
@@ -122,12 +112,12 @@ namespace Explorer
 
         private void btnItems_Click_1(object sender, EventArgs e)
         {
-            loadForm(new ItemTab());
+            loadForm(new ManageItem());
         }
 
         private void btnSupplier_Click(object sender, EventArgs e)
         {
-            loadForm(new SupplierTab());
+            loadForm(new ManageSupplier());
         }
 
         private void btnOrderDetails_Click(object sender, EventArgs e)
@@ -142,12 +132,12 @@ namespace Explorer
 
         private void btnInvoiceTab_Click(object sender, EventArgs e)
         {
-            loadForm(new InvoiceTab());
+            loadForm(new ManageInvoice());
         }
 
         private void btnOrderTab_Click(object sender, EventArgs e)
         {
-            loadForm(new OrderTab());
+            loadForm(new ManagePurchaseOrder());
         }
 
         private void toolStripMenuItemHome_Click(object sender, EventArgs e)
@@ -311,6 +301,8 @@ namespace Explorer
 
         #endregion
 
+        #region Events
+
         private void button21_Click(object sender, EventArgs e)
         {
             loadForm(new productRequets());
@@ -336,6 +328,62 @@ namespace Explorer
             loadForm(new paymentInfo());
         }
 
+        private void button25_Click(object sender, EventArgs e)
+        {
+            loadForm(new ManageUser());
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            loadForm(new Manage_Roles());
+        }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            ToggleNavigator();
+        }
+
+        private void panelNavigation_Leave(object sender, EventArgs e)
+        {
+            //panelNavigation.Hide();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.NavigatorVisible)
+                Properties.Settings.Default.NavigatorVisible = false;
+            else
+                Properties.Settings.Default.NavigatorVisible = true;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void leftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.menuDockMode = DockStyle.Left;
+        }
+
+        private void topToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.menuDockMode = DockStyle.Top;
+        }
+
+        private void rightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.menuDockMode = DockStyle.Right;
+        }
+
+        #endregion
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            Form form = fc.Pop();
+            if(form != null)
+                loadForm(form);
+        }
     }
 
         

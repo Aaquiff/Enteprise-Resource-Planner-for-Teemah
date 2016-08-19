@@ -32,12 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemTab));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.colsItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colsItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colsDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +39,12 @@
             this.colUnitOfMeasure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colItemCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -87,9 +87,53 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1179, 548);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // colsItemId
+            // 
+            this.colsItemId.DataPropertyName = "item_id";
+            this.colsItemId.HeaderText = "Item Id";
+            this.colsItemId.Name = "colsItemId";
+            this.colsItemId.ReadOnly = true;
+            // 
+            // colsItemName
+            // 
+            this.colsItemName.DataPropertyName = "name";
+            this.colsItemName.HeaderText = "Item Name";
+            this.colsItemName.Name = "colsItemName";
+            // 
+            // colsDescription
+            // 
+            this.colsDescription.DataPropertyName = "description";
+            this.colsDescription.HeaderText = "Description";
+            this.colsDescription.Name = "colsDescription";
+            // 
+            // colStockLevel
+            // 
+            this.colStockLevel.DataPropertyName = "stock_level";
+            this.colStockLevel.HeaderText = "Stock Level";
+            this.colStockLevel.Name = "colStockLevel";
+            // 
+            // colUnitOfMeasure
+            // 
+            this.colUnitOfMeasure.DataPropertyName = "unit_of_measure";
+            this.colUnitOfMeasure.HeaderText = "Unit Of Measure";
+            this.colUnitOfMeasure.Name = "colUnitOfMeasure";
+            // 
+            // colItemCategory
+            // 
+            this.colItemCategory.DataPropertyName = "item_category";
+            this.colItemCategory.HeaderText = "Item Category";
+            this.colItemCategory.Name = "colItemCategory";
+            // 
+            // colBarcode
+            // 
+            this.colBarcode.DataPropertyName = "bar_code";
+            this.colBarcode.HeaderText = "Bar Code";
+            this.colBarcode.Name = "colBarcode";
             // 
             // menuStrip1
             // 
@@ -168,49 +212,6 @@
             this.toolStripMenuItem4.Text = "Search";
             this.toolStripMenuItem4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
-            // 
-            // colsItemId
-            // 
-            this.colsItemId.DataPropertyName = "item_id";
-            this.colsItemId.HeaderText = "Item Id";
-            this.colsItemId.Name = "colsItemId";
-            this.colsItemId.ReadOnly = true;
-            // 
-            // colsItemName
-            // 
-            this.colsItemName.DataPropertyName = "name";
-            this.colsItemName.HeaderText = "Item Name";
-            this.colsItemName.Name = "colsItemName";
-            // 
-            // colsDescription
-            // 
-            this.colsDescription.DataPropertyName = "description";
-            this.colsDescription.HeaderText = "Description";
-            this.colsDescription.Name = "colsDescription";
-            // 
-            // colStockLevel
-            // 
-            this.colStockLevel.DataPropertyName = "stock_level";
-            this.colStockLevel.HeaderText = "Stock Level";
-            this.colStockLevel.Name = "colStockLevel";
-            // 
-            // colUnitOfMeasure
-            // 
-            this.colUnitOfMeasure.DataPropertyName = "unit_of_measure";
-            this.colUnitOfMeasure.HeaderText = "Unit Of Measure";
-            this.colUnitOfMeasure.Name = "colUnitOfMeasure";
-            // 
-            // colItemCategory
-            // 
-            this.colItemCategory.DataPropertyName = "item_category";
-            this.colItemCategory.HeaderText = "Item Category";
-            this.colItemCategory.Name = "colItemCategory";
-            // 
-            // colBarcode
-            // 
-            this.colBarcode.DataPropertyName = "bar_code";
-            this.colBarcode.HeaderText = "Bar Code";
-            this.colBarcode.Name = "colBarcode";
             // 
             // ItemTab
             // 

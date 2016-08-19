@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data;
+using MySQLDatabaseAccess;
 
 namespace RawMaterialManagement.Supplier_Management
 {
@@ -52,8 +53,9 @@ namespace RawMaterialManagement.Supplier_Management
 
             supplierAdapter.DeleteCommand = deleteCommand;
 
-            supplierAdapter.Fill(supplierDataSet);
-            supplierBindingSource.DataSource = supplierDataSet.Tables[0];
+            Populate();
+
+            supplierBindingSource.DataSource = supplierDataSet.Tables["raw_supplier_tab"];
             dataGridView1.DataSource = supplierBindingSource;  
         }
 
@@ -61,7 +63,7 @@ namespace RawMaterialManagement.Supplier_Management
         {
             base.OnFormClosing(e);
             if (e.CloseReason == CloseReason.WindowsShutDown) return;
-
+            supplierBindingSource.EndEdit();
             if (supplierDataSet.HasChanges())
             {
                 switch (MessageBox.Show(this, "Do you want to save your changes?", "Closing", MessageBoxButtons.YesNoCancel))
@@ -86,7 +88,8 @@ namespace RawMaterialManagement.Supplier_Management
             try
             {
                 this.Validate();
-                supplierAdapter.Update(supplierDataSet);
+                supplierBindingSource.EndEdit();
+                supplierAdapter.Update(supplierDataSet.Tables["raw_supplier_tab"]);
                 Populate();
                 MessageBox.Show("Saved");
             }
@@ -113,7 +116,7 @@ namespace RawMaterialManagement.Supplier_Management
             try
             {
                 supplierDataSet.Clear();
-                supplierAdapter.Fill(supplierDataSet);
+                supplierAdapter.Fill(supplierDataSet,"raw_supplier_tab");
             }
             catch (Exception ex)
             {

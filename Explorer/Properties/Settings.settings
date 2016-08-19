@@ -17,13 +17,13 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="menuDockMode" Type="System.Windows.Forms.DockStyle" Scope="User">
-      <Value Profile="(Default)">Top</Value>
+      <Value Profile="(Default)">Left</Value>
     </Setting>
     <Setting Name="ThemeBackColor" Type="System.Drawing.Color" Scope="Application">
-      <Value Profile="(Default)">DarkOrchid</Value>
+      <Value Profile="(Default)">OliveDrab</Value>
     </Setting>
     <Setting Name="ThemeForeColor" Type="System.Drawing.Color" Scope="Application">
-      <Value Profile="(Default)">WhiteSmoke</Value>
+      <Value Profile="(Default)">Black</Value>
     </Setting>
     <Setting Name="Setting" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

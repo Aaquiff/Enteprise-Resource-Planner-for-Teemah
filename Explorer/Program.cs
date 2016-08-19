@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySQLDatabaseAccess;
+using MySql.Data.MySqlClient;
 
 namespace Explorer
 {
@@ -16,7 +18,24 @@ namespace Explorer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ExplorerForm());
+
+            MySqlConnection con = Connection.getConnection();
+            
+            try
+            {
+                con.Open();
+                Application.Run(new ExplorerForm());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Application.Exit();
+            }
+            finally
+            {
+                con.Close();
+            }
+                
         }
     }
 }

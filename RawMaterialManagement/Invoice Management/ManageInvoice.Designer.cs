@@ -1,6 +1,6 @@
-﻿namespace Explorer
+﻿namespace RawMaterialManagement.Invoice_Management
 {
-    partial class frmStartup
+    partial class ManageInvoice
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // frmStartup
+            // dataAdapter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1287, 615);
-            this.ControlBox = false;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "frmStartup";
-            this.Text = "Home";
+            this.dataAdapter.DeleteCommand = null;
+            this.dataAdapter.InsertCommand = null;
+            this.dataAdapter.SelectCommand = null;
+            this.dataAdapter.UpdateCommand = null;
+            // 
+            // ManageInvoice
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.ClientSize = new System.Drawing.Size(930, 371);
+            this.Name = "ManageInvoice";
+            this.Text = "Manage Invoice";
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-
-
 
     }
 }

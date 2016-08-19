@@ -49,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection.cs" />
     <Compile Include="Invoice Management\InvoiceDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,12 +61,24 @@
     <Compile Include="Invoice Management\InvoiceTab.Designer.cs">
       <DependentUpon>InvoiceTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Invoice Management\ManageInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice Management\ManageInvoice.Designer.cs">
+      <DependentUpon>ManageInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Items Management\DBItems.cs" />
     <Compile Include="Items Management\dlgSearchItem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Items Management\dlgSearchItem.Designer.cs">
       <DependentUpon>dlgSearchItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items Management\ManageItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Items Management\ManageItem.Designer.cs">
+      <DependentUpon>ManageItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Order Management\AddOrder.cs">
       <SubType>Form</SubType>
@@ -86,6 +97,12 @@
     </Compile>
     <Compile Include="Order Management\dlgChooseSupplier.Designer.cs">
       <DependentUpon>dlgChooseSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order Management\ManagePurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order Management\ManagePurchaseOrder.Designer.cs">
+      <DependentUpon>ManagePurchaseOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Order Management\OrderDetail.cs">
       <SubType>Form</SubType>
@@ -121,6 +138,12 @@
     <Compile Include="RawMaterialDashBoard.Designer.cs">
       <DependentUpon>RawMaterialDashBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Supplier Management\ManageSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supplier Management\ManageSupplier.Designer.cs">
+      <DependentUpon>ManageSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Supplier Management\SupplierTab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,8 +156,14 @@
     <EmbeddedResource Include="Invoice Management\InvoiceTab.resx">
       <DependentUpon>InvoiceTab.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Invoice Management\ManageInvoice.resx">
+      <DependentUpon>ManageInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Items Management\dlgSearchItem.resx">
       <DependentUpon>dlgSearchItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items Management\ManageItem.resx">
+      <DependentUpon>ManageItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order Management\AddOrder.resx">
       <DependentUpon>AddOrder.cs</DependentUpon>
@@ -144,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Order Management\dlgChooseSupplier.resx">
       <DependentUpon>dlgChooseSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order Management\ManagePurchaseOrder.resx">
+      <DependentUpon>ManagePurchaseOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order Management\OrderDetail.resx">
       <DependentUpon>OrderDetail.cs</DependentUpon>
@@ -167,6 +199,9 @@
     <EmbeddedResource Include="RawMaterialDashBoard.resx">
       <DependentUpon>RawMaterialDashBoard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Supplier Management\ManageSupplier.resx">
+      <DependentUpon>ManageSupplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Supplier Management\SupplierTab.resx">
       <DependentUpon>SupplierTab.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +222,10 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FrameworkControls\FrameworkControls.csproj">
+      <Project>{7079DC71-6B90-47A7-BB0F-B061F6861D37}</Project>
+      <Name>FrameworkControls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MySQLDatabaseAccess\MySQLDatabaseAccess.csproj">
       <Project>{7a1f3ab0-c5e3-4234-a9d5-d15ef65714b0}</Project>
       <Name>MySQLDatabaseAccess</Name>

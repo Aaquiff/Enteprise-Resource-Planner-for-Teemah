@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data;
+using MySQLDatabaseAccess;
+using FrameworkControls.Dialogs;
 
 namespace RawMaterialManagement.Order_Management
 {
@@ -23,16 +25,20 @@ namespace RawMaterialManagement.Order_Management
         public OrderDetail()
         {
             InitializeComponent();
-            con = MySQLDatabaseAccess.Connection.getConnection();
-            PopulateOrder(null);            
+            con = Connection.getConnection();
+            PopulateOrder();            
         }
 
         public OrderDetail(string orderid)
         {
             InitializeComponent();
-            //con = Connection.getConnection();
-            //orderAdapter = new MySqlDataAdapter("select * from raw_purchase_order_tab where order_id = '" + orderid + "'", con);
-            PopulateOrder("select * from raw_purchase_order where order_id = '" + orderid + "'");
+            con = Connection.getConnection();
+
+            MySqlCommand sc = new MySqlCommand("select * from raw_purchase_order where order_id = @order_id",con);
+            sc.Parameters.AddWithValue("@order_id", orderid);
+            MySqlDataAdapter ada = new MySqlDataAdapter(sc);
+            rawDataSet.Clear();
+            ada.Fill(rawDataSet.raw_purchase_order);
 
             splitContainerMain.Panel1Collapsed = true;
             splitContainerMain.Panel1.Hide();   
@@ -70,9 +76,11 @@ namespace RawMaterialManagement.Order_Management
             {
                 this.Validate();
                 rawpurchaseorderBindingSource.EndEdit();
-                
+                fKrawpurchaseorderraworderlineBindingSource.EndEdit();
+
                 raw_purchase_orderTableAdapter.Update(rawDataSet.raw_purchase_order);
-                raw_order_lineTableAdapter.Adapter.Update(rawDataSet.raw_order_line);
+                //raw_order_lineTableAdapter.Adapter.Update(rawDataSet.raw_order_line);
+                raw_order_lineTableAdapter.Update(rawDataSet.raw_order_line);
                 MessageBox.Show("Saved");
             }
             catch (MySqlException ex)
@@ -93,7 +101,7 @@ namespace RawMaterialManagement.Order_Management
             }
         }
 
-        private void PopulateOrder(string query)
+        private void PopulateOrder()
         {
             try
             {
@@ -103,6 +111,9 @@ namespace RawMaterialManagement.Order_Management
                 // TODO: This line of code loads data into the 'rawDataSet.raw_purchase_order' table. You can move, or remove it, as needed.
                 this.raw_order_lineTableAdapter.Connection = con;
                 this.raw_purchase_orderTableAdapter.Fill(this.rawDataSet.raw_purchase_order);
+
+                splitContainerMain.Panel1Collapsed = false;
+                splitContainerMain.Panel1.Show();
             }
             catch (Exception ex)
             {
@@ -143,7 +154,7 @@ namespace RawMaterialManagement.Order_Management
 
         private void AddOrderItem()
         {
-            dlgChooseItem dlg = new dlgChooseItem();
+            /*dlgChooseItem dlg = new dlgChooseItem();
             dlg.ShowDialog(this);
             if (dlg.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
@@ -159,6 +170,21 @@ namespace RawMaterialManagement.Order_Management
                 row.Row.SetField("quantity", quantity);
                 row.Row.SetField("item_name", name);
                 row.Row.SetField("unit_of_measure", unitOfMeasure);
+            }*/
+
+            MySqlCommand sc = new MySqlCommand("select * from raw_item_tab", con);
+            LOV lov = new LOV(sc);
+            lov.Text = "Choose Item";
+            lov.ShowDialog();
+            if (lov.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                DataRowView r = lov.selectedRow;
+                string itemId = r.Row.ItemArray[0].ToString();
+                string itemName = r.Row.ItemArray[1].ToString();
+
+                DataRowView row = fKrawpurchaseorderraworderlineBindingSource.AddNew() as DataRowView;
+                row.Row.SetField("item_id", itemId);
+                row.Row.SetField("item_name", itemName);
             }
         }
 
@@ -177,12 +203,24 @@ namespace RawMaterialManagement.Order_Management
 
         private void ChooseSupplier()
         {
-            dlgChooseSupplier dlg = new dlgChooseSupplier();
+            /*dlgChooseSupplier dlg = new dlgChooseSupplier();
             dlg.ShowDialog();
             if(dlg.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
                 txtSupplierId.Text = dlg.SupplierId;
                 txtSupplierName.Text = dlg.SupplierName;
+            }*/
+            MySqlCommand sc = new MySqlCommand("select * from raw_supplier_tab", con);
+            LOV lov = new LOV(sc);
+            lov.Text = "Choose Supplier";
+            lov.ShowDialog();
+            if (lov.DialogResult == DialogResult.OK)
+            {
+                DataRowView row = lov.selectedRow;
+                string supplierId = row.Row.ItemArray[0].ToString();
+                string supplierName = row.Row.ItemArray[1].ToString();
+                txtSupplierId.Text = supplierId;
+                txtSupplierName.Text = supplierName;
             }
         }
 
@@ -191,10 +229,20 @@ namespace RawMaterialManagement.Order_Management
             try
             {
                 raw_purchase_orderTableAdapter.raw_change_order_status(txtOrderId.Text, "Approved", MySQLDatabaseAccess.Connection.getUserNameFromConnectionString(con.ConnectionString));
+
+                MessageBox.Show("Order Approved");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                if (ex.HResult == -2147467259)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show(ex.HResult.ToString());
+                }
+                
             }
         }
 
@@ -226,7 +274,7 @@ namespace RawMaterialManagement.Order_Management
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            PopulateOrder(null);
+            PopulateOrder();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -248,8 +296,6 @@ namespace RawMaterialManagement.Order_Management
         {
             AddOrderItem();
         }
-
-        #endregion      
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -280,5 +326,8 @@ namespace RawMaterialManagement.Order_Management
         {
             CancelOrder();
         }
+
+        #endregion      
+
     }
 }

@@ -132,6 +132,16 @@
   <ItemGroup>
     <Folder Include="Sales Records\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FrameworkControls\FrameworkControls.csproj">
+      <Project>{7079DC71-6B90-47A7-BB0F-B061F6861D37}</Project>
+      <Name>FrameworkControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySQLDatabaseAccess\MySQLDatabaseAccess.csproj">
+      <Project>{7A1F3AB0-C5E3-4234-A9D5-D15EF65714B0}</Project>
+      <Name>MySQLDatabaseAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

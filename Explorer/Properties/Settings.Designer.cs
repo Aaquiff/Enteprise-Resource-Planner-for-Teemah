@@ -56,7 +56,7 @@ namespace Explorer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Top")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Left")]
         public global::System.Windows.Forms.DockStyle menuDockMode {
             get {
                 return ((global::System.Windows.Forms.DockStyle)(this["menuDockMode"]));
@@ -68,7 +68,7 @@ namespace Explorer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DarkOrchid")]
+        [global::System.Configuration.DefaultSettingValueAttribute("OliveDrab")]
         public global::System.Drawing.Color ThemeBackColor {
             get {
                 return ((global::System.Drawing.Color)(this["ThemeBackColor"]));
@@ -77,7 +77,7 @@ namespace Explorer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("WhiteSmoke")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
         public global::System.Drawing.Color ThemeForeColor {
             get {
                 return ((global::System.Drawing.Color)(this["ThemeForeColor"]));

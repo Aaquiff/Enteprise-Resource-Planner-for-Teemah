@@ -32,6 +32,8 @@ namespace RawMaterialManagement {
         
         private raw_supplier_tabDataTable tableraw_supplier_tab;
         
+        private raw_invoice_tabDataTable tableraw_invoice_tab;
+        
         private global::System.Data.DataRelation relationFK_raw_purchase_order_raw_order_line;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
@@ -73,6 +75,9 @@ namespace RawMaterialManagement {
                 }
                 if ((ds.Tables["raw_supplier_tab"] != null)) {
                     base.Tables.Add(new raw_supplier_tabDataTable(ds.Tables["raw_supplier_tab"]));
+                }
+                if ((ds.Tables["raw_invoice_tab"] != null)) {
+                    base.Tables.Add(new raw_invoice_tabDataTable(ds.Tables["raw_invoice_tab"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -129,6 +134,16 @@ namespace RawMaterialManagement {
         public raw_supplier_tabDataTable raw_supplier_tab {
             get {
                 return this.tableraw_supplier_tab;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public raw_invoice_tabDataTable raw_invoice_tab {
+            get {
+                return this.tableraw_invoice_tab;
             }
         }
         
@@ -211,6 +226,9 @@ namespace RawMaterialManagement {
                 if ((ds.Tables["raw_supplier_tab"] != null)) {
                     base.Tables.Add(new raw_supplier_tabDataTable(ds.Tables["raw_supplier_tab"]));
                 }
+                if ((ds.Tables["raw_invoice_tab"] != null)) {
+                    base.Tables.Add(new raw_invoice_tabDataTable(ds.Tables["raw_invoice_tab"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -268,6 +286,12 @@ namespace RawMaterialManagement {
                     this.tableraw_supplier_tab.InitVars();
                 }
             }
+            this.tableraw_invoice_tab = ((raw_invoice_tabDataTable)(base.Tables["raw_invoice_tab"]));
+            if ((initTable == true)) {
+                if ((this.tableraw_invoice_tab != null)) {
+                    this.tableraw_invoice_tab.InitVars();
+                }
+            }
             this.relationFK_raw_purchase_order_raw_order_line = this.Relations["FK_raw_purchase_order_raw_order_line"];
         }
         
@@ -287,6 +311,8 @@ namespace RawMaterialManagement {
             base.Tables.Add(this.tableraw_item_tab);
             this.tableraw_supplier_tab = new raw_supplier_tabDataTable();
             base.Tables.Add(this.tableraw_supplier_tab);
+            this.tableraw_invoice_tab = new raw_invoice_tabDataTable();
+            base.Tables.Add(this.tableraw_invoice_tab);
             this.relationFK_raw_purchase_order_raw_order_line = new global::System.Data.DataRelation("FK_raw_purchase_order_raw_order_line", new global::System.Data.DataColumn[] {
                         this.tableraw_purchase_order.order_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableraw_order_line.order_idColumn}, false);
@@ -315,6 +341,12 @@ namespace RawMaterialManagement {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeraw_supplier_tab() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeraw_invoice_tab() {
             return false;
         }
         
@@ -384,6 +416,9 @@ namespace RawMaterialManagement {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void raw_supplier_tabRowChangeEventHandler(object sender, raw_supplier_tabRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void raw_invoice_tabRowChangeEventHandler(object sender, raw_invoice_tabRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1837,6 +1872,418 @@ namespace RawMaterialManagement {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class raw_invoice_tabDataTable : global::System.Data.TypedTableBase<raw_invoice_tabRow> {
+            
+            private global::System.Data.DataColumn columninvoice_id;
+            
+            private global::System.Data.DataColumn columnorder_id;
+            
+            private global::System.Data.DataColumn columnstatus;
+            
+            private global::System.Data.DataColumn columndate;
+            
+            private global::System.Data.DataColumn columndue_date;
+            
+            private global::System.Data.DataColumn columnoriginal_due_date;
+            
+            private global::System.Data.DataColumn columnnet_value;
+            
+            private global::System.Data.DataColumn columntax_value;
+            
+            private global::System.Data.DataColumn columngross_value;
+            
+            private global::System.Data.DataColumn columndiscount;
+            
+            private global::System.Data.DataColumn columncurrency;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public raw_invoice_tabDataTable() {
+                this.TableName = "raw_invoice_tab";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal raw_invoice_tabDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected raw_invoice_tabDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn invoice_idColumn {
+                get {
+                    return this.columninvoice_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn order_idColumn {
+                get {
+                    return this.columnorder_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn statusColumn {
+                get {
+                    return this.columnstatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn dateColumn {
+                get {
+                    return this.columndate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn due_dateColumn {
+                get {
+                    return this.columndue_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn original_due_dateColumn {
+                get {
+                    return this.columnoriginal_due_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn net_valueColumn {
+                get {
+                    return this.columnnet_value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn tax_valueColumn {
+                get {
+                    return this.columntax_value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn gross_valueColumn {
+                get {
+                    return this.columngross_value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn discountColumn {
+                get {
+                    return this.columndiscount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn currencyColumn {
+                get {
+                    return this.columncurrency;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public raw_invoice_tabRow this[int index] {
+                get {
+                    return ((raw_invoice_tabRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event raw_invoice_tabRowChangeEventHandler raw_invoice_tabRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event raw_invoice_tabRowChangeEventHandler raw_invoice_tabRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event raw_invoice_tabRowChangeEventHandler raw_invoice_tabRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event raw_invoice_tabRowChangeEventHandler raw_invoice_tabRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Addraw_invoice_tabRow(raw_invoice_tabRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public raw_invoice_tabRow Addraw_invoice_tabRow(string invoice_id, string order_id, string status, System.DateTime date, System.DateTime due_date, System.DateTime original_due_date, double net_value, double tax_value, double gross_value, int discount, string currency) {
+                raw_invoice_tabRow rowraw_invoice_tabRow = ((raw_invoice_tabRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        invoice_id,
+                        order_id,
+                        status,
+                        date,
+                        due_date,
+                        original_due_date,
+                        net_value,
+                        tax_value,
+                        gross_value,
+                        discount,
+                        currency};
+                rowraw_invoice_tabRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowraw_invoice_tabRow);
+                return rowraw_invoice_tabRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public raw_invoice_tabRow FindByinvoice_id(string invoice_id) {
+                return ((raw_invoice_tabRow)(this.Rows.Find(new object[] {
+                            invoice_id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                raw_invoice_tabDataTable cln = ((raw_invoice_tabDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new raw_invoice_tabDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columninvoice_id = base.Columns["invoice_id"];
+                this.columnorder_id = base.Columns["order_id"];
+                this.columnstatus = base.Columns["status"];
+                this.columndate = base.Columns["date"];
+                this.columndue_date = base.Columns["due_date"];
+                this.columnoriginal_due_date = base.Columns["original_due_date"];
+                this.columnnet_value = base.Columns["net_value"];
+                this.columntax_value = base.Columns["tax_value"];
+                this.columngross_value = base.Columns["gross_value"];
+                this.columndiscount = base.Columns["discount"];
+                this.columncurrency = base.Columns["currency"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columninvoice_id = new global::System.Data.DataColumn("invoice_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninvoice_id);
+                this.columnorder_id = new global::System.Data.DataColumn("order_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnorder_id);
+                this.columnstatus = new global::System.Data.DataColumn("status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstatus);
+                this.columndate = new global::System.Data.DataColumn("date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndate);
+                this.columndue_date = new global::System.Data.DataColumn("due_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndue_date);
+                this.columnoriginal_due_date = new global::System.Data.DataColumn("original_due_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnoriginal_due_date);
+                this.columnnet_value = new global::System.Data.DataColumn("net_value", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnet_value);
+                this.columntax_value = new global::System.Data.DataColumn("tax_value", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntax_value);
+                this.columngross_value = new global::System.Data.DataColumn("gross_value", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngross_value);
+                this.columndiscount = new global::System.Data.DataColumn("discount", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndiscount);
+                this.columncurrency = new global::System.Data.DataColumn("currency", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncurrency);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columninvoice_id}, true));
+                this.columninvoice_id.AllowDBNull = false;
+                this.columninvoice_id.Unique = true;
+                this.columninvoice_id.MaxLength = 200;
+                this.columnorder_id.AllowDBNull = false;
+                this.columnorder_id.MaxLength = 200;
+                this.columnstatus.AllowDBNull = false;
+                this.columnstatus.MaxLength = 200;
+                this.columndate.AllowDBNull = false;
+                this.columndue_date.AllowDBNull = false;
+                this.columnoriginal_due_date.AllowDBNull = false;
+                this.columnnet_value.AllowDBNull = false;
+                this.columntax_value.AllowDBNull = false;
+                this.columngross_value.AllowDBNull = false;
+                this.columndiscount.AllowDBNull = false;
+                this.columncurrency.AllowDBNull = false;
+                this.columncurrency.MaxLength = 200;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public raw_invoice_tabRow Newraw_invoice_tabRow() {
+                return ((raw_invoice_tabRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new raw_invoice_tabRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(raw_invoice_tabRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.raw_invoice_tabRowChanged != null)) {
+                    this.raw_invoice_tabRowChanged(this, new raw_invoice_tabRowChangeEvent(((raw_invoice_tabRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.raw_invoice_tabRowChanging != null)) {
+                    this.raw_invoice_tabRowChanging(this, new raw_invoice_tabRowChangeEvent(((raw_invoice_tabRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.raw_invoice_tabRowDeleted != null)) {
+                    this.raw_invoice_tabRowDeleted(this, new raw_invoice_tabRowChangeEvent(((raw_invoice_tabRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.raw_invoice_tabRowDeleting != null)) {
+                    this.raw_invoice_tabRowDeleting(this, new raw_invoice_tabRowChangeEvent(((raw_invoice_tabRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Removeraw_invoice_tabRow(raw_invoice_tabRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                RawDataSet ds = new RawDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "raw_invoice_tabDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class raw_order_lineRow : global::System.Data.DataRow {
@@ -2430,6 +2877,142 @@ namespace RawMaterialManagement {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class raw_invoice_tabRow : global::System.Data.DataRow {
+            
+            private raw_invoice_tabDataTable tableraw_invoice_tab;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal raw_invoice_tabRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableraw_invoice_tab = ((raw_invoice_tabDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string invoice_id {
+                get {
+                    return ((string)(this[this.tableraw_invoice_tab.invoice_idColumn]));
+                }
+                set {
+                    this[this.tableraw_invoice_tab.invoice_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string order_id {
+                get {
+                    return ((string)(this[this.tableraw_invoice_tab.order_idColumn]));
+                }
+                set {
+                    this[this.tableraw_invoice_tab.order_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string status {
+                get {
+                    return ((string)(this[this.tableraw_invoice_tab.statusColumn]));
+                }
+                set {
+                    this[this.tableraw_invoice_tab.statusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime date {
+                get {
+                    return ((global::System.DateTime)(this[this.tableraw_invoice_tab.dateColumn]));
+                }
+                set {
+                    this[this.tableraw_invoice_tab.dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime due_date {
+                get {
+                    return ((global::System.DateTime)(this[this.tableraw_invoice_tab.due_dateColumn]));
+                }
+                set {
+                    this[this.tableraw_invoice_tab.due_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime original_due_date {
+                get {
+                    return ((global::System.DateTime)(this[this.tableraw_invoice_tab.original_due_dateColumn]));
+                }
+                set {
+                    this[this.tableraw_invoice_tab.original_due_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double net_value {
+                get {
+                    return ((double)(this[this.tableraw_invoice_tab.net_valueColumn]));
+                }
+                set {
+                    this[this.tableraw_invoice_tab.net_valueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double tax_value {
+                get {
+                    return ((double)(this[this.tableraw_invoice_tab.tax_valueColumn]));
+                }
+                set {
+                    this[this.tableraw_invoice_tab.tax_valueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double gross_value {
+                get {
+                    return ((double)(this[this.tableraw_invoice_tab.gross_valueColumn]));
+                }
+                set {
+                    this[this.tableraw_invoice_tab.gross_valueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int discount {
+                get {
+                    return ((int)(this[this.tableraw_invoice_tab.discountColumn]));
+                }
+                set {
+                    this[this.tableraw_invoice_tab.discountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string currency {
+                get {
+                    return ((string)(this[this.tableraw_invoice_tab.currencyColumn]));
+                }
+                set {
+                    this[this.tableraw_invoice_tab.currencyColumn] = value;
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2551,6 +3134,40 @@ namespace RawMaterialManagement {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public raw_supplier_tabRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class raw_invoice_tabRowChangeEvent : global::System.EventArgs {
+            
+            private raw_invoice_tabRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public raw_invoice_tabRowChangeEvent(raw_invoice_tabRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public raw_invoice_tabRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2700,36 +3317,29 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO raw_order_line_tab\r\n                         (order_id, item_id, unit" +
-                "_price, quantity)\r\nVALUES        (@order_id, @item_id, @unit_price, @quantity)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.CommandText = "raw_insert_order_line";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@order_id";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 200;
+            param.ParameterName = "order_id_";
             param.IsNullable = true;
             param.SourceColumn = "order_id";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@item_id";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 200;
+            param.ParameterName = "item_id_";
             param.IsNullable = true;
             param.SourceColumn = "item_id";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@unit_price";
-            param.DbType = global::System.Data.DbType.Decimal;
+            param.ParameterName = "unit_price_";
+            param.DbType = global::System.Data.DbType.Double;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
             param.SourceColumn = "unit_price";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@quantity";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
+            param.ParameterName = "quantity_";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "quantity";
             this._adapter.InsertCommand.Parameters.Add(param);
@@ -2991,8 +3601,8 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO raw_purchase_order_tab\r\n                         (order_id, creation_" +
                 "date, creator, status, shipping_address, supplier_id, discount)\r\nVALUES        (" +
-                "@order_id, @creation_date, @creator, @status, @shipping_address, @supplier_id, @" +
-                "discount)";
+                "@order_id, CURDATE(), @creator, @status, @shipping_address, @supplier_id, @disco" +
+                "unt)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@order_id";
@@ -3001,13 +3611,6 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
             param.Size = 200;
             param.IsNullable = true;
             param.SourceColumn = "order_id";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@creation_date";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
-            param.IsNullable = true;
-            param.SourceColumn = "creation_date";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@creator";
@@ -4529,6 +5132,480 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class raw_invoice_tabTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public raw_invoice_tabTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "raw_invoice_tab";
+            tableMapping.ColumnMappings.Add("invoice_id", "invoice_id");
+            tableMapping.ColumnMappings.Add("order_id", "order_id");
+            tableMapping.ColumnMappings.Add("status", "status");
+            tableMapping.ColumnMappings.Add("date", "date");
+            tableMapping.ColumnMappings.Add("due_date", "due_date");
+            tableMapping.ColumnMappings.Add("original_due_date", "original_due_date");
+            tableMapping.ColumnMappings.Add("net_value", "net_value");
+            tableMapping.ColumnMappings.Add("tax_value", "tax_value");
+            tableMapping.ColumnMappings.Add("gross_value", "gross_value");
+            tableMapping.ColumnMappings.Add("discount", "discount");
+            tableMapping.ColumnMappings.Add("currency", "currency");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "raw_invoice_delete(@invoice_id)";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "invoice_id_";
+            param.IsNullable = true;
+            param.SourceColumn = "invoice_id";
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "RAW_INVOICE_INSERT";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "invoice_id_";
+            param.IsNullable = true;
+            param.SourceColumn = "invoice_id";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "order_id_";
+            param.IsNullable = true;
+            param.SourceColumn = "order_id";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "due_date_";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "due_date";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "original_due_date_";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "original_due_date";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "net_value_";
+            param.DbType = global::System.Data.DbType.Double;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
+            param.IsNullable = true;
+            param.SourceColumn = "net_value";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "tax_value_";
+            param.DbType = global::System.Data.DbType.Double;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
+            param.IsNullable = true;
+            param.SourceColumn = "tax_value";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "gross_value_";
+            param.DbType = global::System.Data.DbType.Double;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
+            param.IsNullable = true;
+            param.SourceColumn = "gross_value";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "discount_";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "discount";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "currency_";
+            param.IsNullable = true;
+            param.SourceColumn = "currency";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "RAW_INVOICE_UPDATE";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "invoice_id_";
+            param.IsNullable = true;
+            param.SourceColumn = "invoice_id";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "order_id_";
+            param.IsNullable = true;
+            param.SourceColumn = "order_id";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "due_date_";
+            param.IsNullable = true;
+            param.SourceColumn = "due_date";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "original_due_date_";
+            param.IsNullable = true;
+            param.SourceColumn = "original_due_date";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "net_value_";
+            param.IsNullable = true;
+            param.SourceColumn = "net_value";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "tax_value_";
+            param.IsNullable = true;
+            param.SourceColumn = "tax_value";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "gross_value_";
+            param.IsNullable = true;
+            param.SourceColumn = "gross_value";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "discount_";
+            param.IsNullable = true;
+            param.SourceColumn = "discount";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "currency_";
+            param.IsNullable = true;
+            param.SourceColumn = "currency";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = "server=localhost;user id=root;database=itp;allowuservariables=True";
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT `invoice_id`, `order_id`, `status`, `date`, `due_date`, `original_due_date" +
+                "`, `net_value`, `tax_value`, `gross_value`, `discount`, `currency` FROM `raw_inv" +
+                "oice_tab`";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(RawDataSet.raw_invoice_tabDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual RawDataSet.raw_invoice_tabDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            RawDataSet.raw_invoice_tabDataTable dataTable = new RawDataSet.raw_invoice_tabDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(RawDataSet.raw_invoice_tabDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(RawDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "raw_invoice_tab");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string invoice_id_) {
+            if ((invoice_id_ == null)) {
+                throw new global::System.ArgumentNullException("invoice_id_");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(invoice_id_));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string invoice_id_, string order_id_, System.DateTime due_date_, System.DateTime original_due_date_, double net_value_, double tax_value_, double gross_value_, int discount_, string currency_) {
+            if ((invoice_id_ == null)) {
+                throw new global::System.ArgumentNullException("invoice_id_");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(invoice_id_));
+            }
+            if ((order_id_ == null)) {
+                throw new global::System.ArgumentNullException("order_id_");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(order_id_));
+            }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(due_date_));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(original_due_date_));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((double)(net_value_));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((double)(tax_value_));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((double)(gross_value_));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((int)(discount_));
+            if ((currency_ == null)) {
+                throw new global::System.ArgumentNullException("currency_");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(currency_));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string invoice_id_, string order_id_, string due_date_, string original_due_date_, string net_value_, string tax_value_, string gross_value_, string discount_, string currency_) {
+            if ((invoice_id_ == null)) {
+                throw new global::System.ArgumentNullException("invoice_id_");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(invoice_id_));
+            }
+            if ((order_id_ == null)) {
+                throw new global::System.ArgumentNullException("order_id_");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(order_id_));
+            }
+            if ((due_date_ == null)) {
+                throw new global::System.ArgumentNullException("due_date_");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(due_date_));
+            }
+            if ((original_due_date_ == null)) {
+                throw new global::System.ArgumentNullException("original_due_date_");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(original_due_date_));
+            }
+            if ((net_value_ == null)) {
+                throw new global::System.ArgumentNullException("net_value_");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(net_value_));
+            }
+            if ((tax_value_ == null)) {
+                throw new global::System.ArgumentNullException("tax_value_");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(tax_value_));
+            }
+            if ((gross_value_ == null)) {
+                throw new global::System.ArgumentNullException("gross_value_");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(gross_value_));
+            }
+            if ((discount_ == null)) {
+                throw new global::System.ArgumentNullException("discount_");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(discount_));
+            }
+            if ((currency_ == null)) {
+                throw new global::System.ArgumentNullException("currency_");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(currency_));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4547,6 +5624,8 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
         private raw_item_tabTableAdapter _raw_item_tabTableAdapter;
         
         private raw_supplier_tabTableAdapter _raw_supplier_tabTableAdapter;
+        
+        private raw_invoice_tabTableAdapter _raw_invoice_tabTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -4621,6 +5700,20 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public raw_invoice_tabTableAdapter raw_invoice_tabTableAdapter {
+            get {
+                return this._raw_invoice_tabTableAdapter;
+            }
+            set {
+                this._raw_invoice_tabTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -4654,6 +5747,10 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
                             && (this._raw_supplier_tabTableAdapter.Connection != null))) {
                     return this._raw_supplier_tabTableAdapter.Connection;
                 }
+                if (((this._raw_invoice_tabTableAdapter != null) 
+                            && (this._raw_invoice_tabTableAdapter.Connection != null))) {
+                    return this._raw_invoice_tabTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -4677,6 +5774,9 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
                     count = (count + 1);
                 }
                 if ((this._raw_supplier_tabTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._raw_invoice_tabTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -4726,6 +5826,15 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._raw_invoice_tabTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.raw_invoice_tab.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._raw_invoice_tabTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -4768,6 +5877,14 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._raw_invoice_tabTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.raw_invoice_tab.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._raw_invoice_tabTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -4778,6 +5895,14 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(RawDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._raw_invoice_tabTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.raw_invoice_tab.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._raw_invoice_tabTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._raw_supplier_tabTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.raw_supplier_tab.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -4869,6 +5994,11 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._raw_invoice_tabTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._raw_invoice_tabTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -4935,6 +6065,15 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
                     if (this._raw_supplier_tabTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._raw_supplier_tabTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._raw_supplier_tabTableAdapter.Adapter);
+                    }
+                }
+                if ((this._raw_invoice_tabTableAdapter != null)) {
+                    revertConnections.Add(this._raw_invoice_tabTableAdapter, this._raw_invoice_tabTableAdapter.Connection);
+                    this._raw_invoice_tabTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._raw_invoice_tabTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._raw_invoice_tabTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._raw_invoice_tabTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._raw_invoice_tabTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -5010,6 +6149,10 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
                 if ((this._raw_supplier_tabTableAdapter != null)) {
                     this._raw_supplier_tabTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._raw_supplier_tabTableAdapter]));
                     this._raw_supplier_tabTableAdapter.Transaction = null;
+                }
+                if ((this._raw_invoice_tabTableAdapter != null)) {
+                    this._raw_invoice_tabTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._raw_invoice_tabTableAdapter]));
+                    this._raw_invoice_tabTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
