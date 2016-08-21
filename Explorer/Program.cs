@@ -19,21 +19,25 @@ namespace Explorer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            MySqlConnection con = Connection.getConnection();
-            
-            try
+            Login login = new Login();
+            login.ShowDialog();
+            if (login.DialogResult == DialogResult.OK)
             {
-                con.Open();
-                Application.Run(new ExplorerForm());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                Application.Exit();
-            }
-            finally
-            {
-                con.Close();
+                MySqlConnection con = Connection.getConnection();
+                try
+                {
+                    con.Open();
+                    Application.Run(new ExplorerForm());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    Application.Exit();
+                }
+                finally
+                {
+                    con.Close();
+                }
             }
                 
         }

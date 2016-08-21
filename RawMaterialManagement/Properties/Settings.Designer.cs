@@ -37,7 +37,7 @@ namespace RawMaterialManagement.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("EditOnEnter")]
+        [global::System.Configuration.DefaultSettingValueAttribute("EditOnKeystroke")]
         public global::System.Windows.Forms.DataGridViewEditMode DataGridEditMode {
             get {
                 return ((global::System.Windows.Forms.DataGridViewEditMode)(this["DataGridEditMode"]));

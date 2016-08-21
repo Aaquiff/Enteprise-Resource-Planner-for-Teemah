@@ -29,10 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.dataGridViewBase1 = new FrameworkControls.Controls.DataGridViewBase();
+            this.orderidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitofmeasureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKrawpurchaseorderraworderlineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rawpurchaseorderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rawDataSet = new RawMaterialManagement.RawDataSet();
             this.panelOrderDetail = new System.Windows.Forms.Panel();
@@ -75,22 +84,6 @@
             this.addItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.raw_purchase_orderTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_purchase_orderTableAdapter();
-            this.raw_order_lineTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_order_lineTableAdapter();
-            this.dataGridViewBase1 = new FrameworkControls.Controls.DataGridViewBase();
-            this.dataGridViewNavigator = new System.Windows.Forms.DataGridView();
-            this.orderidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplieridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitofmeasureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKrawpurchaseorderraworderlineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,7 +91,16 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toBeApprovedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainerMain = new System.Windows.Forms.SplitContainer();
+            this.dataGridViewNavigator = new System.Windows.Forms.DataGridView();
+            this.raw_purchase_orderTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_purchase_orderTableAdapter();
+            this.raw_order_lineTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_order_lineTableAdapter();
+            this.orderidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplieridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBase1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKrawpurchaseorderraworderlineBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawpurchaseorderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawDataSet)).BeginInit();
             this.panelOrderDetail.SuspendLayout();
@@ -113,9 +115,7 @@
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBase1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNavigator)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKrawpurchaseorderraworderlineBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
@@ -125,8 +125,99 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1035, 459);
+            this.panelMain.Size = new System.Drawing.Size(971, 459);
             this.panelMain.TabIndex = 0;
+            // 
+            // dataGridViewBase1
+            // 
+            this.dataGridViewBase1.AllowUserToAddRows = false;
+            this.dataGridViewBase1.AllowUserToDeleteRows = false;
+            this.dataGridViewBase1.AutoGenerateColumns = false;
+            this.dataGridViewBase1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewBase1.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewBase1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewBase1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBase1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orderidDataGridViewTextBoxColumn1,
+            this.itemidDataGridViewTextBoxColumn,
+            this.unitpriceDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1,
+            this.itemnameDataGridViewTextBoxColumn,
+            this.unitofmeasureDataGridViewTextBoxColumn,
+            this.amountDataGridViewTextBoxColumn});
+            this.dataGridViewBase1.DataSource = this.fKrawpurchaseorderraworderlineBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.OliveDrab;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewBase1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewBase1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewBase1.EnableHeadersVisualStyles = false;
+            this.dataGridViewBase1.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewBase1.Location = new System.Drawing.Point(0, 336);
+            this.dataGridViewBase1.Name = "dataGridViewBase1";
+            this.dataGridViewBase1.RowHeadersVisible = false;
+            this.dataGridViewBase1.RowTemplate.Height = 30;
+            this.dataGridViewBase1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewBase1.Size = new System.Drawing.Size(971, 123);
+            this.dataGridViewBase1.TabIndex = 7;
+            // 
+            // orderidDataGridViewTextBoxColumn1
+            // 
+            this.orderidDataGridViewTextBoxColumn1.DataPropertyName = "order_id";
+            this.orderidDataGridViewTextBoxColumn1.HeaderText = "ORDER ID";
+            this.orderidDataGridViewTextBoxColumn1.Name = "orderidDataGridViewTextBoxColumn1";
+            // 
+            // itemidDataGridViewTextBoxColumn
+            // 
+            this.itemidDataGridViewTextBoxColumn.DataPropertyName = "item_id";
+            this.itemidDataGridViewTextBoxColumn.HeaderText = "ITEM ID";
+            this.itemidDataGridViewTextBoxColumn.Name = "itemidDataGridViewTextBoxColumn";
+            // 
+            // unitpriceDataGridViewTextBoxColumn
+            // 
+            this.unitpriceDataGridViewTextBoxColumn.DataPropertyName = "unit_price";
+            this.unitpriceDataGridViewTextBoxColumn.HeaderText = "UNIT PRICE";
+            this.unitpriceDataGridViewTextBoxColumn.Name = "unitpriceDataGridViewTextBoxColumn";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "quantity";
+            this.dataGridViewTextBoxColumn1.HeaderText = "QUANTITY";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // itemnameDataGridViewTextBoxColumn
+            // 
+            this.itemnameDataGridViewTextBoxColumn.DataPropertyName = "item_name";
+            this.itemnameDataGridViewTextBoxColumn.HeaderText = "ITEM NAME";
+            this.itemnameDataGridViewTextBoxColumn.Name = "itemnameDataGridViewTextBoxColumn";
+            // 
+            // unitofmeasureDataGridViewTextBoxColumn
+            // 
+            this.unitofmeasureDataGridViewTextBoxColumn.DataPropertyName = "unit_of_measure";
+            this.unitofmeasureDataGridViewTextBoxColumn.HeaderText = "UNIT OF MEASURE";
+            this.unitofmeasureDataGridViewTextBoxColumn.Name = "unitofmeasureDataGridViewTextBoxColumn";
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "amount";
+            this.amountDataGridViewTextBoxColumn.HeaderText = "AMOUNT";
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            // 
+            // fKrawpurchaseorderraworderlineBindingSource
+            // 
+            this.fKrawpurchaseorderraworderlineBindingSource.DataMember = "FK_raw_purchase_order_raw_order_line";
+            this.fKrawpurchaseorderraworderlineBindingSource.DataSource = this.rawpurchaseorderBindingSource;
             // 
             // rawpurchaseorderBindingSource
             // 
@@ -147,7 +238,7 @@
             this.panelOrderDetail.Location = new System.Drawing.Point(0, 0);
             this.panelOrderDetail.Margin = new System.Windows.Forms.Padding(4);
             this.panelOrderDetail.Name = "panelOrderDetail";
-            this.panelOrderDetail.Size = new System.Drawing.Size(1035, 336);
+            this.panelOrderDetail.Size = new System.Drawing.Size(971, 336);
             this.panelOrderDetail.TabIndex = 5;
             // 
             // panelOrder
@@ -160,7 +251,7 @@
             this.panelOrder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelOrder.Location = new System.Drawing.Point(0, 0);
             this.panelOrder.Name = "panelOrder";
-            this.panelOrder.Size = new System.Drawing.Size(1035, 336);
+            this.panelOrder.Size = new System.Drawing.Size(971, 336);
             this.panelOrder.TabIndex = 25;
             // 
             // btnAddItem
@@ -214,7 +305,7 @@
             this.txtSupplierId.Location = new System.Drawing.Point(8, 43);
             this.txtSupplierId.Margin = new System.Windows.Forms.Padding(4);
             this.txtSupplierId.Name = "txtSupplierId";
-            this.txtSupplierId.Size = new System.Drawing.Size(200, 22);
+            this.txtSupplierId.Size = new System.Drawing.Size(200, 26);
             this.txtSupplierId.TabIndex = 16;
             // 
             // label8
@@ -223,7 +314,7 @@
             this.label8.Location = new System.Drawing.Point(8, 23);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 16);
+            this.label8.Size = new System.Drawing.Size(88, 20);
             this.label8.TabIndex = 17;
             this.label8.Text = "Supplier Id";
             // 
@@ -234,7 +325,7 @@
             this.txtSupplierName.Margin = new System.Windows.Forms.Padding(4);
             this.txtSupplierName.Name = "txtSupplierName";
             this.txtSupplierName.ReadOnly = true;
-            this.txtSupplierName.Size = new System.Drawing.Size(237, 22);
+            this.txtSupplierName.Size = new System.Drawing.Size(237, 26);
             this.txtSupplierName.TabIndex = 18;
             // 
             // label9
@@ -243,7 +334,7 @@
             this.label9.Location = new System.Drawing.Point(8, 74);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(98, 16);
+            this.label9.Size = new System.Drawing.Size(119, 20);
             this.label9.TabIndex = 19;
             this.label9.Text = "Supplier Name";
             // 
@@ -271,7 +362,7 @@
             this.label10.Location = new System.Drawing.Point(86, 88);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(20, 16);
+            this.label10.Size = new System.Drawing.Size(24, 20);
             this.label10.TabIndex = 28;
             this.label10.Text = "%";
             // 
@@ -281,7 +372,7 @@
             this.label13.Location = new System.Drawing.Point(10, 115);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(39, 16);
+            this.label13.Size = new System.Drawing.Size(46, 20);
             this.label13.TabIndex = 27;
             this.label13.Text = "Total";
             // 
@@ -292,7 +383,7 @@
             this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(230, 22);
+            this.txtTotal.Size = new System.Drawing.Size(230, 26);
             this.txtTotal.TabIndex = 26;
             // 
             // label6
@@ -301,7 +392,7 @@
             this.label6.Location = new System.Drawing.Point(8, 20);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 16);
+            this.label6.Size = new System.Drawing.Size(80, 20);
             this.label6.TabIndex = 12;
             this.label6.Text = "Sub Total";
             // 
@@ -311,7 +402,7 @@
             this.label12.Location = new System.Drawing.Point(8, 65);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 16);
+            this.label12.Size = new System.Drawing.Size(76, 20);
             this.label12.TabIndex = 25;
             this.label12.Text = "Discount";
             // 
@@ -322,7 +413,7 @@
             this.txtSubTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubTotal.Name = "txtSubTotal";
             this.txtSubTotal.ReadOnly = true;
-            this.txtSubTotal.Size = new System.Drawing.Size(230, 22);
+            this.txtSubTotal.Size = new System.Drawing.Size(230, 26);
             this.txtSubTotal.TabIndex = 11;
             // 
             // txtDiscount
@@ -331,7 +422,7 @@
             this.txtDiscount.Location = new System.Drawing.Point(13, 85);
             this.txtDiscount.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(67, 22);
+            this.txtDiscount.Size = new System.Drawing.Size(67, 26);
             this.txtDiscount.TabIndex = 24;
             // 
             // groupBox2
@@ -368,25 +459,25 @@
             this.closeToolStripMenuItem,
             this.cancelToolStripMenuItem});
             this.contextMenuStripOrder.Name = "contextMenuStripOrder";
-            this.contextMenuStripOrder.Size = new System.Drawing.Size(123, 70);
+            this.contextMenuStripOrder.Size = new System.Drawing.Size(146, 82);
             // 
             // approveToolStripMenuItem
             // 
             this.approveToolStripMenuItem.Name = "approveToolStripMenuItem";
-            this.approveToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.approveToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.approveToolStripMenuItem.Text = "Approve ";
             this.approveToolStripMenuItem.Click += new System.EventHandler(this.approveToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.closeToolStripMenuItem.Text = "Close";
             // 
             // cancelToolStripMenuItem
             // 
             this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.cancelToolStripMenuItem.Text = "Cancel";
             this.cancelToolStripMenuItem.Click += new System.EventHandler(this.cancelToolStripMenuItem_Click);
             // 
@@ -397,7 +488,7 @@
             this.txtCreatedDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtCreatedDate.Name = "txtCreatedDate";
             this.txtCreatedDate.ReadOnly = true;
-            this.txtCreatedDate.Size = new System.Drawing.Size(280, 22);
+            this.txtCreatedDate.Size = new System.Drawing.Size(280, 26);
             this.txtCreatedDate.TabIndex = 25;
             // 
             // txtStatus
@@ -407,7 +498,7 @@
             this.txtStatus.Margin = new System.Windows.Forms.Padding(4);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ReadOnly = true;
-            this.txtStatus.Size = new System.Drawing.Size(194, 22);
+            this.txtStatus.Size = new System.Drawing.Size(194, 26);
             this.txtStatus.TabIndex = 24;
             // 
             // label1
@@ -416,7 +507,7 @@
             this.label1.Location = new System.Drawing.Point(1, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 16);
+            this.label1.Size = new System.Drawing.Size(70, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Order Id";
             // 
@@ -426,7 +517,7 @@
             this.txtOrderId.Location = new System.Drawing.Point(8, 39);
             this.txtOrderId.Margin = new System.Windows.Forms.Padding(4);
             this.txtOrderId.Name = "txtOrderId";
-            this.txtOrderId.Size = new System.Drawing.Size(193, 22);
+            this.txtOrderId.Size = new System.Drawing.Size(193, 26);
             this.txtOrderId.TabIndex = 0;
             // 
             // label11
@@ -435,7 +526,7 @@
             this.label11.Location = new System.Drawing.Point(8, 126);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(115, 16);
+            this.label11.Size = new System.Drawing.Size(140, 20);
             this.label11.TabIndex = 23;
             this.label11.Text = "Shipping Address";
             // 
@@ -446,7 +537,7 @@
             this.txtCreator.Margin = new System.Windows.Forms.Padding(4);
             this.txtCreator.Name = "txtCreator";
             this.txtCreator.ReadOnly = true;
-            this.txtCreator.Size = new System.Drawing.Size(196, 22);
+            this.txtCreator.Size = new System.Drawing.Size(196, 26);
             this.txtCreator.TabIndex = 2;
             // 
             // txtShippingAddress
@@ -465,7 +556,7 @@
             this.label2.Location = new System.Drawing.Point(207, 20);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 16);
+            this.label2.Size = new System.Drawing.Size(65, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Creator";
             // 
@@ -475,7 +566,7 @@
             this.label3.Location = new System.Drawing.Point(412, 20);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 16);
+            this.label3.Size = new System.Drawing.Size(109, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Created Date";
             // 
@@ -485,7 +576,7 @@
             this.label7.Location = new System.Drawing.Point(209, 126);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 16);
+            this.label7.Size = new System.Drawing.Size(53, 20);
             this.label7.TabIndex = 14;
             this.label7.Text = "Notes";
             // 
@@ -504,7 +595,7 @@
             this.label4.Location = new System.Drawing.Point(4, 70);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 16);
+            this.label4.Size = new System.Drawing.Size(57, 20);
             this.label4.TabIndex = 8;
             this.label4.Text = "Status";
             // 
@@ -514,7 +605,7 @@
             this.label5.Location = new System.Drawing.Point(209, 71);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 16);
+            this.label5.Size = new System.Drawing.Size(104, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "Approved By";
             // 
@@ -525,7 +616,7 @@
             this.txtApprovedBy.Margin = new System.Windows.Forms.Padding(4);
             this.txtApprovedBy.Name = "txtApprovedBy";
             this.txtApprovedBy.ReadOnly = true;
-            this.txtApprovedBy.Size = new System.Drawing.Size(195, 22);
+            this.txtApprovedBy.Size = new System.Drawing.Size(195, 26);
             this.txtApprovedBy.TabIndex = 9;
             // 
             // contextMenuStripOrderLine
@@ -535,19 +626,19 @@
             this.addItemToolStripMenuItem,
             this.removeItemToolStripMenuItem});
             this.contextMenuStripOrderLine.Name = "contextMenuStripOrderLine";
-            this.contextMenuStripOrderLine.Size = new System.Drawing.Size(145, 48);
+            this.contextMenuStripOrderLine.Size = new System.Drawing.Size(173, 56);
             // 
             // addItemToolStripMenuItem
             // 
             this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
-            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.addItemToolStripMenuItem.Text = "Add Item";
             this.addItemToolStripMenuItem.Click += new System.EventHandler(this.addItemToolStripMenuItem_Click);
             // 
             // removeItemToolStripMenuItem
             // 
             this.removeItemToolStripMenuItem.Name = "removeItemToolStripMenuItem";
-            this.removeItemToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.removeItemToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.removeItemToolStripMenuItem.Text = "Remove Item";
             this.removeItemToolStripMenuItem.Click += new System.EventHandler(this.removeItemToolStripMenuItem_Click);
             // 
@@ -569,175 +660,6 @@
             this.menuStrip1.TabIndex = 29;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
-            // 
-            // splitContainerMain
-            // 
-            this.splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerMain.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerMain.Name = "splitContainerMain";
-            // 
-            // splitContainerMain.Panel1
-            // 
-            this.splitContainerMain.Panel1.Controls.Add(this.dataGridViewNavigator);
-            // 
-            // splitContainerMain.Panel2
-            // 
-            this.splitContainerMain.Panel2.Controls.Add(this.panelMain);
-            this.splitContainerMain.Size = new System.Drawing.Size(1217, 459);
-            this.splitContainerMain.SplitterDistance = 178;
-            this.splitContainerMain.TabIndex = 25;
-            // 
-            // raw_purchase_orderTableAdapter
-            // 
-            this.raw_purchase_orderTableAdapter.ClearBeforeFill = true;
-            // 
-            // raw_order_lineTableAdapter
-            // 
-            this.raw_order_lineTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridViewBase1
-            // 
-            this.dataGridViewBase1.AllowUserToAddRows = false;
-            this.dataGridViewBase1.AllowUserToDeleteRows = false;
-            this.dataGridViewBase1.AutoGenerateColumns = false;
-            this.dataGridViewBase1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewBase1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewBase1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewBase1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBase1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.orderidDataGridViewTextBoxColumn1,
-            this.itemidDataGridViewTextBoxColumn,
-            this.unitpriceDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn1,
-            this.itemnameDataGridViewTextBoxColumn,
-            this.unitofmeasureDataGridViewTextBoxColumn,
-            this.amountDataGridViewTextBoxColumn});
-            this.dataGridViewBase1.DataSource = this.fKrawpurchaseorderraworderlineBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.OliveDrab;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewBase1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewBase1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewBase1.EnableHeadersVisualStyles = false;
-            this.dataGridViewBase1.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewBase1.Location = new System.Drawing.Point(0, 336);
-            this.dataGridViewBase1.Name = "dataGridViewBase1";
-            this.dataGridViewBase1.RowHeadersVisible = false;
-            this.dataGridViewBase1.RowTemplate.Height = 30;
-            this.dataGridViewBase1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBase1.Size = new System.Drawing.Size(1035, 123);
-            this.dataGridViewBase1.TabIndex = 7;
-            // 
-            // dataGridViewNavigator
-            // 
-            this.dataGridViewNavigator.AllowUserToAddRows = false;
-            this.dataGridViewNavigator.AllowUserToDeleteRows = false;
-            this.dataGridViewNavigator.AllowUserToOrderColumns = true;
-            this.dataGridViewNavigator.AllowUserToResizeRows = false;
-            this.dataGridViewNavigator.AutoGenerateColumns = false;
-            this.dataGridViewNavigator.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewNavigator.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridViewNavigator.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewNavigator.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.orderidDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn,
-            this.supplieridDataGridViewTextBoxColumn});
-            this.dataGridViewNavigator.DataSource = this.rawpurchaseorderBindingSource;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.OliveDrab;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewNavigator.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewNavigator.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewNavigator.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewNavigator.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewNavigator.MultiSelect = false;
-            this.dataGridViewNavigator.Name = "dataGridViewNavigator";
-            this.dataGridViewNavigator.RowHeadersVisible = false;
-            this.dataGridViewNavigator.RowTemplate.Height = 35;
-            this.dataGridViewNavigator.RowTemplate.ReadOnly = true;
-            this.dataGridViewNavigator.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewNavigator.Size = new System.Drawing.Size(178, 459);
-            this.dataGridViewNavigator.TabIndex = 0;
-            // 
-            // orderidDataGridViewTextBoxColumn
-            // 
-            this.orderidDataGridViewTextBoxColumn.DataPropertyName = "order_id";
-            this.orderidDataGridViewTextBoxColumn.HeaderText = "Order Id";
-            this.orderidDataGridViewTextBoxColumn.Name = "orderidDataGridViewTextBoxColumn";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            // 
-            // supplieridDataGridViewTextBoxColumn
-            // 
-            this.supplieridDataGridViewTextBoxColumn.DataPropertyName = "supplier_id";
-            this.supplieridDataGridViewTextBoxColumn.HeaderText = "Supplier Id";
-            this.supplieridDataGridViewTextBoxColumn.Name = "supplieridDataGridViewTextBoxColumn";
-            // 
-            // orderidDataGridViewTextBoxColumn1
-            // 
-            this.orderidDataGridViewTextBoxColumn1.DataPropertyName = "order_id";
-            this.orderidDataGridViewTextBoxColumn1.HeaderText = "ORDER ID";
-            this.orderidDataGridViewTextBoxColumn1.Name = "orderidDataGridViewTextBoxColumn1";
-            // 
-            // itemidDataGridViewTextBoxColumn
-            // 
-            this.itemidDataGridViewTextBoxColumn.DataPropertyName = "item_id";
-            this.itemidDataGridViewTextBoxColumn.HeaderText = "ITEM ID";
-            this.itemidDataGridViewTextBoxColumn.Name = "itemidDataGridViewTextBoxColumn";
-            // 
-            // unitpriceDataGridViewTextBoxColumn
-            // 
-            this.unitpriceDataGridViewTextBoxColumn.DataPropertyName = "unit_price";
-            this.unitpriceDataGridViewTextBoxColumn.HeaderText = "UNIT PRICE";
-            this.unitpriceDataGridViewTextBoxColumn.Name = "unitpriceDataGridViewTextBoxColumn";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "quantity";
-            this.dataGridViewTextBoxColumn1.HeaderText = "QUANTITY";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // itemnameDataGridViewTextBoxColumn
-            // 
-            this.itemnameDataGridViewTextBoxColumn.DataPropertyName = "item_name";
-            this.itemnameDataGridViewTextBoxColumn.HeaderText = "ITEM NAME";
-            this.itemnameDataGridViewTextBoxColumn.Name = "itemnameDataGridViewTextBoxColumn";
-            // 
-            // unitofmeasureDataGridViewTextBoxColumn
-            // 
-            this.unitofmeasureDataGridViewTextBoxColumn.DataPropertyName = "unit_of_measure";
-            this.unitofmeasureDataGridViewTextBoxColumn.HeaderText = "UNIT OF MEASURE";
-            this.unitofmeasureDataGridViewTextBoxColumn.Name = "unitofmeasureDataGridViewTextBoxColumn";
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "AMOUNT";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            // 
-            // fKrawpurchaseorderraworderlineBindingSource
-            // 
-            this.fKrawpurchaseorderraworderlineBindingSource.DataMember = "FK_raw_purchase_order_raw_order_line";
-            this.fKrawpurchaseorderraworderlineBindingSource.DataSource = this.rawpurchaseorderBindingSource;
             // 
             // toolStripMenuItem3
             // 
@@ -770,7 +692,7 @@
             this.toolStripMenuItem1.Image = global::RawMaterialManagement.Properties.Resources.ic_delete_2x;
             this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 67);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(67, 67);
             this.toolStripMenuItem1.Text = "Delete";
             this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
@@ -782,7 +704,7 @@
             this.toolStripMenuItem2.Image = global::RawMaterialManagement.Properties.Resources.ic_file_download_2x;
             this.toolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(70, 67);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(84, 67);
             this.toolStripMenuItem2.Text = "Populate";
             this.toolStripMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
@@ -794,7 +716,7 @@
             this.toolStripMenuItem4.Image = global::RawMaterialManagement.Properties.Resources.ic_search_2x;
             this.toolStripMenuItem4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(60, 67);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(73, 67);
             this.toolStripMenuItem4.Text = "Search";
             this.toolStripMenuItem4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -812,13 +734,92 @@
             // toBeApprovedToolStripMenuItem
             // 
             this.toBeApprovedToolStripMenuItem.Name = "toBeApprovedToolStripMenuItem";
-            this.toBeApprovedToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.toBeApprovedToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.toBeApprovedToolStripMenuItem.Text = "To Be Approved";
             this.toBeApprovedToolStripMenuItem.Click += new System.EventHandler(this.toBeApprovedToolStripMenuItem_Click);
             // 
+            // splitContainerMain
+            // 
+            this.splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerMain.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerMain.Name = "splitContainerMain";
+            // 
+            // splitContainerMain.Panel1
+            // 
+            this.splitContainerMain.Panel1.Controls.Add(this.dataGridViewNavigator);
+            // 
+            // splitContainerMain.Panel2
+            // 
+            this.splitContainerMain.Panel2.Controls.Add(this.panelMain);
+            this.splitContainerMain.Size = new System.Drawing.Size(1217, 459);
+            this.splitContainerMain.SplitterDistance = 242;
+            this.splitContainerMain.TabIndex = 25;
+            // 
+            // dataGridViewNavigator
+            // 
+            this.dataGridViewNavigator.AllowUserToAddRows = false;
+            this.dataGridViewNavigator.AllowUserToDeleteRows = false;
+            this.dataGridViewNavigator.AllowUserToOrderColumns = true;
+            this.dataGridViewNavigator.AllowUserToResizeRows = false;
+            this.dataGridViewNavigator.AutoGenerateColumns = false;
+            this.dataGridViewNavigator.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewNavigator.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridViewNavigator.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewNavigator.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orderidDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn,
+            this.supplieridDataGridViewTextBoxColumn});
+            this.dataGridViewNavigator.DataSource = this.rawpurchaseorderBindingSource;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.OliveDrab;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewNavigator.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewNavigator.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewNavigator.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewNavigator.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewNavigator.MultiSelect = false;
+            this.dataGridViewNavigator.Name = "dataGridViewNavigator";
+            this.dataGridViewNavigator.RowHeadersVisible = false;
+            this.dataGridViewNavigator.RowTemplate.Height = 35;
+            this.dataGridViewNavigator.RowTemplate.ReadOnly = true;
+            this.dataGridViewNavigator.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewNavigator.Size = new System.Drawing.Size(242, 459);
+            this.dataGridViewNavigator.TabIndex = 0;
+            // 
+            // raw_purchase_orderTableAdapter
+            // 
+            this.raw_purchase_orderTableAdapter.ClearBeforeFill = true;
+            // 
+            // raw_order_lineTableAdapter
+            // 
+            this.raw_order_lineTableAdapter.ClearBeforeFill = true;
+            // 
+            // orderidDataGridViewTextBoxColumn
+            // 
+            this.orderidDataGridViewTextBoxColumn.DataPropertyName = "order_id";
+            this.orderidDataGridViewTextBoxColumn.HeaderText = "Order Id";
+            this.orderidDataGridViewTextBoxColumn.Name = "orderidDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
+            // supplieridDataGridViewTextBoxColumn
+            // 
+            this.supplieridDataGridViewTextBoxColumn.DataPropertyName = "supplier_id";
+            this.supplieridDataGridViewTextBoxColumn.HeaderText = "Supplier Id";
+            this.supplieridDataGridViewTextBoxColumn.Name = "supplieridDataGridViewTextBoxColumn";
+            this.supplieridDataGridViewTextBoxColumn.Visible = false;
+            // 
             // OrderDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1217, 459);
@@ -832,6 +833,8 @@
             this.Text = "Order Detail";
             this.Load += new System.EventHandler(this.OrderDetail_Load);
             this.panelMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBase1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKrawpurchaseorderraworderlineBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawpurchaseorderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawDataSet)).EndInit();
             this.panelOrderDetail.ResumeLayout(false);
@@ -850,9 +853,7 @@
             this.splitContainerMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBase1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNavigator)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKrawpurchaseorderraworderlineBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

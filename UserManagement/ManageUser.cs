@@ -17,11 +17,11 @@ namespace UserManagement
             InitializeComponent();
 
             MySqlCommand sc = new MySqlCommand("select user,name from user_tab", con);
-            dataAdapter.SelectCommand = sc;
+            base.dataAdapter1.SelectCommand = sc;
 
-            dataAdapter.Fill(dataSet);
+            base.dataAdapter1.Fill(dataSet);
 
-            bindingSource.DataSource = dataSet.Tables[0];
+            base.bindingSource.DataSource = base.dataSet.Tables[0];
 
             MySqlCommand ic = new MySqlCommand("call `itp`.`create_user`(@user,@password,@name);", con);
             ic.CommandType = CommandType.StoredProcedure;
@@ -29,20 +29,20 @@ namespace UserManagement
             ic.Parameters.Add("@password", MySqlDbType.VarChar, 200, "password");
             ic.Parameters.Add("@name", MySqlDbType.VarChar, 200, "name");
 
-            dataAdapter.InsertCommand = ic;
+            base.dataAdapter1.InsertCommand = ic;
 
             MySqlCommand uc = new MySqlCommand("UPDATE user_tab SET name = @name WHERE user = @user");
             uc.Parameters.Add("@user", MySqlDbType.VarChar, 15, "user");
             uc.Parameters.Add("@name", MySqlDbType.VarChar, 200, "name");
 
-            dataAdapter.UpdateCommand = uc;
+            base.dataAdapter1.UpdateCommand = uc;
 
             MySqlCommand dc = new MySqlCommand("call `drop_user`(@user)", con);
             dc.Parameters.Add("@user", MySqlDbType.VarChar, 15, "user");
 
-            dataAdapter.DeleteCommand = dc;
+            base.dataAdapter1.DeleteCommand = dc;
 
-
+            dataGridView1.DataSource = bindingSource;
         }
 
         protected override void New()

@@ -6,7 +6,7 @@
       <Value Profile="(Default)">Arial, 9.75pt</Value>
     </Setting>
     <Setting Name="DataGridEditMode" Type="System.Windows.Forms.DataGridViewEditMode" Scope="User">
-      <Value Profile="(Default)">EditOnEnter</Value>
+      <Value Profile="(Default)">EditOnKeystroke</Value>
     </Setting>
   </Settings>
 </SettingsFile>

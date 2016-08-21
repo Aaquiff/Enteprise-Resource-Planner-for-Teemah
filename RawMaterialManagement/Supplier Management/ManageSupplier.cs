@@ -16,7 +16,7 @@ namespace RawMaterialManagement.Supplier_Management
             InitializeComponent();
 
             MySqlCommand sc = new MySqlCommand("select * from raw_supplier_tab", con);
-            dataAdapter.SelectCommand = sc;
+            base.dataAdapter1.SelectCommand = sc;
 
             MySqlCommand ic = new MySqlCommand("insert into raw_supplier_tab (name,contact_person,phone,email,address) values (@name,@contact_person,@phone,@email,@address)", con);
             //insertCommand.Parameters.Add("@supplier_id", MySqlDbType.VarChar, 20, "supplier_id");
@@ -26,7 +26,7 @@ namespace RawMaterialManagement.Supplier_Management
             ic.Parameters.Add("@email", MySqlDbType.VarChar, 200, "email");
             ic.Parameters.Add("@address", MySqlDbType.VarChar, 200, "address");
 
-            dataAdapter.InsertCommand = ic;
+            base.dataAdapter1.InsertCommand = ic;
 
             MySqlCommand uc = new MySqlCommand("update raw_supplier_tab set name = @name, address = @address, phone = @phone, email = @email where supplier_id = @supplier_id", con);
             uc.Parameters.Add("@name", MySqlDbType.VarChar, 200, "name");
@@ -36,17 +36,30 @@ namespace RawMaterialManagement.Supplier_Management
             uc.Parameters.Add("@address", MySqlDbType.VarChar, 200, "address");
             uc.Parameters.Add("@supplier_id", MySqlDbType.Int32, 200, "supplier_id");
 
-            dataAdapter.UpdateCommand = uc;
+            base.dataAdapter1.UpdateCommand = uc;
 
-            MySqlCommand deleteCommand = new MySqlCommand("delete from supplier_tab where supplier_id = @supplierid", con);
+            MySqlCommand deleteCommand = new MySqlCommand("delete from raw_supplier_tab where supplier_id = @supplierid", con);
             deleteCommand.Parameters.Add("@supplierid", MySqlDbType.VarChar, 200, "supplier_id");
 
-            dataAdapter.DeleteCommand = deleteCommand;
+            base.dataAdapter1.DeleteCommand = deleteCommand;
+            base.dataAdapter1.Fill(dataSet);
+            base.bindingSource.DataSource = dataSet.Tables[0];
+            dataGridView1.DataSource = bindingSource;
 
-            dataAdapter.Fill(dataSet);
+        }
 
-            bindingSource.DataSource = dataSet.Tables[0];
-
+        protected override void Search()
+        {
+            string columnName = cmbColumns.SelectedItem.ToString();
+            if (!String.IsNullOrEmpty(columnName))
+            {
+                MySqlDataAdapter search = new MySqlDataAdapter();
+                MySqlCommand sc = new MySqlCommand("select * from raw_supplier_tab where " + columnName + " like @param", con);
+                sc.Parameters.AddWithValue("@param", "%" + txtSearchItemId.Text + "%");
+                search.SelectCommand = sc;
+                dataSet.Clear();
+                search.Fill(dataSet);
+            }
         }
     }
 }

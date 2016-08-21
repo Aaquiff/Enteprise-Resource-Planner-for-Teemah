@@ -15,8 +15,8 @@ namespace RawMaterialManagement.Order_Management
         {
             InitializeComponent();
 
-            MySqlCommand sc = new MySqlCommand("select * from raw_purchase_order_tab", con);
-            dataAdapter.SelectCommand = sc;
+            MySqlCommand sc = new MySqlCommand("select * from raw_purchase_order", con);
+            base.dataAdapter1.SelectCommand = sc;
 
             MySqlCommand insertCommand = new MySqlCommand(
                 "insert into raw_purchase_order_tab values (@order_id,@creation_date,@creator,@status,@approver,@sub_total,@total,@shipping_address,@supplier_id)", con);
@@ -31,7 +31,7 @@ namespace RawMaterialManagement.Order_Management
             insertCommand.Parameters.Add("@shipping_address", MySqlDbType.VarChar, 500, "shipping_address");
             insertCommand.Parameters.Add("@supplier_id", MySqlDbType.VarChar, 200, "supplier_id");
 
-            dataAdapter.InsertCommand = insertCommand;
+            base.dataAdapter1.InsertCommand = insertCommand;
 
             MySqlCommand updateCommand = new MySqlCommand(
                 @"update raw_purchase_order_tab 
@@ -55,18 +55,32 @@ namespace RawMaterialManagement.Order_Management
             updateCommand.Parameters.Add("@supplier_id", MySqlDbType.VarChar, 200, "supplier_id");
             updateCommand.Parameters.Add("@order_id", MySqlDbType.VarChar, 200, "order_id");
 
-            dataAdapter.UpdateCommand = updateCommand;
+            base.dataAdapter1.UpdateCommand = updateCommand;
 
             MySqlCommand deleteCommand = new MySqlCommand("delete from raw_purchase_order_tab where order_id = @order_id", con);
             deleteCommand.Parameters.Add("@order_id", MySqlDbType.VarChar, 200, "item_id");
 
-            dataAdapter.DeleteCommand = deleteCommand;
+            base.dataAdapter1.DeleteCommand = deleteCommand;
 
-            dataAdapter.Fill(dataSet);
+            base.dataAdapter1.Fill(dataSet);
 
-            bindingSource.DataSource = dataSet.Tables[0];
+            base.bindingSource.DataSource = dataSet.Tables[0];
 
-            
+            dataGridView1.DataSource = base.bindingSource;
+        }
+
+        protected override void Search()
+        {
+            string columnName = cmbColumns.SelectedItem.ToString();
+            if (!String.IsNullOrEmpty(columnName))
+            {
+                MySqlDataAdapter search = new MySqlDataAdapter();
+                MySqlCommand sc = new MySqlCommand("select * from raw_purchase_order where " + columnName + " like @param", con);
+                sc.Parameters.AddWithValue("@param", "%" + txtSearchItemId.Text + "%");
+                search.SelectCommand = sc;
+                dataSet.Clear();
+                search.Fill(dataSet);
+            }
         }
 
         private void viewOrderToolStripMenuItem_Click(object sender, EventArgs e)

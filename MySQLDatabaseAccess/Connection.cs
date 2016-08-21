@@ -9,13 +9,21 @@ namespace MySQLDatabaseAccess
 {
     public static class Connection
     {
+        static string connectionString;
+
+        public static string ConnectionString
+        {
+            get { return connectionString; }
+            set { connectionString = value; }
+        }
         public static MySqlConnection getConnection()
         {
+            
             try
             {
                 //MySqlConnection con = new MySqlConnection("server=ap-cdbr-azure-southeast-b.cloudapp.net;database=teemah;user id=b7fc625b31e37d;password=303b29c6");
-                MySqlConnection con = new MySqlConnection("server=localhost;database=itp;user id=root;");
-                //MySqlConnection con = new MySqlConnection("server=localhost;database=itp;user id=aaralk;password=aaralk");
+                //MySqlConnection con = new MySqlConnection("server=localhost;database=itp;user id=root;");
+                MySqlConnection con = new MySqlConnection(connectionString);
                 return con;
             }
             catch (Exception ex)
@@ -39,6 +47,21 @@ namespace MySQLDatabaseAccess
             {
                 con.Close();
             }
+        }
+
+        public static string getUserIdFromConnectionString()
+        {
+            string cstring = ConnectionString;
+            int useridindexstart = cstring.IndexOf("user id=") + 8;
+            if (useridindexstart == -1)
+            {
+                return null;
+            }
+            int useridindexend = cstring.IndexOf(";", useridindexstart);
+            if (useridindexend == -1)
+                useridindexend = cstring.Length;
+
+            return cstring.Substring(useridindexstart, useridindexend - useridindexstart);
         }
 
         public static string getUserNameFromConnectionString(string cstring)

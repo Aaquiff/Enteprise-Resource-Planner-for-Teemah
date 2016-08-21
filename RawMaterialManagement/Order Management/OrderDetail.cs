@@ -154,25 +154,11 @@ namespace RawMaterialManagement.Order_Management
 
         private void AddOrderItem()
         {
-            /*dlgChooseItem dlg = new dlgChooseItem();
-            dlg.ShowDialog(this);
-            if (dlg.DialogResult == System.Windows.Forms.DialogResult.OK)
-            {
-                int itemId = Convert.ToInt32(dlg.itemId);
-                string unitPrice = dlg.unitPrice;
-                string quantity = dlg.quantity;
-                string name = dlg.name;
-                string unitOfMeasure = dlg.unitOfMeasure;
+            DataRowView order = rawpurchaseorderBindingSource.Current as DataRowView;
+            string order_id = order.Row.ItemArray[0].ToString();
 
-                DataRowView row = fKrawpurchaseorderraworderlineBindingSource.AddNew() as DataRowView;
-                row.Row.SetField("item_id", itemId);
-                row.Row.SetField("unit_price", unitPrice);
-                row.Row.SetField("quantity", quantity);
-                row.Row.SetField("item_name", name);
-                row.Row.SetField("unit_of_measure", unitOfMeasure);
-            }*/
-
-            MySqlCommand sc = new MySqlCommand("select * from raw_item_tab", con);
+            MySqlCommand sc = new MySqlCommand("select * from raw_item_tab where item_id NOT IN (SELECT item_id FROM RAW_ORDER_LINE_TAB WHERE order_id = @order_id)", con);
+            sc.Parameters.AddWithValue("@order_id",order_id);
             LOV lov = new LOV(sc);
             lov.Text = "Choose Item";
             lov.ShowDialog();
@@ -203,13 +189,6 @@ namespace RawMaterialManagement.Order_Management
 
         private void ChooseSupplier()
         {
-            /*dlgChooseSupplier dlg = new dlgChooseSupplier();
-            dlg.ShowDialog();
-            if(dlg.DialogResult == System.Windows.Forms.DialogResult.OK)
-            {
-                txtSupplierId.Text = dlg.SupplierId;
-                txtSupplierName.Text = dlg.SupplierName;
-            }*/
             MySqlCommand sc = new MySqlCommand("select * from raw_supplier_tab", con);
             LOV lov = new LOV(sc);
             lov.Text = "Choose Supplier";
@@ -228,21 +207,12 @@ namespace RawMaterialManagement.Order_Management
         {
             try
             {
-                raw_purchase_orderTableAdapter.raw_change_order_status(txtOrderId.Text, "Approved", MySQLDatabaseAccess.Connection.getUserNameFromConnectionString(con.ConnectionString));
-
+                raw_purchase_orderTableAdapter.RAW_PUCHASE_ORDER_STATUS_CHANGE(txtOrderId.Text, "Approved", MySQLDatabaseAccess.Connection.getUserNameFromConnectionString(con.ConnectionString));
                 MessageBox.Show("Order Approved");
             }
             catch (Exception ex)
             {
-                if (ex.HResult == -2147467259)
-                {
-
-                }
-                else
-                {
-                    MessageBox.Show(ex.HResult.ToString());
-                }
-                
+                MessageBox.Show(ex.Message);      
             }
         }
 
@@ -250,7 +220,7 @@ namespace RawMaterialManagement.Order_Management
         {
             try
             {
-                raw_purchase_orderTableAdapter.raw_change_order_status(txtOrderId.Text, "Cancelled", MySQLDatabaseAccess.Connection.getUserNameFromConnectionString(con.ConnectionString));
+                raw_purchase_orderTableAdapter.RAW_PUCHASE_ORDER_STATUS_CHANGE(txtOrderId.Text, "Cancelled", MySQLDatabaseAccess.Connection.getUserNameFromConnectionString(con.ConnectionString));
             }
             catch (Exception ex)
             {

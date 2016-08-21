@@ -16,9 +16,10 @@ namespace RawMaterialManagement.Invoice_Management
             InitializeComponent();
 
             MySqlCommand sc = new MySqlCommand("select * from raw_invoice_tab",con);
-            dataAdapter.SelectCommand = sc;
-            dataAdapter.Fill(dataSet);
-            bindingSource.DataSource = dataSet.Tables[0];
+            base.dataAdapter1.SelectCommand = sc;
+            base.dataAdapter1.Fill(dataSet);
+            base.bindingSource.DataSource = dataSet.Tables[0];
+            dataGridView1.DataSource = base.bindingSource;
 
             MySqlCommand ic = new MySqlCommand
                 ("raw_insert_invoice(@invoice_id,@order_id,@due_date,@original_due_date,@net_value,@tax_value,@gross_value,@discount,@currency)",con);
@@ -31,7 +32,7 @@ namespace RawMaterialManagement.Invoice_Management
             ic.Parameters.Add("@gross_value", MySqlDbType.Double, 200, "gross_value");
             ic.Parameters.Add("@discount", MySqlDbType.Int32, 20, "discount");
             ic.Parameters.Add("@currency", MySqlDbType.VarChar, 20, "currency");
-            dataAdapter.InsertCommand = ic;
+            base.dataAdapter1.InsertCommand = ic;
 
             MySqlCommand uc = new MySqlCommand("raw_invoice_update(@invoice_id,@order_id,@due_date,@original_due_date,@net_value,@tax_value,@gross_value,@discount,@currency)", con);
             uc.Parameters.Add("@invoice_id", MySqlDbType.VarChar, 20, "invoice_id");
@@ -43,13 +44,29 @@ namespace RawMaterialManagement.Invoice_Management
             uc.Parameters.Add("@gross_value", MySqlDbType.Double, 200, "gross_value");
             uc.Parameters.Add("@discount", MySqlDbType.Int32, 20, "discount");
             uc.Parameters.Add("@currency", MySqlDbType.VarChar, 20, "currency");
-            dataAdapter.UpdateCommand = uc;
+            base.dataAdapter1.UpdateCommand = uc;
 
 
             MySqlCommand dc = new MySqlCommand("raw_invoice_delete(@invoice_id)", con);
             dc.Parameters.Add("@invoice_id", MySqlDbType.VarChar, 20, "invoice_id");
 
-            dataAdapter.DeleteCommand = dc;
+            base.dataAdapter1.DeleteCommand = dc;
+
+            
+        }
+
+        protected override void Search()
+        {
+            string columnName = cmbColumns.SelectedItem.ToString();
+            if (!String.IsNullOrEmpty(columnName))
+            {
+                MySqlDataAdapter search = new MySqlDataAdapter();
+                MySqlCommand sc = new MySqlCommand("select * from raw_invoice_tab where " + columnName + " like @param", con);
+                sc.Parameters.AddWithValue("@param", "%" + txtSearchItemId.Text + "%");
+                search.SelectCommand = sc;
+                dataSet.Clear();
+                search.Fill(dataSet);
+            }
         }
     }
 }

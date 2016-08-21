@@ -67,7 +67,6 @@
     <Compile Include="Invoice Management\ManageInvoice.Designer.cs">
       <DependentUpon>ManageInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Items Management\DBItems.cs" />
     <Compile Include="Items Management\dlgSearchItem.cs">
       <SubType>Form</SubType>
     </Compile>

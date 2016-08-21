@@ -49,7 +49,7 @@ namespace Explorer
             {
                 MessageBox.Show(ex.Message);
             }
-            
+            loadPermissionInfo();
         }
 
         #region methods
@@ -79,6 +79,42 @@ namespace Explorer
                 else
                     menuStripMain.Show();
 
+        }
+
+        private void loadPermissionInfo()
+        {
+            try
+            {
+                con.Open();
+                MySqlCommand sc = new MySqlCommand("select role from user_role_tab where user = @user", con);
+                sc.Parameters.AddWithValue("@user", Connection.getUserIdFromConnectionString());
+                MySqlDataReader read = sc.ExecuteReader();
+                while (read.Read())
+                {
+                    string role = read.GetString("role");
+                    switch (role)
+                    {
+                        case "Raw Material User":
+                            btnRMM.Visible = true;
+                            panelRawMaterial.Show();
+                            break;
+                        case "Administrator": buttonSettings.Show();
+                            break;
+                        case "Finance User": btnFM.Show();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
         private void ToggleNavigator()
@@ -330,7 +366,7 @@ namespace Explorer
 
         private void button25_Click(object sender, EventArgs e)
         {
-            loadForm(new ManageUser());
+            loadForm(new User());
         }
 
         private void button24_Click(object sender, EventArgs e)

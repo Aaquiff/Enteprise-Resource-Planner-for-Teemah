@@ -17,30 +17,30 @@ namespace UserManagement
             InitializeComponent();
 
             MySqlCommand sc = new MySqlCommand("select role,description from role_tab", con);
-            dataAdapter.SelectCommand = sc;
+            base.dataAdapter1.SelectCommand = sc;
 
-            dataAdapter.Fill(dataSet);
+            base.dataAdapter1.Fill(dataSet);
 
-            bindingSource.DataSource = dataSet.Tables[0];
+            base.bindingSource.DataSource = base.dataSet.Tables[0];
 
             MySqlCommand ic = new MySqlCommand("INSERT INTO role_tab VALUES (@role,@description)", con);
             ic.Parameters.Add("@role", MySqlDbType.VarChar, 200, "role");
             ic.Parameters.Add("@description", MySqlDbType.VarChar, 200, "description");
 
-            dataAdapter.InsertCommand = ic;
+            base.dataAdapter1.InsertCommand = ic;
 
             MySqlCommand uc = new MySqlCommand("UPDATE role_tab SET description = @description WHERE role = @role", con);
             uc.Parameters.Add("@role", MySqlDbType.VarChar, 200, "role");
             uc.Parameters.Add("@description", MySqlDbType.VarChar, 200, "description");
 
-            dataAdapter.UpdateCommand = uc;
+            base.dataAdapter1.UpdateCommand = uc;
 
             MySqlCommand dc = new MySqlCommand("DELETE FROM role_tab WHERE role = @role", con);
             dc.Parameters.Add("@role", MySqlDbType.VarChar, 200, "role");
 
-            dataAdapter.DeleteCommand = dc;
+            base.dataAdapter1.DeleteCommand = dc;
 
-            
+            dataGridView1.DataSource = base.bindingSource;
         }
     }
 }
