@@ -85,7 +85,7 @@
             userLabel.AutoSize = true;
             userLabel.Location = new System.Drawing.Point(18, 13);
             userLabel.Name = "userLabel";
-            userLabel.Size = new System.Drawing.Size(50, 20);
+            userLabel.Size = new System.Drawing.Size(40, 16);
             userLabel.TabIndex = 0;
             userLabel.Text = "User:";
             // 
@@ -94,7 +94,7 @@
             nameLabel.AutoSize = true;
             nameLabel.Location = new System.Drawing.Point(192, 13);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(58, 20);
+            nameLabel.Size = new System.Drawing.Size(48, 16);
             nameLabel.TabIndex = 2;
             nameLabel.Text = "Name:";
             // 
@@ -103,7 +103,7 @@
             passwordLabel.AutoSize = true;
             passwordLabel.Location = new System.Drawing.Point(388, 13);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new System.Drawing.Size(88, 20);
+            passwordLabel.Size = new System.Drawing.Size(71, 16);
             passwordLabel.TabIndex = 4;
             passwordLabel.Text = "Password:";
             // 
@@ -132,6 +132,7 @@
             this.toolStripMenuItemNew.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemNew.Image")));
             this.toolStripMenuItemNew.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemNew.Name = "toolStripMenuItemNew";
+            this.toolStripMenuItemNew.ShortcutKeys = System.Windows.Forms.Keys.F2;
             this.toolStripMenuItemNew.Size = new System.Drawing.Size(60, 66);
             this.toolStripMenuItemNew.Text = "New";
             this.toolStripMenuItemNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -144,6 +145,7 @@
             this.saveToolStripMenuSave.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuSave.Image")));
             this.saveToolStripMenuSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.saveToolStripMenuSave.Name = "saveToolStripMenuSave";
+            this.saveToolStripMenuSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveToolStripMenuSave.Size = new System.Drawing.Size(60, 66);
             this.saveToolStripMenuSave.Text = "Save";
             this.saveToolStripMenuSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -156,7 +158,8 @@
             this.toolStripMenuItemDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemDelete.Image")));
             this.toolStripMenuItemDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
-            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(67, 66);
+            this.toolStripMenuItemDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(60, 66);
             this.toolStripMenuItemDelete.Text = "Delete";
             this.toolStripMenuItemDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
@@ -168,7 +171,8 @@
             this.toolStripMenuItemPopulate.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemPopulate.Image")));
             this.toolStripMenuItemPopulate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemPopulate.Name = "toolStripMenuItemPopulate";
-            this.toolStripMenuItemPopulate.Size = new System.Drawing.Size(84, 66);
+            this.toolStripMenuItemPopulate.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.toolStripMenuItemPopulate.Size = new System.Drawing.Size(70, 66);
             this.toolStripMenuItemPopulate.Text = "Populate";
             this.toolStripMenuItemPopulate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItemPopulate.Click += new System.EventHandler(this.toolStripMenuItemPopulate_Click);
@@ -180,7 +184,8 @@
             this.toolStripMenuItemSearch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemSearch.Image")));
             this.toolStripMenuItemSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemSearch.Name = "toolStripMenuItemSearch";
-            this.toolStripMenuItemSearch.Size = new System.Drawing.Size(73, 66);
+            this.toolStripMenuItemSearch.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.toolStripMenuItemSearch.Size = new System.Drawing.Size(60, 66);
             this.toolStripMenuItemSearch.Text = "Search";
             this.toolStripMenuItemSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -385,7 +390,7 @@
             this.userTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "user", true));
             this.userTextBox.Location = new System.Drawing.Point(22, 36);
             this.userTextBox.Name = "userTextBox";
-            this.userTextBox.Size = new System.Drawing.Size(168, 26);
+            this.userTextBox.Size = new System.Drawing.Size(168, 22);
             this.userTextBox.TabIndex = 1;
             // 
             // nameTextBox
@@ -393,7 +398,7 @@
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "name", true));
             this.nameTextBox.Location = new System.Drawing.Point(195, 36);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(190, 26);
+            this.nameTextBox.Size = new System.Drawing.Size(190, 22);
             this.nameTextBox.TabIndex = 3;
             // 
             // passwordTextBox
@@ -401,7 +406,7 @@
             this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "password", true));
             this.passwordTextBox.Location = new System.Drawing.Point(391, 36);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(175, 26);
+            this.passwordTextBox.Size = new System.Drawing.Size(175, 22);
             this.passwordTextBox.TabIndex = 5;
             // 
             // userTableAdapter
@@ -422,7 +427,7 @@
             // 
             // User
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1136, 511);

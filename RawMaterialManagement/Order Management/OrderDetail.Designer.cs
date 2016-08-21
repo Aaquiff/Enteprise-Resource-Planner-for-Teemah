@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new System.Windows.Forms.Panel();
             this.dataGridViewBase1 = new FrameworkControls.Controls.DataGridViewBase();
             this.orderidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,7 +60,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtSubTotal = new System.Windows.Forms.TextBox();
-            this.txtDiscount = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.contextMenuStripOrder = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.approveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,11 +92,12 @@
             this.toBeApprovedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
             this.dataGridViewNavigator = new System.Windows.Forms.DataGridView();
-            this.raw_purchase_orderTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_purchase_orderTableAdapter();
-            this.raw_order_lineTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_order_lineTableAdapter();
             this.orderidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplieridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_purchase_orderTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_purchase_orderTableAdapter();
+            this.raw_order_lineTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_order_lineTableAdapter();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBase1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKrawpurchaseorderraworderlineBindingSource)).BeginInit();
@@ -116,6 +116,7 @@
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNavigator)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
@@ -125,7 +126,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(971, 459);
+            this.panelMain.Size = new System.Drawing.Size(1012, 459);
             this.panelMain.TabIndex = 0;
             // 
             // dataGridViewBase1
@@ -135,14 +136,14 @@
             this.dataGridViewBase1.AutoGenerateColumns = false;
             this.dataGridViewBase1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewBase1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewBase1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewBase1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewBase1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBase1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.orderidDataGridViewTextBoxColumn1,
@@ -153,14 +154,14 @@
             this.unitofmeasureDataGridViewTextBoxColumn,
             this.amountDataGridViewTextBoxColumn});
             this.dataGridViewBase1.DataSource = this.fKrawpurchaseorderraworderlineBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.OliveDrab;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewBase1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.OliveDrab;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewBase1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewBase1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewBase1.EnableHeadersVisualStyles = false;
             this.dataGridViewBase1.GridColor = System.Drawing.SystemColors.Control;
@@ -169,7 +170,7 @@
             this.dataGridViewBase1.RowHeadersVisible = false;
             this.dataGridViewBase1.RowTemplate.Height = 30;
             this.dataGridViewBase1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBase1.Size = new System.Drawing.Size(971, 123);
+            this.dataGridViewBase1.Size = new System.Drawing.Size(1012, 123);
             this.dataGridViewBase1.TabIndex = 7;
             // 
             // orderidDataGridViewTextBoxColumn1
@@ -238,7 +239,7 @@
             this.panelOrderDetail.Location = new System.Drawing.Point(0, 0);
             this.panelOrderDetail.Margin = new System.Windows.Forms.Padding(4);
             this.panelOrderDetail.Name = "panelOrderDetail";
-            this.panelOrderDetail.Size = new System.Drawing.Size(971, 336);
+            this.panelOrderDetail.Size = new System.Drawing.Size(1012, 336);
             this.panelOrderDetail.TabIndex = 5;
             // 
             // panelOrder
@@ -251,7 +252,7 @@
             this.panelOrder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelOrder.Location = new System.Drawing.Point(0, 0);
             this.panelOrder.Name = "panelOrder";
-            this.panelOrder.Size = new System.Drawing.Size(971, 336);
+            this.panelOrder.Size = new System.Drawing.Size(1012, 336);
             this.panelOrder.TabIndex = 25;
             // 
             // btnAddItem
@@ -261,7 +262,7 @@
             this.btnAddItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.YellowGreen;
             this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAddItem.Location = new System.Drawing.Point(7, 302);
+            this.btnAddItem.Location = new System.Drawing.Point(3, 293);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(85, 28);
             this.btnAddItem.TabIndex = 29;
@@ -305,7 +306,7 @@
             this.txtSupplierId.Location = new System.Drawing.Point(8, 43);
             this.txtSupplierId.Margin = new System.Windows.Forms.Padding(4);
             this.txtSupplierId.Name = "txtSupplierId";
-            this.txtSupplierId.Size = new System.Drawing.Size(200, 26);
+            this.txtSupplierId.Size = new System.Drawing.Size(200, 22);
             this.txtSupplierId.TabIndex = 16;
             // 
             // label8
@@ -314,7 +315,7 @@
             this.label8.Location = new System.Drawing.Point(8, 23);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 20);
+            this.label8.Size = new System.Drawing.Size(72, 16);
             this.label8.TabIndex = 17;
             this.label8.Text = "Supplier Id";
             // 
@@ -325,7 +326,7 @@
             this.txtSupplierName.Margin = new System.Windows.Forms.Padding(4);
             this.txtSupplierName.Name = "txtSupplierName";
             this.txtSupplierName.ReadOnly = true;
-            this.txtSupplierName.Size = new System.Drawing.Size(237, 26);
+            this.txtSupplierName.Size = new System.Drawing.Size(237, 22);
             this.txtSupplierName.TabIndex = 18;
             // 
             // label9
@@ -334,19 +335,19 @@
             this.label9.Location = new System.Drawing.Point(8, 74);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 20);
+            this.label9.Size = new System.Drawing.Size(98, 16);
             this.label9.TabIndex = 19;
             this.label9.Text = "Supplier Name";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtSubTotal);
-            this.groupBox1.Controls.Add(this.txtDiscount);
             this.groupBox1.Location = new System.Drawing.Point(718, 13);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -359,10 +360,10 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(86, 88);
+            this.label10.Location = new System.Drawing.Point(86, 90);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(24, 20);
+            this.label10.Size = new System.Drawing.Size(20, 16);
             this.label10.TabIndex = 28;
             this.label10.Text = "%";
             // 
@@ -372,7 +373,7 @@
             this.label13.Location = new System.Drawing.Point(10, 115);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(46, 20);
+            this.label13.Size = new System.Drawing.Size(39, 16);
             this.label13.TabIndex = 27;
             this.label13.Text = "Total";
             // 
@@ -383,7 +384,7 @@
             this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(230, 26);
+            this.txtTotal.Size = new System.Drawing.Size(230, 22);
             this.txtTotal.TabIndex = 26;
             // 
             // label6
@@ -392,7 +393,7 @@
             this.label6.Location = new System.Drawing.Point(8, 20);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 20);
+            this.label6.Size = new System.Drawing.Size(66, 16);
             this.label6.TabIndex = 12;
             this.label6.Text = "Sub Total";
             // 
@@ -402,7 +403,7 @@
             this.label12.Location = new System.Drawing.Point(8, 65);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(76, 20);
+            this.label12.Size = new System.Drawing.Size(60, 16);
             this.label12.TabIndex = 25;
             this.label12.Text = "Discount";
             // 
@@ -413,17 +414,8 @@
             this.txtSubTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubTotal.Name = "txtSubTotal";
             this.txtSubTotal.ReadOnly = true;
-            this.txtSubTotal.Size = new System.Drawing.Size(230, 26);
+            this.txtSubTotal.Size = new System.Drawing.Size(230, 22);
             this.txtSubTotal.TabIndex = 11;
-            // 
-            // txtDiscount
-            // 
-            this.txtDiscount.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "discount", true));
-            this.txtDiscount.Location = new System.Drawing.Point(13, 85);
-            this.txtDiscount.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(67, 26);
-            this.txtDiscount.TabIndex = 24;
             // 
             // groupBox2
             // 
@@ -446,7 +438,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(703, 282);
+            this.groupBox2.Size = new System.Drawing.Size(703, 265);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Order";
@@ -459,25 +451,25 @@
             this.closeToolStripMenuItem,
             this.cancelToolStripMenuItem});
             this.contextMenuStripOrder.Name = "contextMenuStripOrder";
-            this.contextMenuStripOrder.Size = new System.Drawing.Size(146, 82);
+            this.contextMenuStripOrder.Size = new System.Drawing.Size(123, 70);
             // 
             // approveToolStripMenuItem
             // 
             this.approveToolStripMenuItem.Name = "approveToolStripMenuItem";
-            this.approveToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
+            this.approveToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.approveToolStripMenuItem.Text = "Approve ";
             this.approveToolStripMenuItem.Click += new System.EventHandler(this.approveToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.closeToolStripMenuItem.Text = "Close";
             // 
             // cancelToolStripMenuItem
             // 
             this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
+            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.cancelToolStripMenuItem.Text = "Cancel";
             this.cancelToolStripMenuItem.Click += new System.EventHandler(this.cancelToolStripMenuItem_Click);
             // 
@@ -488,7 +480,7 @@
             this.txtCreatedDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtCreatedDate.Name = "txtCreatedDate";
             this.txtCreatedDate.ReadOnly = true;
-            this.txtCreatedDate.Size = new System.Drawing.Size(280, 26);
+            this.txtCreatedDate.Size = new System.Drawing.Size(280, 22);
             this.txtCreatedDate.TabIndex = 25;
             // 
             // txtStatus
@@ -498,7 +490,7 @@
             this.txtStatus.Margin = new System.Windows.Forms.Padding(4);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ReadOnly = true;
-            this.txtStatus.Size = new System.Drawing.Size(194, 26);
+            this.txtStatus.Size = new System.Drawing.Size(194, 22);
             this.txtStatus.TabIndex = 24;
             // 
             // label1
@@ -507,7 +499,7 @@
             this.label1.Location = new System.Drawing.Point(1, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 20);
+            this.label1.Size = new System.Drawing.Size(56, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Order Id";
             // 
@@ -517,7 +509,7 @@
             this.txtOrderId.Location = new System.Drawing.Point(8, 39);
             this.txtOrderId.Margin = new System.Windows.Forms.Padding(4);
             this.txtOrderId.Name = "txtOrderId";
-            this.txtOrderId.Size = new System.Drawing.Size(193, 26);
+            this.txtOrderId.Size = new System.Drawing.Size(193, 22);
             this.txtOrderId.TabIndex = 0;
             // 
             // label11
@@ -526,7 +518,7 @@
             this.label11.Location = new System.Drawing.Point(8, 126);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(140, 20);
+            this.label11.Size = new System.Drawing.Size(115, 16);
             this.label11.TabIndex = 23;
             this.label11.Text = "Shipping Address";
             // 
@@ -537,17 +529,17 @@
             this.txtCreator.Margin = new System.Windows.Forms.Padding(4);
             this.txtCreator.Name = "txtCreator";
             this.txtCreator.ReadOnly = true;
-            this.txtCreator.Size = new System.Drawing.Size(196, 26);
+            this.txtCreator.Size = new System.Drawing.Size(196, 22);
             this.txtCreator.TabIndex = 2;
             // 
             // txtShippingAddress
             // 
             this.txtShippingAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "shipping_address", true));
-            this.txtShippingAddress.Location = new System.Drawing.Point(7, 145);
+            this.txtShippingAddress.Location = new System.Drawing.Point(7, 146);
             this.txtShippingAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtShippingAddress.Multiline = true;
             this.txtShippingAddress.Name = "txtShippingAddress";
-            this.txtShippingAddress.Size = new System.Drawing.Size(195, 129);
+            this.txtShippingAddress.Size = new System.Drawing.Size(195, 111);
             this.txtShippingAddress.TabIndex = 22;
             // 
             // label2
@@ -556,7 +548,7 @@
             this.label2.Location = new System.Drawing.Point(207, 20);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.Size = new System.Drawing.Size(52, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Creator";
             // 
@@ -566,7 +558,7 @@
             this.label3.Location = new System.Drawing.Point(412, 20);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 20);
+            this.label3.Size = new System.Drawing.Size(88, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Created Date";
             // 
@@ -576,7 +568,7 @@
             this.label7.Location = new System.Drawing.Point(209, 126);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 20);
+            this.label7.Size = new System.Drawing.Size(44, 16);
             this.label7.TabIndex = 14;
             this.label7.Text = "Notes";
             // 
@@ -586,7 +578,7 @@
             this.txtNotes.Margin = new System.Windows.Forms.Padding(4);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
-            this.txtNotes.Size = new System.Drawing.Size(484, 129);
+            this.txtNotes.Size = new System.Drawing.Size(484, 112);
             this.txtNotes.TabIndex = 13;
             // 
             // label4
@@ -595,7 +587,7 @@
             this.label4.Location = new System.Drawing.Point(4, 70);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 20);
+            this.label4.Size = new System.Drawing.Size(45, 16);
             this.label4.TabIndex = 8;
             this.label4.Text = "Status";
             // 
@@ -605,7 +597,7 @@
             this.label5.Location = new System.Drawing.Point(209, 71);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 20);
+            this.label5.Size = new System.Drawing.Size(87, 16);
             this.label5.TabIndex = 10;
             this.label5.Text = "Approved By";
             // 
@@ -616,7 +608,7 @@
             this.txtApprovedBy.Margin = new System.Windows.Forms.Padding(4);
             this.txtApprovedBy.Name = "txtApprovedBy";
             this.txtApprovedBy.ReadOnly = true;
-            this.txtApprovedBy.Size = new System.Drawing.Size(195, 26);
+            this.txtApprovedBy.Size = new System.Drawing.Size(195, 22);
             this.txtApprovedBy.TabIndex = 9;
             // 
             // contextMenuStripOrderLine
@@ -626,19 +618,19 @@
             this.addItemToolStripMenuItem,
             this.removeItemToolStripMenuItem});
             this.contextMenuStripOrderLine.Name = "contextMenuStripOrderLine";
-            this.contextMenuStripOrderLine.Size = new System.Drawing.Size(173, 56);
+            this.contextMenuStripOrderLine.Size = new System.Drawing.Size(145, 48);
             // 
             // addItemToolStripMenuItem
             // 
             this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
-            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
+            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.addItemToolStripMenuItem.Text = "Add Item";
             this.addItemToolStripMenuItem.Click += new System.EventHandler(this.addItemToolStripMenuItem_Click);
             // 
             // removeItemToolStripMenuItem
             // 
             this.removeItemToolStripMenuItem.Name = "removeItemToolStripMenuItem";
-            this.removeItemToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
+            this.removeItemToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.removeItemToolStripMenuItem.Text = "Remove Item";
             this.removeItemToolStripMenuItem.Click += new System.EventHandler(this.removeItemToolStripMenuItem_Click);
             // 
@@ -656,7 +648,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1182, 71);
+            this.menuStrip1.Size = new System.Drawing.Size(1217, 71);
             this.menuStrip1.TabIndex = 29;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -668,6 +660,7 @@
             this.toolStripMenuItem3.Image = global::RawMaterialManagement.Properties.Resources.ic_add_circle_outline_2x;
             this.toolStripMenuItem3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.ShortcutKeys = System.Windows.Forms.Keys.F2;
             this.toolStripMenuItem3.Size = new System.Drawing.Size(60, 67);
             this.toolStripMenuItem3.Text = "New";
             this.toolStripMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -680,6 +673,7 @@
             this.saveToolStripMenuItem.Image = global::RawMaterialManagement.Properties.Resources.ic_save_2x;
             this.saveToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(60, 67);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -692,7 +686,8 @@
             this.toolStripMenuItem1.Image = global::RawMaterialManagement.Properties.Resources.ic_delete_2x;
             this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(67, 67);
+            this.toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 67);
             this.toolStripMenuItem1.Text = "Delete";
             this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
@@ -704,7 +699,8 @@
             this.toolStripMenuItem2.Image = global::RawMaterialManagement.Properties.Resources.ic_file_download_2x;
             this.toolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(84, 67);
+            this.toolStripMenuItem2.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(70, 67);
             this.toolStripMenuItem2.Text = "Populate";
             this.toolStripMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
@@ -716,7 +712,8 @@
             this.toolStripMenuItem4.Image = global::RawMaterialManagement.Properties.Resources.ic_search_2x;
             this.toolStripMenuItem4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(73, 67);
+            this.toolStripMenuItem4.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(60, 67);
             this.toolStripMenuItem4.Text = "Search";
             this.toolStripMenuItem4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -734,7 +731,7 @@
             // toBeApprovedToolStripMenuItem
             // 
             this.toBeApprovedToolStripMenuItem.Name = "toBeApprovedToolStripMenuItem";
-            this.toBeApprovedToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
+            this.toBeApprovedToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.toBeApprovedToolStripMenuItem.Text = "To Be Approved";
             this.toBeApprovedToolStripMenuItem.Click += new System.EventHandler(this.toBeApprovedToolStripMenuItem_Click);
             // 
@@ -751,8 +748,8 @@
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.panelMain);
-            this.splitContainerMain.Size = new System.Drawing.Size(1217, 459);
-            this.splitContainerMain.SplitterDistance = 242;
+            this.splitContainerMain.Size = new System.Drawing.Size(1267, 459);
+            this.splitContainerMain.SplitterDistance = 251;
             this.splitContainerMain.TabIndex = 25;
             // 
             // dataGridViewNavigator
@@ -770,14 +767,14 @@
             this.statusDataGridViewTextBoxColumn,
             this.supplieridDataGridViewTextBoxColumn});
             this.dataGridViewNavigator.DataSource = this.rawpurchaseorderBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.OliveDrab;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewNavigator.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.OliveDrab;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewNavigator.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewNavigator.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewNavigator.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridViewNavigator.Location = new System.Drawing.Point(0, 0);
@@ -787,16 +784,8 @@
             this.dataGridViewNavigator.RowTemplate.Height = 35;
             this.dataGridViewNavigator.RowTemplate.ReadOnly = true;
             this.dataGridViewNavigator.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewNavigator.Size = new System.Drawing.Size(242, 459);
+            this.dataGridViewNavigator.Size = new System.Drawing.Size(251, 459);
             this.dataGridViewNavigator.TabIndex = 0;
-            // 
-            // raw_purchase_orderTableAdapter
-            // 
-            this.raw_purchase_orderTableAdapter.ClearBeforeFill = true;
-            // 
-            // raw_order_lineTableAdapter
-            // 
-            this.raw_order_lineTableAdapter.ClearBeforeFill = true;
             // 
             // orderidDataGridViewTextBoxColumn
             // 
@@ -817,12 +806,28 @@
             this.supplieridDataGridViewTextBoxColumn.Name = "supplieridDataGridViewTextBoxColumn";
             this.supplieridDataGridViewTextBoxColumn.Visible = false;
             // 
+            // raw_purchase_orderTableAdapter
+            // 
+            this.raw_purchase_orderTableAdapter.ClearBeforeFill = true;
+            // 
+            // raw_order_lineTableAdapter
+            // 
+            this.raw_order_lineTableAdapter.ClearBeforeFill = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.rawpurchaseorderBindingSource, "discount", true));
+            this.numericUpDown1.Location = new System.Drawing.Point(11, 88);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(68, 22);
+            this.numericUpDown1.TabIndex = 29;
+            // 
             // OrderDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1217, 459);
+            this.ClientSize = new System.Drawing.Size(1267, 459);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainerMain);
             this.Controls.Add(this.menuStrip1);
@@ -854,6 +859,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNavigator)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -874,7 +880,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtSubTotal;
-        private System.Windows.Forms.TextBox txtDiscount;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
@@ -928,6 +933,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn orderidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplieridDataGridViewTextBoxColumn;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
 
     }
 }

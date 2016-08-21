@@ -94,17 +94,37 @@ namespace Explorer
                     string role = read.GetString("role");
                     switch (role)
                     {
-                        case "Raw Material User":
-                            btnRMM.Visible = true;
-                            panelRawMaterial.Show();
+                        case "Raw Material Management User": btnRMM.Show();
+                            break;
+                        case "Finance Management User": btnFM.Show();
+                            break;
+                        case "Employee Management User": btnEM.Show();
+                            break;
+                        case "Sales Management User": btnSM.Show();
+                            break;
+                        case "Distribution Management User": btnDM.Show();
+                            break;
+                        case "Product Process Management User": btnPPM.Show();
+                            break;
+                        case "Finished Good Management User": btnIM.Show();
                             break;
                         case "Administrator": buttonSettings.Show();
-                            break;
-                        case "Finance User": btnFM.Show();
                             break;
                         default:
                             break;
                     }
+                }
+                if(Connection.getUserIdFromConnectionString() == "root")
+                {
+                    btnFM.Show();
+                    btnIM.Show();
+                    btnPPM.Show();
+                    btnDM.Show();
+                    btnEM.Show();
+                    btnFM.Show();
+                    btnRMM.Show();
+                    btnSM.Show();
+                    buttonSettings.Show();
                 }
             }
             catch (Exception ex)
