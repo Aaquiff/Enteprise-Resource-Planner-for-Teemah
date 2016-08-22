@@ -63,6 +63,26 @@ namespace Explorer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _20150831_55e46b18e2a80 {
+            get {
+                object obj = ResourceManager.GetObject("20150831_55e46b18e2a80", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap black_linux_logo_manjaro {
+            get {
+                object obj = ResourceManager.GetObject("black-linux-logo-manjaro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_menu_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("ic_menu_black_24dp", resourceCulture);
@@ -106,6 +126,16 @@ namespace Explorer.Properties {
         internal static System.Drawing.Bitmap ic_settings_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("ic_settings_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap member1 {
+            get {
+                object obj = ResourceManager.GetObject("member1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

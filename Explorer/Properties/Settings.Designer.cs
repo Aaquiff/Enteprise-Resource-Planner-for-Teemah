@@ -68,7 +68,7 @@ namespace Explorer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("OliveDrab")]
+        [global::System.Configuration.DefaultSettingValueAttribute("38, 166, 91")]
         public global::System.Drawing.Color ThemeBackColor {
             get {
                 return ((global::System.Drawing.Color)(this["ThemeBackColor"]));
@@ -105,6 +105,18 @@ namespace Explorer.Properties {
             }
             set {
                 this["NavigatorVisible"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("34, 49, 63")]
+        public global::System.Drawing.Color NavigatorHeadingBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["NavigatorHeadingBackColor"]));
+            }
+            set {
+                this["NavigatorHeadingBackColor"] = value;
             }
         }
     }

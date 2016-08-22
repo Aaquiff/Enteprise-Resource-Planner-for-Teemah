@@ -14,14 +14,7 @@ using RawMaterialManagement.Supplier_Management;
 using RawMaterialManagement.Invoice_Management;
 using RawMaterialManagement.Items_Management;
 using RawMaterialManagement.Order_Management;
-using HR_Management;
-using FinanceManagement;
-using InventoryManagement;
-using SalesManagement.Buyer;
-using SalesManagement;
 using RawMaterialManagement;
-using DistributionManagement;
-using ProductProcessManagement;
 using MySQLDatabaseAccess;
 using UserManagement;
 
@@ -148,6 +141,7 @@ namespace Explorer
         private void ExplorerForm_Load(object sender, EventArgs e)
         {
             toolStripUser.Text = Connection.getUserNameFromConnectionString(con.ConnectionString);
+            lblUsername.Text = toolStripUser.Text;
             toolStripStatusLabel.Text = "Connected to : " + Connection.getServerFromConnectionString(con.ConnectionString);
             loadForm(new frmStartup());
         }
@@ -207,17 +201,14 @@ namespace Explorer
 
         private void button6_Click(object sender, EventArgs e)
         {
-            loadForm(new DeliveryDetails());
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            loadForm(new RouteDetails());
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            loadForm(new VehicleDetails());
         }
 
         private void btnDM_Click(object sender, EventArgs e)
@@ -242,22 +233,18 @@ namespace Explorer
 
         private void button3_Click(object sender, EventArgs e)
         {
-            loadForm(new CheckLeave());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            loadForm(new Employee());
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            loadForm(new LeaveRequest());
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            loadForm(new Salary());
         }
 
         #endregion
@@ -266,12 +253,10 @@ namespace Explorer
 
         private void button11_Click(object sender, EventArgs e)
         {
-            loadForm(new Inventory());
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            loadForm(new Order());
         }
 
         private void btnIM_Click(object sender, EventArgs e)
@@ -296,17 +281,14 @@ namespace Explorer
 
         private void button13_Click(object sender, EventArgs e)
         {
-            loadForm(new AssetsManagement());
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            loadForm(new BudgetAllocation());
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            loadForm(new ExpensesManager());
         }
         #endregion
 
@@ -322,17 +304,14 @@ namespace Explorer
 
         private void button16_Click(object sender, EventArgs e)
         {
-            loadForm(new addNew());
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
-            loadForm(new updateBuyer());
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
-            loadForm(new viewAllBuyers());
         }
 
         #endregion
@@ -352,7 +331,7 @@ namespace Explorer
 
         private void button22_Click(object sender, EventArgs e)
         {
-            loadForm(new Dashboard());
+
         }
 
         #endregion
@@ -361,27 +340,22 @@ namespace Explorer
 
         private void button21_Click(object sender, EventArgs e)
         {
-            loadForm(new productRequets());
         }
 
         private void button20_Click(object sender, EventArgs e)
         {
-            loadForm(new remarks());
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
-            loadForm(new workOrder());
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
-            loadForm(new workOrders());
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
-            loadForm(new paymentInfo());
         }
 
         private void button25_Click(object sender, EventArgs e)
@@ -439,6 +413,14 @@ namespace Explorer
             Form form = fc.Pop();
             if(form != null)
                 loadForm(form);
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (toolStripMain.Visible)
+                toolStripMain.Hide();
+            else
+                toolStripMain.Show();
         }
     }
 
