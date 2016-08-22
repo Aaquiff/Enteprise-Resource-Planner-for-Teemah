@@ -16,7 +16,7 @@ namespace FrameworkControls.Forms
         protected MySqlConnection con = new MySqlConnection();
         protected DataSet dataSet = new DataSet();
         protected BindingSource bindingSource = new BindingSource();
-        protected MySqlDataAdapter dataAdapter1 = new MySqlDataAdapter();
+        protected internal MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
         public TableWindowBase()
         {
@@ -45,7 +45,7 @@ namespace FrameworkControls.Forms
             {
                 this.Validate();
                 bindingSource.EndEdit();
-                dataAdapter1.Update(dataSet);
+                dataAdapter.Update(dataSet);
                 MessageBox.Show("Saved");
             }
             catch (Exception ex)
@@ -60,7 +60,7 @@ namespace FrameworkControls.Forms
             try
             {
                 dataSet.Clear();
-                dataAdapter1.Fill(dataSet);
+                dataAdapter.Fill(dataSet);
             }
             catch (Exception ex)
             {
@@ -157,7 +157,6 @@ namespace FrameworkControls.Forms
         {
 
         }
-        #endregion
 
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
@@ -171,5 +170,7 @@ namespace FrameworkControls.Forms
             else
                 Populate();
         }
+
+        #endregion        
     }
 }

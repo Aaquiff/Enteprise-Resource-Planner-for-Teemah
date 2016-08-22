@@ -154,31 +154,37 @@
             // 
             // panelSearch
             // 
+            this.panelSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
             this.panelSearch.Controls.Add(this.cmbColumns);
             this.panelSearch.Controls.Add(this.txtSearchItemId);
             this.panelSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSearch.Location = new System.Drawing.Point(0, 0);
             this.panelSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(930, 37);
+            this.panelSearch.Size = new System.Drawing.Size(930, 61);
             this.panelSearch.TabIndex = 7;
             this.panelSearch.Visible = false;
             // 
             // cmbColumns
             // 
+            this.cmbColumns.DropDownHeight = 136;
             this.cmbColumns.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbColumns.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmbColumns.FormattingEnabled = true;
-            this.cmbColumns.Location = new System.Drawing.Point(12, 6);
+            this.cmbColumns.ItemHeight = 16;
+            this.cmbColumns.Location = new System.Drawing.Point(12, 16);
             this.cmbColumns.Name = "cmbColumns";
             this.cmbColumns.Size = new System.Drawing.Size(121, 24);
             this.cmbColumns.TabIndex = 2;
             // 
             // txtSearchItemId
             // 
-            this.txtSearchItemId.Location = new System.Drawing.Point(139, 6);
+            this.txtSearchItemId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearchItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchItemId.Location = new System.Drawing.Point(139, 14);
             this.txtSearchItemId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearchItemId.Name = "txtSearchItemId";
-            this.txtSearchItemId.Size = new System.Drawing.Size(226, 22);
+            this.txtSearchItemId.Size = new System.Drawing.Size(779, 29);
             this.txtSearchItemId.TabIndex = 0;
             this.txtSearchItemId.TextChanged += new System.EventHandler(this.txtSearchItemId_TextChanged);
             // 
