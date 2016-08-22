@@ -47,7 +47,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -124,41 +124,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DistributionManagement\DistributionManagement.csproj">
-      <Project>{f4a36b10-84a9-4376-a8bf-be3e33e6458a}</Project>
-      <Name>DistributionManagement</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FinanceManagement\FinanceManagement.csproj">
-      <Project>{a91848ae-3044-4c59-b940-8f021fa4e4c5}</Project>
-      <Name>FinanceManagement</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FrameworkControls\FrameworkControls.csproj">
       <Project>{7079dc71-6b90-47a7-bb0f-b061f6861d37}</Project>
       <Name>FrameworkControls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HRManagement\HR Management.csproj">
-      <Project>{66d7fad9-397f-4ec6-ad2a-02bab75fd284}</Project>
-      <Name>HR Management</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InventoryManagement\InventoryManagement.csproj">
-      <Project>{2a1b25e8-1dc9-46fd-9a2a-f3537b9325b7}</Project>
-      <Name>InventoryManagement</Name>
     </ProjectReference>
     <ProjectReference Include="..\MySQLDatabaseAccess\MySQLDatabaseAccess.csproj">
       <Project>{7a1f3ab0-c5e3-4234-a9d5-d15ef65714b0}</Project>
       <Name>MySQLDatabaseAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ProductProcessManagement\ProductProcessManagement.csproj">
-      <Project>{d1eab747-dfbf-4d2f-b36a-25dd5f71f12b}</Project>
-      <Name>ProductProcessManagement</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RawMaterialManagement\RawMaterialManagement.csproj">
       <Project>{075cc06a-38b4-4f27-84ba-29078bb5c4a8}</Project>
       <Name>RawMaterialManagement</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SalesManagement\SalesManagement.csproj">
-      <Project>{b6166827-aa20-471c-81c5-912f75040d62}</Project>
-      <Name>SalesManagement</Name>
     </ProjectReference>
     <ProjectReference Include="..\UserManagement\UserManagement.csproj">
       <Project>{8e0584e3-38c9-4c48-8eb2-dc3168c1f680}</Project>
