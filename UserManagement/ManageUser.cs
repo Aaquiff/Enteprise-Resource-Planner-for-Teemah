@@ -17,9 +17,9 @@ namespace UserManagement
             InitializeComponent();
 
             MySqlCommand sc = new MySqlCommand("select user,name from user_tab", con);
-            base.dataAdapter1.SelectCommand = sc;
+            base.dataAdapter.SelectCommand = sc;
 
-            base.dataAdapter1.Fill(dataSet);
+            base.dataAdapter.Fill(dataSet);
 
             base.bindingSource.DataSource = base.dataSet.Tables[0];
 
@@ -29,18 +29,18 @@ namespace UserManagement
             ic.Parameters.Add("@password", MySqlDbType.VarChar, 200, "password");
             ic.Parameters.Add("@name", MySqlDbType.VarChar, 200, "name");
 
-            base.dataAdapter1.InsertCommand = ic;
+            base.dataAdapter.InsertCommand = ic;
 
             MySqlCommand uc = new MySqlCommand("UPDATE user_tab SET name = @name WHERE user = @user");
             uc.Parameters.Add("@user", MySqlDbType.VarChar, 15, "user");
             uc.Parameters.Add("@name", MySqlDbType.VarChar, 200, "name");
 
-            base.dataAdapter1.UpdateCommand = uc;
+            base.dataAdapter.UpdateCommand = uc;
 
             MySqlCommand dc = new MySqlCommand("call `drop_user`(@user)", con);
             dc.Parameters.Add("@user", MySqlDbType.VarChar, 15, "user");
 
-            base.dataAdapter1.DeleteCommand = dc;
+            base.dataAdapter.DeleteCommand = dc;
 
             dataGridView1.DataSource = bindingSource;
         }

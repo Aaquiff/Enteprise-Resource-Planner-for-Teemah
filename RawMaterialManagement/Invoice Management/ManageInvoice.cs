@@ -16,8 +16,8 @@ namespace RawMaterialManagement.Invoice_Management
             InitializeComponent();
 
             MySqlCommand sc = new MySqlCommand("select * from raw_invoice_tab",con);
-            base.dataAdapter1.SelectCommand = sc;
-            base.dataAdapter1.Fill(dataSet);
+            base.dataAdapter.SelectCommand = sc;
+            base.dataAdapter.Fill(dataSet);
             base.bindingSource.DataSource = dataSet.Tables[0];
             dataGridView1.DataSource = base.bindingSource;
 
@@ -32,7 +32,7 @@ namespace RawMaterialManagement.Invoice_Management
             ic.Parameters.Add("@gross_value", MySqlDbType.Double, 200, "gross_value");
             ic.Parameters.Add("@discount", MySqlDbType.Int32, 20, "discount");
             ic.Parameters.Add("@currency", MySqlDbType.VarChar, 20, "currency");
-            base.dataAdapter1.InsertCommand = ic;
+            base.dataAdapter.InsertCommand = ic;
 
             MySqlCommand uc = new MySqlCommand("raw_invoice_update(@invoice_id,@order_id,@due_date,@original_due_date,@net_value,@tax_value,@gross_value,@discount,@currency)", con);
             uc.Parameters.Add("@invoice_id", MySqlDbType.VarChar, 20, "invoice_id");
@@ -44,13 +44,13 @@ namespace RawMaterialManagement.Invoice_Management
             uc.Parameters.Add("@gross_value", MySqlDbType.Double, 200, "gross_value");
             uc.Parameters.Add("@discount", MySqlDbType.Int32, 20, "discount");
             uc.Parameters.Add("@currency", MySqlDbType.VarChar, 20, "currency");
-            base.dataAdapter1.UpdateCommand = uc;
+            base.dataAdapter.UpdateCommand = uc;
 
 
             MySqlCommand dc = new MySqlCommand("raw_invoice_delete(@invoice_id)", con);
             dc.Parameters.Add("@invoice_id", MySqlDbType.VarChar, 20, "invoice_id");
 
-            base.dataAdapter1.DeleteCommand = dc;
+            base.dataAdapter.DeleteCommand = dc;
 
             
         }

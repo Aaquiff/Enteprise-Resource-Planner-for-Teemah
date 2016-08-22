@@ -16,7 +16,7 @@ namespace RawMaterialManagement.Order_Management
             InitializeComponent();
 
             MySqlCommand sc = new MySqlCommand("select * from raw_purchase_order", con);
-            base.dataAdapter1.SelectCommand = sc;
+            base.dataAdapter.SelectCommand = sc;
 
             MySqlCommand insertCommand = new MySqlCommand(
                 "insert into raw_purchase_order_tab values (@order_id,@creation_date,@creator,@status,@approver,@sub_total,@total,@shipping_address,@supplier_id)", con);
@@ -31,7 +31,7 @@ namespace RawMaterialManagement.Order_Management
             insertCommand.Parameters.Add("@shipping_address", MySqlDbType.VarChar, 500, "shipping_address");
             insertCommand.Parameters.Add("@supplier_id", MySqlDbType.VarChar, 200, "supplier_id");
 
-            base.dataAdapter1.InsertCommand = insertCommand;
+            base.dataAdapter.InsertCommand = insertCommand;
 
             MySqlCommand updateCommand = new MySqlCommand(
                 @"update raw_purchase_order_tab 
@@ -55,14 +55,14 @@ namespace RawMaterialManagement.Order_Management
             updateCommand.Parameters.Add("@supplier_id", MySqlDbType.VarChar, 200, "supplier_id");
             updateCommand.Parameters.Add("@order_id", MySqlDbType.VarChar, 200, "order_id");
 
-            base.dataAdapter1.UpdateCommand = updateCommand;
+            base.dataAdapter.UpdateCommand = updateCommand;
 
             MySqlCommand deleteCommand = new MySqlCommand("delete from raw_purchase_order_tab where order_id = @order_id", con);
             deleteCommand.Parameters.Add("@order_id", MySqlDbType.VarChar, 200, "item_id");
 
-            base.dataAdapter1.DeleteCommand = deleteCommand;
+            base.dataAdapter.DeleteCommand = deleteCommand;
 
-            base.dataAdapter1.Fill(dataSet);
+            base.dataAdapter.Fill(dataSet);
 
             base.bindingSource.DataSource = dataSet.Tables[0];
 

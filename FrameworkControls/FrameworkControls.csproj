@@ -42,11 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ErrorSys.cs" />
     <Compile Include="Controls\DataGridViewBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\DataGridViewBase.Designer.cs">
       <DependentUpon>DataGridViewBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FrameworkMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FrameworkMessageBox.Designer.cs">
+      <DependentUpon>FrameworkMessageBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\LOV.cs">
       <SubType>Form</SubType>
@@ -71,6 +78,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Controls\DataGridViewBase.resx">
       <DependentUpon>DataGridViewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\FrameworkMessageBox.resx">
+      <DependentUpon>FrameworkMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\LOV.resx">
       <DependentUpon>LOV.cs</DependentUpon>

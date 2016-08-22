@@ -44,10 +44,10 @@
             // 
             // dataAdapter
             // 
-            this.dataAdapter1.DeleteCommand = null;
-            this.dataAdapter1.InsertCommand = null;
-            this.dataAdapter1.SelectCommand = null;
-            this.dataAdapter1.UpdateCommand = null;
+            this.dataAdapter.DeleteCommand = null;
+            this.dataAdapter.InsertCommand = null;
+            this.dataAdapter.SelectCommand = null;
+            this.dataAdapter.UpdateCommand = null;
             // 
             // dataGridView1
             // 
