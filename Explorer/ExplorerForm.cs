@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data;
-
 using RawMaterialManagement.Supplier_Management;
 using RawMaterialManagement.Invoice_Management;
 using RawMaterialManagement.Items_Management;
 using RawMaterialManagement.Order_Management;
+<<<<<<< HEAD
 using RawMaterialManagement;
+=======
+>>>>>>> origin/master
 using MySQLDatabaseAccess;
 using UserManagement;
 
@@ -209,6 +211,10 @@ namespace Explorer
 
         private void button4_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+=======
+            
+>>>>>>> origin/master
         }
 
         private void btnDM_Click(object sender, EventArgs e)
@@ -285,10 +291,18 @@ namespace Explorer
 
         private void button12_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
         }
         #endregion
 
@@ -304,14 +318,26 @@ namespace Explorer
 
         private void button16_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
         }
 
         #endregion
@@ -331,7 +357,11 @@ namespace Explorer
 
         private void button22_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> origin/master
         }
 
         #endregion
@@ -356,6 +386,10 @@ namespace Explorer
 
         private void button17_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
         }
 
         private void button25_Click(object sender, EventArgs e)
