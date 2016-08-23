@@ -32,12 +32,13 @@
             // 
             // frmStartup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1287, 615);
+            this.ClientSize = new System.Drawing.Size(1045, 482);
             this.ControlBox = false;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmStartup";
             this.Text = "Home";
             this.ResumeLayout(false);
@@ -45,6 +46,7 @@
         }
 
         #endregion
+
 
 
 

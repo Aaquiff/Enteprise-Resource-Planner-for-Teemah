@@ -42,12 +42,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\ErrorSys.cs" />
+    <Compile Include="Controls\CustomButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomButton.Designer.cs">
+      <DependentUpon>CustomButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomDataGrid1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomDataGrid1.Designer.cs">
+      <DependentUpon>CustomDataGrid1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\DataGridViewBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\DataGridViewBase.Designer.cs">
       <DependentUpon>DataGridViewBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RecordSelectorGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RecordSelectorGrid.Designer.cs">
+      <DependentUpon>RecordSelectorGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\FrameworkMessageBox.cs">
       <SubType>Form</SubType>

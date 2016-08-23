@@ -67,6 +67,42 @@ namespace UserManagement
             }
         }
 
+        private void AddRole()
+        {
+            DataRowView drv = userBindingSource.Current as DataRowView;
+            string user = drv.Row.ItemArray[0].ToString();
+            MySqlCommand com = new MySqlCommand("select * from role_tab where role NOT IN (select role from user_role_tab where user = @user)", con);
+            com.Parameters.AddWithValue("@user", user);
+            LOV lov = new LOV(com);
+
+            lov.Text = "Choose Role";
+
+            lov.ShowDialog();
+
+            if (lov.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                DataRowView row = lov.selectedRow;
+                string role = row.Row.ItemArray[0].ToString();
+                string description = row.Row.ItemArray[1].ToString();
+
+                DataRowView newrow = user_roleBindingSource.AddNew() as DataRowView;
+                newrow.Row.SetField("role", role);
+                newrow.Row.SetField("description", description);
+            }
+        }
+        
+        private void RemoveRole()
+        {
+            try
+            {
+                user_roleBindingSource.RemoveCurrent();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void User_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'userDataSet.user_role' table. You can move, or remove it, as needed.
@@ -98,31 +134,22 @@ namespace UserManagement
 
         private void btnRemoveRole_Click(object sender, EventArgs e)
         {
-            user_roleBindingSource.RemoveCurrent();
+            
         }
 
         private void btnAddRole_Click(object sender, EventArgs e)
         {
-            DataRowView drv = userBindingSource.Current as DataRowView;
-            string user = drv.Row.ItemArray[0].ToString();
-            MySqlCommand com = new MySqlCommand("select * from role_tab where role NOT IN (select role from user_role_tab where user = @user)", con);
-            com.Parameters.AddWithValue("@user",user);
-            LOV lov = new LOV(com);
             
-            lov.Text = "Choose Role";
+        }
 
-            lov.ShowDialog();
+        private void customButton1_Click(object sender, EventArgs e)
+        {
+            AddRole();
+        }
 
-            if(lov.DialogResult == System.Windows.Forms.DialogResult.OK)
-            {
-                DataRowView row = lov.selectedRow;
-                string role = row.Row.ItemArray[0].ToString();
-                string description = row.Row.ItemArray[1].ToString();
-
-                DataRowView newrow = user_roleBindingSource.AddNew() as DataRowView;
-                newrow.Row.SetField("role", role);
-                newrow.Row.SetField("description", description);
-            }
+        private void customButton2_Click(object sender, EventArgs e)
+        {
+            RemoveRole();
         }
 
     }

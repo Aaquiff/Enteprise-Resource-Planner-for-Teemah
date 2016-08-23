@@ -14,14 +14,27 @@ namespace FrameworkControls.Forms
     public partial class TableWindowBase : Form
     {
         protected MySqlConnection con = new MySqlConnection();
-        protected DataSet dataSet = new DataSet();
-        protected BindingSource bindingSource = new BindingSource();
-        protected internal MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+        private MySqlCommand sc;
+        private MySqlCommand ic;
+        private MySqlCommand uc;
+        private MySqlCommand dc;
+        //protected DataSet dataSet = new DataSet();
+        //protected BindingSource bindingSource = new BindingSource();
+        private MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
         public TableWindowBase()
         {
             InitializeComponent();
-            con = MySQLDatabaseAccess.Connection.getConnection(); 
+            con = MySQLDatabaseAccess.Connection.getConnection();
+            dataAdapter.SelectCommand = sc;
+        }
+
+        protected void setCommands(MySqlCommand sc,MySqlCommand ic,MySqlCommand uc,MySqlCommand dc)
+        {
+            dataAdapter.SelectCommand = sc;
+            dataAdapter.InsertCommand = ic;
+            dataAdapter.UpdateCommand = uc;
+            dataAdapter.DeleteCommand = dc;
         }
 
         #region methods
@@ -61,6 +74,7 @@ namespace FrameworkControls.Forms
             {
                 dataSet.Clear();
                 dataAdapter.Fill(dataSet);
+                bindingSource.DataSource = dataSet.Tables[0];
             }
             catch (Exception ex)
             {

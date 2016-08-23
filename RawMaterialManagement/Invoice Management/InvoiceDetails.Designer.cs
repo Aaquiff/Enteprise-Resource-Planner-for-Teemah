@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.raw_invoice_tabBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rawDataSet = new RawMaterialManagement.RawDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -48,7 +49,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnChooseOrder = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.txtInvoiceId = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,16 +65,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.raw_invoice_tabTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_invoice_tabTableAdapter();
             this.tableAdapterManager = new RawMaterialManagement.RawDataSetTableAdapters.TableAdapterManager();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dataGridViewBase1 = new FrameworkControls.Controls.DataGridViewBase();
+            this.recordSelectorGrid1 = new FrameworkControls.Controls.RecordSelectorGrid();
             this.invoiceidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customButton1 = new FrameworkControls.Controls.CustomButton();
             ((System.ComponentModel.ISupportInitialize)(this.raw_invoice_tabBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -80,7 +79,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBase1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recordSelectorGrid1)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -129,6 +128,25 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Payment";
+            // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raw_invoice_tabBindingSource, "discount", true));
+            this.textBox1.Location = new System.Drawing.Point(418, 48);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(140, 22);
+            this.textBox1.TabIndex = 19;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(415, 28);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 16);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Discount";
             // 
             // textBox8
             // 
@@ -262,7 +280,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.dataGridViewBase1);
+            this.splitContainer1.Panel1.Controls.Add(this.recordSelectorGrid1);
             // 
             // splitContainer1.Panel2
             // 
@@ -274,12 +292,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.customButton1);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.dateTimePicker3);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.dateTimePicker2);
-            this.groupBox2.Controls.Add(this.btnChooseOrder);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtInvoiceId);
             this.groupBox2.Controls.Add(this.label6);
@@ -296,20 +314,52 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Invoice";
             // 
-            // btnChooseOrder
+            // textBox2
             // 
-            this.btnChooseOrder.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnChooseOrder.FlatAppearance.BorderSize = 0;
-            this.btnChooseOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.YellowGreen;
-            this.btnChooseOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChooseOrder.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnChooseOrder.Location = new System.Drawing.Point(463, 51);
-            this.btnChooseOrder.Name = "btnChooseOrder";
-            this.btnChooseOrder.Size = new System.Drawing.Size(140, 26);
-            this.btnChooseOrder.TabIndex = 17;
-            this.btnChooseOrder.Text = "Choose Order";
-            this.btnChooseOrder.UseVisualStyleBackColor = false;
-            this.btnChooseOrder.Click += new System.EventHandler(this.btnChooseOrder_Click);
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raw_invoice_tabBindingSource, "date", true));
+            this.textBox2.Location = new System.Drawing.Point(237, 106);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(219, 22);
+            this.textBox2.TabIndex = 22;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raw_invoice_tabBindingSource, "due_date", true));
+            this.label10.Location = new System.Drawing.Point(234, 146);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(114, 16);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Original Due Date";
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.raw_invoice_tabBindingSource, "original_due_date", true));
+            this.dateTimePicker3.Location = new System.Drawing.Point(236, 165);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(219, 22);
+            this.dateTimePicker3.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 146);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 16);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Due Date";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.raw_invoice_tabBindingSource, "due_date", true));
+            this.dateTimePicker2.Location = new System.Drawing.Point(10, 165);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(219, 22);
+            this.dateTimePicker2.TabIndex = 18;
             // 
             // label1
             // 
@@ -413,122 +463,64 @@
             this.tableAdapterManager.raw_supplier_tabTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = RawMaterialManagement.RawDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // dateTimePicker2
+            // recordSelectorGrid1
             // 
-            this.dateTimePicker2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.raw_invoice_tabBindingSource, "due_date", true));
-            this.dateTimePicker2.Location = new System.Drawing.Point(10, 165);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(219, 22);
-            this.dateTimePicker2.TabIndex = 18;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 146);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 16);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Due Date";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raw_invoice_tabBindingSource, "due_date", true));
-            this.label10.Location = new System.Drawing.Point(234, 146);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(114, 16);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Original Due Date";
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.raw_invoice_tabBindingSource, "original_due_date", true));
-            this.dateTimePicker3.Location = new System.Drawing.Point(236, 165);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(219, 22);
-            this.dateTimePicker3.TabIndex = 20;
-            // 
-            // textBox1
-            // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raw_invoice_tabBindingSource, "discount", true));
-            this.textBox1.Location = new System.Drawing.Point(418, 48);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 22);
-            this.textBox1.TabIndex = 19;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(415, 28);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 16);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "Discount";
-            // 
-            // textBox2
-            // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raw_invoice_tabBindingSource, "date", true));
-            this.textBox2.Location = new System.Drawing.Point(237, 106);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(219, 22);
-            this.textBox2.TabIndex = 22;
-            // 
-            // dataGridViewBase1
-            // 
-            this.dataGridViewBase1.AllowUserToAddRows = false;
-            this.dataGridViewBase1.AllowUserToDeleteRows = false;
-            this.dataGridViewBase1.AllowUserToResizeRows = false;
-            this.dataGridViewBase1.AutoGenerateColumns = false;
-            this.dataGridViewBase1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewBase1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridViewBase1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBase1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.recordSelectorGrid1.AllowUserToAddRows = false;
+            this.recordSelectorGrid1.AllowUserToDeleteRows = false;
+            this.recordSelectorGrid1.AllowUserToResizeRows = false;
+            this.recordSelectorGrid1.AutoGenerateColumns = false;
+            this.recordSelectorGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.recordSelectorGrid1.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.recordSelectorGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.recordSelectorGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.invoiceidDataGridViewTextBoxColumn,
-            this.order_id});
-            this.dataGridViewBase1.DataSource = this.raw_invoice_tabBindingSource;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.OliveDrab;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewBase1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewBase1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewBase1.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewBase1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewBase1.Name = "dataGridViewBase1";
-            this.dataGridViewBase1.ReadOnly = true;
-            this.dataGridViewBase1.RowHeadersVisible = false;
-            this.dataGridViewBase1.RowTemplate.Height = 30;
-            this.dataGridViewBase1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBase1.Size = new System.Drawing.Size(168, 598);
-            this.dataGridViewBase1.TabIndex = 0;
+            this.orderidDataGridViewTextBoxColumn});
+            this.recordSelectorGrid1.DataSource = this.raw_invoice_tabBindingSource;
+            this.recordSelectorGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.recordSelectorGrid1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
+            this.recordSelectorGrid1.EnableHeadersVisualStyles = false;
+            this.recordSelectorGrid1.GridColor = System.Drawing.SystemColors.Control;
+            this.recordSelectorGrid1.Location = new System.Drawing.Point(0, 0);
+            this.recordSelectorGrid1.MultiSelect = false;
+            this.recordSelectorGrid1.Name = "recordSelectorGrid1";
+            this.recordSelectorGrid1.RowHeadersVisible = false;
+            this.recordSelectorGrid1.RowTemplate.Height = 30;
+            this.recordSelectorGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.recordSelectorGrid1.Size = new System.Drawing.Size(168, 598);
+            this.recordSelectorGrid1.TabIndex = 0;
             // 
             // invoiceidDataGridViewTextBoxColumn
             // 
             this.invoiceidDataGridViewTextBoxColumn.DataPropertyName = "invoice_id";
-            this.invoiceidDataGridViewTextBoxColumn.HeaderText = "INVOICE ID";
+            this.invoiceidDataGridViewTextBoxColumn.HeaderText = "invoice_id";
             this.invoiceidDataGridViewTextBoxColumn.Name = "invoiceidDataGridViewTextBoxColumn";
-            this.invoiceidDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // order_id
+            // orderidDataGridViewTextBoxColumn
             // 
-            this.order_id.DataPropertyName = "order_id";
-            this.order_id.HeaderText = "ORDER ID";
-            this.order_id.Name = "order_id";
-            this.order_id.ReadOnly = true;
+            this.orderidDataGridViewTextBoxColumn.DataPropertyName = "order_id";
+            this.orderidDataGridViewTextBoxColumn.HeaderText = "order_id";
+            this.orderidDataGridViewTextBoxColumn.Name = "orderidDataGridViewTextBoxColumn";
+            // 
+            // customButton1
+            // 
+            this.customButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.customButton1.FlatAppearance.BorderSize = 0;
+            this.customButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(166)))), ((int)(((byte)(91)))));
+            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customButton1.ForeColor = System.Drawing.Color.White;
+            this.customButton1.Location = new System.Drawing.Point(463, 50);
+            this.customButton1.Name = "customButton1";
+            this.customButton1.Size = new System.Drawing.Size(137, 23);
+            this.customButton1.TabIndex = 17;
+            this.customButton1.Text = "Choose Order";
+            this.customButton1.UseVisualStyleBackColor = false;
+            this.customButton1.Click += new System.EventHandler(this.customButton1_Click);
             // 
             // InvoiceDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1125, 598);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -550,7 +542,7 @@
             this.splitContainer1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBase1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recordSelectorGrid1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -587,8 +579,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private FrameworkControls.Controls.DataGridViewBase dataGridViewBase1;
-        private System.Windows.Forms.Button btnChooseOrder;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.Label label3;
@@ -596,7 +586,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox2;
+        private FrameworkControls.Controls.RecordSelectorGrid recordSelectorGrid1;
         private System.Windows.Forms.DataGridViewTextBoxColumn invoiceidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn order_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderidDataGridViewTextBoxColumn;
+        private FrameworkControls.Controls.CustomButton customButton1;
     }
 }

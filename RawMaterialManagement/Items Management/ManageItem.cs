@@ -17,7 +17,6 @@ namespace RawMaterialManagement.Items_Management
             InitializeComponent();
 
             MySqlCommand sc = new MySqlCommand("select * from raw_item_tab", con);   
-            base.dataAdapter.SelectCommand = sc;
             
             MySqlCommand ic = new MySqlCommand
                 ("insert into raw_item_tab (name,description,stock_level,unit_of_measure,item_category,bar_code) values (@name,@description,@stock_level,@unit_of_measure,@item_category,@bar_code)", con);
@@ -29,8 +28,6 @@ namespace RawMaterialManagement.Items_Management
             ic.Parameters.Add("@item_category", MySqlDbType.VarChar, 200, "item_category");
             ic.Parameters.Add("@bar_code", MySqlDbType.VarChar, 200, "bar_code");
 
-            base.dataAdapter.InsertCommand = ic;
-
             MySqlCommand uc = new MySqlCommand
                 ("update raw_item_tab set name = @itemname, description = @description, stock_level = @stock_level, unit_of_measure = @unit_of_measure, item_category = @item_category, bar_code = @bar_code where item_id = @itemid", con);
             uc.Parameters.Add("@itemname", MySqlDbType.VarChar, 200, "name");
@@ -41,18 +38,17 @@ namespace RawMaterialManagement.Items_Management
             uc.Parameters.Add("@bar_code", MySqlDbType.VarChar, 200, "bar_code");
             uc.Parameters.Add("@itemid", MySqlDbType.Int32, 200, "item_id");
 
-            base.dataAdapter.UpdateCommand = uc;
-
             MySqlCommand dc = new MySqlCommand("delete from raw_item_tab where item_id = @itemid", con);
             dc.Parameters.Add("@itemid", MySqlDbType.Int32, 200, "item_id");
 
-            base.dataAdapter.DeleteCommand = dc;
-
-            base.dataAdapter.Fill(base.dataSet);
-            base.bindingSource.DataSource = base.dataSet.Tables[0];
+            //base.dataAdapter.Fill(base.dataSet);
+            //base.bindingSource.DataSource = base.dataSet.Tables[0];
             //dataGridView1.DataSource = base.bindingSource;
+            //customDataGrid11.DataSource = bindingSource;
 
-            
+            base.setCommands(sc, ic, uc, dc);
+            this.Populate();
+            customDataGrid11.DataSource = base.bindingSource;
         }
 
         protected override void Search()

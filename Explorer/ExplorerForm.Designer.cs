@@ -40,10 +40,7 @@
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHome = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelBreadCrumbs = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.panelNavigation = new System.Windows.Forms.Panel();
             this.panelSettings = new System.Windows.Forms.Panel();
@@ -96,10 +93,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panelBreadCrumbs = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.contextMenuStripToolbar.SuspendLayout();
             this.toolStripMain.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panelBreadCrumbs.SuspendLayout();
             this.panelNavigation.SuspendLayout();
             this.panelSettings.SuspendLayout();
             this.panelFinance.SuspendLayout();
@@ -112,6 +110,8 @@
             this.panelUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip.SuspendLayout();
+            this.panelBreadCrumbs.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStripToolbar
@@ -220,17 +220,6 @@
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.panelBreadCrumbs);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(269, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(949, 93);
-            this.panel1.TabIndex = 17;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -240,34 +229,6 @@
             this.label1.Size = new System.Drawing.Size(160, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Navigation";
-            // 
-            // panelBreadCrumbs
-            // 
-            this.panelBreadCrumbs.BackColor = global::Explorer.Properties.Settings.Default.ThemeBackColor;
-            this.panelBreadCrumbs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelBreadCrumbs.Controls.Add(this.button8);
-            this.panelBreadCrumbs.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Explorer.Properties.Settings.Default, "ThemeBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.panelBreadCrumbs.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBreadCrumbs.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelBreadCrumbs.Location = new System.Drawing.Point(0, 0);
-            this.panelBreadCrumbs.Name = "panelBreadCrumbs";
-            this.panelBreadCrumbs.Size = new System.Drawing.Size(949, 39);
-            this.panelBreadCrumbs.TabIndex = 8;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Transparent;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Image = global::Explorer.Properties.Resources.ic_menu_black_24dp3;
-            this.button8.Location = new System.Drawing.Point(3, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(34, 34);
-            this.button8.TabIndex = 1;
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // menuStripMain
             // 
@@ -279,7 +240,7 @@
             this.menuStripMain.ImageScalingSize = new System.Drawing.Size(10, 10);
             this.menuStripMain.Location = new System.Drawing.Point(269, 93);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(30, 520);
+            this.menuStripMain.Size = new System.Drawing.Size(30, 433);
             this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "MenuStrip";
             // 
@@ -308,7 +269,7 @@
             this.panelNavigation.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelNavigation.Location = new System.Drawing.Point(0, 0);
             this.panelNavigation.Name = "panelNavigation";
-            this.panelNavigation.Size = new System.Drawing.Size(269, 613);
+            this.panelNavigation.Size = new System.Drawing.Size(269, 526);
             this.panelNavigation.TabIndex = 11;
             this.panelNavigation.Visible = global::Explorer.Properties.Settings.Default.NavigatorVisible;
             this.panelNavigation.Leave += new System.EventHandler(this.panelNavigation_Leave);
@@ -1169,14 +1130,14 @@
             // 
             this.statusStrip.BackColor = global::Explorer.Properties.Settings.Default.ThemeBackColor;
             this.statusStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusStrip.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.statusStrip.ForeColor = global::Explorer.Properties.Settings.Default.ThemeForeColor;
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
             this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.statusStrip.Location = new System.Drawing.Point(0, 613);
+            this.statusStrip.Location = new System.Drawing.Point(0, 526);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1218, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1251, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -1188,11 +1149,50 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(41, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // panelBreadCrumbs
+            // 
+            this.panelBreadCrumbs.BackColor = global::Explorer.Properties.Settings.Default.ThemeBackColor;
+            this.panelBreadCrumbs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelBreadCrumbs.Controls.Add(this.button8);
+            this.panelBreadCrumbs.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Explorer.Properties.Settings.Default, "ThemeBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.panelBreadCrumbs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelBreadCrumbs.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panelBreadCrumbs.Location = new System.Drawing.Point(0, 0);
+            this.panelBreadCrumbs.Name = "panelBreadCrumbs";
+            this.panelBreadCrumbs.Size = new System.Drawing.Size(982, 39);
+            this.panelBreadCrumbs.TabIndex = 8;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.YellowGreen;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Image = global::Explorer.Properties.Resources.ic_menu_black_24dp3;
+            this.button8.Location = new System.Drawing.Point(3, 3);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(34, 34);
+            this.button8.TabIndex = 1;
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.panelBreadCrumbs);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(269, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(982, 93);
+            this.panel1.TabIndex = 17;
+            // 
             // ExplorerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1218, 635);
+            this.ClientSize = new System.Drawing.Size(1251, 548);
             this.Controls.Add(this.menuStripMain);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelNavigation);
@@ -1204,13 +1204,11 @@
             this.Name = "ExplorerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Enterprise Resource Planner - Teemah";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ExplorerForm_Load);
             this.contextMenuStripToolbar.ResumeLayout(false);
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panelBreadCrumbs.ResumeLayout(false);
             this.panelNavigation.ResumeLayout(false);
             this.panelSettings.ResumeLayout(false);
             this.panelFinance.ResumeLayout(false);
@@ -1225,6 +1223,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            this.panelBreadCrumbs.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1238,7 +1239,6 @@
         private System.Windows.Forms.ToolStripMenuItem topToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem leftToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rightToolStripMenuItem;
-        private System.Windows.Forms.Panel panelBreadCrumbs;
         private System.Windows.Forms.ToolStrip toolStripMain;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHome;
         private System.Windows.Forms.ToolStripDropDownButton toolStripUser;
@@ -1274,7 +1274,6 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Panel panelSales;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
@@ -1292,11 +1291,13 @@
         private System.Windows.Forms.Button buttonSettings;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.MenuStrip menuStripMain;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Panel panelUser;
+        private System.Windows.Forms.Panel panelBreadCrumbs;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

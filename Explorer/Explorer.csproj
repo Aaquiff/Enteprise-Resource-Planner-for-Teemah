@@ -182,7 +182,6 @@
     <None Include="Resources\ic_menu_black_24dp3.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MetroFramework.txt" />
     <None Include="Resources\member1.png" />
     <None Include="Resources\20150831_55e46b18e2a80.png" />
     <None Include="Resources\black-linux-logo-manjaro.jpg" />

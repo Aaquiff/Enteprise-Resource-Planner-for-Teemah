@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableWindowBase));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItemNew = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,15 +35,23 @@
             this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemPopulate = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSearch = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStripDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStripDataGrid = new System.Windows.Forms.ContextMenuStrip();
             this.columnSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelSearch = new System.Windows.Forms.Panel();
-            this.cmbColumns = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.txtSearchItemId = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbColumns = new System.Windows.Forms.ComboBox();
+            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.dataSet = new System.Data.DataSet();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripDataGrid.SuspendLayout();
             this.panelSearch.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -154,39 +161,63 @@
             // 
             // panelSearch
             // 
-            this.panelSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
-            this.panelSearch.Controls.Add(this.cmbColumns);
-            this.panelSearch.Controls.Add(this.txtSearchItemId);
+            this.panelSearch.BackColor = System.Drawing.SystemColors.Window;
+            this.panelSearch.Controls.Add(this.panel1);
+            this.panelSearch.Controls.Add(this.panel2);
             this.panelSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSearch.Location = new System.Drawing.Point(0, 0);
             this.panelSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(930, 61);
+            this.panelSearch.Size = new System.Drawing.Size(930, 31);
             this.panelSearch.TabIndex = 7;
             this.panelSearch.Visible = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.txtSearchItemId);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(200, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(730, 31);
+            this.panel1.TabIndex = 3;
+            // 
+            // txtSearchItemId
+            // 
+            this.txtSearchItemId.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSearchItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchItemId.Location = new System.Drawing.Point(0, 0);
+            this.txtSearchItemId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearchItemId.Name = "txtSearchItemId";
+            this.txtSearchItemId.Size = new System.Drawing.Size(730, 29);
+            this.txtSearchItemId.TabIndex = 0;
+            this.txtSearchItemId.TextChanged += new System.EventHandler(this.txtSearchItemId_TextChanged);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.cmbColumns);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 31);
+            this.panel2.TabIndex = 4;
+            // 
             // cmbColumns
             // 
+            this.cmbColumns.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbColumns.DropDownHeight = 136;
             this.cmbColumns.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbColumns.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmbColumns.FormattingEnabled = true;
+            this.cmbColumns.IntegralHeight = false;
             this.cmbColumns.ItemHeight = 16;
-            this.cmbColumns.Location = new System.Drawing.Point(12, 16);
+            this.cmbColumns.Location = new System.Drawing.Point(0, 0);
             this.cmbColumns.Name = "cmbColumns";
-            this.cmbColumns.Size = new System.Drawing.Size(121, 24);
+            this.cmbColumns.Size = new System.Drawing.Size(200, 24);
             this.cmbColumns.TabIndex = 2;
             // 
-            // txtSearchItemId
+            // dataSet
             // 
-            this.txtSearchItemId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearchItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchItemId.Location = new System.Drawing.Point(139, 14);
-            this.txtSearchItemId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSearchItemId.Name = "txtSearchItemId";
-            this.txtSearchItemId.Size = new System.Drawing.Size(779, 29);
-            this.txtSearchItemId.TabIndex = 0;
-            this.txtSearchItemId.TextChanged += new System.EventHandler(this.txtSearchItemId_TextChanged);
+            this.dataSet.DataSetName = "NewDataSet";
             // 
             // TableWindowBase
             // 
@@ -203,7 +234,11 @@
             this.menuStrip1.PerformLayout();
             this.contextMenuStripDataGrid.ResumeLayout(false);
             this.panelSearch.ResumeLayout(false);
-            this.panelSearch.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,5 +258,9 @@
         protected System.Windows.Forms.ComboBox cmbColumns;
         protected System.Windows.Forms.TextBox txtSearchItemId;
         protected System.Windows.Forms.Panel panelSearch;
+        protected System.Windows.Forms.BindingSource bindingSource;
+        protected System.Data.DataSet dataSet;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

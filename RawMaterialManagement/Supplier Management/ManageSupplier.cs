@@ -16,7 +16,6 @@ namespace RawMaterialManagement.Supplier_Management
             InitializeComponent();
 
             MySqlCommand sc = new MySqlCommand("select * from raw_supplier_tab", con);
-            base.dataAdapter.SelectCommand = sc;
 
             MySqlCommand ic = new MySqlCommand("insert into raw_supplier_tab (name,contact_person,phone,email,address) values (@name,@contact_person,@phone,@email,@address)", con);
             //insertCommand.Parameters.Add("@supplier_id", MySqlDbType.VarChar, 20, "supplier_id");
@@ -26,8 +25,6 @@ namespace RawMaterialManagement.Supplier_Management
             ic.Parameters.Add("@email", MySqlDbType.VarChar, 200, "email");
             ic.Parameters.Add("@address", MySqlDbType.VarChar, 200, "address");
 
-            base.dataAdapter.InsertCommand = ic;
-
             MySqlCommand uc = new MySqlCommand("update raw_supplier_tab set name = @name, address = @address, phone = @phone, email = @email where supplier_id = @supplier_id", con);
             uc.Parameters.Add("@name", MySqlDbType.VarChar, 200, "name");
             uc.Parameters.Add("@contact_person", MySqlDbType.VarChar, 200, "contact_person");
@@ -36,15 +33,12 @@ namespace RawMaterialManagement.Supplier_Management
             uc.Parameters.Add("@address", MySqlDbType.VarChar, 200, "address");
             uc.Parameters.Add("@supplier_id", MySqlDbType.Int32, 200, "supplier_id");
 
-            base.dataAdapter.UpdateCommand = uc;
+            MySqlCommand dc = new MySqlCommand("delete from raw_supplier_tab where supplier_id = @supplierid", con);
+            dc.Parameters.Add("@supplierid", MySqlDbType.VarChar, 200, "supplier_id");
 
-            MySqlCommand deleteCommand = new MySqlCommand("delete from raw_supplier_tab where supplier_id = @supplierid", con);
-            deleteCommand.Parameters.Add("@supplierid", MySqlDbType.VarChar, 200, "supplier_id");
-
-            base.dataAdapter.DeleteCommand = deleteCommand;
-            base.dataAdapter.Fill(dataSet);
-            base.bindingSource.DataSource = dataSet.Tables[0];
-            dataGridView1.DataSource = bindingSource;
+            base.setCommands(sc, ic, uc, dc);
+            base.Populate();
+            customDataGrid11.DataSource = base.bindingSource;
 
         }
 

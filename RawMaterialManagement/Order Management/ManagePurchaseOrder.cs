@@ -16,24 +16,21 @@ namespace RawMaterialManagement.Order_Management
             InitializeComponent();
 
             MySqlCommand sc = new MySqlCommand("select * from raw_purchase_order", con);
-            base.dataAdapter.SelectCommand = sc;
 
-            MySqlCommand insertCommand = new MySqlCommand(
+            MySqlCommand ic = new MySqlCommand(
                 "insert into raw_purchase_order_tab values (@order_id,@creation_date,@creator,@status,@approver,@sub_total,@total,@shipping_address,@supplier_id)", con);
 
-            insertCommand.Parameters.Add("@order_id", MySqlDbType.VarChar, 200, "order_id");
-            insertCommand.Parameters.Add("@creation_date", MySqlDbType.Date, 2000, "creation_date");
-            insertCommand.Parameters.Add("@creator", MySqlDbType.VarChar, 200, "creator");
-            insertCommand.Parameters.Add("@status", MySqlDbType.VarChar, 200, "status");
-            insertCommand.Parameters.Add("@approver", MySqlDbType.VarChar, 200, "approver");
-            insertCommand.Parameters.Add("@sub_total", MySqlDbType.Double, 20, "sub_total");
-            insertCommand.Parameters.Add("@total", MySqlDbType.Double, 20, "total");
-            insertCommand.Parameters.Add("@shipping_address", MySqlDbType.VarChar, 500, "shipping_address");
-            insertCommand.Parameters.Add("@supplier_id", MySqlDbType.VarChar, 200, "supplier_id");
+            ic.Parameters.Add("@order_id", MySqlDbType.VarChar, 200, "order_id");
+            ic.Parameters.Add("@creation_date", MySqlDbType.Date, 2000, "creation_date");
+            ic.Parameters.Add("@creator", MySqlDbType.VarChar, 200, "creator");
+            ic.Parameters.Add("@status", MySqlDbType.VarChar, 200, "status");
+            ic.Parameters.Add("@approver", MySqlDbType.VarChar, 200, "approver");
+            ic.Parameters.Add("@sub_total", MySqlDbType.Double, 20, "sub_total");
+            ic.Parameters.Add("@total", MySqlDbType.Double, 20, "total");
+            ic.Parameters.Add("@shipping_address", MySqlDbType.VarChar, 500, "shipping_address");
+            ic.Parameters.Add("@supplier_id", MySqlDbType.VarChar, 200, "supplier_id");
 
-            base.dataAdapter.InsertCommand = insertCommand;
-
-            MySqlCommand updateCommand = new MySqlCommand(
+            MySqlCommand uc = new MySqlCommand(
                 @"update raw_purchase_order_tab 
                 set creation_date = @creation_date, 
                 creator = @creator, 
@@ -45,28 +42,22 @@ namespace RawMaterialManagement.Order_Management
                 supplier_id = @supplier_id
                 where order_id = @order_id", con);
 
-            updateCommand.Parameters.Add("@creation_date", MySqlDbType.Date, 2000, "creation_date");
-            updateCommand.Parameters.Add("@creator", MySqlDbType.VarChar, 200, "creator");
-            updateCommand.Parameters.Add("@status", MySqlDbType.VarChar, 200, "status");
-            updateCommand.Parameters.Add("@approver", MySqlDbType.VarChar, 200, "approver");
-            updateCommand.Parameters.Add("@sub_total", MySqlDbType.Double, 20, "sub_total");
-            updateCommand.Parameters.Add("@total", MySqlDbType.Double, 20, "total");
-            updateCommand.Parameters.Add("@shipping_address", MySqlDbType.VarChar, 500, "shipping_address");
-            updateCommand.Parameters.Add("@supplier_id", MySqlDbType.VarChar, 200, "supplier_id");
-            updateCommand.Parameters.Add("@order_id", MySqlDbType.VarChar, 200, "order_id");
+            uc.Parameters.Add("@creation_date", MySqlDbType.Date, 2000, "creation_date");
+            uc.Parameters.Add("@creator", MySqlDbType.VarChar, 200, "creator");
+            uc.Parameters.Add("@status", MySqlDbType.VarChar, 200, "status");
+            uc.Parameters.Add("@approver", MySqlDbType.VarChar, 200, "approver");
+            uc.Parameters.Add("@sub_total", MySqlDbType.Double, 20, "sub_total");
+            uc.Parameters.Add("@total", MySqlDbType.Double, 20, "total");
+            uc.Parameters.Add("@shipping_address", MySqlDbType.VarChar, 500, "shipping_address");
+            uc.Parameters.Add("@supplier_id", MySqlDbType.VarChar, 200, "supplier_id");
+            uc.Parameters.Add("@order_id", MySqlDbType.VarChar, 200, "order_id");
 
-            base.dataAdapter.UpdateCommand = updateCommand;
+            MySqlCommand dc = new MySqlCommand("delete from raw_purchase_order_tab where order_id = @order_id", con);
+            dc.Parameters.Add("@order_id", MySqlDbType.VarChar, 200, "item_id");
 
-            MySqlCommand deleteCommand = new MySqlCommand("delete from raw_purchase_order_tab where order_id = @order_id", con);
-            deleteCommand.Parameters.Add("@order_id", MySqlDbType.VarChar, 200, "item_id");
-
-            base.dataAdapter.DeleteCommand = deleteCommand;
-
-            base.dataAdapter.Fill(dataSet);
-
-            base.bindingSource.DataSource = dataSet.Tables[0];
-
-            dataGridView1.DataSource = base.bindingSource;
+            base.setCommands(sc, ic, uc, dc);
+            base.Populate();
+            customDataGrid11.DataSource = base.bindingSource;
         }
 
         protected override void Search()

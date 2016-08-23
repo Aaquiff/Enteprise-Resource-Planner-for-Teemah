@@ -23,7 +23,7 @@
       <Value Profile="(Default)">38, 166, 91</Value>
     </Setting>
     <Setting Name="ThemeForeColor" Type="System.Drawing.Color" Scope="Application">
-      <Value Profile="(Default)">Black</Value>
+      <Value Profile="(Default)">White</Value>
     </Setting>
     <Setting Name="Setting" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

@@ -33,49 +33,45 @@
             System.Windows.Forms.Label nameLabel;
             System.Windows.Forms.Label passwordLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItemNew = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuSave = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemPopulate = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSearch = new System.Windows.Forms.ToolStripMenuItem();
-            this.user_tabDataGridView = new System.Windows.Forms.DataGridView();
-            this.userDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userDataSet = new UserManagement.UserDataSet();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.recordSelectorGrid1 = new FrameworkControls.Controls.RecordSelectorGrid();
+            this.userDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.user_roleDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customDataGrid11 = new FrameworkControls.Controls.CustomDataGrid1();
+            this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.user_roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnRemoveRole = new System.Windows.Forms.Button();
-            this.btnAddRole = new System.Windows.Forms.Button();
             this.userTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.userTableAdapter = new UserManagement.UserDataSetTableAdapters.userTableAdapter();
             this.tableAdapterManager = new UserManagement.UserDataSetTableAdapters.TableAdapterManager();
             this.user_roleTableAdapter = new UserManagement.UserDataSetTableAdapters.user_roleTableAdapter();
+            this.customButton1 = new FrameworkControls.Controls.CustomButton();
+            this.customButton2 = new FrameworkControls.Controls.CustomButton();
             userLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             passwordLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.user_tabDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.recordSelectorGrid1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.user_roleDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customDataGrid11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.user_roleBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -189,60 +185,6 @@
             this.toolStripMenuItemSearch.Text = "Search";
             this.toolStripMenuItemSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // user_tabDataGridView
-            // 
-            this.user_tabDataGridView.AllowUserToAddRows = false;
-            this.user_tabDataGridView.AllowUserToDeleteRows = false;
-            this.user_tabDataGridView.AllowUserToResizeRows = false;
-            this.user_tabDataGridView.AutoGenerateColumns = false;
-            this.user_tabDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.user_tabDataGridView.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.user_tabDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.user_tabDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.userDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.passwordDataGridViewTextBoxColumn});
-            this.user_tabDataGridView.DataSource = this.userBindingSource;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.OliveDrab;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.user_tabDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.user_tabDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.user_tabDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
-            this.user_tabDataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.user_tabDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.user_tabDataGridView.Margin = new System.Windows.Forms.Padding(4);
-            this.user_tabDataGridView.Name = "user_tabDataGridView";
-            this.user_tabDataGridView.RowHeadersVisible = false;
-            this.user_tabDataGridView.RowTemplate.Height = 30;
-            this.user_tabDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.user_tabDataGridView.Size = new System.Drawing.Size(244, 511);
-            this.user_tabDataGridView.TabIndex = 6;
-            // 
-            // userDataGridViewTextBoxColumn
-            // 
-            this.userDataGridViewTextBoxColumn.DataPropertyName = "user";
-            this.userDataGridViewTextBoxColumn.HeaderText = "User";
-            this.userDataGridViewTextBoxColumn.Name = "userDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            this.passwordDataGridViewTextBoxColumn.Visible = false;
-            // 
             // userBindingSource
             // 
             this.userBindingSource.DataMember = "user";
@@ -261,7 +203,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.user_tabDataGridView);
+            this.splitContainer1.Panel1.Controls.Add(this.recordSelectorGrid1);
             // 
             // splitContainer1.Panel2
             // 
@@ -271,68 +213,91 @@
             this.splitContainer1.SplitterDistance = 244;
             this.splitContainer1.TabIndex = 7;
             // 
+            // recordSelectorGrid1
+            // 
+            this.recordSelectorGrid1.AllowUserToAddRows = false;
+            this.recordSelectorGrid1.AllowUserToDeleteRows = false;
+            this.recordSelectorGrid1.AllowUserToResizeRows = false;
+            this.recordSelectorGrid1.AutoGenerateColumns = false;
+            this.recordSelectorGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.recordSelectorGrid1.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.recordSelectorGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.recordSelectorGrid1.ColumnHeadersHeight = 40;
+            this.recordSelectorGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.userDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn});
+            this.recordSelectorGrid1.DataSource = this.userBindingSource;
+            this.recordSelectorGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.recordSelectorGrid1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
+            this.recordSelectorGrid1.EnableHeadersVisualStyles = false;
+            this.recordSelectorGrid1.GridColor = System.Drawing.SystemColors.Control;
+            this.recordSelectorGrid1.Location = new System.Drawing.Point(0, 0);
+            this.recordSelectorGrid1.MultiSelect = false;
+            this.recordSelectorGrid1.Name = "recordSelectorGrid1";
+            this.recordSelectorGrid1.RowHeadersVisible = false;
+            this.recordSelectorGrid1.RowTemplate.Height = 30;
+            this.recordSelectorGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.recordSelectorGrid1.Size = new System.Drawing.Size(244, 511);
+            this.recordSelectorGrid1.TabIndex = 0;
+            // 
+            // userDataGridViewTextBoxColumn
+            // 
+            this.userDataGridViewTextBoxColumn.DataPropertyName = "user";
+            this.userDataGridViewTextBoxColumn.HeaderText = "user";
+            this.userDataGridViewTextBoxColumn.Name = "userDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.user_roleDataGridView);
+            this.panel2.Controls.Add(this.customDataGrid11);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 129);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(888, 382);
             this.panel2.TabIndex = 8;
             // 
-            // user_roleDataGridView
+            // customDataGrid11
             // 
-            this.user_roleDataGridView.AllowUserToAddRows = false;
-            this.user_roleDataGridView.AllowUserToDeleteRows = false;
-            this.user_roleDataGridView.AllowUserToResizeRows = false;
-            this.user_roleDataGridView.AutoGenerateColumns = false;
-            this.user_roleDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.user_roleDataGridView.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.user_roleDataGridView.CausesValidation = false;
-            this.user_roleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.user_roleDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.user_roleDataGridView.DataSource = this.user_roleBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.OliveDrab;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.user_roleDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.user_roleDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.user_roleDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
-            this.user_roleDataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.user_roleDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.user_roleDataGridView.MultiSelect = false;
-            this.user_roleDataGridView.Name = "user_roleDataGridView";
-            this.user_roleDataGridView.RowHeadersVisible = false;
-            this.user_roleDataGridView.RowTemplate.Height = 30;
-            this.user_roleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.user_roleDataGridView.Size = new System.Drawing.Size(888, 382);
-            this.user_roleDataGridView.TabIndex = 6;
+            this.customDataGrid11.AllowUserToAddRows = false;
+            this.customDataGrid11.AllowUserToDeleteRows = false;
+            this.customDataGrid11.AllowUserToResizeRows = false;
+            this.customDataGrid11.AutoGenerateColumns = false;
+            this.customDataGrid11.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.customDataGrid11.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.customDataGrid11.ColumnHeadersHeight = 40;
+            this.customDataGrid11.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.roleDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn});
+            this.customDataGrid11.DataSource = this.user_roleBindingSource;
+            this.customDataGrid11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.customDataGrid11.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
+            this.customDataGrid11.EnableHeadersVisualStyles = false;
+            this.customDataGrid11.GridColor = System.Drawing.SystemColors.Control;
+            this.customDataGrid11.Location = new System.Drawing.Point(0, 0);
+            this.customDataGrid11.MultiSelect = false;
+            this.customDataGrid11.Name = "customDataGrid11";
+            this.customDataGrid11.RowHeadersVisible = false;
+            this.customDataGrid11.RowTemplate.Height = 30;
+            this.customDataGrid11.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.customDataGrid11.Size = new System.Drawing.Size(888, 382);
+            this.customDataGrid11.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn1
+            // roleDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "user";
-            this.dataGridViewTextBoxColumn1.HeaderText = "user";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Visible = false;
+            this.roleDataGridViewTextBoxColumn.DataPropertyName = "role";
+            this.roleDataGridViewTextBoxColumn.HeaderText = "role";
+            this.roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn2
+            // descriptionDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "role";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Role";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "description";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Description";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             // 
             // user_roleBindingSource
             // 
@@ -341,8 +306,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnRemoveRole);
-            this.panel1.Controls.Add(this.btnAddRole);
+            this.panel1.Controls.Add(this.customButton2);
+            this.panel1.Controls.Add(this.customButton1);
             this.panel1.Controls.Add(userLabel);
             this.panel1.Controls.Add(this.userTextBox);
             this.panel1.Controls.Add(passwordLabel);
@@ -354,36 +319,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(888, 129);
             this.panel1.TabIndex = 7;
-            // 
-            // btnRemoveRole
-            // 
-            this.btnRemoveRole.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnRemoveRole.FlatAppearance.BorderSize = 0;
-            this.btnRemoveRole.FlatAppearance.MouseOverBackColor = System.Drawing.Color.YellowGreen;
-            this.btnRemoveRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveRole.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRemoveRole.Location = new System.Drawing.Point(124, 83);
-            this.btnRemoveRole.Name = "btnRemoveRole";
-            this.btnRemoveRole.Size = new System.Drawing.Size(117, 32);
-            this.btnRemoveRole.TabIndex = 7;
-            this.btnRemoveRole.Text = "Remove Role";
-            this.btnRemoveRole.UseVisualStyleBackColor = false;
-            this.btnRemoveRole.Click += new System.EventHandler(this.btnRemoveRole_Click);
-            // 
-            // btnAddRole
-            // 
-            this.btnAddRole.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnAddRole.FlatAppearance.BorderSize = 0;
-            this.btnAddRole.FlatAppearance.MouseOverBackColor = System.Drawing.Color.YellowGreen;
-            this.btnAddRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddRole.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAddRole.Location = new System.Drawing.Point(22, 83);
-            this.btnAddRole.Name = "btnAddRole";
-            this.btnAddRole.Size = new System.Drawing.Size(96, 32);
-            this.btnAddRole.TabIndex = 6;
-            this.btnAddRole.Text = "Add Role";
-            this.btnAddRole.UseVisualStyleBackColor = false;
-            this.btnAddRole.Click += new System.EventHandler(this.btnAddRole_Click);
             // 
             // userTextBox
             // 
@@ -425,6 +360,36 @@
             // 
             this.user_roleTableAdapter.ClearBeforeFill = true;
             // 
+            // customButton1
+            // 
+            this.customButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.customButton1.FlatAppearance.BorderSize = 0;
+            this.customButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(166)))), ((int)(((byte)(91)))));
+            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customButton1.ForeColor = System.Drawing.Color.White;
+            this.customButton1.Location = new System.Drawing.Point(21, 83);
+            this.customButton1.Name = "customButton1";
+            this.customButton1.Size = new System.Drawing.Size(103, 32);
+            this.customButton1.TabIndex = 8;
+            this.customButton1.Text = "Add Role";
+            this.customButton1.UseVisualStyleBackColor = false;
+            this.customButton1.Click += new System.EventHandler(this.customButton1_Click);
+            // 
+            // customButton2
+            // 
+            this.customButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.customButton2.FlatAppearance.BorderSize = 0;
+            this.customButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(166)))), ((int)(((byte)(91)))));
+            this.customButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customButton2.ForeColor = System.Drawing.Color.White;
+            this.customButton2.Location = new System.Drawing.Point(130, 83);
+            this.customButton2.Name = "customButton2";
+            this.customButton2.Size = new System.Drawing.Size(103, 32);
+            this.customButton2.TabIndex = 9;
+            this.customButton2.Text = "Remove Role";
+            this.customButton2.UseVisualStyleBackColor = false;
+            this.customButton2.Click += new System.EventHandler(this.customButton2_Click);
+            // 
             // User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -440,15 +405,15 @@
             this.Load += new System.EventHandler(this.User_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.user_tabDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDataSet)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.recordSelectorGrid1)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.user_roleDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customDataGrid11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.user_roleBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -465,7 +430,6 @@
         protected System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDelete;
         protected System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPopulate;
         protected System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSearch;
-        private System.Windows.Forms.DataGridView user_tabDataGridView;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private UserDataSet userDataSet;
         private System.Windows.Forms.BindingSource userBindingSource;
@@ -474,18 +438,17 @@
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox userTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource user_roleBindingSource;
         private UserDataSetTableAdapters.user_roleTableAdapter user_roleTableAdapter;
-        private System.Windows.Forms.DataGridView user_roleDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnRemoveRole;
-        private System.Windows.Forms.Button btnAddRole;
+        private FrameworkControls.Controls.RecordSelectorGrid recordSelectorGrid1;
+        private FrameworkControls.Controls.CustomDataGrid1 customDataGrid11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private FrameworkControls.Controls.CustomButton customButton2;
+        private FrameworkControls.Controls.CustomButton customButton1;
     }
 }

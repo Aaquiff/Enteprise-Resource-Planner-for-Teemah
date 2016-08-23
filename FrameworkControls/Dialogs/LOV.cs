@@ -32,7 +32,7 @@ namespace FrameworkControls.Dialogs
             dataAdapter.SelectCommand = sc;
             dataAdapter.Fill(dataSet);
             bindingSource.DataSource = dataSet.Tables[0];
-            dataGridView1.DataSource = bindingSource;
+            customDataGrid11.DataSource = bindingSource;
         }
 
         private void Select()
@@ -41,12 +41,12 @@ namespace FrameworkControls.Dialogs
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
             Select();
         }
 
-        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        private void customButton2_Click(object sender, EventArgs e)
         {
             Select();
         }

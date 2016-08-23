@@ -28,32 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.dataGridViewBase1 = new FrameworkControls.Controls.DataGridViewBase();
-            this.orderidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitofmeasureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKrawpurchaseorderraworderlineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rawpurchaseorderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.customDataGrid11 = new FrameworkControls.Controls.CustomDataGrid1();
+            this.orderidDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitpriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitofmeasureDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKrawpurchaseorderraworderlineBindingSource = new System.Windows.Forms.BindingSource();
+            this.rawpurchaseorderBindingSource = new System.Windows.Forms.BindingSource();
             this.rawDataSet = new RawMaterialManagement.RawDataSet();
             this.panelOrderDetail = new System.Windows.Forms.Panel();
             this.panelOrder = new System.Windows.Forms.Panel();
-            this.btnAddItem = new System.Windows.Forms.Button();
+            this.customButton1 = new FrameworkControls.Controls.CustomButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.txtSupplierId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtSupplierName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
@@ -61,7 +57,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtSubTotal = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.contextMenuStripOrder = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStripOrder = new System.Windows.Forms.ContextMenuStrip();
             this.approveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,7 +75,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtApprovedBy = new System.Windows.Forms.TextBox();
-            this.contextMenuStripOrderLine = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStripOrderLine = new System.Windows.Forms.ContextMenuStrip();
             this.addItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -91,15 +87,41 @@
             this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toBeApprovedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.dataGridViewNavigator = new System.Windows.Forms.DataGridView();
-            this.orderidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplieridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recordSelectorGrid1 = new FrameworkControls.Controls.RecordSelectorGrid();
+            this.orderidDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creationdateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creatorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approverDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shippingaddressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplieridDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliernameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.raw_purchase_orderTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_purchase_orderTableAdapter();
             this.raw_order_lineTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_order_lineTableAdapter();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.orderidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creationdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approverDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shippingaddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplieridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitofmeasureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customButton2 = new FrameworkControls.Controls.CustomButton();
             this.panelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBase1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customDataGrid11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKrawpurchaseorderraworderlineBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawpurchaseorderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawDataSet)).BeginInit();
@@ -107,6 +129,7 @@
             this.panelOrder.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.contextMenuStripOrder.SuspendLayout();
             this.contextMenuStripOrderLine.SuspendLayout();
@@ -115,13 +138,12 @@
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNavigator)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recordSelectorGrid1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
             // 
-            this.panelMain.Controls.Add(this.dataGridViewBase1);
+            this.panelMain.Controls.Add(this.customDataGrid11);
             this.panelMain.Controls.Add(this.panelOrderDetail);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
@@ -129,91 +151,77 @@
             this.panelMain.Size = new System.Drawing.Size(1012, 459);
             this.panelMain.TabIndex = 0;
             // 
-            // dataGridViewBase1
+            // customDataGrid11
             // 
-            this.dataGridViewBase1.AllowUserToAddRows = false;
-            this.dataGridViewBase1.AllowUserToDeleteRows = false;
-            this.dataGridViewBase1.AutoGenerateColumns = false;
-            this.dataGridViewBase1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewBase1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewBase1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewBase1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBase1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.orderidDataGridViewTextBoxColumn1,
-            this.itemidDataGridViewTextBoxColumn,
-            this.unitpriceDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn1,
-            this.itemnameDataGridViewTextBoxColumn,
-            this.unitofmeasureDataGridViewTextBoxColumn,
-            this.amountDataGridViewTextBoxColumn});
-            this.dataGridViewBase1.DataSource = this.fKrawpurchaseorderraworderlineBindingSource;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.OliveDrab;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewBase1.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewBase1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewBase1.EnableHeadersVisualStyles = false;
-            this.dataGridViewBase1.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewBase1.Location = new System.Drawing.Point(0, 336);
-            this.dataGridViewBase1.Name = "dataGridViewBase1";
-            this.dataGridViewBase1.RowHeadersVisible = false;
-            this.dataGridViewBase1.RowTemplate.Height = 30;
-            this.dataGridViewBase1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBase1.Size = new System.Drawing.Size(1012, 123);
-            this.dataGridViewBase1.TabIndex = 7;
+            this.customDataGrid11.AllowUserToAddRows = false;
+            this.customDataGrid11.AllowUserToDeleteRows = false;
+            this.customDataGrid11.AllowUserToResizeRows = false;
+            this.customDataGrid11.AutoGenerateColumns = false;
+            this.customDataGrid11.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.customDataGrid11.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.customDataGrid11.ColumnHeadersHeight = 40;
+            this.customDataGrid11.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orderidDataGridViewTextBoxColumn3,
+            this.itemidDataGridViewTextBoxColumn1,
+            this.unitpriceDataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.itemnameDataGridViewTextBoxColumn1,
+            this.unitofmeasureDataGridViewTextBoxColumn1,
+            this.amountDataGridViewTextBoxColumn1});
+            this.customDataGrid11.DataSource = this.fKrawpurchaseorderraworderlineBindingSource;
+            this.customDataGrid11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.customDataGrid11.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
+            this.customDataGrid11.EnableHeadersVisualStyles = false;
+            this.customDataGrid11.GridColor = System.Drawing.SystemColors.Control;
+            this.customDataGrid11.Location = new System.Drawing.Point(0, 336);
+            this.customDataGrid11.MultiSelect = false;
+            this.customDataGrid11.Name = "customDataGrid11";
+            this.customDataGrid11.RowHeadersVisible = false;
+            this.customDataGrid11.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.customDataGrid11.Size = new System.Drawing.Size(1012, 123);
+            this.customDataGrid11.TabIndex = 0;
             // 
-            // orderidDataGridViewTextBoxColumn1
+            // orderidDataGridViewTextBoxColumn3
             // 
-            this.orderidDataGridViewTextBoxColumn1.DataPropertyName = "order_id";
-            this.orderidDataGridViewTextBoxColumn1.HeaderText = "ORDER ID";
-            this.orderidDataGridViewTextBoxColumn1.Name = "orderidDataGridViewTextBoxColumn1";
+            this.orderidDataGridViewTextBoxColumn3.DataPropertyName = "order_id";
+            this.orderidDataGridViewTextBoxColumn3.HeaderText = "order id";
+            this.orderidDataGridViewTextBoxColumn3.Name = "orderidDataGridViewTextBoxColumn3";
             // 
-            // itemidDataGridViewTextBoxColumn
+            // itemidDataGridViewTextBoxColumn1
             // 
-            this.itemidDataGridViewTextBoxColumn.DataPropertyName = "item_id";
-            this.itemidDataGridViewTextBoxColumn.HeaderText = "ITEM ID";
-            this.itemidDataGridViewTextBoxColumn.Name = "itemidDataGridViewTextBoxColumn";
+            this.itemidDataGridViewTextBoxColumn1.DataPropertyName = "item_id";
+            this.itemidDataGridViewTextBoxColumn1.HeaderText = "item id";
+            this.itemidDataGridViewTextBoxColumn1.Name = "itemidDataGridViewTextBoxColumn1";
             // 
-            // unitpriceDataGridViewTextBoxColumn
+            // unitpriceDataGridViewTextBoxColumn1
             // 
-            this.unitpriceDataGridViewTextBoxColumn.DataPropertyName = "unit_price";
-            this.unitpriceDataGridViewTextBoxColumn.HeaderText = "UNIT PRICE";
-            this.unitpriceDataGridViewTextBoxColumn.Name = "unitpriceDataGridViewTextBoxColumn";
+            this.unitpriceDataGridViewTextBoxColumn1.DataPropertyName = "unit_price";
+            this.unitpriceDataGridViewTextBoxColumn1.HeaderText = "unit price";
+            this.unitpriceDataGridViewTextBoxColumn1.Name = "unitpriceDataGridViewTextBoxColumn1";
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "quantity";
-            this.dataGridViewTextBoxColumn1.HeaderText = "QUANTITY";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "quantity";
+            this.dataGridViewTextBoxColumn2.HeaderText = "quantity";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // itemnameDataGridViewTextBoxColumn
+            // itemnameDataGridViewTextBoxColumn1
             // 
-            this.itemnameDataGridViewTextBoxColumn.DataPropertyName = "item_name";
-            this.itemnameDataGridViewTextBoxColumn.HeaderText = "ITEM NAME";
-            this.itemnameDataGridViewTextBoxColumn.Name = "itemnameDataGridViewTextBoxColumn";
+            this.itemnameDataGridViewTextBoxColumn1.DataPropertyName = "item_name";
+            this.itemnameDataGridViewTextBoxColumn1.HeaderText = "item name";
+            this.itemnameDataGridViewTextBoxColumn1.Name = "itemnameDataGridViewTextBoxColumn1";
             // 
-            // unitofmeasureDataGridViewTextBoxColumn
+            // unitofmeasureDataGridViewTextBoxColumn1
             // 
-            this.unitofmeasureDataGridViewTextBoxColumn.DataPropertyName = "unit_of_measure";
-            this.unitofmeasureDataGridViewTextBoxColumn.HeaderText = "UNIT OF MEASURE";
-            this.unitofmeasureDataGridViewTextBoxColumn.Name = "unitofmeasureDataGridViewTextBoxColumn";
+            this.unitofmeasureDataGridViewTextBoxColumn1.DataPropertyName = "unit_of_measure";
+            this.unitofmeasureDataGridViewTextBoxColumn1.HeaderText = "unit of measure";
+            this.unitofmeasureDataGridViewTextBoxColumn1.Name = "unitofmeasureDataGridViewTextBoxColumn1";
             // 
-            // amountDataGridViewTextBoxColumn
+            // amountDataGridViewTextBoxColumn1
             // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "AMOUNT";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            this.amountDataGridViewTextBoxColumn1.DataPropertyName = "amount";
+            this.amountDataGridViewTextBoxColumn1.HeaderText = "amount";
+            this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
             // 
             // fKrawpurchaseorderraworderlineBindingSource
             // 
@@ -245,7 +253,7 @@
             // panelOrder
             // 
             this.panelOrder.AutoScroll = true;
-            this.panelOrder.Controls.Add(this.btnAddItem);
+            this.panelOrder.Controls.Add(this.customButton1);
             this.panelOrder.Controls.Add(this.groupBox3);
             this.panelOrder.Controls.Add(this.groupBox1);
             this.panelOrder.Controls.Add(this.groupBox2);
@@ -255,24 +263,22 @@
             this.panelOrder.Size = new System.Drawing.Size(1012, 336);
             this.panelOrder.TabIndex = 25;
             // 
-            // btnAddItem
+            // customButton1
             // 
-            this.btnAddItem.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnAddItem.FlatAppearance.BorderSize = 0;
-            this.btnAddItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.YellowGreen;
-            this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAddItem.Location = new System.Drawing.Point(3, 293);
-            this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(85, 28);
-            this.btnAddItem.TabIndex = 29;
-            this.btnAddItem.Text = "Add Item";
-            this.btnAddItem.UseVisualStyleBackColor = false;
-            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+            this.customButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customButton1.ForeColor = System.Drawing.Color.White;
+            this.customButton1.Location = new System.Drawing.Point(7, 280);
+            this.customButton1.Name = "customButton1";
+            this.customButton1.Size = new System.Drawing.Size(95, 30);
+            this.customButton1.TabIndex = 0;
+            this.customButton1.Text = "Add Item";
+            this.customButton1.UseVisualStyleBackColor = false;
+            this.customButton1.Click += new System.EventHandler(this.customButton1_Click);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.customButton2);
             this.groupBox3.Controls.Add(this.txtSupplierId);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.txtSupplierName);
@@ -286,27 +292,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Supplier";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.OliveDrab;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(215, 43);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 22);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // txtSupplierId
             // 
             this.txtSupplierId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "supplier_id", true));
             this.txtSupplierId.Location = new System.Drawing.Point(8, 43);
             this.txtSupplierId.Margin = new System.Windows.Forms.Padding(4);
             this.txtSupplierId.Name = "txtSupplierId";
-            this.txtSupplierId.Size = new System.Drawing.Size(200, 22);
+            this.txtSupplierId.Size = new System.Drawing.Size(68, 22);
             this.txtSupplierId.TabIndex = 16;
             // 
             // label8
@@ -356,6 +348,14 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Payment";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.rawpurchaseorderBindingSource, "discount", true));
+            this.numericUpDown1.Location = new System.Drawing.Point(11, 88);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(68, 22);
+            this.numericUpDown1.TabIndex = 29;
             // 
             // label10
             // 
@@ -743,7 +743,7 @@
             // 
             // splitContainerMain.Panel1
             // 
-            this.splitContainerMain.Panel1.Controls.Add(this.dataGridViewNavigator);
+            this.splitContainerMain.Panel1.Controls.Add(this.recordSelectorGrid1);
             // 
             // splitContainerMain.Panel2
             // 
@@ -752,59 +752,115 @@
             this.splitContainerMain.SplitterDistance = 251;
             this.splitContainerMain.TabIndex = 25;
             // 
-            // dataGridViewNavigator
+            // recordSelectorGrid1
             // 
-            this.dataGridViewNavigator.AllowUserToAddRows = false;
-            this.dataGridViewNavigator.AllowUserToDeleteRows = false;
-            this.dataGridViewNavigator.AllowUserToOrderColumns = true;
-            this.dataGridViewNavigator.AllowUserToResizeRows = false;
-            this.dataGridViewNavigator.AutoGenerateColumns = false;
-            this.dataGridViewNavigator.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewNavigator.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridViewNavigator.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewNavigator.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.orderidDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn,
-            this.supplieridDataGridViewTextBoxColumn});
-            this.dataGridViewNavigator.DataSource = this.rawpurchaseorderBindingSource;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.OliveDrab;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewNavigator.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewNavigator.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewNavigator.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewNavigator.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewNavigator.MultiSelect = false;
-            this.dataGridViewNavigator.Name = "dataGridViewNavigator";
-            this.dataGridViewNavigator.RowHeadersVisible = false;
-            this.dataGridViewNavigator.RowTemplate.Height = 35;
-            this.dataGridViewNavigator.RowTemplate.ReadOnly = true;
-            this.dataGridViewNavigator.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewNavigator.Size = new System.Drawing.Size(251, 459);
-            this.dataGridViewNavigator.TabIndex = 0;
+            this.recordSelectorGrid1.AllowUserToAddRows = false;
+            this.recordSelectorGrid1.AllowUserToDeleteRows = false;
+            this.recordSelectorGrid1.AllowUserToResizeRows = false;
+            this.recordSelectorGrid1.AutoGenerateColumns = false;
+            this.recordSelectorGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.recordSelectorGrid1.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.recordSelectorGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.recordSelectorGrid1.ColumnHeadersHeight = 40;
+            this.recordSelectorGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orderidDataGridViewTextBoxColumn2,
+            this.creationdateDataGridViewTextBoxColumn1,
+            this.creatorDataGridViewTextBoxColumn1,
+            this.statusDataGridViewTextBoxColumn1,
+            this.approverDataGridViewTextBoxColumn1,
+            this.shippingaddressDataGridViewTextBoxColumn1,
+            this.supplieridDataGridViewTextBoxColumn1,
+            this.suppliernameDataGridViewTextBoxColumn1,
+            this.subtotalDataGridViewTextBoxColumn1,
+            this.discountDataGridViewTextBoxColumn1,
+            this.totalDataGridViewTextBoxColumn1});
+            this.recordSelectorGrid1.DataSource = this.rawpurchaseorderBindingSource;
+            this.recordSelectorGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.recordSelectorGrid1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
+            this.recordSelectorGrid1.EnableHeadersVisualStyles = false;
+            this.recordSelectorGrid1.GridColor = System.Drawing.SystemColors.Control;
+            this.recordSelectorGrid1.Location = new System.Drawing.Point(0, 0);
+            this.recordSelectorGrid1.MultiSelect = false;
+            this.recordSelectorGrid1.Name = "recordSelectorGrid1";
+            this.recordSelectorGrid1.RowHeadersVisible = false;
+            this.recordSelectorGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.recordSelectorGrid1.Size = new System.Drawing.Size(251, 459);
+            this.recordSelectorGrid1.TabIndex = 0;
             // 
-            // orderidDataGridViewTextBoxColumn
+            // orderidDataGridViewTextBoxColumn2
             // 
-            this.orderidDataGridViewTextBoxColumn.DataPropertyName = "order_id";
-            this.orderidDataGridViewTextBoxColumn.HeaderText = "Order Id";
-            this.orderidDataGridViewTextBoxColumn.Name = "orderidDataGridViewTextBoxColumn";
+            this.orderidDataGridViewTextBoxColumn2.DataPropertyName = "order_id";
+            this.orderidDataGridViewTextBoxColumn2.HeaderText = "order_id";
+            this.orderidDataGridViewTextBoxColumn2.Name = "orderidDataGridViewTextBoxColumn2";
             // 
-            // statusDataGridViewTextBoxColumn
+            // creationdateDataGridViewTextBoxColumn1
             // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.creationdateDataGridViewTextBoxColumn1.DataPropertyName = "creation_date";
+            this.creationdateDataGridViewTextBoxColumn1.HeaderText = "creation_date";
+            this.creationdateDataGridViewTextBoxColumn1.Name = "creationdateDataGridViewTextBoxColumn1";
+            this.creationdateDataGridViewTextBoxColumn1.Visible = false;
             // 
-            // supplieridDataGridViewTextBoxColumn
+            // creatorDataGridViewTextBoxColumn1
             // 
-            this.supplieridDataGridViewTextBoxColumn.DataPropertyName = "supplier_id";
-            this.supplieridDataGridViewTextBoxColumn.HeaderText = "Supplier Id";
-            this.supplieridDataGridViewTextBoxColumn.Name = "supplieridDataGridViewTextBoxColumn";
-            this.supplieridDataGridViewTextBoxColumn.Visible = false;
+            this.creatorDataGridViewTextBoxColumn1.DataPropertyName = "creator";
+            this.creatorDataGridViewTextBoxColumn1.HeaderText = "creator";
+            this.creatorDataGridViewTextBoxColumn1.Name = "creatorDataGridViewTextBoxColumn1";
+            this.creatorDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // statusDataGridViewTextBoxColumn1
+            // 
+            this.statusDataGridViewTextBoxColumn1.DataPropertyName = "status";
+            this.statusDataGridViewTextBoxColumn1.HeaderText = "status";
+            this.statusDataGridViewTextBoxColumn1.Name = "statusDataGridViewTextBoxColumn1";
+            // 
+            // approverDataGridViewTextBoxColumn1
+            // 
+            this.approverDataGridViewTextBoxColumn1.DataPropertyName = "approver";
+            this.approverDataGridViewTextBoxColumn1.HeaderText = "approver";
+            this.approverDataGridViewTextBoxColumn1.Name = "approverDataGridViewTextBoxColumn1";
+            this.approverDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // shippingaddressDataGridViewTextBoxColumn1
+            // 
+            this.shippingaddressDataGridViewTextBoxColumn1.DataPropertyName = "shipping_address";
+            this.shippingaddressDataGridViewTextBoxColumn1.HeaderText = "shipping_address";
+            this.shippingaddressDataGridViewTextBoxColumn1.Name = "shippingaddressDataGridViewTextBoxColumn1";
+            this.shippingaddressDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // supplieridDataGridViewTextBoxColumn1
+            // 
+            this.supplieridDataGridViewTextBoxColumn1.DataPropertyName = "supplier_id";
+            this.supplieridDataGridViewTextBoxColumn1.HeaderText = "supplier_id";
+            this.supplieridDataGridViewTextBoxColumn1.Name = "supplieridDataGridViewTextBoxColumn1";
+            this.supplieridDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // suppliernameDataGridViewTextBoxColumn1
+            // 
+            this.suppliernameDataGridViewTextBoxColumn1.DataPropertyName = "supplier_name";
+            this.suppliernameDataGridViewTextBoxColumn1.HeaderText = "supplier_name";
+            this.suppliernameDataGridViewTextBoxColumn1.Name = "suppliernameDataGridViewTextBoxColumn1";
+            this.suppliernameDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // subtotalDataGridViewTextBoxColumn1
+            // 
+            this.subtotalDataGridViewTextBoxColumn1.DataPropertyName = "sub_total";
+            this.subtotalDataGridViewTextBoxColumn1.HeaderText = "sub_total";
+            this.subtotalDataGridViewTextBoxColumn1.Name = "subtotalDataGridViewTextBoxColumn1";
+            this.subtotalDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // discountDataGridViewTextBoxColumn1
+            // 
+            this.discountDataGridViewTextBoxColumn1.DataPropertyName = "discount";
+            this.discountDataGridViewTextBoxColumn1.HeaderText = "discount";
+            this.discountDataGridViewTextBoxColumn1.Name = "discountDataGridViewTextBoxColumn1";
+            this.discountDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // totalDataGridViewTextBoxColumn1
+            // 
+            this.totalDataGridViewTextBoxColumn1.DataPropertyName = "total";
+            this.totalDataGridViewTextBoxColumn1.HeaderText = "total";
+            this.totalDataGridViewTextBoxColumn1.Name = "totalDataGridViewTextBoxColumn1";
+            this.totalDataGridViewTextBoxColumn1.Visible = false;
             // 
             // raw_purchase_orderTableAdapter
             // 
@@ -814,13 +870,135 @@
             // 
             this.raw_order_lineTableAdapter.ClearBeforeFill = true;
             // 
-            // numericUpDown1
+            // orderidDataGridViewTextBoxColumn
             // 
-            this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.rawpurchaseorderBindingSource, "discount", true));
-            this.numericUpDown1.Location = new System.Drawing.Point(11, 88);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(68, 22);
-            this.numericUpDown1.TabIndex = 29;
+            this.orderidDataGridViewTextBoxColumn.DataPropertyName = "order_id";
+            this.orderidDataGridViewTextBoxColumn.HeaderText = "order_id";
+            this.orderidDataGridViewTextBoxColumn.Name = "orderidDataGridViewTextBoxColumn";
+            // 
+            // creationdateDataGridViewTextBoxColumn
+            // 
+            this.creationdateDataGridViewTextBoxColumn.DataPropertyName = "creation_date";
+            this.creationdateDataGridViewTextBoxColumn.HeaderText = "creation_date";
+            this.creationdateDataGridViewTextBoxColumn.Name = "creationdateDataGridViewTextBoxColumn";
+            this.creationdateDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // creatorDataGridViewTextBoxColumn
+            // 
+            this.creatorDataGridViewTextBoxColumn.DataPropertyName = "creator";
+            this.creatorDataGridViewTextBoxColumn.HeaderText = "creator";
+            this.creatorDataGridViewTextBoxColumn.Name = "creatorDataGridViewTextBoxColumn";
+            this.creatorDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
+            // approverDataGridViewTextBoxColumn
+            // 
+            this.approverDataGridViewTextBoxColumn.DataPropertyName = "approver";
+            this.approverDataGridViewTextBoxColumn.HeaderText = "approver";
+            this.approverDataGridViewTextBoxColumn.Name = "approverDataGridViewTextBoxColumn";
+            this.approverDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // shippingaddressDataGridViewTextBoxColumn
+            // 
+            this.shippingaddressDataGridViewTextBoxColumn.DataPropertyName = "shipping_address";
+            this.shippingaddressDataGridViewTextBoxColumn.HeaderText = "shipping_address";
+            this.shippingaddressDataGridViewTextBoxColumn.Name = "shippingaddressDataGridViewTextBoxColumn";
+            this.shippingaddressDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // supplieridDataGridViewTextBoxColumn
+            // 
+            this.supplieridDataGridViewTextBoxColumn.DataPropertyName = "supplier_id";
+            this.supplieridDataGridViewTextBoxColumn.HeaderText = "supplier_id";
+            this.supplieridDataGridViewTextBoxColumn.Name = "supplieridDataGridViewTextBoxColumn";
+            this.supplieridDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // suppliernameDataGridViewTextBoxColumn
+            // 
+            this.suppliernameDataGridViewTextBoxColumn.DataPropertyName = "supplier_name";
+            this.suppliernameDataGridViewTextBoxColumn.HeaderText = "supplier_name";
+            this.suppliernameDataGridViewTextBoxColumn.Name = "suppliernameDataGridViewTextBoxColumn";
+            this.suppliernameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // subtotalDataGridViewTextBoxColumn
+            // 
+            this.subtotalDataGridViewTextBoxColumn.DataPropertyName = "sub_total";
+            this.subtotalDataGridViewTextBoxColumn.HeaderText = "sub_total";
+            this.subtotalDataGridViewTextBoxColumn.Name = "subtotalDataGridViewTextBoxColumn";
+            this.subtotalDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // discountDataGridViewTextBoxColumn
+            // 
+            this.discountDataGridViewTextBoxColumn.DataPropertyName = "discount";
+            this.discountDataGridViewTextBoxColumn.HeaderText = "discount";
+            this.discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
+            this.discountDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "total";
+            this.totalDataGridViewTextBoxColumn.HeaderText = "total";
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // orderidDataGridViewTextBoxColumn1
+            // 
+            this.orderidDataGridViewTextBoxColumn1.DataPropertyName = "order_id";
+            this.orderidDataGridViewTextBoxColumn1.HeaderText = "order id";
+            this.orderidDataGridViewTextBoxColumn1.Name = "orderidDataGridViewTextBoxColumn1";
+            // 
+            // itemidDataGridViewTextBoxColumn
+            // 
+            this.itemidDataGridViewTextBoxColumn.DataPropertyName = "item_id";
+            this.itemidDataGridViewTextBoxColumn.HeaderText = "item id";
+            this.itemidDataGridViewTextBoxColumn.Name = "itemidDataGridViewTextBoxColumn";
+            // 
+            // unitpriceDataGridViewTextBoxColumn
+            // 
+            this.unitpriceDataGridViewTextBoxColumn.DataPropertyName = "unit_price";
+            this.unitpriceDataGridViewTextBoxColumn.HeaderText = "unit price";
+            this.unitpriceDataGridViewTextBoxColumn.Name = "unitpriceDataGridViewTextBoxColumn";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "quantity";
+            this.dataGridViewTextBoxColumn1.HeaderText = "quantity";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // itemnameDataGridViewTextBoxColumn
+            // 
+            this.itemnameDataGridViewTextBoxColumn.DataPropertyName = "item_name";
+            this.itemnameDataGridViewTextBoxColumn.HeaderText = "item name";
+            this.itemnameDataGridViewTextBoxColumn.Name = "itemnameDataGridViewTextBoxColumn";
+            // 
+            // unitofmeasureDataGridViewTextBoxColumn
+            // 
+            this.unitofmeasureDataGridViewTextBoxColumn.DataPropertyName = "unit_of_measure";
+            this.unitofmeasureDataGridViewTextBoxColumn.HeaderText = "unit of measure";
+            this.unitofmeasureDataGridViewTextBoxColumn.Name = "unitofmeasureDataGridViewTextBoxColumn";
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "amount";
+            this.amountDataGridViewTextBoxColumn.HeaderText = "amount";
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            // 
+            // customButton2
+            // 
+            this.customButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.customButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customButton2.ForeColor = System.Drawing.Color.White;
+            this.customButton2.Location = new System.Drawing.Point(83, 43);
+            this.customButton2.Name = "customButton2";
+            this.customButton2.Size = new System.Drawing.Size(157, 28);
+            this.customButton2.TabIndex = 29;
+            this.customButton2.Text = "Choose Supplier";
+            this.customButton2.UseVisualStyleBackColor = false;
+            this.customButton2.Click += new System.EventHandler(this.customButton2_Click);
             // 
             // OrderDetail
             // 
@@ -838,7 +1016,7 @@
             this.Text = "Order Detail";
             this.Load += new System.EventHandler(this.OrderDetail_Load);
             this.panelMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBase1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customDataGrid11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKrawpurchaseorderraworderlineBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawpurchaseorderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawDataSet)).EndInit();
@@ -848,6 +1026,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.contextMenuStripOrder.ResumeLayout(false);
@@ -858,8 +1037,7 @@
             this.splitContainerMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNavigator)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recordSelectorGrid1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -905,13 +1083,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtApprovedBy;
-        private System.Windows.Forms.Button btnAddItem;
         private RawDataSet rawDataSet;
         private System.Windows.Forms.BindingSource rawpurchaseorderBindingSource;
         private RawDataSetTableAdapters.raw_purchase_orderTableAdapter raw_purchase_orderTableAdapter;
         private System.Windows.Forms.BindingSource fKrawpurchaseorderraworderlineBindingSource;
         private RawDataSetTableAdapters.raw_order_lineTableAdapter raw_order_lineTableAdapter;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripOrderLine;
         private System.Windows.Forms.ToolStripMenuItem addItemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeItemToolStripMenuItem;
@@ -921,7 +1097,8 @@
         private System.Windows.Forms.ToolStripMenuItem approveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
-        private FrameworkControls.Controls.DataGridViewBase dataGridViewBase1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private FrameworkControls.Controls.CustomDataGrid1 customDataGrid11;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderidDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitpriceDataGridViewTextBoxColumn;
@@ -929,11 +1106,38 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn itemnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitofmeasureDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView dataGridViewNavigator;
+        private FrameworkControls.Controls.RecordSelectorGrid recordSelectorGrid1;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creationdateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creatorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn approverDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shippingaddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplieridDataGridViewTextBoxColumn;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suppliernameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subtotalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
+        private FrameworkControls.Controls.CustomButton customButton1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderidDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemidDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitpriceDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemnameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitofmeasureDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderidDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creationdateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creatorDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn approverDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shippingaddressDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplieridDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suppliernameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subtotalDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn1;
+        private FrameworkControls.Controls.CustomButton customButton2;
 
     }
 }

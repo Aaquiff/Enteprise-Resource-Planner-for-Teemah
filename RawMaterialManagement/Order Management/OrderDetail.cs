@@ -299,5 +299,15 @@ namespace RawMaterialManagement.Order_Management
 
         #endregion      
 
+        private void customButton1_Click(object sender, EventArgs e)
+        {
+            AddOrderItem();
+        }
+
+        private void customButton2_Click(object sender, EventArgs e)
+        {
+            ChooseSupplier();
+        }
+
     }
 }

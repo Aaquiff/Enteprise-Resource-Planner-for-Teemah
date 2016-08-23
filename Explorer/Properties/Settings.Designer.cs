@@ -77,7 +77,7 @@ namespace Explorer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
+        [global::System.Configuration.DefaultSettingValueAttribute("White")]
         public global::System.Drawing.Color ThemeForeColor {
             get {
                 return ((global::System.Drawing.Color)(this["ThemeForeColor"]));
