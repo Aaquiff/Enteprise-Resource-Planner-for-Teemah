@@ -51,38 +51,19 @@ namespace MySQLDatabaseAccess
 
         public static string getUserIdFromConnectionString()
         {
-            string cstring = ConnectionString;
-            int useridindexstart = cstring.IndexOf("user id=") + 8;
-            if (useridindexstart == -1)
-            {
-                return null;
-            }
-            int useridindexend = cstring.IndexOf(";", useridindexstart);
-            if (useridindexend == -1)
-                useridindexend = cstring.Length;
-
-            return cstring.Substring(useridindexstart, useridindexend - useridindexstart);
+            MySqlConnectionStringBuilder connectionString = new MySqlConnectionStringBuilder(ConnectionString);
+            return connectionString.UserID;
         }
 
         public static string getUserNameFromConnectionString(string cstring)
         {
-            int useridindexstart = cstring.IndexOf("user id=") + 8;
-                if(useridindexstart == -1 )
-                {
-                    return null;
-                }
-            int useridindexend = cstring.IndexOf(";", useridindexstart);
-            if (useridindexend == -1)
-                useridindexend = cstring.Length;
-
-            string user = cstring.Substring(useridindexstart, useridindexend - useridindexstart);
             string name = null;
             MySqlConnection con = getConnection();
             try
             {
                 
                 MySqlCommand command = new MySqlCommand("SELECT name FROM user_tab WHERE user = @user",con);
-                command.Parameters.AddWithValue("@user", user);
+                command.Parameters.AddWithValue("@user", getUserIdFromConnectionString());
                 con.Open();
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
@@ -99,16 +80,15 @@ namespace MySQLDatabaseAccess
                 con.Close();
             }
             if (String.IsNullOrEmpty(name))
-                return user;
+                return "Unknown User";
             else
                 return name;
         }
 
         public static string getServerFromConnectionString(string cstring)
         {
-            int useridindexstart = cstring.IndexOf("server=") + 7;
-            int useridindexend = cstring.IndexOf(";", useridindexstart);
-            return cstring.Substring(useridindexstart, useridindexend - useridindexstart);
+            MySqlConnectionStringBuilder connectionString = new MySqlConnectionStringBuilder(ConnectionString);
+            return connectionString.Server;
         }
     }
 }
