@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{65345113-F14F-4EC4-A13A-A188FAA1AC9D}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FinanceManagement</RootNamespace>
     <AssemblyName>FinanceManagement</AssemblyName>
@@ -30,6 +30,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
@@ -63,12 +66,24 @@
     <Compile Include="BudgetManagement.Designer.cs">
       <DependentUpon>BudgetManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Budget_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Budget_Update.designer.cs">
+      <DependentUpon>Budget_Update.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBConnects.cs" />
     <Compile Include="ExpensesManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ExpensesManagement.Designer.cs">
       <DependentUpon>ExpensesManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenses_Update.designer.cs">
+      <DependentUpon>Expenses_Update.cs</DependentUpon>
     </Compile>
     <Compile Include="FinanceManagementDashBoard.cs">
       <SubType>Form</SubType>
@@ -110,8 +125,14 @@
     <EmbeddedResource Include="BudgetManagement.resx">
       <DependentUpon>BudgetManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Budget_Update.resx">
+      <DependentUpon>Budget_Update.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ExpensesManagement.resx">
       <DependentUpon>ExpensesManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenses_Update.resx">
+      <DependentUpon>Expenses_Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FinanceManagementDashBoard.en-US.resx">
       <DependentUpon>FinanceManagementDashBoard.cs</DependentUpon>

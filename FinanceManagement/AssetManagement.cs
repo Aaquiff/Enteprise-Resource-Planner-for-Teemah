@@ -285,8 +285,7 @@ namespace FinanceManagement
         private void button2_Click(object sender, EventArgs e)
         {
             Asset_US asset = new Asset_US();
-            this.Close();
-            asset.Show();
+            asset.ShowDialog();
         }
 
     }

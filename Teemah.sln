@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Explorer", "Explorer\Explorer.csproj", "{0C7A1F88-8B92-4CD0-AD2F-12CBDAC2B522}"
+	ProjectSection(ProjectDependencies) = postProject
+		{65345113-F14F-4EC4-A13A-A188FAA1AC9D} = {65345113-F14F-4EC4-A13A-A188FAA1AC9D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawMaterialManagement", "RawMaterialManagement\RawMaterialManagement.csproj", "{075CC06A-38B4-4F27-84BA-29078BB5C4A8}"
 EndProject

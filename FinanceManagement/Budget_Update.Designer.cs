@@ -1,6 +1,6 @@
 ﻿namespace FinanceManagement
 {
-    partial class BudgetManagement
+    partial class Budget_Update
     {
         /// <summary>
         /// Required designer variable.
@@ -40,19 +40,18 @@
             this.textBox_employee = new System.Windows.Forms.TextBox();
             this.textBox_budgetid = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePicker_Budget = new System.Windows.Forms.DateTimePicker();
             this.button_refresh = new System.Windows.Forms.Button();
-            this.button_add = new System.Windows.Forms.Button();
+            this.button_delete = new System.Windows.Forms.Button();
             this.button_back = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox_total = new System.Windows.Forms.TextBox();
             this.richTextBox_description = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -74,12 +73,11 @@
             this.panel1.Controls.Add(this.textBox_employee);
             this.panel1.Controls.Add(this.textBox_budgetid);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.dateTimePicker_Budget);
             this.panel1.Controls.Add(this.button_refresh);
-            this.panel1.Controls.Add(this.button_add);
+            this.panel1.Controls.Add(this.button_delete);
             this.panel1.Controls.Add(this.button_back);
             this.panel1.Controls.Add(this.textBox_total);
             this.panel1.Controls.Add(this.richTextBox_description);
@@ -90,8 +88,8 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1076, 443);
-            this.panel1.TabIndex = 0;
+            this.panel1.Size = new System.Drawing.Size(1236, 456);
+            this.panel1.TabIndex = 1;
             // 
             // label12
             // 
@@ -152,7 +150,6 @@
             this.textBox_transport.Name = "textBox_transport";
             this.textBox_transport.Size = new System.Drawing.Size(238, 25);
             this.textBox_transport.TabIndex = 30;
-            this.textBox_transport.TextChanged += new System.EventHandler(this.textBox_transport_TextChanged);
             // 
             // textBox_marketing
             // 
@@ -161,7 +158,6 @@
             this.textBox_marketing.Name = "textBox_marketing";
             this.textBox_marketing.Size = new System.Drawing.Size(238, 25);
             this.textBox_marketing.TabIndex = 29;
-            this.textBox_marketing.TextChanged += new System.EventHandler(this.textBox_marketing_TextChanged);
             // 
             // textBox_maintanance
             // 
@@ -170,7 +166,6 @@
             this.textBox_maintanance.Name = "textBox_maintanance";
             this.textBox_maintanance.Size = new System.Drawing.Size(238, 25);
             this.textBox_maintanance.TabIndex = 28;
-            this.textBox_maintanance.TextChanged += new System.EventHandler(this.textBox_maintanance_TextChanged);
             // 
             // textBox_employee
             // 
@@ -179,7 +174,6 @@
             this.textBox_employee.Name = "textBox_employee";
             this.textBox_employee.Size = new System.Drawing.Size(238, 25);
             this.textBox_employee.TabIndex = 27;
-            this.textBox_employee.TextChanged += new System.EventHandler(this.textBox_employee_TextChanged);
             // 
             // textBox_budgetid
             // 
@@ -202,20 +196,6 @@
             this.label8.TabIndex = 25;
             this.label8.Text = "Budget Year :";
             this.label8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(700, 357);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 55);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dateTimePicker1
             // 
@@ -250,7 +230,7 @@
             this.button_refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.button_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_refresh.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_refresh.Location = new System.Drawing.Point(809, 357);
+            this.button_refresh.Location = new System.Drawing.Point(697, 369);
             this.button_refresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_refresh.Name = "button_refresh";
             this.button_refresh.Size = new System.Drawing.Size(101, 55);
@@ -259,26 +239,26 @@
             this.button_refresh.UseVisualStyleBackColor = false;
             this.button_refresh.Click += new System.EventHandler(this.button_refresh_Click);
             // 
-            // button_add
+            // button_delete
             // 
-            this.button_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_add.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_add.Location = new System.Drawing.Point(592, 357);
-            this.button_add.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button_add.Name = "button_add";
-            this.button_add.Size = new System.Drawing.Size(101, 55);
-            this.button_add.TabIndex = 18;
-            this.button_add.Text = "Add";
-            this.button_add.UseVisualStyleBackColor = false;
-            this.button_add.Click += new System.EventHandler(this.button_add_Click);
+            this.button_delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_delete.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_delete.Location = new System.Drawing.Point(590, 369);
+            this.button_delete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button_delete.Name = "button_delete";
+            this.button_delete.Size = new System.Drawing.Size(101, 55);
+            this.button_delete.TabIndex = 18;
+            this.button_delete.Text = "Update";
+            this.button_delete.UseVisualStyleBackColor = false;
+            this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
             // 
             // button_back
             // 
             this.button_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.button_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_back.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_back.Location = new System.Drawing.Point(483, 357);
+            this.button_back.Location = new System.Drawing.Point(483, 369);
             this.button_back.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_back.Name = "button_back";
             this.button_back.Size = new System.Drawing.Size(101, 55);
@@ -286,6 +266,18 @@
             this.button_back.Text = "Back";
             this.button_back.UseVisualStyleBackColor = false;
             this.button_back.Click += new System.EventHandler(this.button_back_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1236, 298);
+            this.dataGridView1.TabIndex = 16;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // textBox_total
             // 
@@ -295,8 +287,6 @@
             this.textBox_total.ReadOnly = true;
             this.textBox_total.Size = new System.Drawing.Size(238, 25);
             this.textBox_total.TabIndex = 15;
-            this.textBox_total.Click += new System.EventHandler(this.textBox_total_Click);
-            this.textBox_total.TextChanged += new System.EventHandler(this.textBox_total_TextChanged);
             // 
             // richTextBox_description
             // 
@@ -306,8 +296,6 @@
             this.richTextBox_description.Size = new System.Drawing.Size(238, 153);
             this.richTextBox_description.TabIndex = 11;
             this.richTextBox_description.Text = "Type all other wanted details here";
-            this.richTextBox_description.Click += new System.EventHandler(this.richTextBox_description_Click);
-            this.richTextBox_description.TextChanged += new System.EventHandler(this.richTextBox_description_TextChanged);
             // 
             // label6
             // 
@@ -345,17 +333,6 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Budget-Start :";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1076, 131);
-            this.dataGridView1.TabIndex = 16;
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -364,28 +341,24 @@
             // 
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 443);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel2.Location = new System.Drawing.Point(0, 456);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1076, 131);
+            this.panel2.Size = new System.Drawing.Size(1236, 298);
             this.panel2.TabIndex = 17;
             // 
-            // BudgetManagement
+            // Budget_Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.AutoScrollMargin = new System.Drawing.Size(5, 5);
-            this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1076, 574);
+            this.ClientSize = new System.Drawing.Size(1236, 754);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "BudgetManagement";
+            this.Name = "Budget_Update";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Budget Management";
-            this.Load += new System.EventHandler(this.BudgetManagement_Load);
+            this.Text = "Budget Update";
+            this.Load += new System.EventHandler(this.Budget_Update_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -398,23 +371,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox_total;
-        private System.Windows.Forms.TextBox textBox_tittle;
-        private System.Windows.Forms.RichTextBox richTextBox_description;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button_back;
-        private System.Windows.Forms.Button button_refresh;
-        private System.Windows.Forms.Button button_add;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_Budget;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox_budgetid;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -423,6 +379,21 @@
         private System.Windows.Forms.TextBox textBox_marketing;
         private System.Windows.Forms.TextBox textBox_maintanance;
         private System.Windows.Forms.TextBox textBox_employee;
+        private System.Windows.Forms.TextBox textBox_budgetid;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_Budget;
+        private System.Windows.Forms.Button button_refresh;
+        private System.Windows.Forms.Button button_delete;
+        private System.Windows.Forms.Button button_back;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox_total;
+        private System.Windows.Forms.RichTextBox richTextBox_description;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Panel panel2;
     }
 }

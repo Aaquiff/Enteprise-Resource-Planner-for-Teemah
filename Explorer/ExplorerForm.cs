@@ -449,6 +449,16 @@ namespace Explorer
         {
             loadForm(new Asset_US());
         }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            loadForm(new Budget_Update());
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            loadForm(new Expenses_Update());
+        }
     }
 
         

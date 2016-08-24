@@ -164,8 +164,7 @@ namespace FinanceManagement
         private void button_search_Click(object sender, EventArgs e)
         {
             Asset_Repair_US asset = new Asset_Repair_US();
-            asset.Show();
-            this.Close();
+            asset.ShowDialog();
         }
     }
 }
