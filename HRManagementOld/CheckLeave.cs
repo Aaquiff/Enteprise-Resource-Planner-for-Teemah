@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HRManagement
+namespace HR_Management
 {
     public partial class CheckLeave : Form
     {

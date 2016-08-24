@@ -646,7 +646,6 @@
             this.btnEM.Text = "Employee Management";
             this.btnEM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEM.UseVisualStyleBackColor = false;
-            this.btnEM.Visible = false;
             this.btnEM.Click += new System.EventHandler(this.btnEM_Click);
             // 
             // panelDistribution
@@ -1242,7 +1241,7 @@
             this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.statusStrip.Location = new System.Drawing.Point(0, 693);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1368, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1362, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -1264,7 +1263,7 @@
             this.panelBreadCrumbs.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelBreadCrumbs.Location = new System.Drawing.Point(0, 0);
             this.panelBreadCrumbs.Name = "panelBreadCrumbs";
-            this.panelBreadCrumbs.Size = new System.Drawing.Size(1099, 39);
+            this.panelBreadCrumbs.Size = new System.Drawing.Size(1093, 39);
             this.panelBreadCrumbs.TabIndex = 8;
             // 
             // button8
@@ -1290,14 +1289,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(269, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1099, 93);
+            this.panel1.Size = new System.Drawing.Size(1093, 93);
             this.panel1.TabIndex = 17;
             // 
             // ExplorerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1368, 715);
+            this.ClientSize = new System.Drawing.Size(1362, 715);
             this.Controls.Add(this.menuStripMain);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelNavigation);

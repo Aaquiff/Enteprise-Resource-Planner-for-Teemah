@@ -1045,7 +1045,6 @@
             this.customButton3.TabIndex = 29;
             this.customButton3.Text = "Remove Item";
             this.customButton3.UseVisualStyleBackColor = false;
-            this.customButton3.Click += new System.EventHandler(this.customButton3_Click);
             // 
             // OrderDetail
             // 

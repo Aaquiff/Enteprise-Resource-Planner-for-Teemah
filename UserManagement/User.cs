@@ -24,7 +24,15 @@ namespace UserManagement
 
         private void Populate()
         {
-            this.userTableAdapter.Fill(this.userDataSet.user);
+            try
+            {
+                this.userTableAdapter.Connection = con;
+                this.userTableAdapter.Fill(this.userDataSet.user);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Save()
@@ -106,6 +114,7 @@ namespace UserManagement
         private void User_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'userDataSet.user_role' table. You can move, or remove it, as needed.
+            this.user_roleTableAdapter.Connection = con;
             this.user_roleTableAdapter.Fill(this.userDataSet.user_role);
             Populate();
         }

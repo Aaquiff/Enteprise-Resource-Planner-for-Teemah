@@ -17,6 +17,7 @@ using RawMaterialManagement;
 using MySQLDatabaseAccess;
 using UserManagement;
 using FinanceManagement;
+using HRManagement;
 
 namespace Explorer
 {
@@ -237,6 +238,7 @@ namespace Explorer
 
         private void button2_Click(object sender, EventArgs e)
         {
+            loadForm(new Employee());
         }
 
         private void button1_Click(object sender, EventArgs e)

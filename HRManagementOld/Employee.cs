@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HRManagement
+namespace HR_Management
 {
-    public partial class CheckLeave : Form
+    public partial class Employee : Form
     {
-        public CheckLeave()
+        public Employee()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
