@@ -1,0 +1,49 @@
+--Creating tables for HRManagement
+
+ CREATE TABLE `employee` (
+  `EmpId` int(11) NOT NULL AUTO_INCREMENT,
+  `FirstName` varchar(45) DEFAULT NULL,
+  `LastName` varchar(45) DEFAULT NULL,
+  `Gender` char(1) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `NIC` char(10) DEFAULT NULL,
+  `DOB` tinytext,
+  `Nationality` varchar(20) DEFAULT NULL,
+  `Email` varchar(45) DEFAULT NULL,
+  `MobileNo` char(15) DEFAULT NULL,
+  `UserName` varchar(50) DEFAULT NULL,
+  `Password` varchar(45) DEFAULT NULL,
+  `DepId` varchar(45) DEFAULT NULL,
+  `Position` varchar(45) DEFAULT NULL,
+  `BasicSalary` double DEFAULT NULL,
+  PRIMARY KEY (`EmpId`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `leave` (
+  `LeaveId` int(11) NOT NULL AUTO_INCREMENT,
+  `EmpId` int(11) DEFAULT NULL,
+  `RequestedDate` date DEFAULT NULL,
+  `StartDate` date DEFAULT NULL,
+  `EndDate` date DEFAULT NULL,
+  `Type` varchar(45) DEFAULT NULL,
+  `Reason` varchar(75) DEFAULT NULL,
+  `Status` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`LeaveId`),
+  KEY `foreign_leave_idx` (`EmpId`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `salary` (
+  `SalId` int(11) NOT NULL AUTO_INCREMENT,
+  `EmpId` int(11) DEFAULT NULL,
+  `OTHours` float DEFAULT NULL,
+  `NetSalary` double DEFAULT NULL,
+  `GivenDate` date DEFAULT NULL,
+  PRIMARY KEY (`SalId`),
+  KEY `EmpId_idx` (`EmpId`),
+  CONSTRAINT `EmpId` FOREIGN KEY (`EmpId`) REFERENCES `employee` (`EmpId`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `leave_view` AS select `leave`.`LeaveId` AS `LeaveId`,`leave`.`EmpId` AS `EmpId`,`leave`.`RequestedDate` AS `RequestedDate`,`leave`.`StartDate` AS `StartDate`,`leave`.`EndDate` AS `EndDate`,(to_days(`leave`.`EndDate`) - to_days(`leave`.`StartDate`)) AS `NoOfDays`,`leave`.`Type` AS `Type`,`leave`.`Reason` AS `Reason`,`leave`.`Status` AS `Status` from `leave`;
