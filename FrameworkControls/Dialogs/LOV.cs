@@ -33,6 +33,7 @@ namespace FrameworkControls.Dialogs
             dataAdapter.Fill(dataSet);
             bindingSource.DataSource = dataSet.Tables[0];
             customDataGrid11.DataSource = bindingSource;
+            customDataGrid11.ReadOnly = true;
         }
 
         private void Select()
@@ -47,6 +48,11 @@ namespace FrameworkControls.Dialogs
         }
 
         private void customButton2_Click(object sender, EventArgs e)
+        {
+            Select();
+        }
+
+        private void customDataGrid11_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Select();
         }

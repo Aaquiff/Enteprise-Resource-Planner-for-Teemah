@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new System.Windows.Forms.Panel();
             this.customDataGrid11 = new FrameworkControls.Controls.CustomDataGrid1();
             this.orderidDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,13 +42,14 @@
             this.itemnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitofmeasureDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKrawpurchaseorderraworderlineBindingSource = new System.Windows.Forms.BindingSource();
-            this.rawpurchaseorderBindingSource = new System.Windows.Forms.BindingSource();
+            this.fKrawpurchaseorderraworderlineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rawpurchaseorderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rawDataSet = new RawMaterialManagement.RawDataSet();
             this.panelOrderDetail = new System.Windows.Forms.Panel();
             this.panelOrder = new System.Windows.Forms.Panel();
             this.customButton1 = new FrameworkControls.Controls.CustomButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.customButton2 = new FrameworkControls.Controls.CustomButton();
             this.txtSupplierId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtSupplierName = new System.Windows.Forms.TextBox();
@@ -57,7 +63,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtSubTotal = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.contextMenuStripOrder = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStripOrder = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.approveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,7 +81,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtApprovedBy = new System.Windows.Forms.TextBox();
-            this.contextMenuStripOrderLine = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStripOrderLine = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -99,8 +105,6 @@
             this.subtotalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.discountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_purchase_orderTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_purchase_orderTableAdapter();
-            this.raw_order_lineTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_order_lineTableAdapter();
             this.orderidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creationdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -119,7 +123,9 @@
             this.itemnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitofmeasureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customButton2 = new FrameworkControls.Controls.CustomButton();
+            this.raw_purchase_orderTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_purchase_orderTableAdapter();
+            this.raw_order_lineTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_order_lineTableAdapter();
+            this.customButton3 = new FrameworkControls.Controls.CustomButton();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customDataGrid11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKrawpurchaseorderraworderlineBindingSource)).BeginInit();
@@ -148,7 +154,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1012, 459);
+            this.panelMain.Size = new System.Drawing.Size(1088, 657);
             this.panelMain.TabIndex = 0;
             // 
             // customDataGrid11
@@ -159,6 +165,9 @@
             this.customDataGrid11.AutoGenerateColumns = false;
             this.customDataGrid11.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.customDataGrid11.BackgroundColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            this.customDataGrid11.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.customDataGrid11.ColumnHeadersHeight = 40;
             this.customDataGrid11.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.orderidDataGridViewTextBoxColumn3,
@@ -169,58 +178,66 @@
             this.unitofmeasureDataGridViewTextBoxColumn1,
             this.amountDataGridViewTextBoxColumn1});
             this.customDataGrid11.DataSource = this.fKrawpurchaseorderraworderlineBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.customDataGrid11.DefaultCellStyle = dataGridViewCellStyle2;
             this.customDataGrid11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customDataGrid11.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.customDataGrid11.EnableHeadersVisualStyles = false;
             this.customDataGrid11.GridColor = System.Drawing.SystemColors.Control;
-            this.customDataGrid11.Location = new System.Drawing.Point(0, 336);
+            this.customDataGrid11.Location = new System.Drawing.Point(0, 357);
             this.customDataGrid11.MultiSelect = false;
             this.customDataGrid11.Name = "customDataGrid11";
             this.customDataGrid11.RowHeadersVisible = false;
             this.customDataGrid11.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customDataGrid11.Size = new System.Drawing.Size(1012, 123);
+            this.customDataGrid11.Size = new System.Drawing.Size(1088, 300);
             this.customDataGrid11.TabIndex = 0;
             // 
             // orderidDataGridViewTextBoxColumn3
             // 
             this.orderidDataGridViewTextBoxColumn3.DataPropertyName = "order_id";
-            this.orderidDataGridViewTextBoxColumn3.HeaderText = "order id";
+            this.orderidDataGridViewTextBoxColumn3.HeaderText = "ORDER ID";
             this.orderidDataGridViewTextBoxColumn3.Name = "orderidDataGridViewTextBoxColumn3";
             // 
             // itemidDataGridViewTextBoxColumn1
             // 
             this.itemidDataGridViewTextBoxColumn1.DataPropertyName = "item_id";
-            this.itemidDataGridViewTextBoxColumn1.HeaderText = "item id";
+            this.itemidDataGridViewTextBoxColumn1.HeaderText = "ITEM ID";
             this.itemidDataGridViewTextBoxColumn1.Name = "itemidDataGridViewTextBoxColumn1";
             // 
             // unitpriceDataGridViewTextBoxColumn1
             // 
             this.unitpriceDataGridViewTextBoxColumn1.DataPropertyName = "unit_price";
-            this.unitpriceDataGridViewTextBoxColumn1.HeaderText = "unit price";
+            this.unitpriceDataGridViewTextBoxColumn1.HeaderText = "UNIT PRICE";
             this.unitpriceDataGridViewTextBoxColumn1.Name = "unitpriceDataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "quantity";
-            this.dataGridViewTextBoxColumn2.HeaderText = "quantity";
+            this.dataGridViewTextBoxColumn2.HeaderText = "QUANTITY";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // itemnameDataGridViewTextBoxColumn1
             // 
             this.itemnameDataGridViewTextBoxColumn1.DataPropertyName = "item_name";
-            this.itemnameDataGridViewTextBoxColumn1.HeaderText = "item name";
+            this.itemnameDataGridViewTextBoxColumn1.HeaderText = "ITEM NAME";
             this.itemnameDataGridViewTextBoxColumn1.Name = "itemnameDataGridViewTextBoxColumn1";
             // 
             // unitofmeasureDataGridViewTextBoxColumn1
             // 
             this.unitofmeasureDataGridViewTextBoxColumn1.DataPropertyName = "unit_of_measure";
-            this.unitofmeasureDataGridViewTextBoxColumn1.HeaderText = "unit of measure";
+            this.unitofmeasureDataGridViewTextBoxColumn1.HeaderText = "UNIT OF MEASURE";
             this.unitofmeasureDataGridViewTextBoxColumn1.Name = "unitofmeasureDataGridViewTextBoxColumn1";
             // 
             // amountDataGridViewTextBoxColumn1
             // 
             this.amountDataGridViewTextBoxColumn1.DataPropertyName = "amount";
-            this.amountDataGridViewTextBoxColumn1.HeaderText = "amount";
+            this.amountDataGridViewTextBoxColumn1.HeaderText = "AMOUNT";
             this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
             // 
             // fKrawpurchaseorderraworderlineBindingSource
@@ -247,7 +264,7 @@
             this.panelOrderDetail.Location = new System.Drawing.Point(0, 0);
             this.panelOrderDetail.Margin = new System.Windows.Forms.Padding(4);
             this.panelOrderDetail.Name = "panelOrderDetail";
-            this.panelOrderDetail.Size = new System.Drawing.Size(1012, 336);
+            this.panelOrderDetail.Size = new System.Drawing.Size(1088, 357);
             this.panelOrderDetail.TabIndex = 5;
             // 
             // panelOrder
@@ -260,7 +277,7 @@
             this.panelOrder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelOrder.Location = new System.Drawing.Point(0, 0);
             this.panelOrder.Name = "panelOrder";
-            this.panelOrder.Size = new System.Drawing.Size(1012, 336);
+            this.panelOrder.Size = new System.Drawing.Size(1088, 357);
             this.panelOrder.TabIndex = 25;
             // 
             // customButton1
@@ -268,9 +285,9 @@
             this.customButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customButton1.ForeColor = System.Drawing.Color.White;
-            this.customButton1.Location = new System.Drawing.Point(7, 280);
+            this.customButton1.Location = new System.Drawing.Point(6, 298);
             this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(95, 30);
+            this.customButton1.Size = new System.Drawing.Size(83, 32);
             this.customButton1.TabIndex = 0;
             this.customButton1.Text = "Add Item";
             this.customButton1.UseVisualStyleBackColor = false;
@@ -283,51 +300,65 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.txtSupplierName);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Location = new System.Drawing.Point(721, 188);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox3.Location = new System.Drawing.Point(838, 0);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(255, 133);
+            this.groupBox3.Size = new System.Drawing.Size(223, 357);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Supplier";
             // 
+            // customButton2
+            // 
+            this.customButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.customButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customButton2.ForeColor = System.Drawing.Color.White;
+            this.customButton2.Location = new System.Drawing.Point(8, 126);
+            this.customButton2.Name = "customButton2";
+            this.customButton2.Size = new System.Drawing.Size(208, 30);
+            this.customButton2.TabIndex = 29;
+            this.customButton2.Text = "Choose Supplier";
+            this.customButton2.UseVisualStyleBackColor = false;
+            this.customButton2.Click += new System.EventHandler(this.customButton2_Click);
+            // 
             // txtSupplierId
             // 
             this.txtSupplierId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "supplier_id", true));
-            this.txtSupplierId.Location = new System.Drawing.Point(8, 43);
+            this.txtSupplierId.Location = new System.Drawing.Point(7, 46);
             this.txtSupplierId.Margin = new System.Windows.Forms.Padding(4);
             this.txtSupplierId.Name = "txtSupplierId";
-            this.txtSupplierId.Size = new System.Drawing.Size(68, 22);
+            this.txtSupplierId.Size = new System.Drawing.Size(208, 25);
             this.txtSupplierId.TabIndex = 16;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 23);
+            this.label8.Location = new System.Drawing.Point(7, 24);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 16);
+            this.label8.Size = new System.Drawing.Size(71, 17);
             this.label8.TabIndex = 17;
             this.label8.Text = "Supplier Id";
             // 
             // txtSupplierName
             // 
             this.txtSupplierName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "supplier_name", true));
-            this.txtSupplierName.Location = new System.Drawing.Point(8, 92);
+            this.txtSupplierName.Location = new System.Drawing.Point(8, 94);
             this.txtSupplierName.Margin = new System.Windows.Forms.Padding(4);
             this.txtSupplierName.Name = "txtSupplierName";
             this.txtSupplierName.ReadOnly = true;
-            this.txtSupplierName.Size = new System.Drawing.Size(237, 22);
+            this.txtSupplierName.Size = new System.Drawing.Size(208, 25);
             this.txtSupplierName.TabIndex = 18;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 74);
+            this.label9.Location = new System.Drawing.Point(8, 75);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(98, 16);
+            this.label9.Size = new System.Drawing.Size(95, 17);
             this.label9.TabIndex = 19;
             this.label9.Text = "Supplier Name";
             // 
@@ -340,11 +371,12 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtSubTotal);
-            this.groupBox1.Location = new System.Drawing.Point(718, 13);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox1.Location = new System.Drawing.Point(615, 0);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(255, 176);
+            this.groupBox1.Size = new System.Drawing.Size(223, 357);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Payment";
@@ -352,74 +384,75 @@
             // numericUpDown1
             // 
             this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.rawpurchaseorderBindingSource, "discount", true));
-            this.numericUpDown1.Location = new System.Drawing.Point(11, 88);
+            this.numericUpDown1.Location = new System.Drawing.Point(10, 94);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(68, 22);
+            this.numericUpDown1.Size = new System.Drawing.Size(60, 25);
             this.numericUpDown1.TabIndex = 29;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(86, 90);
+            this.label10.Location = new System.Drawing.Point(75, 96);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(20, 16);
+            this.label10.Size = new System.Drawing.Size(19, 17);
             this.label10.TabIndex = 28;
             this.label10.Text = "%";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(10, 115);
+            this.label13.Location = new System.Drawing.Point(9, 122);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(39, 16);
+            this.label13.Size = new System.Drawing.Size(36, 17);
             this.label13.TabIndex = 27;
             this.label13.Text = "Total";
             // 
             // txtTotal
             // 
             this.txtTotal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "total", true));
-            this.txtTotal.Location = new System.Drawing.Point(13, 135);
+            this.txtTotal.Location = new System.Drawing.Point(11, 143);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(230, 22);
+            this.txtTotal.Size = new System.Drawing.Size(202, 25);
             this.txtTotal.TabIndex = 26;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 20);
+            this.label6.Location = new System.Drawing.Point(7, 21);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 16);
+            this.label6.Size = new System.Drawing.Size(62, 17);
             this.label6.TabIndex = 12;
             this.label6.Text = "Sub Total";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 65);
+            this.label12.Location = new System.Drawing.Point(7, 69);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 16);
+            this.label12.Size = new System.Drawing.Size(58, 17);
             this.label12.TabIndex = 25;
             this.label12.Text = "Discount";
             // 
             // txtSubTotal
             // 
             this.txtSubTotal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "sub_total", true));
-            this.txtSubTotal.Location = new System.Drawing.Point(13, 39);
+            this.txtSubTotal.Location = new System.Drawing.Point(11, 41);
             this.txtSubTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubTotal.Name = "txtSubTotal";
             this.txtSubTotal.ReadOnly = true;
-            this.txtSubTotal.Size = new System.Drawing.Size(230, 22);
+            this.txtSubTotal.Size = new System.Drawing.Size(202, 25);
             this.txtSubTotal.TabIndex = 11;
             // 
             // groupBox2
             // 
             this.groupBox2.ContextMenuStrip = this.contextMenuStripOrder;
+            this.groupBox2.Controls.Add(this.customButton3);
             this.groupBox2.Controls.Add(this.txtCreatedDate);
             this.groupBox2.Controls.Add(this.txtStatus);
             this.groupBox2.Controls.Add(this.label1);
@@ -434,11 +467,12 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtApprovedBy);
-            this.groupBox2.Location = new System.Drawing.Point(7, 13);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(703, 265);
+            this.groupBox2.Size = new System.Drawing.Size(615, 357);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Order";
@@ -476,139 +510,140 @@
             // txtCreatedDate
             // 
             this.txtCreatedDate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "creation_date", true));
-            this.txtCreatedDate.Location = new System.Drawing.Point(415, 39);
+            this.txtCreatedDate.Location = new System.Drawing.Point(363, 41);
             this.txtCreatedDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtCreatedDate.Name = "txtCreatedDate";
             this.txtCreatedDate.ReadOnly = true;
-            this.txtCreatedDate.Size = new System.Drawing.Size(280, 22);
+            this.txtCreatedDate.Size = new System.Drawing.Size(246, 25);
             this.txtCreatedDate.TabIndex = 25;
             // 
             // txtStatus
             // 
             this.txtStatus.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "status", true));
-            this.txtStatus.Location = new System.Drawing.Point(7, 90);
+            this.txtStatus.Location = new System.Drawing.Point(6, 96);
             this.txtStatus.Margin = new System.Windows.Forms.Padding(4);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ReadOnly = true;
-            this.txtStatus.Size = new System.Drawing.Size(194, 22);
+            this.txtStatus.Size = new System.Drawing.Size(170, 25);
             this.txtStatus.TabIndex = 24;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1, 20);
+            this.label1.Location = new System.Drawing.Point(1, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 16);
+            this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Order Id";
             // 
             // txtOrderId
             // 
             this.txtOrderId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "order_id", true));
-            this.txtOrderId.Location = new System.Drawing.Point(8, 39);
+            this.txtOrderId.Location = new System.Drawing.Point(7, 41);
             this.txtOrderId.Margin = new System.Windows.Forms.Padding(4);
             this.txtOrderId.Name = "txtOrderId";
-            this.txtOrderId.Size = new System.Drawing.Size(193, 22);
+            this.txtOrderId.Size = new System.Drawing.Size(169, 25);
             this.txtOrderId.TabIndex = 0;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 126);
+            this.label11.Location = new System.Drawing.Point(7, 134);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(115, 16);
+            this.label11.Size = new System.Drawing.Size(111, 17);
             this.label11.TabIndex = 23;
             this.label11.Text = "Shipping Address";
             // 
             // txtCreator
             // 
             this.txtCreator.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "creator", true));
-            this.txtCreator.Location = new System.Drawing.Point(210, 39);
+            this.txtCreator.Location = new System.Drawing.Point(184, 41);
             this.txtCreator.Margin = new System.Windows.Forms.Padding(4);
             this.txtCreator.Name = "txtCreator";
             this.txtCreator.ReadOnly = true;
-            this.txtCreator.Size = new System.Drawing.Size(196, 22);
+            this.txtCreator.Size = new System.Drawing.Size(172, 25);
             this.txtCreator.TabIndex = 2;
             // 
             // txtShippingAddress
             // 
             this.txtShippingAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "shipping_address", true));
-            this.txtShippingAddress.Location = new System.Drawing.Point(7, 146);
+            this.txtShippingAddress.Location = new System.Drawing.Point(6, 155);
             this.txtShippingAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtShippingAddress.Multiline = true;
             this.txtShippingAddress.Name = "txtShippingAddress";
-            this.txtShippingAddress.Size = new System.Drawing.Size(195, 111);
+            this.txtShippingAddress.Size = new System.Drawing.Size(171, 118);
             this.txtShippingAddress.TabIndex = 22;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(207, 20);
+            this.label2.Location = new System.Drawing.Point(181, 21);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 16);
+            this.label2.Size = new System.Drawing.Size(52, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Creator";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(412, 20);
+            this.label3.Location = new System.Drawing.Point(360, 21);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 16);
+            this.label3.Size = new System.Drawing.Size(85, 17);
             this.label3.TabIndex = 5;
             this.label3.Text = "Created Date";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(209, 126);
+            this.label7.Location = new System.Drawing.Point(183, 134);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 16);
+            this.label7.Size = new System.Drawing.Size(43, 17);
             this.label7.TabIndex = 14;
             this.label7.Text = "Notes";
             // 
             // txtNotes
             // 
-            this.txtNotes.Location = new System.Drawing.Point(211, 145);
+            this.txtNotes.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "notes", true));
+            this.txtNotes.Location = new System.Drawing.Point(185, 154);
             this.txtNotes.Margin = new System.Windows.Forms.Padding(4);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
-            this.txtNotes.Size = new System.Drawing.Size(484, 112);
+            this.txtNotes.Size = new System.Drawing.Size(424, 119);
             this.txtNotes.TabIndex = 13;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 70);
+            this.label4.Location = new System.Drawing.Point(4, 74);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 16);
+            this.label4.Size = new System.Drawing.Size(43, 17);
             this.label4.TabIndex = 8;
             this.label4.Text = "Status";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(209, 71);
+            this.label5.Location = new System.Drawing.Point(183, 75);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 16);
+            this.label5.Size = new System.Drawing.Size(83, 17);
             this.label5.TabIndex = 10;
             this.label5.Text = "Approved By";
             // 
             // txtApprovedBy
             // 
             this.txtApprovedBy.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "approver", true));
-            this.txtApprovedBy.Location = new System.Drawing.Point(212, 90);
+            this.txtApprovedBy.Location = new System.Drawing.Point(186, 96);
             this.txtApprovedBy.Margin = new System.Windows.Forms.Padding(4);
             this.txtApprovedBy.Name = "txtApprovedBy";
             this.txtApprovedBy.ReadOnly = true;
-            this.txtApprovedBy.Size = new System.Drawing.Size(195, 22);
+            this.txtApprovedBy.Size = new System.Drawing.Size(171, 25);
             this.txtApprovedBy.TabIndex = 9;
             // 
             // contextMenuStripOrderLine
@@ -647,8 +682,8 @@
             this.filterToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1217, 71);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1065, 75);
             this.menuStrip1.TabIndex = 29;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -661,7 +696,7 @@
             this.toolStripMenuItem3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(60, 67);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(60, 71);
             this.toolStripMenuItem3.Text = "New";
             this.toolStripMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
@@ -674,7 +709,7 @@
             this.saveToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(60, 67);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(60, 71);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
@@ -687,7 +722,7 @@
             this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 67);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 71);
             this.toolStripMenuItem1.Text = "Delete";
             this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
@@ -700,7 +735,7 @@
             this.toolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(70, 67);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(70, 71);
             this.toolStripMenuItem2.Text = "Populate";
             this.toolStripMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
@@ -713,7 +748,7 @@
             this.toolStripMenuItem4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(60, 67);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(60, 71);
             this.toolStripMenuItem4.Text = "Search";
             this.toolStripMenuItem4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -724,7 +759,7 @@
             this.filterToolStripMenuItem.Image = global::RawMaterialManagement.Properties.Resources.ic_filter_list_black_24dp;
             this.filterToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
-            this.filterToolStripMenuItem.Size = new System.Drawing.Size(60, 67);
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(60, 71);
             this.filterToolStripMenuItem.Text = "Filter";
             this.filterToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -748,8 +783,8 @@
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.panelMain);
-            this.splitContainerMain.Size = new System.Drawing.Size(1267, 459);
-            this.splitContainerMain.SplitterDistance = 251;
+            this.splitContainerMain.Size = new System.Drawing.Size(1360, 657);
+            this.splitContainerMain.SplitterDistance = 268;
             this.splitContainerMain.TabIndex = 25;
             // 
             // recordSelectorGrid1
@@ -761,7 +796,11 @@
             this.recordSelectorGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.recordSelectorGrid1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.recordSelectorGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            this.recordSelectorGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.recordSelectorGrid1.ColumnHeadersHeight = 40;
+            this.recordSelectorGrid1.ColumnHeadersVisible = false;
             this.recordSelectorGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.orderidDataGridViewTextBoxColumn2,
             this.creationdateDataGridViewTextBoxColumn1,
@@ -775,6 +814,14 @@
             this.discountDataGridViewTextBoxColumn1,
             this.totalDataGridViewTextBoxColumn1});
             this.recordSelectorGrid1.DataSource = this.rawpurchaseorderBindingSource;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.recordSelectorGrid1.DefaultCellStyle = dataGridViewCellStyle4;
             this.recordSelectorGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recordSelectorGrid1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.recordSelectorGrid1.EnableHeadersVisualStyles = false;
@@ -784,7 +831,7 @@
             this.recordSelectorGrid1.Name = "recordSelectorGrid1";
             this.recordSelectorGrid1.RowHeadersVisible = false;
             this.recordSelectorGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.recordSelectorGrid1.Size = new System.Drawing.Size(251, 459);
+            this.recordSelectorGrid1.Size = new System.Drawing.Size(268, 657);
             this.recordSelectorGrid1.TabIndex = 0;
             // 
             // orderidDataGridViewTextBoxColumn2
@@ -861,14 +908,6 @@
             this.totalDataGridViewTextBoxColumn1.HeaderText = "total";
             this.totalDataGridViewTextBoxColumn1.Name = "totalDataGridViewTextBoxColumn1";
             this.totalDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // raw_purchase_orderTableAdapter
-            // 
-            this.raw_purchase_orderTableAdapter.ClearBeforeFill = true;
-            // 
-            // raw_order_lineTableAdapter
-            // 
-            this.raw_order_lineTableAdapter.ClearBeforeFill = true;
             // 
             // orderidDataGridViewTextBoxColumn
             // 
@@ -987,29 +1026,37 @@
             this.amountDataGridViewTextBoxColumn.HeaderText = "amount";
             this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             // 
-            // customButton2
+            // raw_purchase_orderTableAdapter
             // 
-            this.customButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.customButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton2.ForeColor = System.Drawing.Color.White;
-            this.customButton2.Location = new System.Drawing.Point(83, 43);
-            this.customButton2.Name = "customButton2";
-            this.customButton2.Size = new System.Drawing.Size(157, 28);
-            this.customButton2.TabIndex = 29;
-            this.customButton2.Text = "Choose Supplier";
-            this.customButton2.UseVisualStyleBackColor = false;
-            this.customButton2.Click += new System.EventHandler(this.customButton2_Click);
+            this.raw_purchase_orderTableAdapter.ClearBeforeFill = true;
+            // 
+            // raw_order_lineTableAdapter
+            // 
+            this.raw_order_lineTableAdapter.ClearBeforeFill = true;
+            // 
+            // customButton3
+            // 
+            this.customButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.customButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customButton3.ForeColor = System.Drawing.Color.White;
+            this.customButton3.Location = new System.Drawing.Point(95, 298);
+            this.customButton3.Name = "customButton3";
+            this.customButton3.Size = new System.Drawing.Size(118, 32);
+            this.customButton3.TabIndex = 29;
+            this.customButton3.Text = "Remove Item";
+            this.customButton3.UseVisualStyleBackColor = false;
+            this.customButton3.Click += new System.EventHandler(this.customButton3_Click);
             // 
             // OrderDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1267, 459);
+            this.ClientSize = new System.Drawing.Size(1360, 657);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainerMain);
             this.Controls.Add(this.menuStrip1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OrderDetail";
@@ -1138,6 +1185,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn1;
         private FrameworkControls.Controls.CustomButton customButton2;
+        private FrameworkControls.Controls.CustomButton customButton3;
 
     }
 }

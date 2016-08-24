@@ -44,10 +44,10 @@
             this.panel1.Controls.Add(this.customButton2);
             this.panel1.Controls.Add(this.customButton1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 500);
+            this.panel1.Location = new System.Drawing.Point(0, 514);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1010, 52);
+            this.panel1.Size = new System.Drawing.Size(884, 38);
             this.panel1.TabIndex = 1;
             // 
             // customDataGrid11
@@ -57,13 +57,13 @@
             this.customDataGrid11.AllowUserToResizeRows = false;
             this.customDataGrid11.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.customDataGrid11.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             this.customDataGrid11.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.customDataGrid11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -79,18 +79,20 @@
             this.customDataGrid11.RowHeadersVisible = false;
             this.customDataGrid11.RowTemplate.Height = 30;
             this.customDataGrid11.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customDataGrid11.Size = new System.Drawing.Size(1010, 500);
+            this.customDataGrid11.Size = new System.Drawing.Size(884, 514);
             this.customDataGrid11.TabIndex = 2;
+            this.customDataGrid11.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customDataGrid11_CellDoubleClick);
             // 
             // customButton2
             // 
             this.customButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.customButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.customButton2.FlatAppearance.BorderSize = 0;
             this.customButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customButton2.ForeColor = System.Drawing.Color.White;
-            this.customButton2.Location = new System.Drawing.Point(734, 8);
+            this.customButton2.Location = new System.Drawing.Point(650, 3);
             this.customButton2.Name = "customButton2";
-            this.customButton2.Size = new System.Drawing.Size(123, 32);
+            this.customButton2.Size = new System.Drawing.Size(108, 32);
             this.customButton2.TabIndex = 3;
             this.customButton2.Text = "OK";
             this.customButton2.UseVisualStyleBackColor = false;
@@ -101,24 +103,25 @@
             this.customButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.customButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.customButton1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.customButton1.FlatAppearance.BorderSize = 0;
             this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customButton1.ForeColor = System.Drawing.Color.White;
-            this.customButton1.Location = new System.Drawing.Point(863, 8);
+            this.customButton1.Location = new System.Drawing.Point(763, 3);
             this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(135, 32);
+            this.customButton1.Size = new System.Drawing.Size(118, 32);
             this.customButton1.TabIndex = 2;
             this.customButton1.Text = "Cancel";
             this.customButton1.UseVisualStyleBackColor = false;
             // 
             // LOV
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1010, 552);
+            this.ClientSize = new System.Drawing.Size(884, 552);
             this.Controls.Add(this.customDataGrid11);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LOV";
             this.ShowIcon = false;

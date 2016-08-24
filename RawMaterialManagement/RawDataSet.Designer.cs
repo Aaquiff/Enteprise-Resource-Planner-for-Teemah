@@ -803,6 +803,8 @@ namespace RawMaterialManagement {
             
             private global::System.Data.DataColumn columntotal;
             
+            private global::System.Data.DataColumn columnnotes;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public raw_purchase_orderDataTable() {
@@ -926,6 +928,14 @@ namespace RawMaterialManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn notesColumn {
+                get {
+                    return this.columnnotes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -961,7 +971,7 @@ namespace RawMaterialManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public raw_purchase_orderRow Addraw_purchase_orderRow(string order_id, System.DateTime creation_date, string creator, string status, string approver, string shipping_address, string supplier_id, string supplier_name, double sub_total, double discount, double total) {
+            public raw_purchase_orderRow Addraw_purchase_orderRow(string order_id, System.DateTime creation_date, string creator, string status, string approver, string shipping_address, string supplier_id, string supplier_name, double sub_total, double discount, double total, string notes) {
                 raw_purchase_orderRow rowraw_purchase_orderRow = ((raw_purchase_orderRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         order_id,
@@ -974,7 +984,8 @@ namespace RawMaterialManagement {
                         supplier_name,
                         sub_total,
                         discount,
-                        total};
+                        total,
+                        notes};
                 rowraw_purchase_orderRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowraw_purchase_orderRow);
                 return rowraw_purchase_orderRow;
@@ -1008,6 +1019,7 @@ namespace RawMaterialManagement {
                 this.columnsub_total = base.Columns["sub_total"];
                 this.columndiscount = base.Columns["discount"];
                 this.columntotal = base.Columns["total"];
+                this.columnnotes = base.Columns["notes"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1035,6 +1047,8 @@ namespace RawMaterialManagement {
                 base.Columns.Add(this.columndiscount);
                 this.columntotal = new global::System.Data.DataColumn("total", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal);
+                this.columnnotes = new global::System.Data.DataColumn("notes", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnotes);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnorder_id}, false));
                 this.columnorder_id.AllowDBNull = false;
@@ -1052,6 +1066,7 @@ namespace RawMaterialManagement {
                 this.columnsupplier_id.AllowDBNull = false;
                 this.columnsupplier_id.MaxLength = 200;
                 this.columnsupplier_name.MaxLength = 200;
+                this.columnnotes.MaxLength = 2000;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2577,6 +2592,22 @@ namespace RawMaterialManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string notes {
+                get {
+                    try {
+                        return ((string)(this[this.tableraw_purchase_order.notesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'notes\' in table \'raw_purchase_order\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableraw_purchase_order.notesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Issupplier_nameNull() {
                 return this.IsNull(this.tableraw_purchase_order.supplier_nameColumn);
             }
@@ -2621,6 +2652,18 @@ namespace RawMaterialManagement {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SettotalNull() {
                 this[this.tableraw_purchase_order.totalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnotesNull() {
+                return this.IsNull(this.tableraw_purchase_order.notesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnotesNull() {
+                this[this.tableraw_purchase_order.notesColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3315,27 +3358,47 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("unit_of_measure", "unit_of_measure");
             tableMapping.ColumnMappings.Add("amount", "amount");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "RAW_PURCHASE_ORDER_LINE_DELETE";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "order_id_";
+            param.IsNullable = true;
+            param.SourceColumn = "order_id";
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "item_id_";
+            param.IsNullable = true;
+            param.SourceColumn = "item_id_";
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "RAW_PUCHASE_ORDER_LINE_INSERT";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
-            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "order_id_";
             param.IsNullable = true;
             param.SourceColumn = "order_id";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "item_id_";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "item_id";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "unit_price_";
+            param.DbType = global::System.Data.DbType.Double;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
             param.SourceColumn = "unit_price";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "quantity_";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "quantity";
             this._adapter.InsertCommand.Parameters.Add(param);
@@ -3569,6 +3632,7 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("sub_total", "sub_total");
             tableMapping.ColumnMappings.Add("discount", "discount");
             tableMapping.ColumnMappings.Add("total", "total");
+            tableMapping.ColumnMappings.Add("notes", "notes");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -3585,10 +3649,9 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO raw_purchase_order_tab\r\n                         (order_id, creation_" +
-                "date, creator, status, shipping_address, supplier_id, discount)\r\nVALUES        (" +
-                "@order_id, CURDATE(), @creator, @status, @shipping_address, @supplier_id, @disco" +
-                "unt)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO raw_purchase_order_tab
+                         (order_id, creation_date, creator, status, shipping_address, supplier_id, discount, notes)
+VALUES        (@order_id, CURDATE(), @creator, @status, @shipping_address, @supplier_id, @discount, @notes)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@order_id";
@@ -3637,6 +3700,14 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "discount";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@notes";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 2000;
+            param.IsNullable = true;
+            param.SourceColumn = "notes";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "RAW_PURCHASE_ORDER_UPDATE";
@@ -3663,6 +3734,11 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "discount";
             this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "notes_";
+            param.IsNullable = true;
+            param.SourceColumn = "notes";
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3678,15 +3754,15 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `order_id`, `creation_date`, `creator`, `status`, `approver`, `shipping_ad" +
-                "dress`, `supplier_id`, `supplier_name`, `sub_total`, `discount`, `total` FROM `i" +
-                "tp`.`raw_purchase_order`";
+            this._commandCollection[0].CommandText = "SELECT order_id, creation_date, creator, status, approver, shipping_address, supp" +
+                "lier_id, supplier_name, sub_total, discount, total, notes FROM raw_purchase_orde" +
+                "r";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT `order_id`, `creation_date`, `creator`, `status`, `approver`, `shipping_ad" +
-                "dress`, `supplier_id`, `supplier_name`, `sub_total`, `discount`, `total` FROM `i" +
-                "tp`.`raw_purchase_order`\r\nwhere status =@status";
+            this._commandCollection[1].CommandText = "SELECT order_id, creation_date, creator, status, approver, shipping_address, supp" +
+                "lier_id, supplier_name, sub_total, discount, total, notes FROM raw_purchase_orde" +
+                "r WHERE (status = @status)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@status";
