@@ -1,0 +1,68 @@
+---create asset table
+
+CREATE TABLE `asset` (
+  `Asset_ID` varchar(10) NOT NULL,
+  `Property` varchar(20) NOT NULL,
+  `Serial_Number` varchar(50) DEFAULT 'Not rated',
+  `Ownership` varchar(30) DEFAULT NULL,
+  `Asset_Value` double NOT NULL,
+  `Insurance` varchar(3) DEFAULT NULL,
+  `Warranty` varchar(3) DEFAULT NULL,
+  `Active_Status` varchar(10) DEFAULT NULL,
+  `Life_Time` int(11) NOT NULL,
+  `Year_Usage` int(11) DEFAULT NULL,
+  `Description` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`Asset_ID`),
+  UNIQUE KEY `Asset_ID_UNIQUE` (`Asset_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--create asset_repair table
+
+CREATE TABLE `asset_repair` (
+  `Repair_ID` varchar(10) NOT NULL,
+  `Asset_ID` varchar(10) DEFAULT NULL,
+  `Job_Date` date DEFAULT NULL,
+  `Job_Status` varchar(10) NOT NULL,
+  `Problem_Specified` varchar(100) DEFAULT NULL,
+  `Serial_Number` varchar(50) DEFAULT NULL,
+  `Warranty_Status` varchar(3) DEFAULT NULL,
+  `Insurance_Status` varchar(3) DEFAULT NULL,
+  PRIMARY KEY (`Repair_ID`),
+  KEY `Asset_ID_idx` (`Asset_ID`),
+  CONSTRAINT `Asset_ID` FOREIGN KEY (`Asset_ID`) REFERENCES `asset` (`Asset_ID`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--create fms_budget table
+
+CREATE TABLE `fms_budget` (
+  `Budget_Year` int(11) NOT NULL,
+  `Budget_Start_Date` date NOT NULL,
+  `Budget_End_Date` date NOT NULL,
+  `Employee_Cost` double NOT NULL,
+  `Maintanance_Cost` double NOT NULL,
+  `Marketing_Cost` double NOT NULL,
+  `Transport_Cost` double NOT NULL,
+  `Description` varchar(100) DEFAULT NULL,
+  `Total_Value` double DEFAULT NULL,
+  PRIMARY KEY (`Budget_Year`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--create fms_expenses table
+
+CREATE TABLE `fms_expenses` (
+  `ECount` int(11) NOT NULL AUTO_INCREMENT,
+  `Budget_Year` int(11) NOT NULL,
+  `Aproved_By` varchar(45) NOT NULL,
+  `Expense_Category` varchar(45) NOT NULL,
+  `Expense_Specification` varchar(45) NOT NULL,
+  `Expense_Amount` double NOT NULL,
+  `Expense_Date` date DEFAULT NULL,
+  `Description` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`ECount`),
+  KEY `Budget_Year_idx` (`Budget_Year`),
+  CONSTRAINT `Budget_Year` FOREIGN KEY (`Budget_Year`) REFERENCES `fms_budget` (`Budget_Year`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
