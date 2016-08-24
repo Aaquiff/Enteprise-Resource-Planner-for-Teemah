@@ -87,6 +87,10 @@ namespace RawMaterialManagement.Order_Management
             {
                 MessageBox.Show(ex.Message);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Delete()
@@ -297,8 +301,6 @@ namespace RawMaterialManagement.Order_Management
             CancelOrder();
         }
 
-        #endregion      
-
         private void customButton1_Click(object sender, EventArgs e)
         {
             AddOrderItem();
@@ -307,6 +309,13 @@ namespace RawMaterialManagement.Order_Management
         private void customButton2_Click(object sender, EventArgs e)
         {
             ChooseSupplier();
+        }
+
+        #endregion
+
+        private void customButton3_Click(object sender, EventArgs e)
+        {
+            RemoveOrderItem();
         }
 
     }
