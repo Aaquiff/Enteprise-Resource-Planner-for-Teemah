@@ -22,16 +22,5 @@ namespace FinanceManagement.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=1234;persistsecurityinfo=True;database=tee" +
-            "mah")]
-        public string teemahConnectionString {
-            get {
-                return ((string)(this["teemahConnectionString"]));
-            }
-        }
     }
 }

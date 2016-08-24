@@ -125,6 +125,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FinanceManagement\FinanceManagement.csproj">
+      <Project>{65345113-f14f-4ec4-a13a-a188faa1ac9d}</Project>
+      <Name>FinanceManagement</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FrameworkControls\FrameworkControls.csproj">
       <Project>{7079dc71-6b90-47a7-bb0f-b061f6861d37}</Project>
       <Name>FrameworkControls</Name>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A91848AE-3044-4C59-B940-8F021FA4E4C5}</ProjectGuid>
+    <ProjectGuid>{65345113-F14F-4EC4-A13A-A188FAA1AC9D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FinanceManagement</RootNamespace>
-    <AssemblyName>BudgetAllocation</AssemblyName>
+    <AssemblyName>FinanceManagement</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,34 +45,82 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BudgetAllocation.cs">
+    <Compile Include="AssetRepair.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BudgetAllocation.Designer.cs">
-      <DependentUpon>BudgetAllocation.cs</DependentUpon>
+    <Compile Include="AssetRepair.Designer.cs">
+      <DependentUpon>AssetRepair.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExpensesManager.cs">
+    <Compile Include="Asset_Repair_US.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ExpensesManager.Designer.cs">
-      <DependentUpon>ExpensesManager.cs</DependentUpon>
+    <Compile Include="Asset_Repair_US.Designer.cs">
+      <DependentUpon>Asset_Repair_US.cs</DependentUpon>
     </Compile>
-    <Compile Include="AssetsManagement.cs">
+    <Compile Include="BudgetManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AssetsManagement.Designer.cs">
-      <DependentUpon>AssetsManagement.cs</DependentUpon>
+    <Compile Include="BudgetManagement.Designer.cs">
+      <DependentUpon>BudgetManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="DBConnects.cs" />
+    <Compile Include="ExpensesManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpensesManagement.Designer.cs">
+      <DependentUpon>ExpensesManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceManagementDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinanceManagementDashBoard.Designer.cs">
+      <DependentUpon>FinanceManagementDashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssetManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssetManagement.Designer.cs">
+      <DependentUpon>AssetManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinManagement.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BudgetAllocation.resx">
-      <DependentUpon>BudgetAllocation.cs</DependentUpon>
+    <Compile Include="teemahDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>teemahDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="teemahDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>teemahDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Asset_US.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Asset_US.Designer.cs">
+      <DependentUpon>Asset_US.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AssetRepair.resx">
+      <DependentUpon>AssetRepair.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExpensesManager.resx">
-      <DependentUpon>ExpensesManager.cs</DependentUpon>
+    <EmbeddedResource Include="Asset_Repair_US.resx">
+      <DependentUpon>Asset_Repair_US.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AssetsManagement.resx">
-      <DependentUpon>AssetsManagement.cs</DependentUpon>
+    <EmbeddedResource Include="BudgetManagement.resx">
+      <DependentUpon>BudgetManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpensesManagement.resx">
+      <DependentUpon>ExpensesManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinanceManagementDashBoard.en-US.resx">
+      <DependentUpon>FinanceManagementDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinanceManagementDashBoard.resx">
+      <DependentUpon>FinanceManagementDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssetManagement.resx">
+      <DependentUpon>AssetManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,8 +130,10 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Asset_US.resx">
+      <DependentUpon>Asset_US.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,9 +143,41 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="teemahDataSet.xsc">
+      <DependentUpon>teemahDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="teemahDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>teemahDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="teemahDataSet.xss">
+      <DependentUpon>teemahDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="teemahDataSet1.xsc">
+      <DependentUpon>teemahDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="teemahDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>teemahDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="teemahDataSet1.xss">
+      <DependentUpon>teemahDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FrameworkControls\FrameworkControls.csproj">
+      <Project>{7079dc71-6b90-47a7-bb0f-b061f6861d37}</Project>
+      <Name>FrameworkControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySQLDatabaseAccess\MySQLDatabaseAccess.csproj">
+      <Project>{7a1f3ab0-c5e3-4234-a9d5-d15ef65714b0}</Project>
+      <Name>MySQLDatabaseAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

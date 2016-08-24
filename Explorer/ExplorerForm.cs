@@ -13,12 +13,10 @@ using RawMaterialManagement.Supplier_Management;
 using RawMaterialManagement.Invoice_Management;
 using RawMaterialManagement.Items_Management;
 using RawMaterialManagement.Order_Management;
-<<<<<<< HEAD
 using RawMaterialManagement;
-=======
->>>>>>> origin/master
 using MySQLDatabaseAccess;
 using UserManagement;
+using FinanceManagement;
 
 namespace Explorer
 {
@@ -211,10 +209,6 @@ namespace Explorer
 
         private void button4_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
-            
->>>>>>> origin/master
         }
 
         private void btnDM_Click(object sender, EventArgs e)
@@ -287,22 +281,18 @@ namespace Explorer
 
         private void button13_Click(object sender, EventArgs e)
         {
+            loadForm(new AssetManagement());
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
+            loadForm(new AssetRepair());
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
+            loadForm(new BudgetManagement());
 
->>>>>>> origin/master
         }
         #endregion
 
@@ -318,26 +308,20 @@ namespace Explorer
 
         private void button16_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
+
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
+
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
+
         }
 
         #endregion
@@ -357,11 +341,7 @@ namespace Explorer
 
         private void button22_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> origin/master
         }
 
         #endregion
@@ -386,10 +366,8 @@ namespace Explorer
 
         private void button17_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
+
         }
 
         private void button25_Click(object sender, EventArgs e)
@@ -455,6 +433,21 @@ namespace Explorer
                 toolStripMain.Hide();
             else
                 toolStripMain.Show();
+        }
+
+        private void button23_Click_1(object sender, EventArgs e)
+        {
+            loadForm(new ExpensesManagement());
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            loadForm(new Asset_Repair_US());
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            loadForm(new Asset_US());
         }
     }
 
