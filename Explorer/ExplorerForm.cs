@@ -18,6 +18,8 @@ using MySQLDatabaseAccess;
 using UserManagement;
 using FinanceManagement;
 using HRManagement;
+using DistributionManagement;
+using FinishedGoodManagement;
 
 namespace Explorer
 {
@@ -55,12 +57,27 @@ namespace Explorer
                 label1.Text = ActiveMdiChild.Text;
         }
 
+        public void CreateForm(Type cla)
+        {
+            try
+            {
+                Form theObject = (Form) Activator.CreateInstance(cla);
+                loadForm(theObject);
+            }
+            catch (Exception ex)
+            {
+                loadForm(new ExceptionForm(ex));
+            }
+        }
+
         public void loadForm(Form childForm)
         {
             while (ActiveMdiChild != null)
             {
                 ActiveMdiChild.Close();
             }
+            try
+            {       
                 childForm.BackColor = Color.White;
                 childForm.ControlBox = false;
                 childForm.MdiParent = this;
@@ -72,6 +89,11 @@ namespace Explorer
                     menuStripMain.Hide();
                 else
                     menuStripMain.Show();
+            }
+            catch (Exception ex)
+            {
+                loadForm(new ExceptionForm(ex));
+            }
 
         }
 
@@ -202,14 +224,18 @@ namespace Explorer
 
         private void button6_Click(object sender, EventArgs e)
         {
+            loadForm(new DeliveryDetails());
+            //CreateForm(typeof(DeliveryDetails));
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            loadForm(new RouteDetails());
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            loadForm(new VehicleDetails());
         }
 
         private void btnDM_Click(object sender, EventArgs e)
@@ -255,10 +281,20 @@ namespace Explorer
 
         private void button11_Click(object sender, EventArgs e)
         {
+            loadForm(new DashBoard());
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
+            try
+            {
+                loadForm(new NewItems());
+            }
+            catch (Exception ex)
+            {
+                loadForm(new ExceptionForm(ex));
+            }
+            
         }
 
         private void btnIM_Click(object sender, EventArgs e)
@@ -267,6 +303,32 @@ namespace Explorer
                 panelInventory.Hide();
             else
                 panelInventory.Show();
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                loadForm(new OrderedItems());
+            }
+            catch (Exception ex)
+            {
+                loadForm(new ExceptionForm(ex));
+            }
+            
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                loadForm(new WorkOrder());
+            }
+            catch (Exception ex)
+            {
+                loadForm(new ExceptionForm(ex));
+            }
+            
         }
 
         #endregion
@@ -296,6 +358,32 @@ namespace Explorer
             loadForm(new BudgetManagement());
 
         }
+
+        private void button23_Click_1(object sender, EventArgs e)
+        {
+            loadForm(new ExpensesManagement());
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            loadForm(new Asset_Repair_US());
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            loadForm(new Asset_US());
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            loadForm(new Budget_Update());
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            loadForm(new Expenses_Update());
+        }
+
         #endregion
 
         #region sales
@@ -341,37 +429,7 @@ namespace Explorer
 
         #endregion
 
-        private void button22_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        #endregion
-
-        #region Events
-
-        private void button21_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button20_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button19_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button18_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button17_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
+        #region user
         private void button25_Click(object sender, EventArgs e)
         {
             loadForm(new User());
@@ -381,6 +439,11 @@ namespace Explorer
         {
             loadForm(new Manage_Roles());
         }
+        #endregion
+
+        #endregion
+
+        #region Events
 
         private void buttonSettings_Click(object sender, EventArgs e)
         {
@@ -420,8 +483,6 @@ namespace Explorer
             Properties.Settings.Default.menuDockMode = DockStyle.Right;
         }
 
-        #endregion
-
         private void button23_Click(object sender, EventArgs e)
         {
             Form form = fc.Pop();
@@ -437,30 +498,7 @@ namespace Explorer
                 toolStripMain.Show();
         }
 
-        private void button23_Click_1(object sender, EventArgs e)
-        {
-            loadForm(new ExpensesManagement());
-        }
-
-        private void button26_Click(object sender, EventArgs e)
-        {
-            loadForm(new Asset_Repair_US());
-        }
-
-        private void button27_Click(object sender, EventArgs e)
-        {
-            loadForm(new Asset_US());
-        }
-
-        private void button28_Click(object sender, EventArgs e)
-        {
-            loadForm(new Budget_Update());
-        }
-
-        private void button29_Click(object sender, EventArgs e)
-        {
-            loadForm(new Expenses_Update());
-        }
+        #endregion
     }
 
         

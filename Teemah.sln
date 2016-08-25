@@ -6,6 +6,8 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Explorer", "Explorer\Explorer.csproj", "{0C7A1F88-8B92-4CD0-AD2F-12CBDAC2B522}"
 	ProjectSection(ProjectDependencies) = postProject
 		{65345113-F14F-4EC4-A13A-A188FAA1AC9D} = {65345113-F14F-4EC4-A13A-A188FAA1AC9D}
+		{B6166827-AA20-471C-81C5-912F75040D62} = {B6166827-AA20-471C-81C5-912F75040D62}
+		{ED321857-409A-4BBF-8B93-CAA919BCA529} = {ED321857-409A-4BBF-8B93-CAA919BCA529}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawMaterialManagement", "RawMaterialManagement\RawMaterialManagement.csproj", "{075CC06A-38B4-4F27-84BA-29078BB5C4A8}"
@@ -27,6 +29,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceManagement", "FinanceManagement\FinanceManagement.csproj", "{65345113-F14F-4EC4-A13A-A188FAA1AC9D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRManagement", "HRManagement\HRManagement.csproj", "{66D7FAD9-397F-4EC6-AD2A-02BAB75FD284}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinishedGoodManagement", "FinishedGoodManagement\FinishedGoodManagement.csproj", "{ED321857-409A-4BBF-8B93-CAA919BCA529}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,10 +58,9 @@ Global
 		{7A1F3AB0-C5E3-4234-A9D5-D15EF65714B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A1F3AB0-C5E3-4234-A9D5-D15EF65714B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A1F3AB0-C5E3-4234-A9D5-D15EF65714B0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4A36B10-84A9-4376-A8BF-BE3E33E6458A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4A36B10-84A9-4376-A8BF-BE3E33E6458A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4A36B10-84A9-4376-A8BF-BE3E33E6458A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4A36B10-84A9-4376-A8BF-BE3E33E6458A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A36B10-84A9-4376-A8BF-BE3E33E6458A}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{F4A36B10-84A9-4376-A8BF-BE3E33E6458A}.Debug|Any CPU.Build.0 = Debug|x86
+		{F4A36B10-84A9-4376-A8BF-BE3E33E6458A}.Release|Any CPU.ActiveCfg = Release|x86
 		{D1EAB747-DFBF-4D2F-B36A-25DD5F71F12B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D1EAB747-DFBF-4D2F-B36A-25DD5F71F12B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1EAB747-DFBF-4D2F-B36A-25DD5F71F12B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -78,6 +81,10 @@ Global
 		{66D7FAD9-397F-4EC6-AD2A-02BAB75FD284}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66D7FAD9-397F-4EC6-AD2A-02BAB75FD284}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66D7FAD9-397F-4EC6-AD2A-02BAB75FD284}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED321857-409A-4BBF-8B93-CAA919BCA529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED321857-409A-4BBF-8B93-CAA919BCA529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED321857-409A-4BBF-8B93-CAA919BCA529}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED321857-409A-4BBF-8B93-CAA919BCA529}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
