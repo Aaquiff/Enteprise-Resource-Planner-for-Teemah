@@ -45,11 +45,11 @@
             // cmbColumns
             // 
             this.cmbColumns.ItemHeight = 17;
-            this.cmbColumns.Size = new System.Drawing.Size(175, 25);
+            this.cmbColumns.Size = new System.Drawing.Size(200, 25);
             // 
             // txtSearchItemId
             // 
-            this.txtSearchItemId.Size = new System.Drawing.Size(639, 29);
+            this.txtSearchItemId.Size = new System.Drawing.Size(614, 29);
             // 
             // panelSearch
             // 
