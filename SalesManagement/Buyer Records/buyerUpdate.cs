@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 using SalesManagement.Class_files;
 
 
-namespace SalesManagement
+namespace SalesManagement.Buyer_Records
 {
     public partial class buyerUpdate : Form
     {
@@ -176,9 +176,9 @@ namespace SalesManagement
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            buyerHome buy = new buyerHome();
-            buy.Show();
+            //this.Close();
+            //buyerHome buy = new buyerHome();
+            //buy.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

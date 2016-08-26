@@ -31,23 +31,28 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.customDataGrid11 = new FrameworkControls.Controls.CustomDataGrid1();
+            this.contextMenuStripInvoice = new System.Windows.Forms.ContextMenuStrip();
+            this.viewInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customDataGrid11)).BeginInit();
+            this.contextMenuStripInvoice.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbColumns
             // 
-            this.cmbColumns.ItemHeight = 17;
-            this.cmbColumns.Size = new System.Drawing.Size(175, 25);
+            this.cmbColumns.ItemHeight = 21;
+            this.cmbColumns.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbColumns.Size = new System.Drawing.Size(200, 29);
             // 
             // txtSearchItemId
             // 
-            this.txtSearchItemId.Size = new System.Drawing.Size(639, 29);
+            this.txtSearchItemId.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.txtSearchItemId.Size = new System.Drawing.Size(614, 34);
             // 
             // panelSearch
             // 
-            this.panelSearch.Location = new System.Drawing.Point(0, 70);
+            this.panelSearch.Location = new System.Drawing.Point(0, 73);
             this.panelSearch.Size = new System.Drawing.Size(814, 33);
             // 
             // customDataGrid11
@@ -73,17 +78,33 @@
             this.customDataGrid11.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.customDataGrid11.EnableHeadersVisualStyles = false;
             this.customDataGrid11.GridColor = System.Drawing.SystemColors.Control;
-            this.customDataGrid11.Location = new System.Drawing.Point(0, 103);
+            this.customDataGrid11.Location = new System.Drawing.Point(0, 106);
             this.customDataGrid11.MultiSelect = false;
             this.customDataGrid11.Name = "customDataGrid11";
             this.customDataGrid11.RowHeadersVisible = false;
+            this.customDataGrid11.RowTemplate.ContextMenuStrip = this.contextMenuStripInvoice;
             this.customDataGrid11.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customDataGrid11.Size = new System.Drawing.Size(814, 291);
+            this.customDataGrid11.Size = new System.Drawing.Size(814, 288);
             this.customDataGrid11.TabIndex = 8;
+            // 
+            // contextMenuStripInvoice
+            // 
+            this.contextMenuStripInvoice.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripInvoice.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewInvoiceToolStripMenuItem});
+            this.contextMenuStripInvoice.Name = "contextMenuStripInvoice";
+            this.contextMenuStripInvoice.Size = new System.Drawing.Size(168, 30);
+            // 
+            // viewInvoiceToolStripMenuItem
+            // 
+            this.viewInvoiceToolStripMenuItem.Name = "viewInvoiceToolStripMenuItem";
+            this.viewInvoiceToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.viewInvoiceToolStripMenuItem.Text = "View Invoice";
+            this.viewInvoiceToolStripMenuItem.Click += new System.EventHandler(this.viewInvoiceToolStripMenuItem_Click);
             // 
             // ManageInvoice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.ClientSize = new System.Drawing.Size(814, 394);
             this.Controls.Add(this.customDataGrid11);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -94,6 +115,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customDataGrid11)).EndInit();
+            this.contextMenuStripInvoice.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,6 +125,8 @@
 
         private FrameworkControls.Controls.CustomDataGrid1 customDataGrid11;
         private MySql.Data.MySqlClient.MySqlDataAdapter dataAdapter;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripInvoice;
+        private System.Windows.Forms.ToolStripMenuItem viewInvoiceToolStripMenuItem;
 
 
     }

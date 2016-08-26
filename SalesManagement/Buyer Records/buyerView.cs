@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using SalesManagement.Purchase_Records;
 
-namespace SalesManagement
+namespace SalesManagement.Buyer_Records
 {
     public partial class buyerView : Form
     {
@@ -106,9 +106,9 @@ namespace SalesManagement
 
         private void back_Click(object sender, EventArgs e)
         {
-            this.Close();
-            buyerHome home = new buyerHome();
-            home.Show();
+            //this.Close();
+            //buyerHome home = new buyerHome();
+            //home.Show();
         }
     }
 }

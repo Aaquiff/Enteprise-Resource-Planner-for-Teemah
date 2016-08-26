@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SalesManagement
+namespace SalesManagement.Buyer_Records
 {
     public partial class buyerHome : Form
     {
@@ -19,24 +19,24 @@ namespace SalesManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            buyerView view = new buyerView();
-            view.Show();
+            //this.Close();
+            //buyerView view = new buyerView();
+            //view.Show();
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
-            buyerAdd add = new buyerAdd();
-            add.Show();
+            //this.Close();
+            //buyerAdd add = new buyerAdd();
+            //add.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Close();
-            buyerUpdate update = new buyerUpdate();
-            update.Show();
+            //this.Close();
+            //buyerUpdate update = new buyerUpdate();
+            //update.Show();
         }
 
         //private void button4_Click(object sender, EventArgs e)

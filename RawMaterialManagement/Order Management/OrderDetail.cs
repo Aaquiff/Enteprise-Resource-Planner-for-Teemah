@@ -217,13 +217,27 @@ namespace RawMaterialManagement.Order_Management
         {
             try
             {
+                /*on.Open();
+                DataRowView row = rawpurchaseorderBindingSource.Current as DataRowView;
+                string order = row.Row.ItemArray[0].ToString();
+
+                MySqlCommand com = new MySqlCommand("RAW_PUCHASE_ORDER_STATUS_CHANGE",con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("order_id_",order);
+                com.Parameters.AddWithValue("to_status_","Approved");
+                com.Parameters.AddWithValue("approver_", Connection.getUserNameFromConnectionString(con.ConnectionString));
+
+                com.ExecuteNonQuery();*/
                 raw_purchase_orderTableAdapter.RAW_PUCHASE_ORDER_STATUS_CHANGE(txtOrderId.Text, "Approved", MySQLDatabaseAccess.Connection.getUserNameFromConnectionString(con.ConnectionString));
+                
                 MessageBox.Show("Order Approved");
+                PopulateOrder();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);      
             }
+
         }
 
         private void CancelOrder()

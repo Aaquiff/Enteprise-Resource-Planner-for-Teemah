@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SalesManagement
+namespace SalesManagement.Buyer_Records
 {
     public partial class buyerAdd : Form
     {
@@ -105,9 +105,9 @@ namespace SalesManagement
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            buyerHome buy = new buyerHome();
-            buy.Show();
+            //this.Close();
+            //buyerHome buy = new buyerHome();
+            //buy.Show();
 
         }
 

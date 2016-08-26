@@ -1,4 +1,4 @@
-﻿namespace SalesManagement
+﻿namespace SalesManagement.Buyer_Records
 {
     partial class buyerAdd
     {

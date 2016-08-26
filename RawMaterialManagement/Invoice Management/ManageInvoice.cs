@@ -62,5 +62,24 @@ namespace RawMaterialManagement.Invoice_Management
                 search.Fill(dataSet);
             }
         }
+
+        private void viewInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataRowView row = bindingSource.Current as DataRowView;
+
+            string x = row.Row.ItemArray[0].ToString();
+            InvoiceDetails id = new InvoiceDetails(x);
+
+            if (ActiveMdiChild == null)
+            {
+                id.BackColor = Color.White;
+                id.ControlBox = false;
+                id.MdiParent = this.MdiParent;
+                id.WindowState = FormWindowState.Maximized;
+                id.AutoScroll = true;
+                id.Show();
+                this.Close();
+            }
+        }
     }
 }

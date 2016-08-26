@@ -20,6 +20,17 @@ namespace RawMaterialManagement.Invoice_Management
         {
             InitializeComponent();
             con = Connection.getConnection();
+            Populate();
+        }
+
+        public InvoiceDetails(string invoiceId)
+        {
+            InitializeComponent();
+            con = Connection.getConnection();
+            MySqlCommand sc = new MySqlCommand("select * from raw_invoice_tab where invoice_id = @invoice_id", con);
+            sc.Parameters.AddWithValue("@invoice_id", invoiceId);
+            MySqlDataAdapter searchAdapter = new MySqlDataAdapter(sc);
+            searchAdapter.Fill(rawDataSet.raw_invoice_tab);
         }
 
         private void raw_invoice_tabBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -41,7 +52,8 @@ namespace RawMaterialManagement.Invoice_Management
         {
             try
             {
-                raw_invoice_tabBindingSource.AddNew();
+                DataRowView newRow = raw_invoice_tabBindingSource.AddNew() as DataRowView;
+                newRow.Row.SetField("status","Created");
             }
             catch (Exception ex)
             {
@@ -92,7 +104,7 @@ namespace RawMaterialManagement.Invoice_Management
 
         private void InvoiceDetails_Load(object sender, EventArgs e)
         {
-            Populate();
+            //Populate();
 
         }
 

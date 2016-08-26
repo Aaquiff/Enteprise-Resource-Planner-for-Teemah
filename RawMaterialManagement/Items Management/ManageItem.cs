@@ -38,7 +38,7 @@ namespace RawMaterialManagement.Items_Management
             uc.Parameters.Add("unit_of_measure_", MySqlDbType.VarChar, 20, "unit_of_measure");
             uc.Parameters.Add("item_category_", MySqlDbType.VarChar, 200, "item_category");
             uc.Parameters.Add("bar_code_", MySqlDbType.VarChar, 200, "bar_code");
-            uc.Parameters.Add("itemid_", MySqlDbType.Int32, 200, "item_id");
+            uc.Parameters.Add("item_id_", MySqlDbType.Int32, 200, "item_id");
 
             MySqlCommand dc = new MySqlCommand("delete from raw_item_tab where item_id = @itemid", con);
             dc.Parameters.Add("@itemid", MySqlDbType.Int32, 200, "item_id");
