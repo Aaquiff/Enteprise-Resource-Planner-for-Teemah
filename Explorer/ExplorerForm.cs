@@ -13,6 +13,7 @@ using RawMaterialManagement.Supplier_Management;
 using RawMaterialManagement.Invoice_Management;
 using RawMaterialManagement.Items_Management;
 using RawMaterialManagement.Order_Management;
+using RawMaterialManagement.Raw_Material_Requests;
 using RawMaterialManagement;
 using MySQLDatabaseAccess;
 using UserManagement;
@@ -551,6 +552,11 @@ namespace Explorer
         private void button7_Click_1(object sender, EventArgs e)
         {
             loadForm(new purchaseViewOrder());
+        }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            loadForm(new frmRawMaterialRequests());
         }
 
         

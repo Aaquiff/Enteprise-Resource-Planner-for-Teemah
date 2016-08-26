@@ -125,6 +125,12 @@
     <Compile Include="Items Management\ItemTab.Designer.cs">
       <DependentUpon>ItemTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Raw Material Requests\frmRawMaterialRequests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raw Material Requests\frmRawMaterialRequests.Designer.cs">
+      <DependentUpon>frmRawMaterialRequests.cs</DependentUpon>
+    </Compile>
     <Compile Include="RawDataSet.cs">
       <DependentUpon>RawDataSet.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -197,6 +203,9 @@
     </Compile>
     <EmbeddedResource Include="Items Management\ItemTab.resx">
       <DependentUpon>ItemTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raw Material Requests\frmRawMaterialRequests.resx">
+      <DependentUpon>frmRawMaterialRequests.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RawMaterialDashBoard.resx">
       <DependentUpon>RawMaterialDashBoard.cs</DependentUpon>
