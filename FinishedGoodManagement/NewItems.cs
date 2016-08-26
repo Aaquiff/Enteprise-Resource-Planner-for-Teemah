@@ -98,15 +98,11 @@ namespace FinishedGoodManagement
                         MessageBox.Show("Manufactured Date and Expired Date can't Be Same");
                         return;
                     }
-                    if (manufactureddate.Value < expireddate.Value){
+                    if (manufactureddate.Value > expireddate.Value){
                         MessageBox.Show("Expired Date");
                         return;
                     }
-
-
-                    
-                   
-                   
+                     
                     cmd.Parameters.AddWithValue("@productname", Productname);
                     cmd.Parameters.AddWithValue("@quantity", Priceperunit);
                     cmd.Parameters.AddWithValue("@ppunit", Quantity);

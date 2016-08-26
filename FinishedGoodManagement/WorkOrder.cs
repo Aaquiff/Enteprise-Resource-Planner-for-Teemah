@@ -235,22 +235,27 @@ namespace FinishedGoodManagement
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
-            DBConnect connection = new DBConnect();
-            connection.OpenConnection();
-            MySqlConnection returnConn = new MySqlConnection();
-            returnConn = connection.GetConnection();
+            try
+            {
+                DBConnect connection = new DBConnect();
+                connection.OpenConnection();
+                MySqlConnection returnConn = new MySqlConnection();
+                returnConn = connection.GetConnection();
 
 
-            MySqlCommand cmd = new MySqlCommand("select *from INV_ITP.inv_productreq where productReqId  like '" + searchreq.Text + "%' ", returnConn);
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            dataGridView1.DataSource = dt;
-            connection.CloseConnection();
+                MySqlCommand cmd = new MySqlCommand("select *from INV_ITP.inv_productreq where productReqId  like '" + searchreq.Text + "%' ", returnConn);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                connection.CloseConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-
-
-
-
+             
         }
 
         private void WorkOrder_Load(object sender, EventArgs e)

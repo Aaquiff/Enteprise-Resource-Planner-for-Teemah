@@ -51,7 +51,7 @@ namespace FinishedGoodManagement
             string amound  = pro_amound.Text;
             string Priceperunit = txt_amound.Text;
 
-            if (pro_id.Text != "")
+            if (pro_id.Text != "" && pro_name.Text != "" && pro_quantity.Text != "" && pro_amound.Text != "" && txt_amound.Text !="")
             {
                 try
                 {
@@ -227,9 +227,10 @@ namespace FinishedGoodManagement
                 MySqlConnection returnConn = new MySqlConnection();
                 returnConn = connection.GetConnection();
 
-                String query = "select * from INV_ITP.inv_order where orderid like '%" + txtorder.Text + "%'";
-                MessageBox.Show(query);
-                MySqlCommand cmd = new MySqlCommand(query, returnConn);
+              //  String query = "select * from INV_ITP.inv_order where orderid like '%" + txtorder.Text + "%'";
+                MySqlCommand cmd = new MySqlCommand("select * from INV_ITP.inv_order where orderid like '" + txtorder.Text + "%' ", returnConn);
+               // MessageBox.Show(query);
+                
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
