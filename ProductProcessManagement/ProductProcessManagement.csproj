@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D1EAB747-DFBF-4D2F-B36A-25DD5F71F12B}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProductProcessManagement</RootNamespace>
     <AssemblyName>ProductProcessManagement</AssemblyName>
@@ -35,6 +35,13 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FrameworkControls">
+      <HintPath>..\FrameworkControls\bin\Debug\FrameworkControls.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySQLDatabaseAccess">
+      <HintPath>..\MySQLDatabaseAccess\bin\Debug\MySQLDatabaseAccess.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,30 +60,78 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DBConnect.cs" />
     <Compile Include="productRequets.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="productRequets.Designer.cs">
       <DependentUpon>productRequets.cs</DependentUpon>
     </Compile>
+    <Compile Include="Products\addEditProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\addEditProduct.Designer.cs">
+      <DependentUpon>addEditProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\selectRawMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\selectRawMaterial.Designer.cs">
+      <DependentUpon>selectRawMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\viewProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\viewProduct.Designer.cs">
+      <DependentUpon>viewProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\viewProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\viewProducts.Designer.cs">
+      <DependentUpon>viewProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="remarks.cs">
+    <Compile Include="Remarks\remark.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="remarks.Designer.cs">
+    <Compile Include="Remarks\remark.Designer.cs">
+      <DependentUpon>remark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Remarks\remarks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Remarks\remarks.Designer.cs">
       <DependentUpon>remarks.cs</DependentUpon>
     </Compile>
-    <Compile Include="workOrder.cs">
+    <Compile Include="teemahDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>teemahDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="WorkOrders\addWorkOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="workOrder.Designer.cs">
+    <Compile Include="WorkOrders\addWorkOrder.Designer.cs">
+      <DependentUpon>addWorkOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkOrders\selectProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkOrders\selectProduct.Designer.cs">
+      <DependentUpon>selectProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkOrders\workOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkOrders\workOrder.Designer.cs">
       <DependentUpon>workOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="workOrders.cs">
+    <Compile Include="WorkOrders\workOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="workOrders.Designer.cs">
+    <Compile Include="WorkOrders\workOrders.Designer.cs">
       <DependentUpon>workOrders.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Dashboard.resx">
@@ -84,6 +139,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="productRequets.resx">
       <DependentUpon>productRequets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\addEditProduct.resx">
+      <DependentUpon>addEditProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\selectRawMaterial.resx">
+      <DependentUpon>selectRawMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\viewProduct.resx">
+      <DependentUpon>viewProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\viewProducts.resx">
+      <DependentUpon>viewProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,13 +162,22 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="remarks.resx">
+    <EmbeddedResource Include="Remarks\remark.resx">
+      <DependentUpon>remark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Remarks\remarks.resx">
       <DependentUpon>remarks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="workOrder.resx">
+    <EmbeddedResource Include="WorkOrders\addWorkOrder.resx">
+      <DependentUpon>addWorkOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkOrders\selectProduct.resx">
+      <DependentUpon>selectProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkOrders\workOrder.resx">
       <DependentUpon>workOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="workOrders.resx">
+    <EmbeddedResource Include="WorkOrders\workOrders.resx">
       <DependentUpon>workOrders.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -113,11 +189,26 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="teemahDataSet.xsc">
+      <DependentUpon>teemahDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="teemahDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>teemahDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="teemahDataSet.xss">
+      <DependentUpon>teemahDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Notifications\" />
+    <Folder Include="RawMaterialRequests\" />
+    <Folder Include="TransportRequests\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="assets\bg1.jpg" />
   </ItemGroup>
@@ -126,6 +217,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\bg3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RawMaterialManagement\RawMaterialManagement.csproj">
+      <Project>{075CC06A-38B4-4F27-84BA-29078BB5C4A8}</Project>
+      <Name>RawMaterialManagement</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

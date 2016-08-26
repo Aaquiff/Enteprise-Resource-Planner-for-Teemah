@@ -41,14 +41,14 @@
             this.EndLo = new System.Windows.Forms.TextBox();
             this.Dist = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -195,26 +195,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(466, 334);
             this.dataGridView1.TabIndex = 12;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Route Id";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Start Location";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "End Location";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Distance";
-            this.Column4.Name = "Column4";
-            // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(100, 276);
@@ -268,6 +248,30 @@
             this.panel2.Size = new System.Drawing.Size(466, 334);
             this.panel2.TabIndex = 16;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "route_id";
+            this.Column1.HeaderText = "Route Id";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "start_location";
+            this.Column2.HeaderText = "Start Location";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "end_location";
+            this.Column3.HeaderText = "End Location";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "distance";
+            this.Column4.HeaderText = "Distance";
+            this.Column4.Name = "Column4";
+            // 
             // RouteDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -304,14 +308,14 @@
         private System.Windows.Forms.TextBox EndLo;
         private System.Windows.Forms.TextBox Dist;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }
 

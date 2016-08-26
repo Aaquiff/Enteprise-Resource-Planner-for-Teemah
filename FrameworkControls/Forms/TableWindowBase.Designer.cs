@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableWindowBase));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItemNew = new System.Windows.Forms.ToolStripMenuItem();
@@ -35,7 +36,7 @@
             this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemPopulate = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSearch = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStripDataGrid = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStripDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.columnSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelSearch = new System.Windows.Forms.Panel();
@@ -43,7 +44,7 @@
             this.txtSearchItemId = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.cmbColumns = new System.Windows.Forms.ComboBox();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet = new System.Data.DataSet();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripDataGrid.SuspendLayout();

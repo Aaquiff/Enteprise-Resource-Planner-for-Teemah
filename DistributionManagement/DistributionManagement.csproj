@@ -151,11 +151,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database1.sdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\MySQLDatabaseAccess\MySQLDatabaseAccess.csproj">
       <Project>{7a1f3ab0-c5e3-4234-a9d5-d15ef65714b0}</Project>
       <Name>MySQLDatabaseAccess</Name>

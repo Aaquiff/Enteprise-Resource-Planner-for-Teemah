@@ -28,8 +28,8 @@ namespace FinishedGoodManagement
             MySqlConnection returnconn = new MySqlConnection();
             returnconn = connection.GetConnection();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM INV_ITP.inv_order", returnconn);
-           // cmd.CommandText = "SELECT * FROM INV_ITP.inv_order";
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM inv_order", returnconn);
+           // cmd.CommandText = "SELECT * FROM inv_order";
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -61,7 +61,7 @@ namespace FinishedGoodManagement
                     returnConn = connection.GetConnection();
                     string query;
 
-                    query = "INSERT INTO INV_ITP.inv_order (orderid, orderdate, deliverydate, productid, productname, quantity,maximumretailprice,unitprice) VALUES (@1, @2, @3, @4, @5, @6, @7, @8)";
+                    query = "INSERT INTO inv_order (orderid, orderdate, deliverydate, productid, productname, quantity,maximumretailprice,unitprice) VALUES (@1, @2, @3, @4, @5, @6, @7, @8)";
                     MySqlCommand cmd = new MySqlCommand(query, returnConn);
                     //cmd.CommandType = CommandType.Text; //default
 
@@ -127,7 +127,7 @@ namespace FinishedGoodManagement
                     string query;
 
 
-                    query = (" update INV_ITP.inv_order set  orderdate=@2,deliverydate=@3,productid=@4,productname=@5,quantity=@6,maximumretailprice=@7,unitprice=@8 where orderid=@1");
+                    query = (" update inv_order set  orderdate=@2,deliverydate=@3,productid=@4,productname=@5,quantity=@6,maximumretailprice=@7,unitprice=@8 where orderid=@1");
                     
                     MySqlCommand cmd = new MySqlCommand(query, returnConn);
 
@@ -185,7 +185,7 @@ namespace FinishedGoodManagement
                 returnConn = connection.GetConnection();
                 string query;
 
-                query = ("delete from INV_ITP.inv_order where orderid=@1");
+                query = ("delete from inv_order where orderid=@1");
 
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
                 cmd.Parameters.AddWithValue("@1", txt_orderID.Text);
@@ -226,7 +226,7 @@ namespace FinishedGoodManagement
                 MySqlConnection returnConn = new MySqlConnection();
                 returnConn = connection.GetConnection();
 
-                String query = "select * from INV_ITP.inv_order where orderid like '%" + txtorder.Text + "%'";
+                String query = "select * from inv_order where orderid like '%" + txtorder.Text + "%'";
                 MessageBox.Show(query);
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);

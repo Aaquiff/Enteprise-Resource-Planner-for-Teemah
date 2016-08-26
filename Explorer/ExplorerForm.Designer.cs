@@ -58,10 +58,7 @@
             this.button13 = new System.Windows.Forms.Button();
             this.btnFM = new System.Windows.Forms.Button();
             this.panelEmployee = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.btnEM = new System.Windows.Forms.Button();
             this.panelDistribution = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
@@ -103,6 +100,7 @@
             this.panelBreadCrumbs = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button32 = new System.Windows.Forms.Button();
             this.contextMenuStripToolbar.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.panelNavigation.SuspendLayout();
@@ -286,7 +284,7 @@
             this.panelSettings.Controls.Add(this.button24);
             this.panelSettings.Controls.Add(this.button25);
             this.panelSettings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSettings.Location = new System.Drawing.Point(0, 1449);
+            this.panelSettings.Location = new System.Drawing.Point(0, 1395);
             this.panelSettings.Name = "panelSettings";
             this.panelSettings.Size = new System.Drawing.Size(252, 91);
             this.panelSettings.TabIndex = 16;
@@ -341,7 +339,7 @@
             this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSettings.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSettings.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonSettings.Location = new System.Drawing.Point(0, 1409);
+            this.buttonSettings.Location = new System.Drawing.Point(0, 1355);
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(252, 40);
             this.buttonSettings.TabIndex = 14;
@@ -362,7 +360,7 @@
             this.panelFinance.Controls.Add(this.button12);
             this.panelFinance.Controls.Add(this.button13);
             this.panelFinance.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelFinance.Location = new System.Drawing.Point(0, 1182);
+            this.panelFinance.Location = new System.Drawing.Point(0, 1128);
             this.panelFinance.Name = "panelFinance";
             this.panelFinance.Size = new System.Drawing.Size(252, 227);
             this.panelFinance.TabIndex = 15;
@@ -531,7 +529,7 @@
             this.btnFM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFM.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFM.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnFM.Location = new System.Drawing.Point(0, 1142);
+            this.btnFM.Location = new System.Drawing.Point(0, 1088);
             this.btnFM.Name = "btnFM";
             this.btnFM.Size = new System.Drawing.Size(252, 40);
             this.btnFM.TabIndex = 6;
@@ -543,54 +541,13 @@
             // 
             // panelEmployee
             // 
-            this.panelEmployee.Controls.Add(this.button7);
-            this.panelEmployee.Controls.Add(this.button1);
             this.panelEmployee.Controls.Add(this.button2);
-            this.panelEmployee.Controls.Add(this.button3);
             this.panelEmployee.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEmployee.Location = new System.Drawing.Point(0, 1036);
+            this.panelEmployee.Location = new System.Drawing.Point(0, 1059);
             this.panelEmployee.Name = "panelEmployee";
-            this.panelEmployee.Size = new System.Drawing.Size(252, 106);
+            this.panelEmployee.Size = new System.Drawing.Size(252, 29);
             this.panelEmployee.TabIndex = 14;
             this.panelEmployee.Visible = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.Transparent;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button7.Location = new System.Drawing.Point(0, 75);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(252, 25);
-            this.button7.TabIndex = 14;
-            this.button7.Text = "Salary";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(0, 50);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(252, 25);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Leave Request";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -602,7 +559,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(0, 25);
+            this.button2.Location = new System.Drawing.Point(0, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(252, 25);
             this.button2.TabIndex = 12;
@@ -610,25 +567,6 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(0, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(252, 25);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Check Leave";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnEM
             // 
@@ -641,7 +579,7 @@
             this.btnEM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEM.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEM.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEM.Location = new System.Drawing.Point(0, 996);
+            this.btnEM.Location = new System.Drawing.Point(0, 1019);
             this.btnEM.Name = "btnEM";
             this.btnEM.Size = new System.Drawing.Size(252, 40);
             this.btnEM.TabIndex = 5;
@@ -656,7 +594,7 @@
             this.panelDistribution.Controls.Add(this.button5);
             this.panelDistribution.Controls.Add(this.button6);
             this.panelDistribution.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelDistribution.Location = new System.Drawing.Point(0, 916);
+            this.panelDistribution.Location = new System.Drawing.Point(0, 939);
             this.panelDistribution.Name = "panelDistribution";
             this.panelDistribution.Size = new System.Drawing.Size(252, 80);
             this.panelDistribution.TabIndex = 13;
@@ -730,7 +668,7 @@
             this.btnDM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDM.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDM.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDM.Location = new System.Drawing.Point(0, 876);
+            this.btnDM.Location = new System.Drawing.Point(0, 899);
             this.btnDM.Name = "btnDM";
             this.btnDM.Size = new System.Drawing.Size(252, 40);
             this.btnDM.TabIndex = 4;
@@ -747,7 +685,7 @@
             this.panelSales.Controls.Add(this.button15);
             this.panelSales.Controls.Add(this.button16);
             this.panelSales.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSales.Location = new System.Drawing.Point(0, 756);
+            this.panelSales.Location = new System.Drawing.Point(0, 779);
             this.panelSales.Name = "panelSales";
             this.panelSales.Size = new System.Drawing.Size(252, 120);
             this.panelSales.TabIndex = 16;
@@ -839,7 +777,7 @@
             this.btnSM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSM.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSM.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSM.Location = new System.Drawing.Point(0, 716);
+            this.btnSM.Location = new System.Drawing.Point(0, 739);
             this.btnSM.Name = "btnSM";
             this.btnSM.Size = new System.Drawing.Size(252, 40);
             this.btnSM.TabIndex = 3;
@@ -856,7 +794,7 @@
             this.panelInventory.Controls.Add(this.button10);
             this.panelInventory.Controls.Add(this.button11);
             this.panelInventory.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelInventory.Location = new System.Drawing.Point(0, 599);
+            this.panelInventory.Location = new System.Drawing.Point(0, 622);
             this.panelInventory.Name = "panelInventory";
             this.panelInventory.Size = new System.Drawing.Size(252, 117);
             this.panelInventory.TabIndex = 15;
@@ -949,7 +887,7 @@
             this.btnIM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIM.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIM.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnIM.Location = new System.Drawing.Point(0, 559);
+            this.btnIM.Location = new System.Drawing.Point(0, 582);
             this.btnIM.Name = "btnIM";
             this.btnIM.Size = new System.Drawing.Size(252, 40);
             this.btnIM.TabIndex = 2;
@@ -961,6 +899,7 @@
             // 
             // panelProdcutProcess
             // 
+            this.panelProdcutProcess.Controls.Add(this.button32);
             this.panelProdcutProcess.Controls.Add(this.button18);
             this.panelProdcutProcess.Controls.Add(this.button19);
             this.panelProdcutProcess.Controls.Add(this.button20);
@@ -969,7 +908,7 @@
             this.panelProdcutProcess.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelProdcutProcess.Location = new System.Drawing.Point(0, 424);
             this.panelProdcutProcess.Name = "panelProdcutProcess";
-            this.panelProdcutProcess.Size = new System.Drawing.Size(252, 135);
+            this.panelProdcutProcess.Size = new System.Drawing.Size(252, 158);
             this.panelProdcutProcess.TabIndex = 17;
             this.panelProdcutProcess.Visible = false;
             // 
@@ -990,6 +929,7 @@
             this.button18.Text = "Work Orders";
             this.button18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // button19
             // 
@@ -1005,9 +945,10 @@
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(252, 25);
             this.button19.TabIndex = 14;
-            this.button19.Text = "Work Order";
+            this.button19.Text = "Products";
             this.button19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button20
             // 
@@ -1026,6 +967,7 @@
             this.button20.Text = "Remarks";
             this.button20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button20.UseVisualStyleBackColor = false;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // button21
             // 
@@ -1044,6 +986,7 @@
             this.button21.Text = "Product Request";
             this.button21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button21.UseVisualStyleBackColor = false;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // button22
             // 
@@ -1062,6 +1005,7 @@
             this.button22.Text = "Dashboard";
             this.button22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button22.UseVisualStyleBackColor = false;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // btnPPM
             // 
@@ -1328,6 +1272,24 @@
             this.panel1.Size = new System.Drawing.Size(1093, 93);
             this.panel1.TabIndex = 17;
             // 
+            // button32
+            // 
+            this.button32.BackColor = System.Drawing.Color.Transparent;
+            this.button32.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button32.FlatAppearance.BorderSize = 0;
+            this.button32.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.button32.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button32.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button32.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button32.Location = new System.Drawing.Point(0, 125);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(252, 25);
+            this.button32.TabIndex = 16;
+            this.button32.Text = "Products";
+            this.button32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button32.UseVisualStyleBackColor = false;
+            // 
             // ExplorerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1402,10 +1364,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel panelEmployee;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panelInventory;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
@@ -1444,6 +1403,7 @@
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Button button31;
         private System.Windows.Forms.Button button30;
+        private System.Windows.Forms.Button button32;
     }
 }
 

@@ -20,6 +20,10 @@ using FinanceManagement;
 using HRManagement;
 using DistributionManagement;
 using FinishedGoodManagement;
+using ProductProcessManagement;
+using ProductProcessManagement.Products;
+using ProductProcessManagement.Remarks;
+using ProductProcessManagement.WorkOrders;
 
 namespace Explorer
 {
@@ -72,7 +76,7 @@ namespace Explorer
 
         public void loadForm(Form childForm)
         {
-            while (ActiveMdiChild != null)
+            if (ActiveMdiChild != null)
             {
                 ActiveMdiChild.Close();
             }
@@ -426,6 +430,15 @@ namespace Explorer
                 panelProdcutProcess.Show();
         }
 
+        private void button22_Click(object sender, EventArgs e)
+        {
+            loadForm(new Dashboard());
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            loadForm(new productRequets());
+        }
 
         #endregion
 
@@ -499,6 +512,25 @@ namespace Explorer
         }
 
         #endregion
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            loadForm(new viewProducts());
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            loadForm(new remarks());
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            loadForm(new workOrders());
+        }
+
+        
+
+        
     }
 
         

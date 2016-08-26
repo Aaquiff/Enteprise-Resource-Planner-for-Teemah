@@ -22,12 +22,16 @@ namespace UserManagement
             con = Connection.getConnection();
         }
 
+        #region methods
+
         private void Populate()
         {
             try
             {
                 this.userTableAdapter.Connection = con;
                 this.userTableAdapter.Fill(this.userDataSet.user);
+                this.user_roleTableAdapter.Connection = con;
+                this.user_roleTableAdapter.Fill(this.userDataSet.user_role);
             }
             catch (Exception ex)
             {
@@ -111,15 +115,14 @@ namespace UserManagement
             }
         }
 
+        #endregion
+
+        #region Event
+
         private void User_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'userDataSet.user_role' table. You can move, or remove it, as needed.
-            this.user_roleTableAdapter.Connection = con;
-            this.user_roleTableAdapter.Fill(this.userDataSet.user_role);
             Populate();
         }
-
-
 
         private void saveToolStripMenuSave_Click(object sender, EventArgs e)
         {
@@ -161,5 +164,6 @@ namespace UserManagement
             RemoveRole();
         }
 
+        #endregion
     }
 }

@@ -158,6 +158,10 @@
       <Project>{7a1f3ab0-c5e3-4234-a9d5-d15ef65714b0}</Project>
       <Name>MySQLDatabaseAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProductProcessManagement\ProductProcessManagement.csproj">
+      <Project>{d1eab747-dfbf-4d2f-b36a-25dd5f71f12b}</Project>
+      <Name>ProductProcessManagement</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RawMaterialManagement\RawMaterialManagement.csproj">
       <Project>{075cc06a-38b4-4f27-84ba-29078bb5c4a8}</Project>
       <Name>RawMaterialManagement</Name>

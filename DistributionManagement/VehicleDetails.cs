@@ -20,7 +20,7 @@ namespace DistributionManagement
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            disp_data();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -37,21 +37,25 @@ namespace DistributionManagement
         {
             try
             {
-                MySqlCommand Cmd = new MySqlCommand("INSERT INTO Table1 (VehiType,VehiId,VehiNo,VehiSiz,Date) VALUES (@VehiType,@VehiId,@VehiNo,@VehiSiz,@Date)", returnconn);
+                conn.Open();
+                MySqlCommand Cmd = new MySqlCommand
+                    (@"INSERT INTO vehicle_tab (vehicle_type,vehicle_id,vehicle_no,vehicle_size,date) 
+                    VALUES (@VehiType,@VehiId,@VehiNo,@VehiSiz,@Date)", conn);
                 Cmd.Parameters.AddWithValue("@VehiType", VehiType.Text);
                 Cmd.Parameters.AddWithValue("@VehiId", VehiId.Text);
                 Cmd.Parameters.AddWithValue("@VehiNo", VehiNo.Text);
                 Cmd.Parameters.AddWithValue("@VehiSiz", VehiSiz.Text);
                 Cmd.Parameters.AddWithValue("@Date", DateTime.Now);
-                conn.Open();
 
                 if (Cmd.ExecuteNonQuery() == 1)
                 {
                     MessageBox.Show("Vehicle Details Added Successfully");
-
-                }
-                conn.Close();
-                
+                    VehiType.Text = "";
+                    VehiId.Text = "";
+                    VehiNo.Text = "";
+                    VehiSiz.Text = "";
+                    disp_data();
+                }                
 
             }
             catch (Exception ex)
@@ -60,28 +64,24 @@ namespace DistributionManagement
                     conn.Close();
                 MessageBox.Show(ex.Message);
             }
-            VehiType.Text = "";
-            VehiId.Text = "";
-            VehiNo.Text = "";
-            VehiSiz.Text = "";
+            finally
+            {
+                conn.Close();
+            }
+            
             
         }
 
-      /*  public void disp_data()
+        public void disp_data()
         {
-            conn.Open();
-            SqlCommand Cmd = conn.CreateCommand();
-            Cmd.CommandType = CommandType.Text;
-            Cmd.CommandText = "select * from Table1";
-            Cmd.ExecuteNonQuery();
+            MySqlCommand Cmd = new MySqlCommand("select * from vehicle_tab",conn);
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(Cmd);
+            MySqlDataAdapter da = new MySqlDataAdapter(Cmd);
             da.Fill(dt);
             dataGridView1.DataSource = dt;
-            conn.Close();
 
         }
-        */
+        
         private void VehiType_TextChanged(object sender, EventArgs e)
         {
 
@@ -105,27 +105,32 @@ namespace DistributionManagement
 
         private void updateVehicle()
         {
-            conn.Open();
-            MySqlCommand Cmd = conn.CreateCommand();
-            Cmd.CommandType = CommandType.Text;
-            Cmd.CommandText = "Update table1 set VehicleType= '" + VehiType.Text + "' && VehicleID='" + VehiId.Text + "' && VehicleNo='" + VehiNo + "' && VehicleSize='" + VehiSiz + "' && Date='"+Date+"'";
-            Cmd.ExecuteNonQuery();
-            conn.Close();
-            
+            MySqlCommand Cmd = new MySqlCommand("Update vehicle_tab set vehicle_id= '" + VehiType.Text + "' , vehicle_no='" + VehiNo + "' , vehicle_size='" + VehiSiz + "' , date='" + Date + "' where vehicle_type='" + VehiId.Text + "'",conn);
+            Cmd.ExecuteNonQuery();            
             MessageBox.Show("Update Successfully");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+            try
+            {
+                conn.Open();
+                MySqlCommand Cmd = new MySqlCommand("delete from vehicle_tab where vehicle_type ='" + VehiType.Text + "'",conn);
+                Cmd.ExecuteNonQuery();
             
-            conn.Open();
-            MySqlCommand Cmd = conn.CreateCommand();
-            Cmd.CommandType = CommandType.Text;
-            Cmd.CommandText = "delete from table1 where Vehicle Type='"+VehiType.Text+"'";
-            Cmd.ExecuteNonQuery();
-            conn.Close();
-            
-            MessageBox.Show("Delete Successfully");
+                MessageBox.Show("Delete Successfully");
+
+                disp_data();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         
         }
 
@@ -140,10 +145,7 @@ namespace DistributionManagement
         private void button5_Click(object sender, EventArgs e)
         {
             conn.Open();
-            MySqlCommand Cmd = conn.CreateCommand();
-            Cmd.CommandType = CommandType.Text;
-            Cmd.CommandText = "select * from Table1 where Vehicle Type='" + VehiType.Text + "'";
-            Cmd.ExecuteNonQuery();
+            MySqlCommand Cmd = new MySqlCommand("select * from vehicle_tab where vehicle_type ='" + VehiType.Text + "'",conn);
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(Cmd);
             da.Fill(dt);

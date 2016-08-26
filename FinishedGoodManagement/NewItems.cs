@@ -29,7 +29,7 @@ namespace FinishedGoodManagement
             MySqlConnection returnconn = new MySqlConnection();
             returnconn = connection.GetConnection();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM INV_ITP.inv_newitems", returnconn);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM inv_newitems", returnconn);
              
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -79,7 +79,7 @@ namespace FinishedGoodManagement
                     returnConn = conn.GetConnection();
 
 
-                    string query = ("insert into INV_ITP.inv_newitems (ID,ReceivedDate,BatchNo,ManufacturedDate,ExpiredDate,ProductID,ProductName,Quantity,PPUnit,Packed) values(@id,@receiveddate,@batchno,@manufactureddate,@expireddate,@productid,@productname,@quantity,@ppunit,@packed)");
+                    string query = ("insert into inv_newitems (ID,ReceivedDate,BatchNo,ManufacturedDate,ExpiredDate,ProductID,ProductName,Quantity,PPUnit,Packed) values(@id,@receiveddate,@batchno,@manufactureddate,@expireddate,@productid,@productname,@quantity,@ppunit,@packed)");
                     MySqlCommand cmd = new MySqlCommand(query, returnConn);
 
                     cmd.Parameters.AddWithValue("@id", id);
@@ -161,7 +161,7 @@ namespace FinishedGoodManagement
                 string query;
 
 
-                query = (" update INV_ITP.inv_newitems set ReceivedDate=@receiveddate,BatchNo=@batchno,ManufacturedDate=@manufactureddate,ExpiredDate=@expireddate,ProductID=@productid,ProductName=@productname,Quantity=@quantity,PPUnit=@ppunit,Packed=@packed where ID=@id");
+                query = (" update inv_newitems set ReceivedDate=@receiveddate,BatchNo=@batchno,ManufacturedDate=@manufactureddate,ExpiredDate=@expireddate,ProductID=@productid,ProductName=@productname,Quantity=@quantity,PPUnit=@ppunit,Packed=@packed where ID=@id");
                
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
                 
@@ -225,7 +225,7 @@ namespace FinishedGoodManagement
                 returnConn = connection.GetConnection();
                 string query;
 
-                query = ("delete from INV_ITP.inv_newitems where ID=@id");
+                query = ("delete from inv_newitems where ID=@id");
                  
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
                 cmd.Parameters.AddWithValue("@id", txt_id.Text);
@@ -280,7 +280,7 @@ namespace FinishedGoodManagement
                 returnConn = connection.GetConnection();
 
 
-                MySqlCommand cmd = new MySqlCommand("select *from INV_ITP.inv_newitems where ID like '" + txtid.Text + "%' ", returnConn);
+                MySqlCommand cmd = new MySqlCommand("select *from inv_newitems where ID like '" + txtid.Text + "%' ", returnConn);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);

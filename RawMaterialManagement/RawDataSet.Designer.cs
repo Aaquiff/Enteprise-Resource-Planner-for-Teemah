@@ -567,7 +567,7 @@ namespace RawMaterialManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public raw_order_lineRow Addraw_order_lineRow(raw_purchase_orderRow parentraw_purchase_orderRowByFK_raw_purchase_order_raw_order_line, string item_id, double unit_price, double quantity, string item_name, string unit_of_measure, double amount) {
+            public raw_order_lineRow Addraw_order_lineRow(raw_purchase_orderRow parentraw_purchase_orderRowByFK_raw_purchase_order_raw_order_line, int item_id, double unit_price, double quantity, string item_name, string unit_of_measure, double amount) {
                 raw_order_lineRow rowraw_order_lineRow = ((raw_order_lineRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -587,7 +587,7 @@ namespace RawMaterialManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public raw_order_lineRow FindByorder_iditem_id(string order_id, string item_id) {
+            public raw_order_lineRow FindByorder_iditem_id(string order_id, int item_id) {
                 return ((raw_order_lineRow)(this.Rows.Find(new object[] {
                             order_id,
                             item_id})));
@@ -624,7 +624,7 @@ namespace RawMaterialManagement {
             private void InitClass() {
                 this.columnorder_id = new global::System.Data.DataColumn("order_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnorder_id);
-                this.columnitem_id = new global::System.Data.DataColumn("item_id", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnitem_id = new global::System.Data.DataColumn("item_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnitem_id);
                 this.columnunit_price = new global::System.Data.DataColumn("unit_price", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnunit_price);
@@ -642,7 +642,6 @@ namespace RawMaterialManagement {
                 this.columnorder_id.AllowDBNull = false;
                 this.columnorder_id.MaxLength = 200;
                 this.columnitem_id.AllowDBNull = false;
-                this.columnitem_id.MaxLength = 200;
                 this.columnunit_price.AllowDBNull = false;
                 this.columnquantity.AllowDBNull = false;
                 this.columnitem_name.MaxLength = 2000;
@@ -2325,9 +2324,9 @@ namespace RawMaterialManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string item_id {
+            public int item_id {
                 get {
-                    return ((string)(this[this.tableraw_order_line.item_idColumn]));
+                    return ((int)(this[this.tableraw_order_line.item_idColumn]));
                 }
                 set {
                     this[this.tableraw_order_line.item_idColumn] = value;
@@ -3369,6 +3368,8 @@ namespace RawMaterialManagement.RawDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "item_id_";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "item_id_";
             this._adapter.DeleteCommand.Parameters.Add(param);

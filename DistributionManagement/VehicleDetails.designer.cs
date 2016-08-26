@@ -40,10 +40,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.VehiSiz = new System.Windows.Forms.TextBox();
@@ -51,6 +47,10 @@
             this.Date = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -62,7 +62,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(14, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 17);
+            this.label1.Size = new System.Drawing.Size(93, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Vehicle Type :";
             // 
@@ -72,7 +72,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(14, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 17);
+            this.label2.Size = new System.Drawing.Size(98, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Vehicle ID      :";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -83,7 +83,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(14, 114);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 17);
+            this.label3.Size = new System.Drawing.Size(98, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Vehicle No     :";
             // 
@@ -93,7 +93,7 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(14, 156);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 17);
+            this.label4.Size = new System.Drawing.Size(92, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "Vehicle Size  :";
             // 
@@ -192,30 +192,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(759, 507);
             this.dataGridView1.TabIndex = 12;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Vehicle Type";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Vehicle ID";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Vehicle No";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Vehicle Size";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(119, 292);
@@ -298,6 +274,34 @@
             this.panel2.Size = new System.Drawing.Size(759, 507);
             this.panel2.TabIndex = 19;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "vehicle_type";
+            this.Column1.HeaderText = "Vehicle Type";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "vehicle_id";
+            this.Column2.HeaderText = "Vehicle ID";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "vehicle_no";
+            this.Column3.HeaderText = "Vehicle No";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "vehicle_size";
+            this.Column4.HeaderText = "Vehicle Size";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
             // VehicleDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -334,10 +338,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox VehiSiz;
@@ -345,6 +345,10 @@
         private System.Windows.Forms.DateTimePicker Date;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }
 

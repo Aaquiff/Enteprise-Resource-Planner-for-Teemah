@@ -48,10 +48,12 @@ namespace RawMaterialManagement.Order_Management
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            /*base.OnFormClosing(e);
-            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+            base.OnFormClosing(e);
 
-            if (orderDataSet1.HasChanges())
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+            rawpurchaseorderBindingSource.EndEdit();
+            fKrawpurchaseorderraworderlineBindingSource.EndEdit();
+            if (rawDataSet.HasChanges())
             {
                 switch (MessageBox.Show(this, "Do you want to save your changes?", "Closing", MessageBoxButtons.YesNoCancel))
                 {
@@ -66,7 +68,7 @@ namespace RawMaterialManagement.Order_Management
                     default:
                         break;
                 }
-            }*/
+            }
 
         }
 
@@ -75,12 +77,19 @@ namespace RawMaterialManagement.Order_Management
             try
             {
                 this.Validate();
+                
                 rawpurchaseorderBindingSource.EndEdit();
-                fKrawpurchaseorderraworderlineBindingSource.EndEdit();
 
                 raw_purchase_orderTableAdapter.Update(rawDataSet.raw_purchase_order);
-                //raw_order_lineTableAdapter.Adapter.Update(rawDataSet.raw_order_line);
-                raw_order_lineTableAdapter.Update(rawDataSet.raw_order_line);
+
+                MySqlCommand com = new MySqlCommand("DELETE FROM raw_order_line_tab where order_id = @order_id and item_id = @item_id", con);
+                com.Parameters.Add("@order_id", MySqlDbType.VarChar, 200, "order_id");
+                com.Parameters.Add("@item_id", MySqlDbType.Int32, 200, "item_id");
+                raw_order_lineTableAdapter.Adapter.DeleteCommand = com;
+
+                fKrawpurchaseorderraworderlineBindingSource.EndEdit();
+                raw_order_lineTableAdapter.Adapter.Update(rawDataSet.raw_order_line);
+                
                 MessageBox.Show("Saved");
             }
             catch (MySqlException ex)
@@ -109,12 +118,11 @@ namespace RawMaterialManagement.Order_Management
         {
             try
             {
-                // TODO: This line of code loads data into the 'rawDataSet.raw_order_line' table. You can move, or remove it, as needed.
                 this.raw_purchase_orderTableAdapter.Connection = con;
-                this.raw_order_lineTableAdapter.Fill(this.rawDataSet.raw_order_line);
-                // TODO: This line of code loads data into the 'rawDataSet.raw_purchase_order' table. You can move, or remove it, as needed.
-                this.raw_order_lineTableAdapter.Connection = con;
                 this.raw_purchase_orderTableAdapter.Fill(this.rawDataSet.raw_purchase_order);
+                
+                this.raw_order_lineTableAdapter.Connection = con;
+                this.raw_order_lineTableAdapter.Fill(this.rawDataSet.raw_order_line);
 
                 splitContainerMain.Panel1Collapsed = false;
                 splitContainerMain.Panel1.Show();
@@ -129,7 +137,6 @@ namespace RawMaterialManagement.Order_Management
         {
             try
             {
-                // TODO: This line of code loads data into the 'rawDataSet.raw_purchase_order' table. You can move, or remove it, as needed.
                 this.raw_order_lineTableAdapter.Connection = con;
                 this.raw_purchase_orderTableAdapter.FillByOrderStatus(this.rawDataSet.raw_purchase_order,"Created");
             }
@@ -145,7 +152,7 @@ namespace RawMaterialManagement.Order_Management
             {
                 DataRowView row = rawpurchaseorderBindingSource.AddNew() as DataRowView;
 
-                row.Row.SetField("creator",MySQLDatabaseAccess.Connection.getUserNameFromConnectionString(con.ConnectionString));
+                row.Row.SetField("creator",MySQLDatabaseAccess.Connection.getUserIdFromConnectionString());
                 row.Row.SetField("status", "Created");
                 
             }
@@ -184,10 +191,9 @@ namespace RawMaterialManagement.Order_Management
             {
                 fKrawpurchaseorderraworderlineBindingSource.RemoveCurrent();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -256,16 +262,6 @@ namespace RawMaterialManagement.Order_Management
             Delete();
         }
 
-        private void dataGridViewNavigator_SelectionChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OrderDetail_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             AddOrderItem();
@@ -311,12 +307,12 @@ namespace RawMaterialManagement.Order_Management
             ChooseSupplier();
         }
 
-        #endregion
-
-        private void customButton3_Click(object sender, EventArgs e)
+        private void customButton3_Click_1(object sender, EventArgs e)
         {
             RemoveOrderItem();
         }
+
+        #endregion
 
     }
 }

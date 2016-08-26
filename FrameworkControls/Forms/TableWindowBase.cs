@@ -105,8 +105,9 @@ namespace FrameworkControls.Forms
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            base.OnFormClosing(e);
+            
             if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
             bindingSource.EndEdit();
             if (dataSet.HasChanges())
             {
@@ -121,10 +122,11 @@ namespace FrameworkControls.Forms
                         e.Cancel = true;
                         break;
                     default:
+                        e.Cancel = true;
                         break;
                 }
             }
-
+            base.OnFormClosing(e);
         }
 
         #endregion

@@ -67,6 +67,7 @@
             this.approveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customButton3 = new FrameworkControls.Controls.CustomButton();
             this.txtCreatedDate = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -125,7 +126,6 @@
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.raw_purchase_orderTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_purchase_orderTableAdapter();
             this.raw_order_lineTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_order_lineTableAdapter();
-            this.customButton3 = new FrameworkControls.Controls.CustomButton();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customDataGrid11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKrawpurchaseorderraworderlineBindingSource)).BeginInit();
@@ -242,6 +242,7 @@
             // 
             // fKrawpurchaseorderraworderlineBindingSource
             // 
+            this.fKrawpurchaseorderraworderlineBindingSource.AllowNew = true;
             this.fKrawpurchaseorderraworderlineBindingSource.DataMember = "FK_raw_purchase_order_raw_order_line";
             this.fKrawpurchaseorderraworderlineBindingSource.DataSource = this.rawpurchaseorderBindingSource;
             // 
@@ -253,7 +254,6 @@
             // rawDataSet
             // 
             this.rawDataSet.DataSetName = "RawDataSet";
-            this.rawDataSet.EnforceConstraints = false;
             this.rawDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panelOrderDetail
@@ -506,6 +506,19 @@
             this.cancelToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.cancelToolStripMenuItem.Text = "Cancel";
             this.cancelToolStripMenuItem.Click += new System.EventHandler(this.cancelToolStripMenuItem_Click);
+            // 
+            // customButton3
+            // 
+            this.customButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.customButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customButton3.ForeColor = System.Drawing.Color.White;
+            this.customButton3.Location = new System.Drawing.Point(95, 298);
+            this.customButton3.Name = "customButton3";
+            this.customButton3.Size = new System.Drawing.Size(118, 32);
+            this.customButton3.TabIndex = 29;
+            this.customButton3.Text = "Remove Item";
+            this.customButton3.UseVisualStyleBackColor = false;
+            this.customButton3.Click += new System.EventHandler(this.customButton3_Click_1);
             // 
             // txtCreatedDate
             // 
@@ -1034,18 +1047,6 @@
             // 
             this.raw_order_lineTableAdapter.ClearBeforeFill = true;
             // 
-            // customButton3
-            // 
-            this.customButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.customButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton3.ForeColor = System.Drawing.Color.White;
-            this.customButton3.Location = new System.Drawing.Point(95, 298);
-            this.customButton3.Name = "customButton3";
-            this.customButton3.Size = new System.Drawing.Size(118, 32);
-            this.customButton3.TabIndex = 29;
-            this.customButton3.Text = "Remove Item";
-            this.customButton3.UseVisualStyleBackColor = false;
-            // 
             // OrderDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1060,7 +1061,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OrderDetail";
             this.Text = "Order Detail";
-            this.Load += new System.EventHandler(this.OrderDetail_Load);
             this.panelMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.customDataGrid11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKrawpurchaseorderraworderlineBindingSource)).EndInit();

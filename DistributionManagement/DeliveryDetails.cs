@@ -34,12 +34,22 @@ namespace DistributionManagement
             addDelivery();
         }
 
+        private void populate()
+        {
+            MySqlCommand Cmd = new MySqlCommand("select * from delivery_tab", conn);
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(Cmd);
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
         private void addDelivery()
         {
             try
             {
+                conn.Open();
                 MySqlCommand Cmd = new MySqlCommand
-                         ("INSERT INTO Table3 (DeliId,DeliAdd,SaleId,BuyId,EmpId,RouteId,VehiId,Quantity,Date) VALUES (@DeliId,@DeliAdd,@SaleId,@BuyId,@EmpId,@RouteId,@VehiId,@Quantity,@Date)", conn);
+                         ("INSERT INTO delivery_tab (delivery_id,delivery_address,sales_id,buyer_id,employee_id,route_id,vehicle_id,quantity,date) VALUES (@DeliId,@DeliAdd,@SaleId,@BuyId,@EmpId,@RouteId,@VehiId,@Quantity,@Date)", conn);
                 Cmd.Parameters.AddWithValue("@DeliId", DeliId.Text);
                 Cmd.Parameters.AddWithValue("@DeliAdd", DeliAdd.Text);
                 Cmd.Parameters.AddWithValue("@SaleId", SaleId.Text);
@@ -49,16 +59,20 @@ namespace DistributionManagement
                 Cmd.Parameters.AddWithValue("@VehiId", VehiId.Text);
                 Cmd.Parameters.AddWithValue("@Quantity", Quantity.Text);
                 Cmd.Parameters.AddWithValue("@Date", DateTime.Now);
-                conn.Open();
 
                 if (Cmd.ExecuteNonQuery() == 1)
                 {
-                    MessageBox.Show("Vehicle Details Added Successfully");
-
-                }
-                conn.Close();
-
-
+                    MessageBox.Show("Delivery Details Added Successfully");
+                    populate();
+                    DeliId.Text = "";
+                    DeliAdd.Text = "";
+                    SaleId.Text = "";
+                    BuyId.Text = "";
+                    EmpId.Text = "";
+                    RouteId.Text = "";
+                    VehiId.Text = "";
+                    Quantity.Text = "";
+                }                
             }
             catch (Exception ex)
             {
@@ -66,14 +80,10 @@ namespace DistributionManagement
                     conn.Close();
                 MessageBox.Show(ex.Message);
             }
-            DeliId.Text = "";
-            DeliAdd.Text = "";
-            SaleId.Text = "";
-            BuyId.Text = "";
-            EmpId.Text = "";
-            RouteId.Text = "";
-            VehiId.Text = "";
-            Quantity.Text = "";
+            finally
+            {
+                conn.Close();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -83,14 +93,26 @@ namespace DistributionManagement
 
         private void updateDelivery()
         {
-            conn.Open();
-            MySqlCommand Cmd = conn.CreateCommand();
-            Cmd.CommandType = CommandType.Text;
-            Cmd.CommandText = "Update Table3 set DeliveryID= '" + DeliId.Text + "' && deliveryAddress='" + DeliAdd.Text + "' && SalesID ='" + SaleId.Text + "' && BuyerID ='" + BuyId.Text + "' && EmployeeID= '" + EmpId.Text + "' && RouteID='" + RouteId.Text + "' && VehicleID ='" + VehiId.Text + "' && Quantity ='" + Quantity.Text + "'";
-            Cmd.ExecuteNonQuery();
-            conn.Close();
+            try
+            {
+                conn.Open();
+                MySqlCommand Cmd = conn.CreateCommand();
+                Cmd.CommandType = CommandType.Text;
+                Cmd.CommandText = @"Update delivery_tab 
+                set delivery_address='" + DeliAdd.Text + "' , sales_id ='" + SaleId.Text + "' , buyer_id ='" + BuyId.Text + "' , employee_id= '" + EmpId.Text + "' , route_id='" + RouteId.Text + "' , vehicle_id ='" + VehiId.Text + "' , quantity ='" + Quantity.Text + "' where DeliveryID= '" + DeliId.Text + "'";
+                Cmd.ExecuteNonQuery();
+                MessageBox.Show("Update Successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
             
-            MessageBox.Show("Update Successfully");
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -98,7 +120,7 @@ namespace DistributionManagement
             conn.Open();
             MySqlCommand Cmd = conn.CreateCommand();
             Cmd.CommandType = CommandType.Text;
-            Cmd.CommandText = "delete from Table3 where DeliveryID='" + DeliId.Text + "'";
+            Cmd.CommandText = "delete from delivery_tab where delivery_id='" + DeliId.Text + "'";
             Cmd.ExecuteNonQuery();
             conn.Close();
             MessageBox.Show("Delete Successfully");
@@ -121,7 +143,7 @@ namespace DistributionManagement
             conn.Open();
             MySqlCommand Cmd = conn.CreateCommand();
             Cmd.CommandType = CommandType.Text;
-            Cmd.CommandText = "select * from Table3 where DeliveryID='" + DeliId.Text + "'";
+            Cmd.CommandText = "select * from delivery_tab where delivery_id='" + DeliId.Text + "'";
             Cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(Cmd);
@@ -133,16 +155,7 @@ namespace DistributionManagement
 
         private void DeliveryDetails_Load(object sender, EventArgs e)
         {
-                conn.Open();
-                MySqlCommand Cmd = conn.CreateCommand();
-                Cmd.CommandType = CommandType.Text;
-                Cmd.CommandText = "select * from Table3";
-                Cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                MySqlDataAdapter da = new MySqlDataAdapter(Cmd);
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-                conn.Close();
+            populate();
         }
 
     }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.raw_invoice_tabBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -48,7 +50,11 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.recordSelectorGrid1 = new FrameworkControls.Controls.RecordSelectorGrid();
+            this.invoiceidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.customButton1 = new FrameworkControls.Controls.CustomButton();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
@@ -65,10 +71,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.raw_invoice_tabTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_invoice_tabTableAdapter();
             this.tableAdapterManager = new RawMaterialManagement.RawDataSetTableAdapters.TableAdapterManager();
-            this.recordSelectorGrid1 = new FrameworkControls.Controls.RecordSelectorGrid();
-            this.invoiceidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customButton1 = new FrameworkControls.Controls.CustomButton();
             ((System.ComponentModel.ISupportInitialize)(this.raw_invoice_tabBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -78,8 +80,8 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.recordSelectorGrid1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
@@ -284,11 +286,63 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer1.Size = new System.Drawing.Size(1125, 598);
             this.splitContainer1.SplitterDistance = 168;
             this.splitContainer1.TabIndex = 17;
+            // 
+            // recordSelectorGrid1
+            // 
+            this.recordSelectorGrid1.AllowUserToAddRows = false;
+            this.recordSelectorGrid1.AllowUserToDeleteRows = false;
+            this.recordSelectorGrid1.AllowUserToResizeRows = false;
+            this.recordSelectorGrid1.AutoGenerateColumns = false;
+            this.recordSelectorGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.recordSelectorGrid1.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.recordSelectorGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            this.recordSelectorGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.recordSelectorGrid1.ColumnHeadersHeight = 40;
+            this.recordSelectorGrid1.ColumnHeadersVisible = false;
+            this.recordSelectorGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.invoiceidDataGridViewTextBoxColumn,
+            this.orderidDataGridViewTextBoxColumn});
+            this.recordSelectorGrid1.DataSource = this.raw_invoice_tabBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.recordSelectorGrid1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.recordSelectorGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.recordSelectorGrid1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
+            this.recordSelectorGrid1.EnableHeadersVisualStyles = false;
+            this.recordSelectorGrid1.GridColor = System.Drawing.SystemColors.Control;
+            this.recordSelectorGrid1.Location = new System.Drawing.Point(0, 0);
+            this.recordSelectorGrid1.MultiSelect = false;
+            this.recordSelectorGrid1.Name = "recordSelectorGrid1";
+            this.recordSelectorGrid1.RowHeadersVisible = false;
+            this.recordSelectorGrid1.RowTemplate.Height = 30;
+            this.recordSelectorGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.recordSelectorGrid1.Size = new System.Drawing.Size(168, 598);
+            this.recordSelectorGrid1.TabIndex = 0;
+            // 
+            // invoiceidDataGridViewTextBoxColumn
+            // 
+            this.invoiceidDataGridViewTextBoxColumn.DataPropertyName = "invoice_id";
+            this.invoiceidDataGridViewTextBoxColumn.HeaderText = "invoice_id";
+            this.invoiceidDataGridViewTextBoxColumn.Name = "invoiceidDataGridViewTextBoxColumn";
+            // 
+            // orderidDataGridViewTextBoxColumn
+            // 
+            this.orderidDataGridViewTextBoxColumn.DataPropertyName = "order_id";
+            this.orderidDataGridViewTextBoxColumn.HeaderText = "order_id";
+            this.orderidDataGridViewTextBoxColumn.Name = "orderidDataGridViewTextBoxColumn";
             // 
             // groupBox2
             // 
@@ -313,6 +367,21 @@
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Invoice";
+            // 
+            // customButton1
+            // 
+            this.customButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.customButton1.FlatAppearance.BorderSize = 0;
+            this.customButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(166)))), ((int)(((byte)(91)))));
+            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customButton1.ForeColor = System.Drawing.Color.White;
+            this.customButton1.Location = new System.Drawing.Point(463, 50);
+            this.customButton1.Name = "customButton1";
+            this.customButton1.Size = new System.Drawing.Size(137, 23);
+            this.customButton1.TabIndex = 17;
+            this.customButton1.Text = "Choose Order";
+            this.customButton1.UseVisualStyleBackColor = false;
+            this.customButton1.Click += new System.EventHandler(this.customButton1_Click);
             // 
             // textBox2
             // 
@@ -463,59 +532,6 @@
             this.tableAdapterManager.raw_supplier_tabTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = RawMaterialManagement.RawDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // recordSelectorGrid1
-            // 
-            this.recordSelectorGrid1.AllowUserToAddRows = false;
-            this.recordSelectorGrid1.AllowUserToDeleteRows = false;
-            this.recordSelectorGrid1.AllowUserToResizeRows = false;
-            this.recordSelectorGrid1.AutoGenerateColumns = false;
-            this.recordSelectorGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.recordSelectorGrid1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.recordSelectorGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.recordSelectorGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.invoiceidDataGridViewTextBoxColumn,
-            this.orderidDataGridViewTextBoxColumn});
-            this.recordSelectorGrid1.DataSource = this.raw_invoice_tabBindingSource;
-            this.recordSelectorGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.recordSelectorGrid1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
-            this.recordSelectorGrid1.EnableHeadersVisualStyles = false;
-            this.recordSelectorGrid1.GridColor = System.Drawing.SystemColors.Control;
-            this.recordSelectorGrid1.Location = new System.Drawing.Point(0, 0);
-            this.recordSelectorGrid1.MultiSelect = false;
-            this.recordSelectorGrid1.Name = "recordSelectorGrid1";
-            this.recordSelectorGrid1.RowHeadersVisible = false;
-            this.recordSelectorGrid1.RowTemplate.Height = 30;
-            this.recordSelectorGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.recordSelectorGrid1.Size = new System.Drawing.Size(168, 598);
-            this.recordSelectorGrid1.TabIndex = 0;
-            // 
-            // invoiceidDataGridViewTextBoxColumn
-            // 
-            this.invoiceidDataGridViewTextBoxColumn.DataPropertyName = "invoice_id";
-            this.invoiceidDataGridViewTextBoxColumn.HeaderText = "invoice_id";
-            this.invoiceidDataGridViewTextBoxColumn.Name = "invoiceidDataGridViewTextBoxColumn";
-            // 
-            // orderidDataGridViewTextBoxColumn
-            // 
-            this.orderidDataGridViewTextBoxColumn.DataPropertyName = "order_id";
-            this.orderidDataGridViewTextBoxColumn.HeaderText = "order_id";
-            this.orderidDataGridViewTextBoxColumn.Name = "orderidDataGridViewTextBoxColumn";
-            // 
-            // customButton1
-            // 
-            this.customButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.customButton1.FlatAppearance.BorderSize = 0;
-            this.customButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(166)))), ((int)(((byte)(91)))));
-            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton1.ForeColor = System.Drawing.Color.White;
-            this.customButton1.Location = new System.Drawing.Point(463, 50);
-            this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(137, 23);
-            this.customButton1.TabIndex = 17;
-            this.customButton1.Text = "Choose Order";
-            this.customButton1.UseVisualStyleBackColor = false;
-            this.customButton1.Click += new System.EventHandler(this.customButton1_Click);
-            // 
             // InvoiceDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -540,9 +556,9 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.recordSelectorGrid1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.recordSelectorGrid1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

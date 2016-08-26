@@ -21,7 +21,7 @@ namespace DistributionManagement
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Populate();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -29,11 +29,23 @@ namespace DistributionManagement
             addRoute();
         }
 
+        private void Populate()
+        {
+            //conn.Open();
+            MySqlCommand Cmd = new MySqlCommand("select * from dis_route_tab",conn);
+
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(Cmd);
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            //conn.Close();
+        }
+
         private void addRoute()
         {
             try
             {
-                String query = "INSERT INTO Table1 (RouteId,StrtLo,EndLo,Dist) VALUES (@RouteId,@StrtLo,@EndLo,@Dist)";
+                String query = "INSERT INTO dis_route_tab (route_id,start_location,end_location,distance) VALUES (@RouteId,@StrtLo,@EndLo,@Dist)";
                 MySqlCommand Cmd = new MySqlCommand(query, conn);
                 Cmd.Parameters.AddWithValue("@RouteId", RouteId.Text);
                 Cmd.Parameters.AddWithValue("@StrtLo", StrtLo.Text);
@@ -46,10 +58,13 @@ namespace DistributionManagement
                 {
                     MessageBox.Show("Vehicle Details Added Successfully");
 
+                    RouteId.Text = "";
+                    StrtLo.Text = "";
+                    EndLo.Text = "";
+                    Dist.Text = "";
+
+                    Populate();
                 }
-                conn.Close();
-
-
             }
             catch (Exception ex)
             {
@@ -57,10 +72,11 @@ namespace DistributionManagement
                     
                 MessageBox.Show(ex.Message);
             }
-            RouteId.Text = "";
-            StrtLo.Text = "";
-            EndLo.Text = "";
-            Dist.Text = "";
+            finally
+            {
+                conn.Close();
+            }
+            
         }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -77,11 +93,12 @@ namespace DistributionManagement
             conn.Open();
             MySqlCommand Cmd = conn.CreateCommand();
             Cmd.CommandType = CommandType.Text;
-            Cmd.CommandText = "Update Table2 set RouteID= '" + RouteId.Text + "' && StartLocation='" + StrtLo.Text + "' && EndLocation ='" + EndLo + "' && Distance ='" + Dist.Text + "'";
+            Cmd.CommandText = "Update dis_route_tab set start_location='" + StrtLo.Text + "' , end_location ='" + EndLo.Text + "' , distance ='" + Dist.Text + "' where route_id = '" + RouteId.Text + "'";
             Cmd.ExecuteNonQuery();
             conn.Close();
             
             MessageBox.Show("Update Successfully");
+            Populate();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -89,7 +106,7 @@ namespace DistributionManagement
             conn.Open();
             MySqlCommand Cmd = conn.CreateCommand();
             Cmd.CommandType = CommandType.Text;
-            Cmd.CommandText = "delete from Table2 where Route ID='" + RouteId.Text + "'";
+            Cmd.CommandText = "delete from dis_route_tab where route_id='" + RouteId.Text + "'";
             Cmd.ExecuteNonQuery();
             conn.Close();
             
