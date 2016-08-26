@@ -37,10 +37,11 @@
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.5\MySql.Data.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.5\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,42 +52,109 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buyer\addNew.cs">
+    <Compile Include="Buyer Records\buyerAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Buyer\addNew.Designer.cs">
-      <DependentUpon>addNew.cs</DependentUpon>
+    <Compile Include="Buyer Records\buyerAdd.Designer.cs">
+      <DependentUpon>buyerAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="DBConnect.cs" />
+    <Compile Include="Buyer Records\buyerHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buyer Records\buyerHome.Designer.cs">
+      <DependentUpon>buyerHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class files\DBConnect.cs" />
+    <Compile Include="Class files\emailThis.cs" />
+    <Compile Include="Class files\validate.cs" />
+    <Compile Include="home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="home.Designer.cs">
+      <DependentUpon>home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="itpDataSet.cs">
+      <DependentUpon>itpDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="itpDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>itpDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="paymentInfo.cs">
+    <Compile Include="itpDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itpDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Payment Records\paymentAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="paymentInfo.designer.cs">
-      <DependentUpon>paymentInfo.cs</DependentUpon>
+    <Compile Include="Payment Records\paymentAdd.Designer.cs">
+      <DependentUpon>paymentAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Payment Records\paymentHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment Records\paymentHome.Designer.cs">
+      <DependentUpon>paymentHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment Records\paymentView2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment Records\paymentView2.Designer.cs">
+      <DependentUpon>paymentView2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Buyer\updateBuyer.cs">
+    <Compile Include="Buyer Records\buyerUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Buyer\updateBuyer.Designer.cs">
-      <DependentUpon>updateBuyer.cs</DependentUpon>
+    <Compile Include="Buyer Records\buyerUpdate.Designer.cs">
+      <DependentUpon>buyerUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Buyer\viewAllBuyers.cs">
+    <Compile Include="Buyer Records\buyerView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Buyer\viewAllBuyers.designer.cs">
-      <DependentUpon>viewAllBuyers.cs</DependentUpon>
+    <Compile Include="Buyer Records\buyerView.Designer.cs">
+      <DependentUpon>buyerView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Buyer\addNew.resx">
-      <DependentUpon>addNew.cs</DependentUpon>
+    <Compile Include="Class files\accessDb.cs" />
+    <Compile Include="Purchase Records\purchaseAdd2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase Records\purchaseAdd2.Designer.cs">
+      <DependentUpon>purchaseAdd2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase Records\purchaseHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase Records\purchaseHome.Designer.cs">
+      <DependentUpon>purchaseHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase Records\purchaseViewOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase Records\purchaseViewOrder.Designer.cs">
+      <DependentUpon>purchaseViewOrder.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Buyer Records\buyerAdd.resx">
+      <DependentUpon>buyerAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="paymentInfo.resx">
-      <DependentUpon>paymentInfo.cs</DependentUpon>
+    <EmbeddedResource Include="Buyer Records\buyerHome.resx">
+      <DependentUpon>buyerHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="home.resx">
+      <DependentUpon>home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment Records\paymentAdd.resx">
+      <DependentUpon>paymentAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment Records\paymentHome.resx">
+      <DependentUpon>paymentHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment Records\paymentView2.resx">
+      <DependentUpon>paymentView2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -98,11 +166,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Buyer\updateBuyer.resx">
-      <DependentUpon>updateBuyer.cs</DependentUpon>
+    <EmbeddedResource Include="Buyer Records\buyerUpdate.resx">
+      <DependentUpon>buyerUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Buyer\viewAllBuyers.resx">
-      <DependentUpon>viewAllBuyers.cs</DependentUpon>
+    <EmbeddedResource Include="Buyer Records\buyerView.resx">
+      <DependentUpon>buyerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchase Records\purchaseAdd2.resx">
+      <DependentUpon>purchaseAdd2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchase Records\purchaseHome.resx">
+      <DependentUpon>purchaseHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchase Records\purchaseViewOrder.resx">
+      <DependentUpon>purchaseViewOrder.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="itpDataSet.xsc">
       <DependentUpon>itpDataSet.xsd</DependentUpon>
@@ -114,6 +191,17 @@
     </None>
     <None Include="itpDataSet.xss">
       <DependentUpon>itpDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="itpDataSet1.xsc">
+      <DependentUpon>itpDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="itpDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itpDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="itpDataSet1.xss">
+      <DependentUpon>itpDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -129,15 +217,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Sales Records\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FrameworkControls\FrameworkControls.csproj">
-      <Project>{7079DC71-6B90-47A7-BB0F-B061F6861D37}</Project>
-      <Name>FrameworkControls</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MySQLDatabaseAccess\MySQLDatabaseAccess.csproj">
-      <Project>{7A1F3AB0-C5E3-4234-A9D5-D15EF65714B0}</Project>
+      <Project>{7a1f3ab0-c5e3-4234-a9d5-d15ef65714b0}</Project>
       <Name>MySQLDatabaseAccess</Name>
     </ProjectReference>
   </ItemGroup>
