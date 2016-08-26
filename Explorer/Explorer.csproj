@@ -166,6 +166,10 @@
       <Project>{075cc06a-38b4-4f27-84ba-29078bb5c4a8}</Project>
       <Name>RawMaterialManagement</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SalesManagement\SalesManagement.csproj">
+      <Project>{b6166827-aa20-471c-81c5-912f75040d62}</Project>
+      <Name>SalesManagement</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UserManagement\UserManagement.csproj">
       <Project>{8e0584e3-38c9-4c48-8eb2-dc3168c1f680}</Project>
       <Name>UserManagement</Name>

@@ -33,7 +33,7 @@ namespace Explorer
                 mssb.Add("password", password);
             }
             mssb.Add("server", server);
-            mssb.Add("database", "itp");
+            mssb.Add("database", txtDatabase.Text);
 
             try
             {

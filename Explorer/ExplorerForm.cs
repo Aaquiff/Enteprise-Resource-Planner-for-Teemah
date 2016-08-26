@@ -134,18 +134,6 @@ namespace Explorer
                             break;
                     }
                 }
-                if(Connection.getUserIdFromConnectionString() == "root")
-                {
-                    btnFM.Show();
-                    btnIM.Show();
-                    btnPPM.Show();
-                    btnDM.Show();
-                    btnEM.Show();
-                    btnFM.Show();
-                    btnRMM.Show();
-                    btnSM.Show();
-                    buttonSettings.Show();
-                }
             }
             catch (Exception ex)
             {
@@ -154,6 +142,18 @@ namespace Explorer
             finally
             {
                 con.Close();
+            }
+            if (Connection.getUserIdFromConnectionString() == "root")
+            {
+                btnFM.Show();
+                btnIM.Show();
+                btnPPM.Show();
+                btnDM.Show();
+                btnEM.Show();
+                btnFM.Show();
+                btnRMM.Show();
+                btnSM.Show();
+                buttonSettings.Show();
             }
         }
 

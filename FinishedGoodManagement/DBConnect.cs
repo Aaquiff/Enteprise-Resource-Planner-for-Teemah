@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using MySQLDatabaseAccess;
+
 
 namespace FinishedGoodManagement
 {
@@ -29,7 +29,14 @@ namespace FinishedGoodManagement
         //Initialize values
         private void Initialize()
         {
-            connection = Connection.getConnection();
+            server = "localhost";
+            database = "inv_itp";
+            uid = "root";
+            password = "1234";
+
+            string connectionString;
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            connection = new MySqlConnection(connectionString);
         }
 
         public MySqlConnection GetConnection()

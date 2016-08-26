@@ -27,7 +27,7 @@ namespace FinishedGoodManagement
             MySqlConnection returnconn = new MySqlConnection();
             returnconn = connection.GetConnection();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM inv_productreq", returnconn);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM INV_ITP.inv_productreq", returnconn);
 
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -45,6 +45,7 @@ namespace FinishedGoodManagement
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             //txtid.ReadOnly = true;
+            
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -111,7 +112,7 @@ namespace FinishedGoodManagement
                     string query;
 
 
-                    query = "INSERT INTO inv_productreq (productReqId , productId , quantity , requestDate, notes ) VALUES (@1, @2, @3, @4, @5)";
+                    query = "INSERT INTO INV_ITP.inv_productreq (productReqId , productId , quantity , requestDate, orderDate ,notes ) VALUES (@1, @2, @3, @4, @5,@6)";
                     MySqlCommand cmd = new MySqlCommand(query, returnConn);
 
 
@@ -119,7 +120,9 @@ namespace FinishedGoodManagement
                     cmd.Parameters.AddWithValue("@2", ProductID);
                     cmd.Parameters.AddWithValue("@3", Quantity);
                     cmd.Parameters.AddWithValue("@4", RequstedDate);
-                    cmd.Parameters.AddWithValue("@5", Product_Notes);
+                     
+                    cmd.Parameters.AddWithValue("@5", DateTime.Now.ToString("yyyy/MM/dd"));
+                    cmd.Parameters.AddWithValue("@6", Product_Notes);
                
 
                     cmd.ExecuteNonQuery();
@@ -168,7 +171,7 @@ namespace FinishedGoodManagement
                     string query;
 
 
-                    query = (" update inv_productreq set productId=@2 , quantity=@3 , requestDate=@4, notes=@5 where productReqId =@1");
+                    query = (" update INV_ITP.inv_productreq set productId=@2 , quantity=@3 , requestDate=@4, notes=@5 where productReqId =@1");
                      
                     MySqlCommand cmd = new MySqlCommand(query, returnConn);
 
@@ -214,7 +217,7 @@ namespace FinishedGoodManagement
             returnConn = connection.GetConnection();
             string query;
 
-            query = ("delete from inv_productreq where productReqId = @id");
+            query = ("delete from INV_ITP.inv_productreq where productReqId = @id");
              
             MySqlCommand cmd = new MySqlCommand(query, returnConn);
             cmd.Parameters.AddWithValue("@id", reqid.Text);
@@ -238,7 +241,7 @@ namespace FinishedGoodManagement
             returnConn = connection.GetConnection();
 
 
-            MySqlCommand cmd = new MySqlCommand("select *from inv_productreq where productReqId  like '" + searchreq.Text + "%' ", returnConn);
+            MySqlCommand cmd = new MySqlCommand("select *from INV_ITP.inv_productreq where productReqId  like '" + searchreq.Text + "%' ", returnConn);
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             dataGridView1.DataSource = dt;
@@ -263,7 +266,7 @@ namespace FinishedGoodManagement
            
             try
             {
-                query = "select * from products";
+                query = "select * from INV_ITP.products";
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
                 using (var command = new MySqlCommand(query,returnConn))
                 {
@@ -304,6 +307,41 @@ namespace FinishedGoodManagement
             datereq.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             pronotes.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
              
+        }
+
+        private void reqid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("Enter Only Digit");
+            }
+        }
+
+        private void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("Enter Only Digit");
+            }
+        }
+
+        private void quantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("Enter Only Digit");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ClearData();
         }
     }
 }

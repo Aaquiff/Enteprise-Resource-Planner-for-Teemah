@@ -29,7 +29,7 @@ namespace FinishedGoodManagement
             MySqlConnection returnconn = new MySqlConnection();
             returnconn = connection.GetConnection();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM inv_newitems", returnconn);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM INV_ITP.inv_newitems", returnconn);
              
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -53,12 +53,13 @@ namespace FinishedGoodManagement
         {
 
 
-            if (txt_id.Text != "" & txt_receiveddate.Text != "" && batchno.Text != "" && productid.Text != "" && manufactureddate.Text != "" && expireddate.Text != "" && productname.Text != "" && priceperunit.Text != "" && quantity.Text != "")
+            if (txt_receiveddate.Text != "" && batchno.Text != "" && productid.Text != "" && manufactureddate.Text != "" && expireddate.Text != "" && productname.Text != "" && priceperunit.Text != "" && quantity.Text != "")
             {
 
 
-                string id = txt_id.Text;
+                //string id = txt_id.Text;
                 string receivedate = txt_receiveddate.Value.ToString("yyyy-MM-dd");
+                
                 string Batchno = batchno.Text;
                 string Productid = productid.Text;
                 string Manufactureddate = manufactureddate.Value.ToString("yyyy-MM-dd");
@@ -69,7 +70,7 @@ namespace FinishedGoodManagement
                 string Box = box.Text;
                 string Packet = packet.Text;
 
-
+                
 
                 try
                 {
@@ -78,11 +79,12 @@ namespace FinishedGoodManagement
                     MySqlConnection returnConn = new MySqlConnection();
                     returnConn = conn.GetConnection();
 
+                    
 
-                    string query = ("insert into inv_newitems (ID,ReceivedDate,BatchNo,ManufacturedDate,ExpiredDate,ProductID,ProductName,Quantity,PPUnit,Packed) values(@id,@receiveddate,@batchno,@manufactureddate,@expireddate,@productid,@productname,@quantity,@ppunit,@packed)");
+                    string query = ("insert into INV_ITP.inv_newitems (ReceivedDate,BatchNo,ManufacturedDate,ExpiredDate,ProductID,ProductName,Quantity,PPUnit,Packed) values(@receiveddate,@batchno,@manufactureddate,@expireddate,@productid,@productname,@quantity,@ppunit,@packed)");
                     MySqlCommand cmd = new MySqlCommand(query, returnConn);
 
-                    cmd.Parameters.AddWithValue("@id", id);
+                   // cmd.Parameters.AddWithValue("@id", id);
                     cmd.Parameters.AddWithValue("@receiveddate", receivedate);
                     cmd.Parameters.AddWithValue("@batchno", Batchno);
                     cmd.Parameters.AddWithValue("@productid", Productid);
@@ -94,7 +96,16 @@ namespace FinishedGoodManagement
                     else
                     {
                         MessageBox.Show("Manufactured Date and Expired Date can't Be Same");
+                        return;
                     }
+                    if (manufactureddate.Value < expireddate.Value){
+                        MessageBox.Show("Expired Date");
+                        return;
+                    }
+
+
+                    
+                   
                    
                     cmd.Parameters.AddWithValue("@productname", Productname);
                     cmd.Parameters.AddWithValue("@quantity", Priceperunit);
@@ -135,7 +146,7 @@ namespace FinishedGoodManagement
         private void ClearData()
         {
             // throw new NotImplementedException();
-            txt_id.Text = "";
+            lbl2.Text = "";
             txt_receiveddate.Text = "";
             batchno.Text = "";
             manufactureddate.Text = "";
@@ -144,8 +155,8 @@ namespace FinishedGoodManagement
             productname.Text = "";
             quantity.Text = "";
             priceperunit.Text = "";
-            box.Text = "";
-            packet.Text = "";
+            box.Checked = false;
+            packet.Checked = false;
 
         }
 
@@ -161,11 +172,11 @@ namespace FinishedGoodManagement
                 string query;
 
 
-                query = (" update inv_newitems set ReceivedDate=@receiveddate,BatchNo=@batchno,ManufacturedDate=@manufactureddate,ExpiredDate=@expireddate,ProductID=@productid,ProductName=@productname,Quantity=@quantity,PPUnit=@ppunit,Packed=@packed where ID=@id");
+                query = (" update INV_ITP.inv_newitems set ReceivedDate=@receiveddate,BatchNo=@batchno,ManufacturedDate=@manufactureddate,ExpiredDate=@expireddate,ProductID=@productid,ProductName=@productname,Quantity=@quantity,PPUnit=@ppunit,Packed=@packed where ID=@id");
                
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
-                
-                cmd.Parameters.AddWithValue("@id", txt_id.Text);
+                //newly 
+                cmd.Parameters.AddWithValue("@id", lbl2.Text);
                 cmd.Parameters.AddWithValue("@receiveddate", txt_receiveddate.Value.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@batchno", batchno.Text);
                 cmd.Parameters.AddWithValue("@manufactureddate", manufactureddate.Value.ToString("yyyy-MM-dd"));
@@ -174,8 +185,19 @@ namespace FinishedGoodManagement
                 cmd.Parameters.AddWithValue("@productname", productname.Text);
                 cmd.Parameters.AddWithValue("@quantity", quantity.Text);
                 cmd.Parameters.AddWithValue("@ppunit", priceperunit.Text);
-                cmd.Parameters.AddWithValue("@packed", packet.Text);
-                //cmd.Parameters.AddWithValue("@1", txt_id.Text);
+                if (box.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@packed", box.Text);
+
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@packed", packet.Text);
+                }
+                
+
+                
+               
 
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Record Updated Sucessfully!");
@@ -225,10 +247,10 @@ namespace FinishedGoodManagement
                 returnConn = connection.GetConnection();
                 string query;
 
-                query = ("delete from inv_newitems where ID=@id");
-                 
+                query = ("delete from INV_ITP.inv_newitems where ID=@id");
+                int delete = Convert.ToInt32(lbl2.Text);
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
-                cmd.Parameters.AddWithValue("@id", txt_id.Text);
+                cmd.Parameters.AddWithValue("@id", delete);
                 cmd.ExecuteNonQuery();
                 connection.CloseConnection();
                 MessageBox.Show("Record Deleted SucessFully!");
@@ -245,8 +267,8 @@ namespace FinishedGoodManagement
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try 
-	{	        
-		    txt_id.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+	{
+            lbl2.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             txt_receiveddate.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             batchno.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             manufactureddate.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
@@ -255,6 +277,16 @@ namespace FinishedGoodManagement
             productname.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
             quantity.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
             priceperunit.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+            if (dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString() == "Box")
+            {
+                box.Checked = true;
+            }
+            else 
+            {
+                packet.Checked = true;
+            }
+               
+           
 	}
 	catch (Exception ex)
 	{
@@ -280,7 +312,7 @@ namespace FinishedGoodManagement
                 returnConn = connection.GetConnection();
 
 
-                MySqlCommand cmd = new MySqlCommand("select *from inv_newitems where ID like '" + txtid.Text + "%' ", returnConn);
+                MySqlCommand cmd = new MySqlCommand("select *from INV_ITP.inv_newitems where BatchNo like '" + txtid.Text + "%' ", returnConn);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -291,6 +323,67 @@ namespace FinishedGoodManagement
             {
                 MessageBox.Show(ex.Message);
             }
+
+        }
+
+        private void batchno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("Enter Only Digit");
+            }
+
+        }
+
+        private void productid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("Enter Only Digit");
+            }
+        }
+
+        private void quantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("Enter Only Digit");
+            }
+        }
+
+        private void priceperunit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("Enter Only Digit");
+            }
+        }
+
+        private void productname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) &&
+        (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("Enter Only Character");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ClearData();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
