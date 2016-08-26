@@ -94,9 +94,9 @@ namespace FinishedGoodManagement
 
 
 
-            if (reqid.Text != "" && comboBox1.Text != "" && quantity.Text != "" && datereq.Text != "" && pronotes.Text != "" )
+            if (comboBox1.Text != "" && quantity.Text != "" && datereq.Text != "" && pronotes.Text != "" )
             {
-                string Request_ID = reqid.Text;
+               // string Request_ID = reqid.Text;
                 string ProductID = comboBox1.Text;
                 string Quantity = quantity.Text;
                 string RequstedDate = datereq.Value.ToString("yyyy-MM-dd");
@@ -112,13 +112,14 @@ namespace FinishedGoodManagement
                     string query;
 
 
-                    query = "INSERT INTO INV_ITP.inv_productreq (productReqId , productId , quantity , requestDate, orderDate ,notes ) VALUES (@1, @2, @3, @4, @5,@6)";
+                    query = "INSERT INTO INV_ITP.inv_productreq ( productId , quantity , requestDate, orderDate ,notes ) VALUES ( @2, @3, @4, @5,@6)";
                     MySqlCommand cmd = new MySqlCommand(query, returnConn);
 
 
-                    cmd.Parameters.AddWithValue("@1", Request_ID);
+                   // cmd.Parameters.AddWithValue("@1", Request_ID);
                     cmd.Parameters.AddWithValue("@2", ProductID);
                     cmd.Parameters.AddWithValue("@3", Quantity);
+ 
                     cmd.Parameters.AddWithValue("@4", RequstedDate);
                      
                     cmd.Parameters.AddWithValue("@5", DateTime.Now.ToString("yyyy/MM/dd"));
@@ -140,13 +141,14 @@ namespace FinishedGoodManagement
             else
             {
                 MessageBox.Show("Inset the Values");
+                return;
             }
         }
 
         private void ClearData()
         {
            
-            reqid.Text="";
+            //reqid.Text="";
             comboBox1.Text="";
             quantity.Text="";
             datereq.Text="";
@@ -156,7 +158,7 @@ namespace FinishedGoodManagement
         private void button2_Click(object sender, EventArgs e)
         {
 
-            if (reqid.Text != "")
+            if (comboBox1.Text != "" && quantity.Text != "" && datereq.Text != "" && pronotes.Text != "")
             {
 
 
@@ -175,7 +177,7 @@ namespace FinishedGoodManagement
                      
                     MySqlCommand cmd = new MySqlCommand(query, returnConn);
 
-                    string Request_ID = reqid.Text;
+                     string Request_ID = reqid.Text;
                     string ProductID = comboBox1.Text;
                     string Quantity = quantity.Text;
                     string RequstedDate = datereq.Value.ToString("yyyy-MM-dd");
@@ -206,26 +208,37 @@ namespace FinishedGoodManagement
             else
             {
                 MessageBox.Show("Please Select Record to Update");
+                return;
             }
         }
 
         private void delete_Click(object sender, EventArgs e)
         {
-            DBConnect connection = new DBConnect();
-            connection.OpenConnection();
-            MySqlConnection returnConn = new MySqlConnection();
-            returnConn = connection.GetConnection();
-            string query;
+            if (comboBox1.Text != "" && quantity.Text != "" && datereq.Text != "" && pronotes.Text != "")
+            {
 
-            query = ("delete from INV_ITP.inv_productreq where productReqId = @id");
-             
-            MySqlCommand cmd = new MySqlCommand(query, returnConn);
-            cmd.Parameters.AddWithValue("@id", reqid.Text);
-            cmd.ExecuteNonQuery();
-            connection.CloseConnection();
-            MessageBox.Show("Record Deleted SucessFully!");
-            DisplayData();
-            ClearData();
+
+                DBConnect connection = new DBConnect();
+                connection.OpenConnection();
+                MySqlConnection returnConn = new MySqlConnection();
+                returnConn = connection.GetConnection();
+                string query;
+
+                query = ("delete from INV_ITP.inv_productreq where productReqId = @id");
+
+                MySqlCommand cmd = new MySqlCommand(query, returnConn);
+                cmd.Parameters.AddWithValue("@id", reqid.Text);
+                cmd.ExecuteNonQuery();
+                connection.CloseConnection();
+                MessageBox.Show("Record Deleted SucessFully!");
+                DisplayData();
+                ClearData();
+            }
+            else
+            {
+                MessageBox.Show("Select Any Row!");
+                return;
+            }
         }
 
         private void proname_TextChanged(object sender, EventArgs e)
@@ -306,7 +319,7 @@ namespace FinishedGoodManagement
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            reqid.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+           // reqid.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             comboBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             quantity.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             datereq.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();

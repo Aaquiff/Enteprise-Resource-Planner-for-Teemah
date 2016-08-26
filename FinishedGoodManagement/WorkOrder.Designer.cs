@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.reqid = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.datereq = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,34 +44,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.pronotes = new System.Windows.Forms.RichTextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.reqid = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Request ID";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // reqid
-            // 
-            this.reqid.Location = new System.Drawing.Point(138, 27);
-            this.reqid.Name = "reqid";
-            this.reqid.Size = new System.Drawing.Size(254, 20);
-            this.reqid.TabIndex = 1;
-            this.reqid.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.reqid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.reqid_KeyPress);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.datereq);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(15, 124);
+            this.groupBox1.Location = new System.Drawing.Point(15, 98);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(399, 76);
             this.groupBox1.TabIndex = 2;
@@ -160,7 +140,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 62);
+            this.label10.Location = new System.Drawing.Point(12, 31);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(58, 13);
             this.label10.TabIndex = 0;
@@ -170,7 +150,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 90);
+            this.label11.Location = new System.Drawing.Point(12, 62);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(46, 13);
             this.label11.TabIndex = 0;
@@ -179,7 +159,7 @@
             // 
             // quantity
             // 
-            this.quantity.Location = new System.Drawing.Point(138, 85);
+            this.quantity.Location = new System.Drawing.Point(141, 62);
             this.quantity.Name = "quantity";
             this.quantity.Size = new System.Drawing.Size(254, 20);
             this.quantity.TabIndex = 1;
@@ -189,7 +169,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(138, 53);
+            this.comboBox1.Location = new System.Drawing.Point(141, 23);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(254, 21);
             this.comboBox1.TabIndex = 15;
@@ -199,7 +179,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 209);
+            this.label6.Location = new System.Drawing.Point(12, 190);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 14;
@@ -207,9 +187,9 @@
             // 
             // pronotes
             // 
-            this.pronotes.Location = new System.Drawing.Point(138, 206);
+            this.pronotes.Location = new System.Drawing.Point(141, 190);
             this.pronotes.Name = "pronotes";
-            this.pronotes.Size = new System.Drawing.Size(254, 51);
+            this.pronotes.Size = new System.Drawing.Size(254, 116);
             this.pronotes.TabIndex = 15;
             this.pronotes.Text = "";
             // 
@@ -223,11 +203,22 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // reqid
+            // 
+            this.reqid.AutoSize = true;
+            this.reqid.Location = new System.Drawing.Point(244, 7);
+            this.reqid.Name = "reqid";
+            this.reqid.Size = new System.Drawing.Size(35, 13);
+            this.reqid.TabIndex = 17;
+            this.reqid.Text = "label1";
+            this.reqid.Visible = false;
+            // 
             // WorkOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 516);
+            this.Controls.Add(this.reqid);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.pronotes);
             this.Controls.Add(this.comboBox1);
@@ -240,10 +231,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.quantity);
-            this.Controls.Add(this.reqid);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label1);
             this.Name = "WorkOrder";
             this.Text = "Work Order";
             this.Load += new System.EventHandler(this.WorkOrder_Load);
@@ -257,8 +246,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox reqid;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker datereq;
@@ -275,6 +262,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RichTextBox pronotes;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label reqid;
     }
 }
 

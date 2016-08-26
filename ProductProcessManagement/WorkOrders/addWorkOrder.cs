@@ -163,5 +163,10 @@ namespace ProductProcessManagement.WorkOrders
         {
             clear();
         }
+
+        private void startDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -35,7 +35,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.date_delivery = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.pro_id = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pro_name = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,6 +47,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pro_id = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtorder = new System.Windows.Forms.TextBox();
             this.txitid = new System.Windows.Forms.Label();
@@ -118,14 +118,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Product ID";
             // 
-            // pro_id
-            // 
-            this.pro_id.Location = new System.Drawing.Point(117, 19);
-            this.pro_id.Name = "pro_id";
-            this.pro_id.Size = new System.Drawing.Size(157, 20);
-            this.pro_id.TabIndex = 2;
-            this.pro_id.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pro_id_KeyPress);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -139,6 +131,7 @@
             // 
             this.pro_name.Location = new System.Drawing.Point(117, 43);
             this.pro_name.Name = "pro_name";
+            this.pro_name.ReadOnly = true;
             this.pro_name.Size = new System.Drawing.Size(157, 20);
             this.pro_name.TabIndex = 2;
             this.pro_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pro_name_KeyPress);
@@ -173,6 +166,7 @@
             // 
             this.pro_amound.Location = new System.Drawing.Point(117, 90);
             this.pro_amound.Name = "pro_amound";
+            this.pro_amound.ReadOnly = true;
             this.pro_amound.Size = new System.Drawing.Size(157, 20);
             this.pro_amound.TabIndex = 2;
             this.pro_amound.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pro_amound_KeyPress);
@@ -225,12 +219,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.pro_id);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.pro_name);
-            this.groupBox2.Controls.Add(this.pro_id);
             this.groupBox2.Controls.Add(this.pro_quantity);
             this.groupBox2.Controls.Add(this.pro_amound);
             this.groupBox2.Controls.Add(this.txt_amound);
@@ -241,6 +235,15 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ordered Goods";
+            // 
+            // pro_id
+            // 
+            this.pro_id.FormattingEnabled = true;
+            this.pro_id.Location = new System.Drawing.Point(117, 16);
+            this.pro_id.Name = "pro_id";
+            this.pro_id.Size = new System.Drawing.Size(157, 21);
+            this.pro_id.TabIndex = 3;
+            this.pro_id.TextChanged += new System.EventHandler(this.pro_id_TextChanged);
             // 
             // label9
             // 
@@ -319,7 +322,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker date_delivery;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox pro_id;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox pro_name;
         private System.Windows.Forms.Label label6;
@@ -336,5 +338,6 @@
         private System.Windows.Forms.TextBox txtorder;
         private System.Windows.Forms.Label txitid;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ComboBox pro_id;
     }
 }

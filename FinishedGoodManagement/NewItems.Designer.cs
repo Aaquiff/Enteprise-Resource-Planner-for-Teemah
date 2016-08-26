@@ -44,8 +44,6 @@
             this.box = new System.Windows.Forms.RadioButton();
             this.priceperunit = new System.Windows.Forms.TextBox();
             this.quantity = new System.Windows.Forms.TextBox();
-            this.productname = new System.Windows.Forms.TextBox();
-            this.productid = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -58,16 +56,18 @@
             this.lbl2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.productid = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_receiveddate
@@ -173,12 +173,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.productid);
             this.groupBox2.Controls.Add(this.packet);
             this.groupBox2.Controls.Add(this.box);
             this.groupBox2.Controls.Add(this.priceperunit);
+            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.quantity);
-            this.groupBox2.Controls.Add(this.productname);
-            this.groupBox2.Controls.Add(this.productid);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label16);
@@ -232,24 +232,6 @@
             this.quantity.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
             this.quantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantity_KeyPress);
             // 
-            // productname
-            // 
-            this.productname.Location = new System.Drawing.Point(115, 58);
-            this.productname.Name = "productname";
-            this.productname.Size = new System.Drawing.Size(200, 20);
-            this.productname.TabIndex = 2;
-            this.productname.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
-            this.productname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.productname_KeyPress);
-            // 
-            // productid
-            // 
-            this.productid.Location = new System.Drawing.Point(115, 32);
-            this.productid.Name = "productid";
-            this.productid.Size = new System.Drawing.Size(200, 20);
-            this.productid.TabIndex = 2;
-            this.productid.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
-            this.productid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.productid_KeyPress);
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -280,11 +262,11 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(18, 113);
+            this.label17.Location = new System.Drawing.Point(15, 113);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(72, 13);
+            this.label17.Size = new System.Drawing.Size(102, 13);
             this.label17.TabIndex = 0;
-            this.label17.Text = "Price Per Unit";
+            this.label17.Text = "Maximum retail price";
             // 
             // label18
             // 
@@ -360,25 +342,6 @@
             this.panel1.Size = new System.Drawing.Size(956, 484);
             this.panel1.TabIndex = 13;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lbl2);
-            this.panel2.Controls.Add(this.txt_receive);
-            this.panel2.Controls.Add(this.txt_receiveddate);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.batchno);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.button6);
-            this.panel2.Controls.Add(this.groupBox3);
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.groupBox2);
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(421, 484);
-            this.panel2.TabIndex = 13;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel4);
@@ -398,6 +361,45 @@
             this.panel4.Size = new System.Drawing.Size(505, 32);
             this.panel4.TabIndex = 11;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lbl2);
+            this.panel2.Controls.Add(this.txt_receive);
+            this.panel2.Controls.Add(this.txt_receiveddate);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.batchno);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.button6);
+            this.panel2.Controls.Add(this.groupBox3);
+            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.groupBox2);
+            this.panel2.Controls.Add(this.button4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(421, 484);
+            this.panel2.TabIndex = 13;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // productid
+            // 
+            this.productid.FormattingEnabled = true;
+            this.productid.Location = new System.Drawing.Point(115, 19);
+            this.productid.Name = "productid";
+            this.productid.Size = new System.Drawing.Size(200, 21);
+            this.productid.TabIndex = 10;
+            this.productid.TextChanged += new System.EventHandler(this.productid_TextChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(115, 55);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(200, 20);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantity_KeyPress);
+            // 
             // NewItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,11 +415,11 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -426,7 +428,6 @@
 
         private System.Windows.Forms.TextBox batchno;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox productname;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -442,7 +443,6 @@
         private System.Windows.Forms.DateTimePicker expireddate;
         private System.Windows.Forms.TextBox priceperunit;
         private System.Windows.Forms.TextBox quantity;
-        private System.Windows.Forms.TextBox productid;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
@@ -457,5 +457,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox productid;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

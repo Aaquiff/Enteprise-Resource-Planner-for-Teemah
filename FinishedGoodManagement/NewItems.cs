@@ -53,18 +53,18 @@ namespace FinishedGoodManagement
         {
 
 
-            if (txt_receiveddate.Text != "" && batchno.Text != "" && productid.Text != "" && manufactureddate.Text != "" && expireddate.Text != "" && productname.Text != "" && priceperunit.Text != "" && quantity.Text != "")
+            if (txt_receiveddate.Text != "" && batchno.Text != "" && productid.Text != "" && manufactureddate.Text != "" && expireddate.Text != "" && textBox1.Text != "" && priceperunit.Text != "" && quantity.Text != "")
             {
 
 
-                //string id = txt_id.Text;
+               // string id = txt_id.Text;
                 string receivedate = txt_receiveddate.Value.ToString("yyyy-MM-dd");
                 
                 string Batchno = batchno.Text;
                 string Productid = productid.Text;
                 string Manufactureddate = manufactureddate.Value.ToString("yyyy-MM-dd");
                 string Expireddate = expireddate.Value.ToString("yyyy-MM-dd");
-                string Productname = productname.Text;
+                string Productname = textBox1.Text;
                 string Priceperunit = priceperunit.Text;
                 string Quantity = quantity.Text;
                 string Box = box.Text;
@@ -79,12 +79,12 @@ namespace FinishedGoodManagement
                     MySqlConnection returnConn = new MySqlConnection();
                     returnConn = conn.GetConnection();
 
-                    
 
-                    string query = ("insert into INV_ITP.inv_newitems (ReceivedDate,BatchNo,ManufacturedDate,ExpiredDate,ProductID,ProductName,Quantity,PPUnit,Packed) values(@receiveddate,@batchno,@manufactureddate,@expireddate,@productid,@productname,@quantity,@ppunit,@packed)");
+
+                    string query = ("insert into INV_ITP.inv_newitems (ReceivedDate,BatchNo,ManufacturedDate,ExpiredDate,ProductID,ProductName,Quantity,MaximumRetailPrice,Packed) values(@receiveddate,@batchno,@manufactureddate,@expireddate,@productid,@productname,@quantity,@ppunit,@packed)");
                     MySqlCommand cmd = new MySqlCommand(query, returnConn);
 
-                   // cmd.Parameters.AddWithValue("@id", id);
+                    //cmd.Parameters.AddWithValue("@id", id);
                     cmd.Parameters.AddWithValue("@receiveddate", receivedate);
                     cmd.Parameters.AddWithValue("@batchno", Batchno);
                     cmd.Parameters.AddWithValue("@productid", Productid);
@@ -104,8 +104,8 @@ namespace FinishedGoodManagement
                     }
                      
                     cmd.Parameters.AddWithValue("@productname", Productname);
-                    cmd.Parameters.AddWithValue("@quantity", Priceperunit);
-                    cmd.Parameters.AddWithValue("@ppunit", Quantity);
+                    cmd.Parameters.AddWithValue("@quantity", Quantity);
+                    cmd.Parameters.AddWithValue("@ppunit", Priceperunit);
 
                     if (box.Checked == true)
                     {
@@ -148,7 +148,7 @@ namespace FinishedGoodManagement
             manufactureddate.Text = "";
             expireddate.Text = "";
             productid.Text = "";
-            productname.Text = "";
+            textBox1.Text = "";
             quantity.Text = "";
             priceperunit.Text = "";
             box.Checked = false;
@@ -168,7 +168,7 @@ namespace FinishedGoodManagement
                 string query;
 
 
-                query = (" update INV_ITP.inv_newitems set ReceivedDate=@receiveddate,BatchNo=@batchno,ManufacturedDate=@manufactureddate,ExpiredDate=@expireddate,ProductID=@productid,ProductName=@productname,Quantity=@quantity,PPUnit=@ppunit,Packed=@packed where ID=@id");
+                query = (" update INV_ITP.inv_newitems set ReceivedDate=@receiveddate,BatchNo=@batchno,ManufacturedDate=@manufactureddate,ExpiredDate=@expireddate,ProductID=@productid,ProductName=@productname,Quantity=@quantity,MaximumRetailPrice=@ppunit,Packed=@packed where ID=@id");
                
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
                 //newly 
@@ -178,7 +178,7 @@ namespace FinishedGoodManagement
                 cmd.Parameters.AddWithValue("@manufactureddate", manufactureddate.Value.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@expireddate", expireddate.Value.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@productid", productid.Text);
-                cmd.Parameters.AddWithValue("@productname", productname.Text);
+                cmd.Parameters.AddWithValue("@productname", textBox1.Text);
                 cmd.Parameters.AddWithValue("@quantity", quantity.Text);
                 cmd.Parameters.AddWithValue("@ppunit", priceperunit.Text);
                 if (box.Checked == true)
@@ -206,15 +206,7 @@ namespace FinishedGoodManagement
                 MessageBox.Show(ex.Message);
             }
 
-
-
-
-
-
-
-
-
-
+             
 
         }
 
@@ -225,7 +217,39 @@ namespace FinishedGoodManagement
 
         private void NewItems_Load(object sender, EventArgs e)
         {
+            DBConnect connection = new DBConnect();
+            connection.OpenConnection();
+            MySqlConnection returnConn = new MySqlConnection();
+            returnConn = connection.GetConnection();
+            string query;
 
+
+            try
+            {
+                query = "select * from INV_ITP.products";
+                MySqlCommand cmd = new MySqlCommand(query, returnConn);
+                using (var command = new MySqlCommand(query, returnConn))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            productid.Items.Add(reader.GetString("productId"));
+                        }
+                    }
+                }
+                cmd.ExecuteNonQuery();
+                //comboBox1.Items.Add()
+
+
+
+                connection.CloseConnection();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void box_CheckedChanged(object sender, EventArgs e)
@@ -270,7 +294,7 @@ namespace FinishedGoodManagement
             manufactureddate.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             expireddate.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             productid.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-            productname.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+            textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
             quantity.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
             priceperunit.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
             if (dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString() == "Box")
@@ -379,6 +403,47 @@ namespace FinishedGoodManagement
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void productid_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                DBConnect connection = new DBConnect();
+                connection.OpenConnection();
+
+                MySqlConnection returnConn = new MySqlConnection();
+                returnConn = connection.GetConnection();
+
+                string query = "SELECT * FROM INV_ITP.products WHERE productId = '" + productid.Text + "'";
+                MySqlCommand cmd = new MySqlCommand(query, returnConn);
+
+
+                using (MySqlDataReader read = cmd.ExecuteReader())
+                {
+
+                    while (read.Read())
+                    {
+                        textBox1.Text = read.GetString("name").ToString();
+                     
+                    }
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong while loading the product");
+                //MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

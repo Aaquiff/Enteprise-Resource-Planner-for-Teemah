@@ -74,7 +74,7 @@ namespace FinishedGoodManagement
                     }
                     else
                     {
-                        MessageBox.Show("Ordered Date and Manufactured Date can't Be Same");
+                        MessageBox.Show("Date Order And DeliverDate can't be same");
                     }
 
                    
@@ -116,8 +116,7 @@ namespace FinishedGoodManagement
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if ( pro_id.Text != "")
-            {
+             
                 try
                 {
                     DBConnect connection = new DBConnect();
@@ -127,11 +126,11 @@ namespace FinishedGoodManagement
                     string query;
 
 
-                    query = (" update INV_ITP.inv_order set  orderdate=@2,deliverydate=@3,productid=@4,productname=@5,quantity=@6,maximumretailprice=@7,unitprice=@8 where orderid=@1");
+                    query = ("update INV_ITP.inv_order set orderdate=@2,deliverydate=@3,productid=@4,productname=@5,quantity=@6,maximumretailprice=@7,unitprice=@8 where orderid=@1");
                     
                     MySqlCommand cmd = new MySqlCommand(query, returnConn);
 
-                    //cmd.Parameters.AddWithValue("@1", txt_orderID.Text);
+                    cmd.Parameters.AddWithValue("@1", txitid.Text);
                     cmd.Parameters.AddWithValue("@2", date_order.Value.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@3", date_delivery.Value.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@4", pro_id.Text);
@@ -151,11 +150,8 @@ namespace FinishedGoodManagement
                     MessageBox.Show(ex.Message);
                 }
                
-            }
-            else
-            {
-                MessageBox.Show("Please Select Record to Update"); 
-            }
+            
+            
         }
 
         private void ClearData()
@@ -306,7 +302,112 @@ namespace FinishedGoodManagement
 
         private void OrderedItems_Load(object sender, EventArgs e)
         {
+             DBConnect connection = new DBConnect();
+            connection.OpenConnection();
+            MySqlConnection returnConn = new MySqlConnection();
+            returnConn = connection.GetConnection();
+            string query;
 
+
+            try
+            {
+                query = "select * from INV_ITP.products";
+                MySqlCommand cmd = new MySqlCommand(query, returnConn);
+                using (var command = new MySqlCommand(query, returnConn))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            pro_id.Items.Add(reader.GetString("productId"));
+                        }
+                    }
+                }
+                cmd.ExecuteNonQuery();
+                //comboBox1.Items.Add()
+
+
+
+                connection.CloseConnection();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void pro_id_TextChanged(object sender, EventArgs e)
+        {
+            try{
+
+            
+             DBConnect connection = new DBConnect();
+                connection.OpenConnection();
+
+                MySqlConnection returnConn = new MySqlConnection();
+                returnConn = connection.GetConnection();
+
+                string query = "SELECT * FROM INV_ITP.products WHERE productId = '" + pro_id.Text + "'";
+                MySqlCommand cmd = new MySqlCommand(query, returnConn);
+
+
+                using (MySqlDataReader read = cmd.ExecuteReader())
+                {
+
+                    while (read.Read())
+                    {
+                        pro_name.Text = read.GetString("name").ToString();
+                        //txt_amound.Text = read.GetString().ToString();
+                     
+                    }
+
+                }
+
+                 
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong while loading the product");
+                //MessageBox.Show(ex.Message);
+            }
+            try
+            {
+
+
+                DBConnect connection = new DBConnect();
+                connection.OpenConnection();
+
+                MySqlConnection returnConn = new MySqlConnection();
+                returnConn = connection.GetConnection();
+
+                
+
+                string query1 = "SELECT * FROM INV_ITP.inv_newitems WHERE productId = '" + pro_id.Text + "'";
+                MySqlCommand cmd1 = new MySqlCommand(query1, returnConn);
+
+
+                using (MySqlDataReader read = cmd1.ExecuteReader())
+                {
+
+                    while (read.Read())
+                    {
+
+                        pro_amound.Text = read.GetString("MaximumRetailPrice").ToString();
+
+                    }
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong while loading the product");
+                //MessageBox.Show(ex.Message);
+            }
         }
         
     }
