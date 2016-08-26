@@ -131,7 +131,7 @@ namespace SalesManagement.Payment_Records
 
                     if (!string.IsNullOrEmpty(amount) || !string.IsNullOrWhiteSpace(amount) || int.TryParse(amount, out n) || int.TryParse(cheque, out n) )
                     {
-                        desc = "Payee " + payee + " has used Checque Payment method - Cheque No: " + cheque + " / Bank: " + bank;
+                        desc = "Payee " + payee + " has used Cheque Payment method - Cheque No: " + cheque + " / Bank: " + bank;
                         cmd.Parameters.AddWithValue("@2", amount);
                         cmd.Parameters.AddWithValue("@3", desc);
                     }

@@ -34,7 +34,7 @@ namespace SalesManagement.Class_files
                 msg.To.Add(mail);
                 msg.From = new MailAddress("noreply.teemah@gmail.com");
                 msg.Subject = "Order Details - " + DateTime.Now.ToShortDateString();
-                msg.Body = "Test confirmation mail : \n" + body + "\n Thank You from Team-ah!";
+                msg.Body = "Test confirmation mail : \n\n" + body + "\n\n\n Thank You from Team-ah!";
 
                 //Attachment att = new Attachment(textBox3.Text);
                 //msg.Attachments.Add(att);

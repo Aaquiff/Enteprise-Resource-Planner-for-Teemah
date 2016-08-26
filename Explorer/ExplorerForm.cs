@@ -24,6 +24,11 @@ using ProductProcessManagement;
 using ProductProcessManagement.Products;
 using ProductProcessManagement.Remarks;
 using ProductProcessManagement.WorkOrders;
+using SalesManagement.Buyer_Records;
+using SalesManagement.Payment_Records;
+using SalesManagement.Purchase_Records;
+using SalesManagement.Class_files;
+
 
 namespace Explorer
 {
@@ -402,19 +407,19 @@ namespace Explorer
 
         private void button16_Click(object sender, EventArgs e)
         {
-
+            loadForm(new buyerAdd());
 
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
-
+            loadForm(new buyerUpdate());
 
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
-
+            loadForm(new buyerView());
 
         }
 
@@ -526,6 +531,26 @@ namespace Explorer
         private void button18_Click(object sender, EventArgs e)
         {
             loadForm(new workOrders());
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            loadForm(new paymentAdd());
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            loadForm(new paymentView2());
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            loadForm(new purchaseAdd2());
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            loadForm(new purchaseViewOrder());
         }
 
         
