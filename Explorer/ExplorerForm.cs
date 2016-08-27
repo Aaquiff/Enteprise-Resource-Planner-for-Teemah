@@ -559,6 +559,11 @@ namespace Explorer
             loadForm(new frmRawMaterialRequests());
         }
 
+        private void button34_Click(object sender, EventArgs e)
+        {
+            loadForm(new purchaseUpdatecs());
+        }
+
         
 
         

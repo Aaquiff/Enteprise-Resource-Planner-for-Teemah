@@ -291,7 +291,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(7, 95);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(290, 129);
+            this.groupBox1.Size = new System.Drawing.Size(294, 129);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             // 
@@ -449,7 +449,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Name = "purchaseAdd2";
-            this.Text = "Add New Purchase Order";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.purchaseAdd2_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

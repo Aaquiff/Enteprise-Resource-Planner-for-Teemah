@@ -132,6 +132,12 @@
     <Compile Include="Purchase Records\purchaseHome.Designer.cs">
       <DependentUpon>purchaseHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Purchase Records\purchaseUpdatecs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase Records\purchaseUpdatecs.Designer.cs">
+      <DependentUpon>purchaseUpdatecs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Purchase Records\purchaseViewOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Purchase Records\purchaseHome.resx">
       <DependentUpon>purchaseHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchase Records\purchaseUpdatecs.resx">
+      <DependentUpon>purchaseUpdatecs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Purchase Records\purchaseViewOrder.resx">
       <DependentUpon>purchaseViewOrder.cs</DependentUpon>

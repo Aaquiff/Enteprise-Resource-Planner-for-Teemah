@@ -219,16 +219,16 @@ namespace SalesManagement.Purchase_Records
                     MessageBox.Show("Order has been placed");
                     conn.CloseConnection();
 
-                    mailOrder += "------------------------------------------ \n" +
-                                "Grand total = " + this.count + "\n" +
-                                "Delivery Date = " + this.tempDate;
+                    if (!String.IsNullOrEmpty(this.tempMail))
+                    {
+                        mailOrder += "------------------------------------------ \n" +
+                                                "Grand total = " + this.count + "\n" +
+                                                "Delivery Date = " + this.tempDate;
 
-                    emailThis mail = new emailThis();
-                    mail.sendMail(this.tempMail, mailOrder);
-
-                    this.Close();
-                    purchaseHome home = new purchaseHome();
-                    home.Show();
+                        emailThis mail = new emailThis();
+                        mail.sendMail(this.tempMail, mailOrder);
+                        
+                    }
                 }
                 else
                 {
@@ -245,7 +245,7 @@ namespace SalesManagement.Purchase_Records
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            this.tempDate = dateTimePicker1.Text;
+            this.tempDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
