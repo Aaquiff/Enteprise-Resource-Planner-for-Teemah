@@ -68,7 +68,7 @@ namespace Explorer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("38, 166, 91")]
+        [global::System.Configuration.DefaultSettingValueAttribute("SlateGray")]
         public global::System.Drawing.Color ThemeBackColor {
             get {
                 return ((global::System.Drawing.Color)(this["ThemeBackColor"]));

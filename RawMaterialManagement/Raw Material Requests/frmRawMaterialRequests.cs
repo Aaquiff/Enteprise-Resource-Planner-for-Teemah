@@ -24,10 +24,14 @@ namespace RawMaterialManagement.Raw_Material_Requests
 
         private void frmRawMaterialRequests_Load(object sender, EventArgs e)
         {
-            
-
-
             PopulateRequests();
+
+            foreach (DataColumn item in rawDataSet.rawmatreq.Columns)
+            {
+                if (!cmbColumns.Items.Contains(item.ColumnName))
+                    cmbColumns.Items.Add(item.ColumnName);
+            }
+
 
         }
 
@@ -82,6 +86,20 @@ namespace RawMaterialManagement.Raw_Material_Requests
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtSearchItemId_TextChanged(object sender, EventArgs e)
+        {
+            string columnName = cmbColumns.SelectedItem.ToString();
+            if (!String.IsNullOrEmpty(columnName))
+            {
+                MySqlDataAdapter search = new MySqlDataAdapter();
+                MySqlCommand sc = new MySqlCommand("select * from rawMatReq where " + columnName + " like @param", con);
+                sc.Parameters.AddWithValue("@param", "%" + txtSearchItemId.Text + "%");
+                search.SelectCommand = sc;
+                rawDataSet.rawmatreq.Clear();
+                search.Fill(rawDataSet.rawmatreq);
             }
         }
     }

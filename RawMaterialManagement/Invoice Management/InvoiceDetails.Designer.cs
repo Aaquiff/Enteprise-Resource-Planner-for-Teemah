@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -46,14 +46,15 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.recordSelectorGrid1 = new FrameworkControls.Controls.RecordSelectorGrid();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.customButton1 = new FrameworkControls.Controls.CustomButton();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.txtInvoiceId = new System.Windows.Forms.TextBox();
@@ -64,25 +65,33 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.panelSearch = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtSearchItemId = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.cmbColumns = new System.Windows.Forms.ComboBox();
             this.invoiceidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_invoice_tabBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.raw_invoice_tabBindingSource = new System.Windows.Forms.BindingSource();
             this.rawDataSet = new RawMaterialManagement.RawDataSet();
             this.raw_invoice_tabTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_invoice_tabTableAdapter();
             this.tableAdapterManager = new RawMaterialManagement.RawDataSetTableAdapters.TableAdapterManager();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.recordSelectorGrid1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.panelSearch.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.raw_invoice_tabBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -120,6 +129,14 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Payment";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.raw_invoice_tabBindingSource, "discount", true));
+            this.numericUpDown1.Location = new System.Drawing.Point(417, 47);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(90, 22);
+            this.numericUpDown1.TabIndex = 21;
             // 
             // label11
             // 
@@ -182,7 +199,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1125, 73);
+            this.menuStrip1.Size = new System.Drawing.Size(1023, 70);
             this.menuStrip1.TabIndex = 30;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -194,7 +211,7 @@
             this.toolStripMenuItem3.Image = global::RawMaterialManagement.Properties.Resources.ic_add_circle_outline_2x;
             this.toolStripMenuItem3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(60, 69);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(60, 66);
             this.toolStripMenuItem3.Text = "New";
             this.toolStripMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
@@ -206,7 +223,7 @@
             this.saveToolStripMenuItem.Image = global::RawMaterialManagement.Properties.Resources.ic_save_2x;
             this.saveToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(60, 69);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(60, 66);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
@@ -218,7 +235,7 @@
             this.toolStripMenuItem1.Image = global::RawMaterialManagement.Properties.Resources.ic_delete_2x;
             this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 69);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 66);
             this.toolStripMenuItem1.Text = "Delete";
             this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
@@ -230,7 +247,7 @@
             this.toolStripMenuItem2.Image = global::RawMaterialManagement.Properties.Resources.ic_file_download_2x;
             this.toolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(70, 69);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(70, 66);
             this.toolStripMenuItem2.Text = "Populate";
             this.toolStripMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
@@ -242,18 +259,29 @@
             this.toolStripMenuItem4.Image = global::RawMaterialManagement.Properties.Resources.ic_search_2x;
             this.toolStripMenuItem4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(60, 69);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(60, 66);
             this.toolStripMenuItem4.Text = "Search";
             this.toolStripMenuItem4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.splitContainer1);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panelSearch);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 70);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1023, 473);
+            this.panel1.Size = new System.Drawing.Size(1023, 403);
             this.panel1.TabIndex = 31;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.splitContainer1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 31);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1023, 372);
+            this.panel4.TabIndex = 32;
             // 
             // splitContainer1
             // 
@@ -270,7 +298,7 @@
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(1023, 473);
+            this.splitContainer1.Size = new System.Drawing.Size(1023, 372);
             this.splitContainer1.SplitterDistance = 239;
             this.splitContainer1.TabIndex = 17;
             // 
@@ -283,23 +311,23 @@
             this.recordSelectorGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.recordSelectorGrid1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.recordSelectorGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            this.recordSelectorGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            this.recordSelectorGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.recordSelectorGrid1.ColumnHeadersHeight = 40;
             this.recordSelectorGrid1.ColumnHeadersVisible = false;
             this.recordSelectorGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.invoiceidDataGridViewTextBoxColumn,
             this.orderidDataGridViewTextBoxColumn});
             this.recordSelectorGrid1.DataSource = this.raw_invoice_tabBindingSource;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.recordSelectorGrid1.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.recordSelectorGrid1.DefaultCellStyle = dataGridViewCellStyle2;
             this.recordSelectorGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recordSelectorGrid1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.recordSelectorGrid1.EnableHeadersVisualStyles = false;
@@ -310,7 +338,7 @@
             this.recordSelectorGrid1.RowHeadersVisible = false;
             this.recordSelectorGrid1.RowTemplate.Height = 30;
             this.recordSelectorGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.recordSelectorGrid1.Size = new System.Drawing.Size(239, 473);
+            this.recordSelectorGrid1.Size = new System.Drawing.Size(239, 372);
             this.recordSelectorGrid1.TabIndex = 0;
             // 
             // groupBox2
@@ -337,6 +365,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Invoice";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 146);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 16);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Due Date";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 209);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(114, 16);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Original Due Date";
+            // 
             // customButton1
             // 
             this.customButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
@@ -362,16 +410,6 @@
             this.textBox2.Size = new System.Drawing.Size(219, 22);
             this.textBox2.TabIndex = 22;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 209);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(114, 16);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Original Due Date";
-            // 
             // dateTimePicker3
             // 
             this.dateTimePicker3.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.raw_invoice_tabBindingSource, "original_due_date", true));
@@ -379,16 +417,6 @@
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(219, 22);
             this.dateTimePicker3.TabIndex = 20;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 146);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 16);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Due Date";
             // 
             // dateTimePicker2
             // 
@@ -486,6 +514,62 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Currency";
             // 
+            // panelSearch
+            // 
+            this.panelSearch.BackColor = System.Drawing.SystemColors.Window;
+            this.panelSearch.Controls.Add(this.panel2);
+            this.panelSearch.Controls.Add(this.panel3);
+            this.panelSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSearch.Location = new System.Drawing.Point(0, 0);
+            this.panelSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelSearch.Name = "panelSearch";
+            this.panelSearch.Size = new System.Drawing.Size(1023, 31);
+            this.panelSearch.TabIndex = 31;
+            this.panelSearch.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.txtSearchItemId);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(200, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(823, 31);
+            this.panel2.TabIndex = 3;
+            // 
+            // txtSearchItemId
+            // 
+            this.txtSearchItemId.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSearchItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchItemId.Location = new System.Drawing.Point(0, 0);
+            this.txtSearchItemId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearchItemId.Name = "txtSearchItemId";
+            this.txtSearchItemId.Size = new System.Drawing.Size(823, 29);
+            this.txtSearchItemId.TabIndex = 0;
+            this.txtSearchItemId.TextChanged += new System.EventHandler(this.txtSearchItemId_TextChanged);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.cmbColumns);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 31);
+            this.panel3.TabIndex = 4;
+            // 
+            // cmbColumns
+            // 
+            this.cmbColumns.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbColumns.DropDownHeight = 136;
+            this.cmbColumns.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbColumns.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbColumns.FormattingEnabled = true;
+            this.cmbColumns.IntegralHeight = false;
+            this.cmbColumns.ItemHeight = 16;
+            this.cmbColumns.Location = new System.Drawing.Point(0, 0);
+            this.cmbColumns.Name = "cmbColumns";
+            this.cmbColumns.Size = new System.Drawing.Size(200, 24);
+            this.cmbColumns.TabIndex = 2;
+            // 
             // invoiceidDataGridViewTextBoxColumn
             // 
             this.invoiceidDataGridViewTextBoxColumn.DataPropertyName = "invoice_id";
@@ -521,15 +605,8 @@
             this.tableAdapterManager.raw_order_lineTableAdapter = null;
             this.tableAdapterManager.raw_purchase_orderTableAdapter = null;
             this.tableAdapterManager.raw_supplier_tabTableAdapter = null;
+            this.tableAdapterManager.rawmatreqTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = RawMaterialManagement.RawDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.raw_invoice_tabBindingSource, "discount", true));
-            this.numericUpDown1.Location = new System.Drawing.Point(417, 47);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(90, 22);
-            this.numericUpDown1.TabIndex = 21;
             // 
             // InvoiceDetails
             // 
@@ -546,9 +623,11 @@
             this.Load += new System.EventHandler(this.InvoiceDetails_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -556,9 +635,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.recordSelectorGrid1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panelSearch.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.raw_invoice_tabBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -606,5 +688,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn orderidDataGridViewTextBoxColumn;
         private FrameworkControls.Controls.CustomButton customButton1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Panel panel4;
+        protected System.Windows.Forms.Panel panelSearch;
+        private System.Windows.Forms.Panel panel2;
+        protected System.Windows.Forms.TextBox txtSearchItemId;
+        private System.Windows.Forms.Panel panel3;
+        protected System.Windows.Forms.ComboBox cmbColumns;
     }
 }

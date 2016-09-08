@@ -33,18 +33,10 @@ namespace RawMaterialManagement.Invoice_Management
             searchAdapter.Fill(rawDataSet.raw_invoice_tab);
         }
 
-        private void raw_invoice_tabBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.raw_invoice_tabBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.rawDataSet);
-
-        }
-
         private void Populate()
         {
             // TODO: This line of code loads data into the 'rawDataSet.raw_invoice_tab' table. You can move, or remove it, as needed.
-            
+            this.raw_invoice_tabTableAdapter.Connection = con;
             this.raw_invoice_tabTableAdapter.Fill(this.rawDataSet.raw_invoice_tab);
         }
 
@@ -77,7 +69,7 @@ namespace RawMaterialManagement.Invoice_Management
         {
             try
             {
-                this.Validate();
+                //this.Validate();
                 raw_invoice_tabBindingSource.EndEdit();
                 raw_invoice_tabTableAdapter.Update(rawDataSet);
                 MessageBox.Show("Saved");
@@ -136,6 +128,34 @@ namespace RawMaterialManagement.Invoice_Management
         private void customButton1_Click(object sender, EventArgs e)
         {
             ChooseOrder();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            foreach (DataColumn item in rawDataSet.raw_invoice_tab.Columns)
+            {
+                if (!cmbColumns.Items.Contains(item.ColumnName))
+                    cmbColumns.Items.Add(item.ColumnName);
+            }
+
+            if (panelSearch.Visible)
+                panelSearch.Visible = false;
+            else
+                panelSearch.Visible = true;
+        }
+
+        private void txtSearchItemId_TextChanged(object sender, EventArgs e)
+        {
+            string columnName = cmbColumns.SelectedItem.ToString();
+            if (!String.IsNullOrEmpty(columnName))
+            {
+                MySqlDataAdapter search = new MySqlDataAdapter();
+                MySqlCommand sc = new MySqlCommand("select * from raw_invoice_tab where " + columnName + " like @param", con);
+                sc.Parameters.AddWithValue("@param", "%" + txtSearchItemId.Text + "%");
+                search.SelectCommand = sc;
+                rawDataSet.raw_invoice_tab.Clear();
+                search.Fill(rawDataSet.raw_invoice_tab);
+            }
         }
     }
 }

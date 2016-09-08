@@ -328,5 +328,33 @@ namespace RawMaterialManagement.Order_Management
 
         #endregion
 
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            foreach (DataColumn item in rawDataSet.raw_purchase_order.Columns)
+            {
+                if (!cmbColumns.Items.Contains(item.ColumnName))
+                    cmbColumns.Items.Add(item.ColumnName);
+            }
+
+            if (panelSearch.Visible)
+                panelSearch.Visible = false;
+            else
+                panelSearch.Visible = true;
+        }
+
+        private void txtSearchItemId_TextChanged(object sender, EventArgs e)
+        {
+            string columnName = cmbColumns.SelectedItem.ToString();
+            if (!String.IsNullOrEmpty(columnName))
+            {
+                MySqlDataAdapter search = new MySqlDataAdapter();
+                MySqlCommand sc = new MySqlCommand("select * from raw_purchase_order where " + columnName + " like @param", con);
+                sc.Parameters.AddWithValue("@param", "%" + txtSearchItemId.Text + "%");
+                search.SelectCommand = sc;
+                rawDataSet.raw_purchase_order.Clear();
+                search.Fill(rawDataSet.raw_purchase_order);
+            }
+        }
+
     }
 }

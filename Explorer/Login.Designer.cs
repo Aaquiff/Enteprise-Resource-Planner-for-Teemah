@@ -62,7 +62,7 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(322, 29);
             this.txtUser.TabIndex = 1;
-            this.txtUser.Text = "aaralk";
+            this.txtUser.Text = "root";
             // 
             // pictureBox1
             // 
@@ -82,8 +82,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(322, 29);
-            this.txtPassword.TabIndex = 4;
-            this.txtPassword.Text = "aaralk";
+            this.txtPassword.TabIndex = 2;
             // 
             // label2
             // 
@@ -101,7 +100,7 @@
             this.txtServer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtServer.Name = "txtServer";
             this.txtServer.Size = new System.Drawing.Size(322, 29);
-            this.txtServer.TabIndex = 6;
+            this.txtServer.TabIndex = 3;
             this.txtServer.Text = "localhost";
             // 
             // label3
@@ -125,7 +124,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 29);
-            this.button1.TabIndex = 7;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -142,7 +141,7 @@
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(68, 29);
-            this.button2.TabIndex = 8;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Exit";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -158,10 +157,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(94, 47);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 37);
+            this.label5.Size = new System.Drawing.Size(104, 37);
             this.label5.TabIndex = 10;
             this.label5.Text = "Teemah";
             // 
@@ -171,8 +170,8 @@
             this.txtDatabase.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDatabase.Name = "txtDatabase";
             this.txtDatabase.Size = new System.Drawing.Size(322, 29);
-            this.txtDatabase.TabIndex = 12;
-            this.txtDatabase.Text = "itp";
+            this.txtDatabase.TabIndex = 4;
+            this.txtDatabase.Text = "itp2";
             // 
             // label6
             // 

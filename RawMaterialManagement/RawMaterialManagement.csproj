@@ -58,12 +58,6 @@
     <Compile Include="Invoice Management\InvoiceDetails.Designer.cs">
       <DependentUpon>InvoiceDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Invoice Management\InvoiceTab.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Invoice Management\InvoiceTab.Designer.cs">
-      <DependentUpon>InvoiceTab.cs</DependentUpon>
-    </Compile>
     <Compile Include="Invoice Management\ManageInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,9 +154,6 @@
     </Compile>
     <EmbeddedResource Include="Invoice Management\InvoiceDetails.resx">
       <DependentUpon>InvoiceDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Invoice Management\InvoiceTab.resx">
-      <DependentUpon>InvoiceTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Invoice Management\ManageInvoice.resx">
       <DependentUpon>ManageInvoice.cs</DependentUpon>
