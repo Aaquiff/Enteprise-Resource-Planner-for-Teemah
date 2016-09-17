@@ -35,13 +35,29 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="MetroFramework">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicData\tbwCurrency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicData\tbwCurrency.Designer.cs">
+      <DependentUpon>tbwCurrency.cs</DependentUpon>
+    </Compile>
     <Compile Include="Invoice Management\InvoiceDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,41 +86,12 @@
     <Compile Include="Invoice Management\ManageInvoice.Designer.cs">
       <DependentUpon>ManageInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Items Management\dlgSearchItem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Items Management\dlgSearchItem.Designer.cs">
-      <DependentUpon>dlgSearchItem.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Items Management\ItemDB.cs" />
     <Compile Include="Items Management\ManageItem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Items Management\ManageItem.Designer.cs">
       <DependentUpon>ManageItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Order Management\AddOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Order Management\AddOrder.Designer.cs">
-      <DependentUpon>AddOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Order Management\dlgChooseItem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Order Management\dlgChooseItem.Designer.cs">
-      <DependentUpon>dlgChooseItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Order Management\dlgChooseSupplier.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Order Management\dlgChooseSupplier.Designer.cs">
-      <DependentUpon>dlgChooseSupplier.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Order Management\ManagePurchaseOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Order Management\ManagePurchaseOrder.Designer.cs">
-      <DependentUpon>ManagePurchaseOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Order Management\OrderDetail.cs">
       <SubType>Form</SubType>
@@ -106,19 +99,7 @@
     <Compile Include="Order Management\OrderDetail.Designer.cs">
       <DependentUpon>OrderDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order Management\OrderTab.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Order Management\OrderTab.Designer.cs">
-      <DependentUpon>OrderTab.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Items Management\ItemTab.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Items Management\ItemTab.Designer.cs">
-      <DependentUpon>ItemTab.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raw Material Requests\frmRawMaterialRequests.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,47 +121,38 @@
     <Compile Include="RawMaterialDashBoard.Designer.cs">
       <DependentUpon>RawMaterialDashBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Supplier Management\ManageSupplier.cs">
+    <Compile Include="Reporting\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Supplier Management\ManageSupplier.Designer.cs">
-      <DependentUpon>ManageSupplier.cs</DependentUpon>
+    <Compile Include="Reporting\ReportViewer.Designer.cs">
+      <DependentUpon>ReportViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Supplier Management\SupplierTab.cs">
+    <Compile Include="Supplier Management\frmManagerSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Supplier Management\SupplierTab.Designer.cs">
-      <DependentUpon>SupplierTab.cs</DependentUpon>
+    <Compile Include="Supplier Management\frmManagerSupplier.Designer.cs">
+      <DependentUpon>frmManagerSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Supplier Management\SupplierDB.cs" />
+    <EmbeddedResource Include="BasicData\tbwCurrency.resx">
+      <DependentUpon>tbwCurrency.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Invoice Management\InvoiceDetails.resx">
       <DependentUpon>InvoiceDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Invoice Management\ManageInvoice.resx">
       <DependentUpon>ManageInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Items Management\dlgSearchItem.resx">
-      <DependentUpon>dlgSearchItem.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Items Management\ManageItem.resx">
       <DependentUpon>ManageItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Order Management\AddOrder.resx">
-      <DependentUpon>AddOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Order Management\dlgChooseItem.resx">
-      <DependentUpon>dlgChooseItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Order Management\dlgChooseSupplier.resx">
-      <DependentUpon>dlgChooseSupplier.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Order Management\ManagePurchaseOrder.resx">
-      <DependentUpon>ManagePurchaseOrder.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Order Management\OrderDetail.resx">
       <DependentUpon>OrderDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Order Management\OrderTab.resx">
-      <DependentUpon>OrderTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -192,20 +164,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Items Management\ItemTab.resx">
-      <DependentUpon>ItemTab.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Raw Material Requests\frmRawMaterialRequests.resx">
       <DependentUpon>frmRawMaterialRequests.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RawMaterialDashBoard.resx">
       <DependentUpon>RawMaterialDashBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Supplier Management\ManageSupplier.resx">
-      <DependentUpon>ManageSupplier.cs</DependentUpon>
+    <EmbeddedResource Include="Reporting\Report1.rdlc" />
+    <EmbeddedResource Include="Reporting\Report2.rdlc" />
+    <EmbeddedResource Include="Reporting\ReportViewer.resx">
+      <DependentUpon>ReportViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Supplier Management\SupplierTab.resx">
-      <DependentUpon>SupplierTab.cs</DependentUpon>
+    <EmbeddedResource Include="Supplier Management\frmManagerSupplier.resx">
+      <DependentUpon>frmManagerSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -222,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FrameworkControls\FrameworkControls.csproj">
@@ -245,6 +217,17 @@
     <None Include="RawDataSet.xss">
       <DependentUpon>RawDataSet.xsd</DependentUpon>
     </None>
+    <None Include="Reporting\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reporting\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Resources\ic_add_circle_outline_2x.png" />
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +244,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ic_filter_list_black_24dp3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_change_history_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_change_history_black_24dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_change_history_black_24dp2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_insert_chart_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_insert_chart_black_24dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_insert_chart_black_24dp2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

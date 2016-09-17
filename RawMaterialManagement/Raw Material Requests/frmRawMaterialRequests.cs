@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySQLDatabaseAccess;
+using MetroFramework;
 
 namespace RawMaterialManagement.Raw_Material_Requests
 {
@@ -48,7 +49,7 @@ namespace RawMaterialManagement.Raw_Material_Requests
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this.MdiParent,ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
             }
         }
 
@@ -69,7 +70,7 @@ namespace RawMaterialManagement.Raw_Material_Requests
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this.MdiParent,ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
             }
         }
 
@@ -85,7 +86,7 @@ namespace RawMaterialManagement.Raw_Material_Requests
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this.MdiParent,ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
             }
         }
 

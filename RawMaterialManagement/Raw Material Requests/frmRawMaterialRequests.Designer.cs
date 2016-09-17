@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@
             this.approveRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rejectRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rawmatreqTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.rawmatreqTableAdapter();
-            this.tableAdapterManager = new RawMaterialManagement.RawDataSetTableAdapters.TableAdapterManager();
             this.raw_item_tabTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_item_tabTableAdapter();
             this.panelSearch = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -56,15 +56,15 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.cmbColumns = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.customDataGrid11 = new FrameworkControls.Controls.CustomDataGrid1();
-            this.rawMatReqIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.requestDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.referenceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+            this.rawMatReqIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.requestDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notesDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.referenceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.raw_item_tabBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawmatreqBindingSource)).BeginInit();
@@ -78,7 +78,7 @@
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customDataGrid11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -147,7 +147,7 @@
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(291, 179);
+            this.textBox3.Size = new System.Drawing.Size(894, 121);
             this.textBox3.TabIndex = 6;
             // 
             // label2
@@ -195,7 +195,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.customDataGrid11);
+            this.splitContainer1.Panel1.Controls.Add(this.metroGrid1);
             // 
             // splitContainer1.Panel2
             // 
@@ -230,17 +230,6 @@
             // rawmatreqTableAdapter
             // 
             this.rawmatreqTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.raw_invoice_tabTableAdapter = null;
-            this.tableAdapterManager.raw_item_tabTableAdapter = this.raw_item_tabTableAdapter;
-            this.tableAdapterManager.raw_order_lineTableAdapter = null;
-            this.tableAdapterManager.raw_purchase_orderTableAdapter = null;
-            this.tableAdapterManager.raw_supplier_tabTableAdapter = null;
-            this.tableAdapterManager.rawmatreqTableAdapter = this.rawmatreqTableAdapter;
-            this.tableAdapterManager.UpdateOrder = RawMaterialManagement.RawDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // raw_item_tabTableAdapter
             // 
@@ -310,97 +299,122 @@
             this.panel4.Size = new System.Drawing.Size(1288, 601);
             this.panel4.TabIndex = 19;
             // 
-            // customDataGrid11
+            // metroGrid1
             // 
-            this.customDataGrid11.AllowUserToAddRows = false;
-            this.customDataGrid11.AllowUserToDeleteRows = false;
-            this.customDataGrid11.AllowUserToResizeRows = false;
-            this.customDataGrid11.AutoGenerateColumns = false;
-            this.customDataGrid11.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.customDataGrid11.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            this.customDataGrid11.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.customDataGrid11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customDataGrid11.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rawMatReqIdDataGridViewTextBoxColumn,
-            this.productIdDataGridViewTextBoxColumn,
-            this.quantityDataGridViewTextBoxColumn,
-            this.requestDateDataGridViewTextBoxColumn,
-            this.orderDateDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn,
-            this.notesDataGridViewTextBoxColumn,
-            this.referenceDataGridViewTextBoxColumn});
-            this.customDataGrid11.DataSource = this.rawmatreqBindingSource;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.customDataGrid11.DefaultCellStyle = dataGridViewCellStyle4;
-            this.customDataGrid11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customDataGrid11.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
-            this.customDataGrid11.EnableHeadersVisualStyles = false;
-            this.customDataGrid11.GridColor = System.Drawing.SystemColors.Control;
-            this.customDataGrid11.Location = new System.Drawing.Point(0, 0);
-            this.customDataGrid11.MultiSelect = false;
-            this.customDataGrid11.Name = "customDataGrid11";
-            this.customDataGrid11.RowHeadersVisible = false;
-            this.customDataGrid11.RowTemplate.ContextMenuStrip = this.contextMenuStripRequest;
-            this.customDataGrid11.RowTemplate.Height = 30;
-            this.customDataGrid11.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customDataGrid11.Size = new System.Drawing.Size(1288, 300);
-            this.customDataGrid11.TabIndex = 2;
+            this.metroGrid1.AllowUserToAddRows = false;
+            this.metroGrid1.AllowUserToDeleteRows = false;
+            this.metroGrid1.AllowUserToResizeRows = false;
+            this.metroGrid1.AutoGenerateColumns = false;
+            this.metroGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.metroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rawMatReqIdDataGridViewTextBoxColumn1,
+            this.productIdDataGridViewTextBoxColumn1,
+            this.quantityDataGridViewTextBoxColumn1,
+            this.requestDateDataGridViewTextBoxColumn1,
+            this.orderDateDataGridViewTextBoxColumn1,
+            this.statusDataGridViewTextBoxColumn1,
+            this.notesDataGridViewTextBoxColumn1,
+            this.referenceDataGridViewTextBoxColumn1});
+            this.metroGrid1.DataSource = this.rawmatreqBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.metroGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroGrid1.EnableHeadersVisualStyles = false;
+            this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.metroGrid1.Location = new System.Drawing.Point(0, 0);
+            this.metroGrid1.Name = "metroGrid1";
+            this.metroGrid1.ReadOnly = true;
+            this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.metroGrid1.RowHeadersVisible = false;
+            this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.metroGrid1.RowTemplate.Height = 30;
+            this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.metroGrid1.Size = new System.Drawing.Size(1288, 300);
+            this.metroGrid1.Style = MetroFramework.MetroColorStyle.Lime;
+            this.metroGrid1.TabIndex = 3;
             // 
-            // rawMatReqIdDataGridViewTextBoxColumn
+            // rawMatReqIdDataGridViewTextBoxColumn1
             // 
-            this.rawMatReqIdDataGridViewTextBoxColumn.DataPropertyName = "rawMatReqId";
-            this.rawMatReqIdDataGridViewTextBoxColumn.HeaderText = "RAWMATREQID";
-            this.rawMatReqIdDataGridViewTextBoxColumn.Name = "rawMatReqIdDataGridViewTextBoxColumn";
+            this.rawMatReqIdDataGridViewTextBoxColumn1.DataPropertyName = "rawMatReqId";
+            this.rawMatReqIdDataGridViewTextBoxColumn1.HeaderText = "Raw Material Request Id";
+            this.rawMatReqIdDataGridViewTextBoxColumn1.Name = "rawMatReqIdDataGridViewTextBoxColumn1";
+            this.rawMatReqIdDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // productIdDataGridViewTextBoxColumn
+            // productIdDataGridViewTextBoxColumn1
             // 
-            this.productIdDataGridViewTextBoxColumn.DataPropertyName = "productId";
-            this.productIdDataGridViewTextBoxColumn.HeaderText = "PRODUCTID";
-            this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
+            this.productIdDataGridViewTextBoxColumn1.DataPropertyName = "productId";
+            this.productIdDataGridViewTextBoxColumn1.HeaderText = "Product Id";
+            this.productIdDataGridViewTextBoxColumn1.Name = "productIdDataGridViewTextBoxColumn1";
+            this.productIdDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // quantityDataGridViewTextBoxColumn
+            // quantityDataGridViewTextBoxColumn1
             // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "QUANTITY";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn1.DataPropertyName = "quantity";
+            this.quantityDataGridViewTextBoxColumn1.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn1.Name = "quantityDataGridViewTextBoxColumn1";
+            this.quantityDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // requestDateDataGridViewTextBoxColumn
+            // requestDateDataGridViewTextBoxColumn1
             // 
-            this.requestDateDataGridViewTextBoxColumn.DataPropertyName = "requestDate";
-            this.requestDateDataGridViewTextBoxColumn.HeaderText = "REQUESTDATE";
-            this.requestDateDataGridViewTextBoxColumn.Name = "requestDateDataGridViewTextBoxColumn";
+            this.requestDateDataGridViewTextBoxColumn1.DataPropertyName = "requestDate";
+            this.requestDateDataGridViewTextBoxColumn1.HeaderText = "Request Date";
+            this.requestDateDataGridViewTextBoxColumn1.Name = "requestDateDataGridViewTextBoxColumn1";
+            this.requestDateDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // orderDateDataGridViewTextBoxColumn
+            // orderDateDataGridViewTextBoxColumn1
             // 
-            this.orderDateDataGridViewTextBoxColumn.DataPropertyName = "orderDate";
-            this.orderDateDataGridViewTextBoxColumn.HeaderText = "ORDERDATE";
-            this.orderDateDataGridViewTextBoxColumn.Name = "orderDateDataGridViewTextBoxColumn";
+            this.orderDateDataGridViewTextBoxColumn1.DataPropertyName = "orderDate";
+            this.orderDateDataGridViewTextBoxColumn1.HeaderText = "Order Date";
+            this.orderDateDataGridViewTextBoxColumn1.Name = "orderDateDataGridViewTextBoxColumn1";
+            this.orderDateDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // statusDataGridViewTextBoxColumn
+            // statusDataGridViewTextBoxColumn1
             // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "STATUS";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn1.DataPropertyName = "status";
+            this.statusDataGridViewTextBoxColumn1.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn1.Name = "statusDataGridViewTextBoxColumn1";
+            this.statusDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // notesDataGridViewTextBoxColumn
+            // notesDataGridViewTextBoxColumn1
             // 
-            this.notesDataGridViewTextBoxColumn.DataPropertyName = "notes";
-            this.notesDataGridViewTextBoxColumn.HeaderText = "NOTES";
-            this.notesDataGridViewTextBoxColumn.Name = "notesDataGridViewTextBoxColumn";
+            this.notesDataGridViewTextBoxColumn1.DataPropertyName = "notes";
+            this.notesDataGridViewTextBoxColumn1.HeaderText = "Notes";
+            this.notesDataGridViewTextBoxColumn1.Name = "notesDataGridViewTextBoxColumn1";
+            this.notesDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // referenceDataGridViewTextBoxColumn
+            // referenceDataGridViewTextBoxColumn1
             // 
-            this.referenceDataGridViewTextBoxColumn.DataPropertyName = "reference";
-            this.referenceDataGridViewTextBoxColumn.HeaderText = "REFERENCE";
-            this.referenceDataGridViewTextBoxColumn.Name = "referenceDataGridViewTextBoxColumn";
+            this.referenceDataGridViewTextBoxColumn1.DataPropertyName = "reference";
+            this.referenceDataGridViewTextBoxColumn1.HeaderText = "Reference";
+            this.referenceDataGridViewTextBoxColumn1.Name = "referenceDataGridViewTextBoxColumn1";
+            this.referenceDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // frmRawMaterialRequests
             // 
@@ -430,7 +444,7 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.customDataGrid11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -441,18 +455,9 @@
         private RawDataSet rawDataSet;
         private System.Windows.Forms.BindingSource rawmatreqBindingSource;
         private RawDataSetTableAdapters.rawmatreqTableAdapter rawmatreqTableAdapter;
-        private RawDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        //private RawDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private RawDataSetTableAdapters.raw_item_tabTableAdapter raw_item_tabTableAdapter;
         private System.Windows.Forms.BindingSource raw_item_tabBindingSource;
-        private FrameworkControls.Controls.CustomDataGrid1 customDataGrid11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rawMatReqIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn requestDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn referenceDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
@@ -471,5 +476,14 @@
         private System.Windows.Forms.Panel panel3;
         protected System.Windows.Forms.ComboBox cmbColumns;
         private System.Windows.Forms.Panel panel4;
+        private MetroFramework.Controls.MetroGrid metroGrid1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rawMatReqIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn requestDateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderDateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn referenceDataGridViewTextBoxColumn1;
     }
 }

@@ -11,6 +11,12 @@ using MySql.Data.MySqlClient;
 using MySql.Data;
 using MySQLDatabaseAccess;
 using FrameworkControls.Dialogs;
+using MetroFramework.Controls;
+using MetroFramework.Drawing;
+using MetroFramework.Forms;
+using MetroFramework.Properties;
+using MetroFramework.Native;
+using MetroFramework;
 
 namespace RawMaterialManagement.Order_Management
 {
@@ -81,6 +87,7 @@ namespace RawMaterialManagement.Order_Management
                 rawpurchaseorderBindingSource.EndEdit();
 
                 raw_purchase_orderTableAdapter.Update(rawDataSet.raw_purchase_order);
+                
 
                 MySqlCommand com = new MySqlCommand("DELETE FROM raw_order_line_tab where order_id = @order_id and item_id = @item_id", con);
                 com.Parameters.Add("@order_id", MySqlDbType.VarChar, 200, "order_id");
@@ -90,15 +97,13 @@ namespace RawMaterialManagement.Order_Management
                 fKrawpurchaseorderraworderlineBindingSource.EndEdit();
                 raw_order_lineTableAdapter.Adapter.Update(rawDataSet.raw_order_line);
 
-                MessageBox.Show("Saved");
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this.MdiParent,"Saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this.MdiParent,ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
             }
         }
 
@@ -110,7 +115,7 @@ namespace RawMaterialManagement.Order_Management
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this.MdiParent,ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
             }
         }
 
@@ -129,7 +134,7 @@ namespace RawMaterialManagement.Order_Management
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this.MdiParent,ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
             }
         }
 
@@ -142,7 +147,7 @@ namespace RawMaterialManagement.Order_Management
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this.MdiParent,ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
             }
         }
 
@@ -151,16 +156,33 @@ namespace RawMaterialManagement.Order_Management
             try
             {
                 DataRowView row = rawpurchaseorderBindingSource.AddNew() as DataRowView;
-
-                row.Row.SetField("creator",MySQLDatabaseAccess.Connection.getUserIdFromConnectionString());
-                row.Row.SetField("status", "Created");
-                
+                row.Row.SetField("order_id",getNextId());
+                row.Row.SetField("creator",Connection.getUserIdFromConnectionString());
+                txtCreator.Text = Connection.getUserIdFromConnectionString();
+                txtOrderId.Text = getNextId();
             }
             catch (Exception)
             {
                 
                 throw;
             }
+        }
+
+        private string getNextId()
+        {
+            if (con.State != ConnectionState.Open)
+                con.Open();
+            string NextItemId = "";
+            MySqlCommand com = new MySqlCommand("SELECT MAX(CONVERT(substr(order_id,6), SIGNED INTEGER))FROM raw_purchase_order_tab;", con);
+            MySqlDataReader reader = com.ExecuteReader();
+            if (reader.Read())
+            {
+                int id = reader.GetInt32(0);
+                id = id + 1;
+                NextItemId = "ORDER" + id.ToString();
+            }
+            con.Close();
+            return NextItemId;
         }
 
         private void AddOrderItem()
@@ -193,7 +215,7 @@ namespace RawMaterialManagement.Order_Management
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this.MdiParent,ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
             }
         }
 
@@ -217,25 +239,28 @@ namespace RawMaterialManagement.Order_Management
         {
             try
             {
-                /*on.Open();
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 DataRowView row = rawpurchaseorderBindingSource.Current as DataRowView;
                 string order = row.Row.ItemArray[0].ToString();
 
-                MySqlCommand com = new MySqlCommand("RAW_PUCHASE_ORDER_STATUS_CHANGE",con);
+                MySqlCommand com = new MySqlCommand("RAW_PURCHASE_ORDER_STATUS_CHANGE", con);
                 com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("order_id_",order);
                 com.Parameters.AddWithValue("to_status_","Approved");
-                com.Parameters.AddWithValue("approver_", Connection.getUserNameFromConnectionString(con.ConnectionString));
+                com.Parameters.AddWithValue("approver_", Connection.getUserIdFromConnectionString());
 
-                com.ExecuteNonQuery();*/
-                raw_purchase_orderTableAdapter.RAW_PUCHASE_ORDER_STATUS_CHANGE(txtOrderId.Text, "Approved", MySQLDatabaseAccess.Connection.getUserNameFromConnectionString(con.ConnectionString));
+                com.ExecuteNonQuery();
+                /*raw_purchase_orderTableAdapter.RAW_PUCHASE_ORDER_STATUS_CHANGE(txtOrderId.Text, "Approved", MySQLDatabaseAccess.Connection.getUserNameFromConnectionString(con.ConnectionString));
+                */
+                MetroMessageBox.Show(this.MdiParent,"Approved", "Order Approved", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 
-                MessageBox.Show("Order Approved");
                 PopulateOrder();
+                con.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);      
+                MetroMessageBox.Show(this.MdiParent,ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);     
             }
 
         }
@@ -244,13 +269,59 @@ namespace RawMaterialManagement.Order_Management
         {
             try
             {
-                raw_purchase_orderTableAdapter.RAW_PUCHASE_ORDER_STATUS_CHANGE(txtOrderId.Text, "Cancelled", MySQLDatabaseAccess.Connection.getUserNameFromConnectionString(con.ConnectionString));
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                DataRowView row = rawpurchaseorderBindingSource.Current as DataRowView;
+                string order = row.Row.ItemArray[0].ToString();
+
+                MySqlCommand com = new MySqlCommand("RAW_PURCHASE_ORDER_STATUS_CHANGE", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("order_id_", order);
+                com.Parameters.AddWithValue("to_status_", "Cancelled");
+                com.Parameters.AddWithValue("approver_", Connection.getUserIdFromConnectionString());
+
+                com.ExecuteNonQuery();
+                /*raw_purchase_orderTableAdapter.RAW_PUCHASE_ORDER_STATUS_CHANGE(txtOrderId.Text, "Approved", MySQLDatabaseAccess.Connection.getUserNameFromConnectionString(con.ConnectionString));
+                */
+                MetroMessageBox.Show(this.MdiParent, "Cancelled", "Order Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
+                PopulateOrder();
+                con.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this.MdiParent,ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
             }
         }
+
+        private void CloseOrder()
+        {
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                DataRowView row = rawpurchaseorderBindingSource.Current as DataRowView;
+                string order = row.Row.ItemArray[0].ToString();
+
+                MySqlCommand com = new MySqlCommand("RAW_PURCHASE_ORDER_STATUS_CHANGE", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("order_id_", order);
+                com.Parameters.AddWithValue("to_status_", "Closed");
+                com.Parameters.AddWithValue("approver_", Connection.getUserIdFromConnectionString());
+
+                com.ExecuteNonQuery();
+
+                MetroMessageBox.Show(this.MdiParent, "Closed", "Order Closed", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
+                PopulateOrder();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this.MdiParent, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         #endregion
 
@@ -326,8 +397,6 @@ namespace RawMaterialManagement.Order_Management
             RemoveOrderItem();
         }
 
-        #endregion
-
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
             foreach (DataColumn item in rawDataSet.raw_purchase_order.Columns)
@@ -342,18 +411,61 @@ namespace RawMaterialManagement.Order_Management
                 panelSearch.Visible = true;
         }
 
-        private void txtSearchItemId_TextChanged(object sender, EventArgs e)
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            ChooseSupplier();
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            AddOrderItem();
+        }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            RemoveOrderItem();
+        }
+
+        private void metroGrid2_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show(e.Exception.Message);
+            e.Cancel = true;
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             string columnName = cmbColumns.SelectedItem.ToString();
             if (!String.IsNullOrEmpty(columnName))
             {
                 MySqlDataAdapter search = new MySqlDataAdapter();
                 MySqlCommand sc = new MySqlCommand("select * from raw_purchase_order where " + columnName + " like @param", con);
-                sc.Parameters.AddWithValue("@param", "%" + txtSearchItemId.Text + "%");
+                sc.Parameters.AddWithValue("@param", "%" + txtSearch.Text + "%");
                 search.SelectCommand = sc;
                 rawDataSet.raw_purchase_order.Clear();
                 search.Fill(rawDataSet.raw_purchase_order);
             }
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseOrder();
+        }
+
+        #endregion
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            ApproveOrder();
+        }
+
+        private void cancelToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CancelOrder();
+        }
+
+        private void closeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CloseOrder();
         }
 
     }

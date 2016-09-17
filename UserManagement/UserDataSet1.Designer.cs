@@ -502,7 +502,9 @@ namespace UserManagement {
                                 this.columnrole}, true));
                 this.columnrole.AllowDBNull = false;
                 this.columnrole.Unique = true;
+                this.columnrole.Caption = "Role";
                 this.columnrole.MaxLength = 200;
+                this.columndescription.Caption = "Description";
                 this.columndescription.MaxLength = 2000;
             }
             

@@ -49,6 +49,41 @@ BEGIN
 END$$
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS `RAW_SUPPLIER_INSERT`;
+
+DELIMITER $$
+CREATE PROCEDURE `RAW_SUPPLIER_INSERT`(
+IN name_ VARCHAR(200),
+IN contact_person_ VARCHAR(200),
+IN phone_ VARCHAR(200),
+IN address_ VARCHAR(200),
+IN email_ VARCHAR(200)
+)
+BEGIN
+	insert into raw_supplier_tab 
+    (name,contact_person,phone,address,email) 
+    values (name_,contact_person_,phone_,address_,email_);
+    
+END$$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS `RAW_SUPPLIER_UPDATE`;
+
+DELIMITER $$
+CREATE PROCEDURE `RAW_SUPPLIER_UPDATE`(
+IN supplier_id_ VARCHAR(20),
+IN name_ VARCHAR(200),
+IN contact_person_ VARCHAR(200),
+IN phone_ VARCHAR(200),
+IN address_ VARCHAR(200),
+IN email_ VARCHAR(200)
+)
+BEGIN
+	update raw_supplier_tab set name = name_, address = address_, phone = phone_, email = email_ where supplier_id = supplier_id_;
+    
+END$$
+DELIMITER ;
+
 DROP PROCEDURE IF EXISTS `RAW_PURCHASE_ORDER_UPDATE`;
 
 DELIMITER $$
@@ -80,10 +115,10 @@ BEGIN
 END$$
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS `RAW_PUCHASE_ORDER_STATUS_CHANGE`;
+DROP PROCEDURE IF EXISTS `RAW_PURCHASE_ORDER_STATUS_CHANGE`;
 
 DELIMITER $$
-CREATE PROCEDURE `RAW_PUCHASE_ORDER_STATUS_CHANGE`(
+CREATE PROCEDURE `RAW_PURCHASE_ORDER_STATUS_CHANGE`(
 IN order_id_ VARCHAR(20),
 IN to_status_ VARCHAR(200),
 IN approver_ VARCHAR(200)
@@ -96,53 +131,45 @@ BEGIN
     DECLARE item_id_ INT(11);
     DECLARE new_quantity_ INT(11);
     DECLARE quantity_ INT(11);
-    
     DECLARE x INT;
-    
     DECLARE cur1 CURSOR FOR SELECT item_id,quantity FROM raw_order_line_tab;
-    
     DECLARE CONTINUE HANDLER 
         FOR NOT FOUND SET v_finished = 1;
-    
-    SELECT 1 INTO x FROM user_role_tab WHERE user = approver_ and role = 'Raw Material Manager';
-    
+    SELECT count(*) INTO x FROM user_role_tab WHERE user = approver_ and role = 'Raw Material Manager';
     if(x != 1) then
-	call RAISE_ERROR('You are not auhtorized to change status');
-    
+		call RAISE_ERROR('You are not auhtorized to change status');
     else
-    
-		select status into status_ from raw_purchase_order_tab
-		where order_id = order_id_;
-		
+		select status into status_ from raw_purchase_order_tab where order_id = order_id_;
 		if status_ = 'Created' and to_status_ = 'Approved' then
+			update raw_purchase_order_tab set status = to_status_, approver = approver_ where order_id = order_id_;
+			OPEN cur1;
+			read_loop: LOOP
+				FETCH cur1 INTO item_id_,new_quantity_;
+				IF v_finished = 1 THEN
+					LEAVE read_loop;
+				END IF;
+				SELECT stock_level INTO quantity_ FROM raw_item_tab WHERE item_id = item_id_;
+				UPDATE raw_item_tab SET stock_level=quantity_+new_quantity_ WHERE item_id = item_id_;
+			END LOOP;
+			CLOSE cur1;
+		elseif status_ = 'Created' and to_status_ = 'Cancelled' THEN
 			update raw_purchase_order_tab 
 			set status = to_status_,
 			approver = approver_
 			where order_id = order_id_;
-			
-			OPEN cur1;
-			read_loop: LOOP
-				FETCH cur1 INTO item_id_,new_quantity_;
-			IF v_finished = 1 THEN
-				call RAISE_ERROR('No Order Lines for this Order');
-				LEAVE read_loop;
-			END IF;
-				SELECT stock_level INTO quantity_ FROM raw_item_tab WHERE item_id = item_id_;
-				
-				UPDATE raw_item_tab
-				SET stock_level=quantity_+new_quantity_
-				WHERE item_id = item_id_;
-				
-			END LOOP;
-			
-			CLOSE cur1;
-		elseif to_status_ = 'Cancelled' THEN
+		elseif status_ = 'Created' and to_status_ = 'Closed' THEN
 			update raw_purchase_order_tab 
 			set status = to_status_,
 			approver = approver_
 			where order_id = order_id_;
 		else
-			call `raise_error`('Order in status'|| status_ ||'Cannot Be Approved');
+			if( to_status_ = 'Cancelled' ) then
+				call `raise_error`('Order Cannot Be Cancelled');
+			elseif( to_status_ = 'Approved' ) then
+				call `raise_error`('Order Cannot Be Approved');
+			elseif( to_status_ = 'Closed' ) then
+				call `raise_error`('Order Cannot Be Closed');
+            end if;
 		end if;
     end if;
 END$$

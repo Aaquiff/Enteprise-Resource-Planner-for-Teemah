@@ -19,11 +19,11 @@ ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `raw_supplier_tab` (
   `supplier_id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(500) NOT NULL,
+  `name` varchar(500) UNIQUE NOT NULL,
   `contact_person` varchar(200) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL,
-  `address` varchar(500) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
+  `phone` varchar(20) UNIQUE DEFAULT NULL,
+  `address` varchar(500) UNIQUE DEFAULT NULL,
+  `email` varchar(100) UNIQUE DEFAULT NULL,
   PRIMARY KEY (`supplier_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 

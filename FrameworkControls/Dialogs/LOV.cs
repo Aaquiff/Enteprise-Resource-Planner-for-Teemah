@@ -12,7 +12,7 @@ using MySQLDatabaseAccess;
 
 namespace FrameworkControls.Dialogs
 {
-    public partial class LOV : Form
+    public partial class LOV : MetroFramework.Forms.MetroForm
     {
         MySqlConnection con;
         MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
@@ -53,6 +53,21 @@ namespace FrameworkControls.Dialogs
         }
 
         private void customDataGrid11_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Select();
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            Select();
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+        }
+
+        private void customDataGrid11_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             Select();
         }

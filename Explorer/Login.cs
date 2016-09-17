@@ -12,7 +12,7 @@ using MySQLDatabaseAccess;
 
 namespace Explorer
 {
-    public partial class Login : Form
+    public partial class Login : MetroFramework.Forms.MetroForm
     {
         public Login()
         {

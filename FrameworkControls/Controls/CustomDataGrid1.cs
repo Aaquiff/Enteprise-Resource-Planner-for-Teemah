@@ -22,7 +22,7 @@ namespace FrameworkControls.Controls
             this.GridColor = SystemColors.Control;
             this.MultiSelect = false;
             this.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.EditMode = DataGridViewEditMode.EditOnKeystroke;
+            this.EditMode = DataGridViewEditMode.EditOnEnter;
             this.BackgroundColor = SystemColors.Window;
             this.AllowUserToAddRows = false;
             this.AllowUserToDeleteRows = false;
@@ -47,7 +47,7 @@ namespace FrameworkControls.Controls
 
         protected override void OnColumnAdded(DataGridViewColumnEventArgs e)
         {
-            e.Column.HeaderText = e.Column.HeaderText.Replace("_", " ").ToUpper();
+            /*e.Column.HeaderText = e.Column.HeaderText.Replace("_", " ").ToUpper();*/
             base.OnColumnAdded(e);
         }
 

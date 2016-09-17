@@ -30,6 +30,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MetroFramework">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,12 +57,6 @@
     <Compile Include="AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage Roles.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manage Roles.Designer.cs">
-      <DependentUpon>Manage Roles.cs</DependentUpon>
-    </Compile>
     <Compile Include="ManageUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +64,13 @@
       <DependentUpon>ManageUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleDB.cs" />
+    <Compile Include="tbwManageRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tbwManageRoles.Designer.cs">
+      <DependentUpon>tbwManageRoles.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,16 +82,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UserDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UserDB.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage Roles.resx">
-      <DependentUpon>Manage Roles.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ManageUser.resx">
       <DependentUpon>ManageUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tbwManageRoles.resx">
+      <DependentUpon>tbwManageRoles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User.resx">
       <DependentUpon>User.cs</DependentUpon>

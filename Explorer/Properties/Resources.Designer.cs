@@ -83,6 +83,26 @@ namespace Explorer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_info_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_info_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_info_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_info_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_menu_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("ic_menu_black_24dp", resourceCulture);
@@ -116,6 +136,56 @@ namespace Explorer.Properties {
         internal static System.Drawing.Bitmap ic_menu_black_24dp3 {
             get {
                 object obj = ResourceManager.GetObject("ic_menu_black_24dp3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_menu_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_menu_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_menu_white_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_menu_white_48dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_menu_white_48dp1 {
+            get {
+                object obj = ResourceManager.GetObject("ic_menu_white_48dp1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_power_settings_new_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_power_settings_new_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_power_settings_new_white_24dp1 {
+            get {
+                object obj = ResourceManager.GetObject("ic_power_settings_new_white_24dp1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

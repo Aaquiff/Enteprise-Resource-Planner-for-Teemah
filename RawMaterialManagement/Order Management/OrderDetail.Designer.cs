@@ -33,55 +33,44 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.customDataGrid11 = new FrameworkControls.Controls.CustomDataGrid1();
-            this.orderidDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitpriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitofmeasureDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroGrid2 = new MetroFramework.Controls.MetroGrid();
             this.fKrawpurchaseorderraworderlineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rawpurchaseorderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rawDataSet = new RawMaterialManagement.RawDataSet();
+            this.fKrawpurchaseorderraworderlineBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panelOrderDetail = new System.Windows.Forms.Panel();
             this.panelOrder = new System.Windows.Forms.Panel();
-            this.customButton1 = new FrameworkControls.Controls.CustomButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.customButton2 = new FrameworkControls.Controls.CustomButton();
-            this.txtSupplierId = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtSupplierName = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.txtSupplierId = new MetroFramework.Controls.MetroTextBox();
+            this.txtSupplierName = new MetroFramework.Controls.MetroTextBox();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtSubTotal = new System.Windows.Forms.TextBox();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.metroTextBox5 = new MetroFramework.Controls.MetroTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.contextMenuStripOrder = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.approveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customButton3 = new FrameworkControls.Controls.CustomButton();
-            this.txtCreatedDate = new System.Windows.Forms.TextBox();
-            this.txtStatus = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtOrderId = new System.Windows.Forms.TextBox();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
+            this.txtStatus = new MetroFramework.Controls.MetroTextBox();
+            this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
+            this.txtCreator = new MetroFramework.Controls.MetroTextBox();
+            this.txtOrderId = new MetroFramework.Controls.MetroTextBox();
+            this.metroButton3 = new MetroFramework.Controls.MetroButton();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtCreator = new System.Windows.Forms.TextBox();
             this.txtShippingAddress = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtNotes = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtApprovedBy = new System.Windows.Forms.TextBox();
             this.contextMenuStripOrderLine = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,21 +80,14 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toBeApprovedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.recordSelectorGrid1 = new FrameworkControls.Controls.RecordSelectorGrid();
-            this.orderidDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creationdateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creatorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.approverDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shippingaddressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplieridDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliernameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
             this.orderidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creationdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -124,24 +106,33 @@
             this.itemnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitofmeasureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panelSearch = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.txtSearch = new MetroFramework.Controls.MetroTextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.cmbColumns = new MetroFramework.Controls.MetroComboBox();
+            this.orderidDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rawpurchaseorderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rawDataSet = new RawMaterialManagement.RawDataSet();
+            this.orderidDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitpriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitofmeasureDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.raw_purchase_orderTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_purchase_orderTableAdapter();
             this.raw_order_lineTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_order_lineTableAdapter();
-            this.panelSearch = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.txtSearchItemId = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.cmbColumns = new System.Windows.Forms.ComboBox();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customDataGrid11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKrawpurchaseorderraworderlineBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rawpurchaseorderBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rawDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKrawpurchaseorderraworderlineBindingSource1)).BeginInit();
             this.panelOrderDetail.SuspendLayout();
             this.panelOrder.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.contextMenuStripOrder.SuspendLayout();
             this.contextMenuStripOrderLine.SuspendLayout();
@@ -150,36 +141,46 @@
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.recordSelectorGrid1)).BeginInit();
-            this.panelSearch.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panelSearch.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rawpurchaseorderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rawDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
             // 
-            this.panelMain.Controls.Add(this.customDataGrid11);
+            this.panelMain.Controls.Add(this.metroGrid2);
             this.panelMain.Controls.Add(this.panelOrderDetail);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1088, 626);
+            this.panelMain.Size = new System.Drawing.Size(943, 498);
             this.panelMain.TabIndex = 0;
             // 
-            // customDataGrid11
+            // metroGrid2
             // 
-            this.customDataGrid11.AllowUserToAddRows = false;
-            this.customDataGrid11.AllowUserToDeleteRows = false;
-            this.customDataGrid11.AllowUserToResizeRows = false;
-            this.customDataGrid11.AutoGenerateColumns = false;
-            this.customDataGrid11.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.customDataGrid11.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            this.customDataGrid11.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.customDataGrid11.ColumnHeadersHeight = 40;
-            this.customDataGrid11.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.metroGrid2.AllowUserToAddRows = false;
+            this.metroGrid2.AllowUserToDeleteRows = false;
+            this.metroGrid2.AllowUserToResizeRows = false;
+            this.metroGrid2.AutoGenerateColumns = false;
+            this.metroGrid2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.metroGrid2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.metroGrid2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.metroGrid2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.metroGrid2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.metroGrid2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.orderidDataGridViewTextBoxColumn3,
             this.itemidDataGridViewTextBoxColumn1,
             this.unitpriceDataGridViewTextBoxColumn1,
@@ -187,85 +188,48 @@
             this.itemnameDataGridViewTextBoxColumn1,
             this.unitofmeasureDataGridViewTextBoxColumn1,
             this.amountDataGridViewTextBoxColumn1});
-            this.customDataGrid11.DataSource = this.fKrawpurchaseorderraworderlineBindingSource;
+            this.metroGrid2.DataSource = this.fKrawpurchaseorderraworderlineBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.customDataGrid11.DefaultCellStyle = dataGridViewCellStyle2;
-            this.customDataGrid11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customDataGrid11.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
-            this.customDataGrid11.EnableHeadersVisualStyles = false;
-            this.customDataGrid11.GridColor = System.Drawing.SystemColors.Control;
-            this.customDataGrid11.Location = new System.Drawing.Point(0, 357);
-            this.customDataGrid11.MultiSelect = false;
-            this.customDataGrid11.Name = "customDataGrid11";
-            this.customDataGrid11.RowHeadersVisible = false;
-            this.customDataGrid11.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customDataGrid11.Size = new System.Drawing.Size(1088, 269);
-            this.customDataGrid11.TabIndex = 0;
-            // 
-            // orderidDataGridViewTextBoxColumn3
-            // 
-            this.orderidDataGridViewTextBoxColumn3.DataPropertyName = "order_id";
-            this.orderidDataGridViewTextBoxColumn3.HeaderText = "ORDER ID";
-            this.orderidDataGridViewTextBoxColumn3.Name = "orderidDataGridViewTextBoxColumn3";
-            // 
-            // itemidDataGridViewTextBoxColumn1
-            // 
-            this.itemidDataGridViewTextBoxColumn1.DataPropertyName = "item_id";
-            this.itemidDataGridViewTextBoxColumn1.HeaderText = "ITEM ID";
-            this.itemidDataGridViewTextBoxColumn1.Name = "itemidDataGridViewTextBoxColumn1";
-            // 
-            // unitpriceDataGridViewTextBoxColumn1
-            // 
-            this.unitpriceDataGridViewTextBoxColumn1.DataPropertyName = "unit_price";
-            this.unitpriceDataGridViewTextBoxColumn1.HeaderText = "UNIT PRICE";
-            this.unitpriceDataGridViewTextBoxColumn1.Name = "unitpriceDataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "quantity";
-            this.dataGridViewTextBoxColumn2.HeaderText = "QUANTITY";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // itemnameDataGridViewTextBoxColumn1
-            // 
-            this.itemnameDataGridViewTextBoxColumn1.DataPropertyName = "item_name";
-            this.itemnameDataGridViewTextBoxColumn1.HeaderText = "ITEM NAME";
-            this.itemnameDataGridViewTextBoxColumn1.Name = "itemnameDataGridViewTextBoxColumn1";
-            // 
-            // unitofmeasureDataGridViewTextBoxColumn1
-            // 
-            this.unitofmeasureDataGridViewTextBoxColumn1.DataPropertyName = "unit_of_measure";
-            this.unitofmeasureDataGridViewTextBoxColumn1.HeaderText = "UNIT OF MEASURE";
-            this.unitofmeasureDataGridViewTextBoxColumn1.Name = "unitofmeasureDataGridViewTextBoxColumn1";
-            // 
-            // amountDataGridViewTextBoxColumn1
-            // 
-            this.amountDataGridViewTextBoxColumn1.DataPropertyName = "amount";
-            this.amountDataGridViewTextBoxColumn1.HeaderText = "AMOUNT";
-            this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
+            this.metroGrid2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.metroGrid2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroGrid2.EnableHeadersVisualStyles = false;
+            this.metroGrid2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.metroGrid2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.metroGrid2.Location = new System.Drawing.Point(0, 357);
+            this.metroGrid2.Name = "metroGrid2";
+            this.metroGrid2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.metroGrid2.RowHeadersVisible = false;
+            this.metroGrid2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.metroGrid2.RowTemplate.Height = 30;
+            this.metroGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.metroGrid2.Size = new System.Drawing.Size(943, 141);
+            this.metroGrid2.Style = MetroFramework.MetroColorStyle.Lime;
+            this.metroGrid2.TabIndex = 6;
+            this.metroGrid2.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.metroGrid2_DataError);
             // 
             // fKrawpurchaseorderraworderlineBindingSource
             // 
             this.fKrawpurchaseorderraworderlineBindingSource.AllowNew = true;
-            this.fKrawpurchaseorderraworderlineBindingSource.DataMember = "FK_raw_purchase_order_raw_order_line";
-            this.fKrawpurchaseorderraworderlineBindingSource.DataSource = this.rawpurchaseorderBindingSource;
+            this.fKrawpurchaseorderraworderlineBindingSource.DataSource = this.fKrawpurchaseorderraworderlineBindingSource1;
             // 
-            // rawpurchaseorderBindingSource
+            // fKrawpurchaseorderraworderlineBindingSource1
             // 
-            this.rawpurchaseorderBindingSource.DataMember = "raw_purchase_order";
-            this.rawpurchaseorderBindingSource.DataSource = this.rawDataSet;
-            // 
-            // rawDataSet
-            // 
-            this.rawDataSet.DataSetName = "RawDataSet";
-            this.rawDataSet.EnforceConstraints = false;
-            this.rawDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.fKrawpurchaseorderraworderlineBindingSource1.DataMember = "FK_raw_purchase_order_raw_order_line";
+            this.fKrawpurchaseorderraworderlineBindingSource1.DataSource = this.rawpurchaseorderBindingSource;
             // 
             // panelOrderDetail
             // 
@@ -275,215 +239,223 @@
             this.panelOrderDetail.Location = new System.Drawing.Point(0, 0);
             this.panelOrderDetail.Margin = new System.Windows.Forms.Padding(4);
             this.panelOrderDetail.Name = "panelOrderDetail";
-            this.panelOrderDetail.Size = new System.Drawing.Size(1088, 357);
+            this.panelOrderDetail.Size = new System.Drawing.Size(943, 357);
             this.panelOrderDetail.TabIndex = 5;
             // 
             // panelOrder
             // 
             this.panelOrder.AutoScroll = true;
-            this.panelOrder.Controls.Add(this.customButton1);
             this.panelOrder.Controls.Add(this.groupBox3);
             this.panelOrder.Controls.Add(this.groupBox1);
             this.panelOrder.Controls.Add(this.groupBox2);
             this.panelOrder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelOrder.Location = new System.Drawing.Point(0, 0);
             this.panelOrder.Name = "panelOrder";
-            this.panelOrder.Size = new System.Drawing.Size(1088, 357);
+            this.panelOrder.Size = new System.Drawing.Size(943, 357);
             this.panelOrder.TabIndex = 25;
-            // 
-            // customButton1
-            // 
-            this.customButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton1.ForeColor = System.Drawing.Color.White;
-            this.customButton1.Location = new System.Drawing.Point(6, 298);
-            this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(83, 32);
-            this.customButton1.TabIndex = 0;
-            this.customButton1.Text = "Add Item";
-            this.customButton1.UseVisualStyleBackColor = false;
-            this.customButton1.Click += new System.EventHandler(this.customButton1_Click);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.customButton2);
+            this.groupBox3.Controls.Add(this.metroLabel9);
+            this.groupBox3.Controls.Add(this.metroLabel8);
             this.groupBox3.Controls.Add(this.txtSupplierId);
-            this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.txtSupplierName);
-            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.metroButton1);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox3.Location = new System.Drawing.Point(838, 0);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(223, 357);
+            this.groupBox3.Size = new System.Drawing.Size(223, 336);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Supplier";
             // 
-            // customButton2
+            // metroLabel9
             // 
-            this.customButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.customButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton2.ForeColor = System.Drawing.Color.White;
-            this.customButton2.Location = new System.Drawing.Point(8, 126);
-            this.customButton2.Name = "customButton2";
-            this.customButton2.Size = new System.Drawing.Size(208, 30);
-            this.customButton2.TabIndex = 29;
-            this.customButton2.Text = "Choose Supplier";
-            this.customButton2.UseVisualStyleBackColor = false;
-            this.customButton2.Click += new System.EventHandler(this.customButton2_Click);
+            this.metroLabel9.AutoSize = true;
+            this.metroLabel9.Location = new System.Drawing.Point(12, 82);
+            this.metroLabel9.Name = "metroLabel9";
+            this.metroLabel9.Size = new System.Drawing.Size(101, 20);
+            this.metroLabel9.TabIndex = 41;
+            this.metroLabel9.Text = "Supplier Name";
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(12, 27);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(74, 20);
+            this.metroLabel8.TabIndex = 40;
+            this.metroLabel8.Text = "Supplier Id";
             // 
             // txtSupplierId
             // 
+            // 
+            // 
+            // 
+            this.txtSupplierId.CustomButton.Image = null;
+            this.txtSupplierId.CustomButton.Location = new System.Drawing.Point(148, 1);
+            this.txtSupplierId.CustomButton.Name = "";
+            this.txtSupplierId.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtSupplierId.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtSupplierId.CustomButton.TabIndex = 1;
+            this.txtSupplierId.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtSupplierId.CustomButton.UseSelectable = true;
+            this.txtSupplierId.CustomButton.Visible = false;
             this.txtSupplierId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "supplier_id", true));
-            this.txtSupplierId.Location = new System.Drawing.Point(7, 46);
-            this.txtSupplierId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSupplierId.Enabled = false;
+            this.txtSupplierId.Lines = new string[] {
+        "metroTextBox8"};
+            this.txtSupplierId.Location = new System.Drawing.Point(12, 50);
+            this.txtSupplierId.MaxLength = 32767;
             this.txtSupplierId.Name = "txtSupplierId";
-            this.txtSupplierId.Size = new System.Drawing.Size(208, 29);
-            this.txtSupplierId.TabIndex = 16;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 24);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(92, 23);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Supplier Id";
+            this.txtSupplierId.PasswordChar = '\0';
+            this.txtSupplierId.PromptText = "Choose Supplier";
+            this.txtSupplierId.ReadOnly = true;
+            this.txtSupplierId.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtSupplierId.SelectedText = "";
+            this.txtSupplierId.SelectionLength = 0;
+            this.txtSupplierId.SelectionStart = 0;
+            this.txtSupplierId.ShortcutsEnabled = true;
+            this.txtSupplierId.Size = new System.Drawing.Size(170, 23);
+            this.txtSupplierId.TabIndex = 36;
+            this.txtSupplierId.Text = "metroTextBox8";
+            this.txtSupplierId.UseSelectable = true;
+            this.txtSupplierId.WaterMark = "Choose Supplier";
+            this.txtSupplierId.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtSupplierId.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtSupplierName
             // 
+            // 
+            // 
+            // 
+            this.txtSupplierName.CustomButton.Image = null;
+            this.txtSupplierName.CustomButton.Location = new System.Drawing.Point(148, 1);
+            this.txtSupplierName.CustomButton.Name = "";
+            this.txtSupplierName.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtSupplierName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtSupplierName.CustomButton.TabIndex = 1;
+            this.txtSupplierName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtSupplierName.CustomButton.UseSelectable = true;
+            this.txtSupplierName.CustomButton.Visible = false;
             this.txtSupplierName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "supplier_name", true));
-            this.txtSupplierName.Location = new System.Drawing.Point(8, 94);
-            this.txtSupplierName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSupplierName.Enabled = false;
+            this.txtSupplierName.Lines = new string[] {
+        "metroTextBox7"};
+            this.txtSupplierName.Location = new System.Drawing.Point(12, 105);
+            this.txtSupplierName.MaxLength = 32767;
             this.txtSupplierName.Name = "txtSupplierName";
+            this.txtSupplierName.PasswordChar = '\0';
+            this.txtSupplierName.PromptText = "Choose Supplier";
             this.txtSupplierName.ReadOnly = true;
-            this.txtSupplierName.Size = new System.Drawing.Size(208, 29);
-            this.txtSupplierName.TabIndex = 18;
+            this.txtSupplierName.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtSupplierName.SelectedText = "";
+            this.txtSupplierName.SelectionLength = 0;
+            this.txtSupplierName.SelectionStart = 0;
+            this.txtSupplierName.ShortcutsEnabled = true;
+            this.txtSupplierName.Size = new System.Drawing.Size(170, 23);
+            this.txtSupplierName.TabIndex = 35;
+            this.txtSupplierName.Text = "metroTextBox7";
+            this.txtSupplierName.UseSelectable = true;
+            this.txtSupplierName.WaterMark = "Choose Supplier";
+            this.txtSupplierName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtSupplierName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // label9
+            // metroButton1
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 75);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(123, 23);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Supplier Name";
+            this.metroButton1.Location = new System.Drawing.Point(12, 134);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(170, 23);
+            this.metroButton1.TabIndex = 30;
+            this.metroButton1.Text = "Choose Supplier";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.txtTotal);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.txtSubTotal);
+            this.groupBox1.Controls.Add(this.metroLabel6);
+            this.groupBox1.Controls.Add(this.metroTextBox5);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(615, 0);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(223, 357);
+            this.groupBox1.Size = new System.Drawing.Size(223, 336);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Payment";
             // 
-            // numericUpDown1
+            // metroLabel6
             // 
-            this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.rawpurchaseorderBindingSource, "discount", true));
-            this.numericUpDown1.Location = new System.Drawing.Point(10, 94);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(60, 29);
-            this.numericUpDown1.TabIndex = 29;
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(7, 27);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(64, 20);
+            this.metroLabel6.TabIndex = 39;
+            this.metroLabel6.Text = "Sub Total";
             // 
-            // label10
+            // metroTextBox5
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(75, 96);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(24, 23);
-            this.label10.TabIndex = 28;
-            this.label10.Text = "%";
             // 
-            // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(9, 122);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(46, 23);
-            this.label13.TabIndex = 27;
-            this.label13.Text = "Total";
             // 
-            // txtTotal
-            // 
-            this.txtTotal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "total", true));
-            this.txtTotal.Location = new System.Drawing.Point(11, 143);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(202, 29);
-            this.txtTotal.TabIndex = 26;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 21);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 23);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Sub Total";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 69);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 23);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Discount";
-            // 
-            // txtSubTotal
-            // 
-            this.txtSubTotal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "sub_total", true));
-            this.txtSubTotal.Location = new System.Drawing.Point(11, 41);
-            this.txtSubTotal.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSubTotal.Name = "txtSubTotal";
-            this.txtSubTotal.ReadOnly = true;
-            this.txtSubTotal.Size = new System.Drawing.Size(202, 29);
-            this.txtSubTotal.TabIndex = 11;
+            this.metroTextBox5.CustomButton.Image = null;
+            this.metroTextBox5.CustomButton.Location = new System.Drawing.Point(148, 1);
+            this.metroTextBox5.CustomButton.Name = "";
+            this.metroTextBox5.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.metroTextBox5.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBox5.CustomButton.TabIndex = 1;
+            this.metroTextBox5.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBox5.CustomButton.UseSelectable = true;
+            this.metroTextBox5.CustomButton.Visible = false;
+            this.metroTextBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "sub_total", true));
+            this.metroTextBox5.Enabled = false;
+            this.metroTextBox5.Lines = new string[] {
+        "metroTextBox5"};
+            this.metroTextBox5.Location = new System.Drawing.Point(10, 47);
+            this.metroTextBox5.MaxLength = 32767;
+            this.metroTextBox5.Name = "metroTextBox5";
+            this.metroTextBox5.PasswordChar = '\0';
+            this.metroTextBox5.ReadOnly = true;
+            this.metroTextBox5.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBox5.SelectedText = "";
+            this.metroTextBox5.SelectionLength = 0;
+            this.metroTextBox5.SelectionStart = 0;
+            this.metroTextBox5.ShortcutsEnabled = true;
+            this.metroTextBox5.Size = new System.Drawing.Size(170, 23);
+            this.metroTextBox5.TabIndex = 35;
+            this.metroTextBox5.Text = "metroTextBox5";
+            this.metroTextBox5.UseSelectable = true;
+            this.metroTextBox5.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBox5.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // groupBox2
             // 
             this.groupBox2.ContextMenuStrip = this.contextMenuStripOrder;
-            this.groupBox2.Controls.Add(this.customButton3);
-            this.groupBox2.Controls.Add(this.txtCreatedDate);
+            this.groupBox2.Controls.Add(this.metroLabel5);
+            this.groupBox2.Controls.Add(this.metroLabel4);
+            this.groupBox2.Controls.Add(this.metroLabel3);
+            this.groupBox2.Controls.Add(this.metroLabel2);
+            this.groupBox2.Controls.Add(this.metroLabel1);
+            this.groupBox2.Controls.Add(this.metroTextBox4);
             this.groupBox2.Controls.Add(this.txtStatus);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.txtOrderId);
-            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.metroTextBox2);
             this.groupBox2.Controls.Add(this.txtCreator);
+            this.groupBox2.Controls.Add(this.txtOrderId);
+            this.groupBox2.Controls.Add(this.metroButton3);
+            this.groupBox2.Controls.Add(this.metroButton2);
+            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.txtShippingAddress);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtNotes);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.txtApprovedBy);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(615, 357);
+            this.groupBox2.Size = new System.Drawing.Size(615, 336);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Order";
@@ -510,6 +482,7 @@
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // cancelToolStripMenuItem
             // 
@@ -518,57 +491,246 @@
             this.cancelToolStripMenuItem.Text = "Cancel";
             this.cancelToolStripMenuItem.Click += new System.EventHandler(this.cancelToolStripMenuItem_Click);
             // 
-            // customButton3
+            // metroLabel5
             // 
-            this.customButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.customButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton3.ForeColor = System.Drawing.Color.White;
-            this.customButton3.Location = new System.Drawing.Point(95, 298);
-            this.customButton3.Name = "customButton3";
-            this.customButton3.Size = new System.Drawing.Size(118, 32);
-            this.customButton3.TabIndex = 29;
-            this.customButton3.Text = "Remove Item";
-            this.customButton3.UseVisualStyleBackColor = false;
-            this.customButton3.Click += new System.EventHandler(this.customButton3_Click_1);
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(182, 78);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(89, 20);
+            this.metroLabel5.TabIndex = 42;
+            this.metroLabel5.Text = "Approved By";
             // 
-            // txtCreatedDate
+            // metroLabel4
             // 
-            this.txtCreatedDate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "creation_date", true));
-            this.txtCreatedDate.Location = new System.Drawing.Point(363, 41);
-            this.txtCreatedDate.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCreatedDate.Name = "txtCreatedDate";
-            this.txtCreatedDate.ReadOnly = true;
-            this.txtCreatedDate.Size = new System.Drawing.Size(246, 29);
-            this.txtCreatedDate.TabIndex = 25;
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(6, 78);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(45, 20);
+            this.metroLabel4.TabIndex = 41;
+            this.metroLabel4.Text = "Status";
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(358, 27);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(91, 20);
+            this.metroLabel3.TabIndex = 40;
+            this.metroLabel3.Text = "Created Date";
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(182, 27);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(55, 20);
+            this.metroLabel2.TabIndex = 39;
+            this.metroLabel2.Text = "Creator";
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(2, 27);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(63, 20);
+            this.metroLabel1.TabIndex = 38;
+            this.metroLabel1.Text = "Order ID";
+            // 
+            // metroTextBox4
+            // 
+            // 
+            // 
+            // 
+            this.metroTextBox4.CustomButton.Image = null;
+            this.metroTextBox4.CustomButton.Location = new System.Drawing.Point(148, 1);
+            this.metroTextBox4.CustomButton.Name = "";
+            this.metroTextBox4.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.metroTextBox4.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBox4.CustomButton.TabIndex = 1;
+            this.metroTextBox4.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBox4.CustomButton.UseSelectable = true;
+            this.metroTextBox4.CustomButton.Visible = false;
+            this.metroTextBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "approver", true));
+            this.metroTextBox4.Enabled = false;
+            this.metroTextBox4.Lines = new string[] {
+        "metroTextBox4"};
+            this.metroTextBox4.Location = new System.Drawing.Point(182, 98);
+            this.metroTextBox4.MaxLength = 32767;
+            this.metroTextBox4.Name = "metroTextBox4";
+            this.metroTextBox4.PasswordChar = '\0';
+            this.metroTextBox4.ReadOnly = true;
+            this.metroTextBox4.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBox4.SelectedText = "";
+            this.metroTextBox4.SelectionLength = 0;
+            this.metroTextBox4.SelectionStart = 0;
+            this.metroTextBox4.ShortcutsEnabled = true;
+            this.metroTextBox4.Size = new System.Drawing.Size(170, 23);
+            this.metroTextBox4.TabIndex = 37;
+            this.metroTextBox4.Text = "metroTextBox4";
+            this.metroTextBox4.UseSelectable = true;
+            this.metroTextBox4.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBox4.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtStatus
             // 
+            // 
+            // 
+            // 
+            this.txtStatus.CustomButton.Image = null;
+            this.txtStatus.CustomButton.Location = new System.Drawing.Point(148, 1);
+            this.txtStatus.CustomButton.Name = "";
+            this.txtStatus.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtStatus.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtStatus.CustomButton.TabIndex = 1;
+            this.txtStatus.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtStatus.CustomButton.UseSelectable = true;
+            this.txtStatus.CustomButton.Visible = false;
             this.txtStatus.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "status", true));
-            this.txtStatus.Location = new System.Drawing.Point(6, 96);
-            this.txtStatus.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStatus.Enabled = false;
+            this.txtStatus.Lines = new string[] {
+        "metroTextBox3"};
+            this.txtStatus.Location = new System.Drawing.Point(6, 98);
+            this.txtStatus.MaxLength = 32767;
             this.txtStatus.Name = "txtStatus";
+            this.txtStatus.PasswordChar = '\0';
             this.txtStatus.ReadOnly = true;
-            this.txtStatus.Size = new System.Drawing.Size(170, 29);
-            this.txtStatus.TabIndex = 24;
+            this.txtStatus.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtStatus.SelectedText = "";
+            this.txtStatus.SelectionLength = 0;
+            this.txtStatus.SelectionStart = 0;
+            this.txtStatus.ShortcutsEnabled = true;
+            this.txtStatus.Size = new System.Drawing.Size(170, 23);
+            this.txtStatus.Style = MetroFramework.MetroColorStyle.Red;
+            this.txtStatus.TabIndex = 36;
+            this.txtStatus.Text = "metroTextBox3";
+            this.txtStatus.UseSelectable = true;
+            this.txtStatus.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtStatus.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // label1
+            // metroTextBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 23);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Order Id";
+            // 
+            // 
+            // 
+            this.metroTextBox2.CustomButton.Image = null;
+            this.metroTextBox2.CustomButton.Location = new System.Drawing.Point(148, 1);
+            this.metroTextBox2.CustomButton.Name = "";
+            this.metroTextBox2.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.metroTextBox2.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBox2.CustomButton.TabIndex = 1;
+            this.metroTextBox2.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBox2.CustomButton.UseSelectable = true;
+            this.metroTextBox2.CustomButton.Visible = false;
+            this.metroTextBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "creation_date", true));
+            this.metroTextBox2.Enabled = false;
+            this.metroTextBox2.Lines = new string[] {
+        "metroTextBox2"};
+            this.metroTextBox2.Location = new System.Drawing.Point(358, 46);
+            this.metroTextBox2.MaxLength = 32767;
+            this.metroTextBox2.Name = "metroTextBox2";
+            this.metroTextBox2.PasswordChar = '\0';
+            this.metroTextBox2.ReadOnly = true;
+            this.metroTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBox2.SelectedText = "";
+            this.metroTextBox2.SelectionLength = 0;
+            this.metroTextBox2.SelectionStart = 0;
+            this.metroTextBox2.ShortcutsEnabled = true;
+            this.metroTextBox2.Size = new System.Drawing.Size(170, 23);
+            this.metroTextBox2.TabIndex = 35;
+            this.metroTextBox2.Text = "metroTextBox2";
+            this.metroTextBox2.UseSelectable = true;
+            this.metroTextBox2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBox2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // txtCreator
+            // 
+            // 
+            // 
+            // 
+            this.txtCreator.CustomButton.Image = null;
+            this.txtCreator.CustomButton.Location = new System.Drawing.Point(148, 1);
+            this.txtCreator.CustomButton.Name = "";
+            this.txtCreator.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtCreator.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtCreator.CustomButton.TabIndex = 1;
+            this.txtCreator.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtCreator.CustomButton.UseSelectable = true;
+            this.txtCreator.CustomButton.Visible = false;
+            this.txtCreator.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "creator", true));
+            this.txtCreator.Enabled = false;
+            this.txtCreator.Lines = new string[] {
+        "metroTextBox1"};
+            this.txtCreator.Location = new System.Drawing.Point(182, 47);
+            this.txtCreator.MaxLength = 32767;
+            this.txtCreator.Name = "txtCreator";
+            this.txtCreator.PasswordChar = '\0';
+            this.txtCreator.ReadOnly = true;
+            this.txtCreator.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtCreator.SelectedText = "";
+            this.txtCreator.SelectionLength = 0;
+            this.txtCreator.SelectionStart = 0;
+            this.txtCreator.ShortcutsEnabled = true;
+            this.txtCreator.Size = new System.Drawing.Size(170, 23);
+            this.txtCreator.TabIndex = 34;
+            this.txtCreator.Text = "metroTextBox1";
+            this.txtCreator.UseSelectable = true;
+            this.txtCreator.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtCreator.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtOrderId
             // 
+            // 
+            // 
+            // 
+            this.txtOrderId.CustomButton.Image = null;
+            this.txtOrderId.CustomButton.Location = new System.Drawing.Point(148, 1);
+            this.txtOrderId.CustomButton.Name = "";
+            this.txtOrderId.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtOrderId.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtOrderId.CustomButton.TabIndex = 1;
+            this.txtOrderId.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtOrderId.CustomButton.UseSelectable = true;
+            this.txtOrderId.CustomButton.Visible = false;
             this.txtOrderId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "order_id", true));
-            this.txtOrderId.Location = new System.Drawing.Point(7, 41);
-            this.txtOrderId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtOrderId.Enabled = false;
+            this.txtOrderId.Lines = new string[] {
+        "metroTextBox1"};
+            this.txtOrderId.Location = new System.Drawing.Point(6, 47);
+            this.txtOrderId.MaxLength = 32767;
             this.txtOrderId.Name = "txtOrderId";
-            this.txtOrderId.Size = new System.Drawing.Size(169, 29);
-            this.txtOrderId.TabIndex = 0;
+            this.txtOrderId.PasswordChar = '\0';
+            this.txtOrderId.ReadOnly = true;
+            this.txtOrderId.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtOrderId.SelectedText = "";
+            this.txtOrderId.SelectionLength = 0;
+            this.txtOrderId.SelectionStart = 0;
+            this.txtOrderId.ShortcutsEnabled = true;
+            this.txtOrderId.Size = new System.Drawing.Size(170, 23);
+            this.txtOrderId.TabIndex = 33;
+            this.txtOrderId.Text = "metroTextBox1";
+            this.txtOrderId.UseSelectable = true;
+            this.txtOrderId.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtOrderId.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroButton3
+            // 
+            this.metroButton3.Location = new System.Drawing.Point(109, 298);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.Size = new System.Drawing.Size(95, 23);
+            this.metroButton3.TabIndex = 32;
+            this.metroButton3.Text = "Remove Item";
+            this.metroButton3.UseSelectable = true;
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(8, 298);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(95, 23);
+            this.metroButton2.TabIndex = 31;
+            this.metroButton2.Text = "Add Item";
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // label11
             // 
@@ -580,16 +742,6 @@
             this.label11.TabIndex = 23;
             this.label11.Text = "Shipping Address";
             // 
-            // txtCreator
-            // 
-            this.txtCreator.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "creator", true));
-            this.txtCreator.Location = new System.Drawing.Point(184, 41);
-            this.txtCreator.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCreator.Name = "txtCreator";
-            this.txtCreator.ReadOnly = true;
-            this.txtCreator.Size = new System.Drawing.Size(172, 29);
-            this.txtCreator.TabIndex = 2;
-            // 
             // txtShippingAddress
             // 
             this.txtShippingAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "shipping_address", true));
@@ -599,26 +751,6 @@
             this.txtShippingAddress.Name = "txtShippingAddress";
             this.txtShippingAddress.Size = new System.Drawing.Size(171, 118);
             this.txtShippingAddress.TabIndex = 22;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(181, 21);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 23);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Creator";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(360, 21);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 23);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Created Date";
             // 
             // label7
             // 
@@ -639,36 +771,6 @@
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Size = new System.Drawing.Size(424, 119);
             this.txtNotes.TabIndex = 13;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 74);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 23);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Status";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(183, 75);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 23);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Approved By";
-            // 
-            // txtApprovedBy
-            // 
-            this.txtApprovedBy.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rawpurchaseorderBindingSource, "approver", true));
-            this.txtApprovedBy.Location = new System.Drawing.Point(186, 96);
-            this.txtApprovedBy.Margin = new System.Windows.Forms.Padding(4);
-            this.txtApprovedBy.Name = "txtApprovedBy";
-            this.txtApprovedBy.ReadOnly = true;
-            this.txtApprovedBy.Size = new System.Drawing.Size(171, 29);
-            this.txtApprovedBy.TabIndex = 9;
             // 
             // contextMenuStripOrderLine
             // 
@@ -703,11 +805,12 @@
             this.toolStripMenuItem1,
             this.toolStripMenuItem2,
             this.toolStripMenuItem4,
+            this.toolStripMenuItem5,
             this.filterToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(10, 10);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1360, 76);
+            this.menuStrip1.Size = new System.Drawing.Size(1131, 71);
             this.menuStrip1.TabIndex = 29;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -720,7 +823,7 @@
             this.toolStripMenuItem3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(60, 72);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(60, 67);
             this.toolStripMenuItem3.Text = "New";
             this.toolStripMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
@@ -733,7 +836,7 @@
             this.saveToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(60, 72);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(60, 67);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
@@ -746,7 +849,7 @@
             this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(67, 72);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(67, 67);
             this.toolStripMenuItem1.Text = "Delete";
             this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
@@ -759,7 +862,7 @@
             this.toolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(84, 72);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(84, 67);
             this.toolStripMenuItem2.Text = "Populate";
             this.toolStripMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
@@ -772,10 +875,44 @@
             this.toolStripMenuItem4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(73, 72);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(73, 67);
             this.toolStripMenuItem4.Text = "Search";
             this.toolStripMenuItem4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem6,
+            this.cancelToolStripMenuItem1,
+            this.closeToolStripMenuItem1});
+            this.toolStripMenuItem5.Image = global::RawMaterialManagement.Properties.Resources.ic_change_history_black_24dp2;
+            this.toolStripMenuItem5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(61, 67);
+            this.toolStripMenuItem5.Text = "Status";
+            this.toolStripMenuItem5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(141, 26);
+            this.toolStripMenuItem6.Text = "Approve";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
+            // 
+            // cancelToolStripMenuItem1
+            // 
+            this.cancelToolStripMenuItem1.Name = "cancelToolStripMenuItem1";
+            this.cancelToolStripMenuItem1.Size = new System.Drawing.Size(141, 26);
+            this.cancelToolStripMenuItem1.Text = "Cancel";
+            this.cancelToolStripMenuItem1.Click += new System.EventHandler(this.cancelToolStripMenuItem1_Click);
+            // 
+            // closeToolStripMenuItem1
+            // 
+            this.closeToolStripMenuItem1.Name = "closeToolStripMenuItem1";
+            this.closeToolStripMenuItem1.Size = new System.Drawing.Size(141, 26);
+            this.closeToolStripMenuItem1.Text = "Close";
+            this.closeToolStripMenuItem1.Click += new System.EventHandler(this.closeToolStripMenuItem1_Click);
             // 
             // filterToolStripMenuItem
             // 
@@ -784,7 +921,7 @@
             this.filterToolStripMenuItem.Image = global::RawMaterialManagement.Properties.Resources.ic_filter_list_black_24dp;
             this.filterToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
-            this.filterToolStripMenuItem.Size = new System.Drawing.Size(60, 72);
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(60, 67);
             this.filterToolStripMenuItem.Text = "Filter";
             this.filterToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -803,136 +940,68 @@
             // 
             // splitContainerMain.Panel1
             // 
-            this.splitContainerMain.Panel1.Controls.Add(this.recordSelectorGrid1);
+            this.splitContainerMain.Panel1.Controls.Add(this.metroGrid1);
             // 
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.panelMain);
-            this.splitContainerMain.Size = new System.Drawing.Size(1360, 626);
-            this.splitContainerMain.SplitterDistance = 268;
+            this.splitContainerMain.Size = new System.Drawing.Size(1131, 498);
+            this.splitContainerMain.SplitterDistance = 184;
             this.splitContainerMain.TabIndex = 25;
             // 
-            // recordSelectorGrid1
+            // metroGrid1
             // 
-            this.recordSelectorGrid1.AllowUserToAddRows = false;
-            this.recordSelectorGrid1.AllowUserToDeleteRows = false;
-            this.recordSelectorGrid1.AllowUserToResizeRows = false;
-            this.recordSelectorGrid1.AutoGenerateColumns = false;
-            this.recordSelectorGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.recordSelectorGrid1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.recordSelectorGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            this.recordSelectorGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.recordSelectorGrid1.ColumnHeadersHeight = 40;
-            this.recordSelectorGrid1.ColumnHeadersVisible = false;
-            this.recordSelectorGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.orderidDataGridViewTextBoxColumn2,
-            this.creationdateDataGridViewTextBoxColumn1,
-            this.creatorDataGridViewTextBoxColumn1,
-            this.statusDataGridViewTextBoxColumn1,
-            this.approverDataGridViewTextBoxColumn1,
-            this.shippingaddressDataGridViewTextBoxColumn1,
-            this.supplieridDataGridViewTextBoxColumn1,
-            this.suppliernameDataGridViewTextBoxColumn1,
-            this.subtotalDataGridViewTextBoxColumn1,
-            this.discountDataGridViewTextBoxColumn1,
-            this.totalDataGridViewTextBoxColumn1});
-            this.recordSelectorGrid1.DataSource = this.rawpurchaseorderBindingSource;
+            this.metroGrid1.AllowUserToAddRows = false;
+            this.metroGrid1.AllowUserToDeleteRows = false;
+            this.metroGrid1.AllowUserToResizeRows = false;
+            this.metroGrid1.AutoGenerateColumns = false;
+            this.metroGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.metroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.recordSelectorGrid1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.recordSelectorGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.recordSelectorGrid1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
-            this.recordSelectorGrid1.EnableHeadersVisualStyles = false;
-            this.recordSelectorGrid1.GridColor = System.Drawing.SystemColors.Control;
-            this.recordSelectorGrid1.Location = new System.Drawing.Point(0, 0);
-            this.recordSelectorGrid1.MultiSelect = false;
-            this.recordSelectorGrid1.Name = "recordSelectorGrid1";
-            this.recordSelectorGrid1.RowHeadersVisible = false;
-            this.recordSelectorGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.recordSelectorGrid1.Size = new System.Drawing.Size(268, 626);
-            this.recordSelectorGrid1.TabIndex = 0;
-            // 
-            // orderidDataGridViewTextBoxColumn2
-            // 
-            this.orderidDataGridViewTextBoxColumn2.DataPropertyName = "order_id";
-            this.orderidDataGridViewTextBoxColumn2.HeaderText = "order_id";
-            this.orderidDataGridViewTextBoxColumn2.Name = "orderidDataGridViewTextBoxColumn2";
-            // 
-            // creationdateDataGridViewTextBoxColumn1
-            // 
-            this.creationdateDataGridViewTextBoxColumn1.DataPropertyName = "creation_date";
-            this.creationdateDataGridViewTextBoxColumn1.HeaderText = "creation_date";
-            this.creationdateDataGridViewTextBoxColumn1.Name = "creationdateDataGridViewTextBoxColumn1";
-            this.creationdateDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // creatorDataGridViewTextBoxColumn1
-            // 
-            this.creatorDataGridViewTextBoxColumn1.DataPropertyName = "creator";
-            this.creatorDataGridViewTextBoxColumn1.HeaderText = "creator";
-            this.creatorDataGridViewTextBoxColumn1.Name = "creatorDataGridViewTextBoxColumn1";
-            this.creatorDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // statusDataGridViewTextBoxColumn1
-            // 
-            this.statusDataGridViewTextBoxColumn1.DataPropertyName = "status";
-            this.statusDataGridViewTextBoxColumn1.HeaderText = "status";
-            this.statusDataGridViewTextBoxColumn1.Name = "statusDataGridViewTextBoxColumn1";
-            // 
-            // approverDataGridViewTextBoxColumn1
-            // 
-            this.approverDataGridViewTextBoxColumn1.DataPropertyName = "approver";
-            this.approverDataGridViewTextBoxColumn1.HeaderText = "approver";
-            this.approverDataGridViewTextBoxColumn1.Name = "approverDataGridViewTextBoxColumn1";
-            this.approverDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // shippingaddressDataGridViewTextBoxColumn1
-            // 
-            this.shippingaddressDataGridViewTextBoxColumn1.DataPropertyName = "shipping_address";
-            this.shippingaddressDataGridViewTextBoxColumn1.HeaderText = "shipping_address";
-            this.shippingaddressDataGridViewTextBoxColumn1.Name = "shippingaddressDataGridViewTextBoxColumn1";
-            this.shippingaddressDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // supplieridDataGridViewTextBoxColumn1
-            // 
-            this.supplieridDataGridViewTextBoxColumn1.DataPropertyName = "supplier_id";
-            this.supplieridDataGridViewTextBoxColumn1.HeaderText = "supplier_id";
-            this.supplieridDataGridViewTextBoxColumn1.Name = "supplieridDataGridViewTextBoxColumn1";
-            this.supplieridDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // suppliernameDataGridViewTextBoxColumn1
-            // 
-            this.suppliernameDataGridViewTextBoxColumn1.DataPropertyName = "supplier_name";
-            this.suppliernameDataGridViewTextBoxColumn1.HeaderText = "supplier_name";
-            this.suppliernameDataGridViewTextBoxColumn1.Name = "suppliernameDataGridViewTextBoxColumn1";
-            this.suppliernameDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // subtotalDataGridViewTextBoxColumn1
-            // 
-            this.subtotalDataGridViewTextBoxColumn1.DataPropertyName = "sub_total";
-            this.subtotalDataGridViewTextBoxColumn1.HeaderText = "sub_total";
-            this.subtotalDataGridViewTextBoxColumn1.Name = "subtotalDataGridViewTextBoxColumn1";
-            this.subtotalDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // discountDataGridViewTextBoxColumn1
-            // 
-            this.discountDataGridViewTextBoxColumn1.DataPropertyName = "discount";
-            this.discountDataGridViewTextBoxColumn1.HeaderText = "discount";
-            this.discountDataGridViewTextBoxColumn1.Name = "discountDataGridViewTextBoxColumn1";
-            this.discountDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // totalDataGridViewTextBoxColumn1
-            // 
-            this.totalDataGridViewTextBoxColumn1.DataPropertyName = "total";
-            this.totalDataGridViewTextBoxColumn1.HeaderText = "total";
-            this.totalDataGridViewTextBoxColumn1.Name = "totalDataGridViewTextBoxColumn1";
-            this.totalDataGridViewTextBoxColumn1.Visible = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orderidDataGridViewTextBoxColumn2});
+            this.metroGrid1.DataSource = this.rawpurchaseorderBindingSource;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.metroGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroGrid1.EnableHeadersVisualStyles = false;
+            this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.metroGrid1.Location = new System.Drawing.Point(0, 0);
+            this.metroGrid1.Name = "metroGrid1";
+            this.metroGrid1.ReadOnly = true;
+            this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.metroGrid1.RowHeadersVisible = false;
+            this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.metroGrid1.RowTemplate.Height = 40;
+            this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.metroGrid1.Size = new System.Drawing.Size(184, 498);
+            this.metroGrid1.Style = MetroFramework.MetroColorStyle.Lime;
+            this.metroGrid1.TabIndex = 0;
             // 
             // orderidDataGridViewTextBoxColumn
             // 
@@ -1051,6 +1120,154 @@
             this.amountDataGridViewTextBoxColumn.HeaderText = "amount";
             this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.splitContainerMain);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(10, 54);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1131, 498);
+            this.panel3.TabIndex = 31;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.DataSource = this.rawpurchaseorderBindingSource;
+            // 
+            // panelSearch
+            // 
+            this.panelSearch.BackColor = System.Drawing.SystemColors.Window;
+            this.panelSearch.Controls.Add(this.panel5);
+            this.panelSearch.Controls.Add(this.panel6);
+            this.panelSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSearch.Location = new System.Drawing.Point(10, 10);
+            this.panelSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelSearch.Name = "panelSearch";
+            this.panelSearch.Size = new System.Drawing.Size(1131, 44);
+            this.panelSearch.TabIndex = 32;
+            this.panelSearch.Visible = false;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.txtSearch);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(200, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(931, 44);
+            this.panel5.TabIndex = 3;
+            // 
+            // txtSearch
+            // 
+            // 
+            // 
+            // 
+            this.txtSearch.CustomButton.Image = null;
+            this.txtSearch.CustomButton.Location = new System.Drawing.Point(903, 1);
+            this.txtSearch.CustomButton.Name = "";
+            this.txtSearch.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtSearch.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtSearch.CustomButton.TabIndex = 1;
+            this.txtSearch.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtSearch.CustomButton.UseSelectable = true;
+            this.txtSearch.CustomButton.Visible = false;
+            this.txtSearch.Lines = new string[0];
+            this.txtSearch.Location = new System.Drawing.Point(3, 6);
+            this.txtSearch.MaxLength = 32767;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PasswordChar = '\0';
+            this.txtSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtSearch.SelectedText = "";
+            this.txtSearch.SelectionLength = 0;
+            this.txtSearch.SelectionStart = 0;
+            this.txtSearch.ShortcutsEnabled = true;
+            this.txtSearch.Size = new System.Drawing.Size(925, 23);
+            this.txtSearch.TabIndex = 1;
+            this.txtSearch.UseSelectable = true;
+            this.txtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.cmbColumns);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(200, 44);
+            this.panel6.TabIndex = 4;
+            // 
+            // cmbColumns
+            // 
+            this.cmbColumns.FormattingEnabled = true;
+            this.cmbColumns.ItemHeight = 24;
+            this.cmbColumns.Location = new System.Drawing.Point(3, 3);
+            this.cmbColumns.Name = "cmbColumns";
+            this.cmbColumns.Size = new System.Drawing.Size(191, 30);
+            this.cmbColumns.TabIndex = 0;
+            this.cmbColumns.UseSelectable = true;
+            // 
+            // orderidDataGridViewTextBoxColumn2
+            // 
+            this.orderidDataGridViewTextBoxColumn2.DataPropertyName = "order_id";
+            this.orderidDataGridViewTextBoxColumn2.FillWeight = 615.3845F;
+            this.orderidDataGridViewTextBoxColumn2.HeaderText = "Order Id";
+            this.orderidDataGridViewTextBoxColumn2.Name = "orderidDataGridViewTextBoxColumn2";
+            this.orderidDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // rawpurchaseorderBindingSource
+            // 
+            this.rawpurchaseorderBindingSource.DataMember = "raw_purchase_order";
+            this.rawpurchaseorderBindingSource.DataSource = this.rawDataSet;
+            // 
+            // rawDataSet
+            // 
+            this.rawDataSet.DataSetName = "RawDataSet";
+            this.rawDataSet.EnforceConstraints = false;
+            this.rawDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // orderidDataGridViewTextBoxColumn3
+            // 
+            this.orderidDataGridViewTextBoxColumn3.DataPropertyName = "order_id";
+            this.orderidDataGridViewTextBoxColumn3.HeaderText = "order_id";
+            this.orderidDataGridViewTextBoxColumn3.Name = "orderidDataGridViewTextBoxColumn3";
+            this.orderidDataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // itemidDataGridViewTextBoxColumn1
+            // 
+            this.itemidDataGridViewTextBoxColumn1.DataPropertyName = "item_id";
+            this.itemidDataGridViewTextBoxColumn1.HeaderText = "item_id";
+            this.itemidDataGridViewTextBoxColumn1.Name = "itemidDataGridViewTextBoxColumn1";
+            // 
+            // unitpriceDataGridViewTextBoxColumn1
+            // 
+            this.unitpriceDataGridViewTextBoxColumn1.DataPropertyName = "unit_price";
+            this.unitpriceDataGridViewTextBoxColumn1.HeaderText = "unit_price";
+            this.unitpriceDataGridViewTextBoxColumn1.Name = "unitpriceDataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "quantity";
+            this.dataGridViewTextBoxColumn2.HeaderText = "quantity";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // itemnameDataGridViewTextBoxColumn1
+            // 
+            this.itemnameDataGridViewTextBoxColumn1.DataPropertyName = "item_name";
+            this.itemnameDataGridViewTextBoxColumn1.HeaderText = "item_name";
+            this.itemnameDataGridViewTextBoxColumn1.Name = "itemnameDataGridViewTextBoxColumn1";
+            // 
+            // unitofmeasureDataGridViewTextBoxColumn1
+            // 
+            this.unitofmeasureDataGridViewTextBoxColumn1.DataPropertyName = "unit_of_measure";
+            this.unitofmeasureDataGridViewTextBoxColumn1.HeaderText = "unit_of_measure";
+            this.unitofmeasureDataGridViewTextBoxColumn1.Name = "unitofmeasureDataGridViewTextBoxColumn1";
+            // 
+            // amountDataGridViewTextBoxColumn1
+            // 
+            this.amountDataGridViewTextBoxColumn1.DataPropertyName = "amount";
+            this.amountDataGridViewTextBoxColumn1.HeaderText = "amount";
+            this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
+            // 
             // raw_purchase_orderTableAdapter
             // 
             this.raw_purchase_orderTableAdapter.ClearBeforeFill = true;
@@ -1059,77 +1276,12 @@
             // 
             this.raw_order_lineTableAdapter.ClearBeforeFill = true;
             // 
-            // panelSearch
-            // 
-            this.panelSearch.BackColor = System.Drawing.SystemColors.Window;
-            this.panelSearch.Controls.Add(this.panel1);
-            this.panelSearch.Controls.Add(this.panel2);
-            this.panelSearch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSearch.Location = new System.Drawing.Point(0, 0);
-            this.panelSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(1360, 31);
-            this.panelSearch.TabIndex = 30;
-            this.panelSearch.Visible = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.txtSearchItemId);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(200, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1160, 31);
-            this.panel1.TabIndex = 3;
-            // 
-            // txtSearchItemId
-            // 
-            this.txtSearchItemId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSearchItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchItemId.Location = new System.Drawing.Point(0, 0);
-            this.txtSearchItemId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSearchItemId.Name = "txtSearchItemId";
-            this.txtSearchItemId.Size = new System.Drawing.Size(1160, 34);
-            this.txtSearchItemId.TabIndex = 0;
-            this.txtSearchItemId.TextChanged += new System.EventHandler(this.txtSearchItemId_TextChanged);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.cmbColumns);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 31);
-            this.panel2.TabIndex = 4;
-            // 
-            // cmbColumns
-            // 
-            this.cmbColumns.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbColumns.DropDownHeight = 136;
-            this.cmbColumns.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbColumns.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmbColumns.FormattingEnabled = true;
-            this.cmbColumns.IntegralHeight = false;
-            this.cmbColumns.ItemHeight = 21;
-            this.cmbColumns.Location = new System.Drawing.Point(0, 0);
-            this.cmbColumns.Name = "cmbColumns";
-            this.cmbColumns.Size = new System.Drawing.Size(200, 29);
-            this.cmbColumns.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.splitContainerMain);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 31);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1360, 626);
-            this.panel3.TabIndex = 31;
-            // 
             // OrderDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1360, 657);
+            this.ClientSize = new System.Drawing.Size(1151, 562);
             this.ControlBox = false;
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panelSearch);
@@ -1138,19 +1290,18 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OrderDetail";
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Order Detail";
             this.panelMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.customDataGrid11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKrawpurchaseorderraworderlineBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rawpurchaseorderBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rawDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKrawpurchaseorderraworderlineBindingSource1)).EndInit();
             this.panelOrderDetail.ResumeLayout(false);
             this.panelOrder.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.contextMenuStripOrder.ResumeLayout(false);
@@ -1161,12 +1312,14 @@
             this.splitContainerMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.recordSelectorGrid1)).EndInit();
-            this.panelSearch.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panelSearch.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rawpurchaseorderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rawDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1177,16 +1330,7 @@
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panelOrderDetail;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txtSupplierId;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtSupplierName;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtSubTotal;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
@@ -1195,23 +1339,12 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.Panel panelOrder;
         private System.Windows.Forms.SplitContainer splitContainerMain;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtCreatedDate;
-        private System.Windows.Forms.TextBox txtStatus;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtOrderId;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtCreator;
         private System.Windows.Forms.TextBox txtShippingAddress;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtNotes;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtApprovedBy;
         private RawDataSet rawDataSet;
         private System.Windows.Forms.BindingSource rawpurchaseorderBindingSource;
         private RawDataSetTableAdapters.raw_purchase_orderTableAdapter raw_purchase_orderTableAdapter;
@@ -1226,8 +1359,6 @@
         private System.Windows.Forms.ToolStripMenuItem approveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private FrameworkControls.Controls.CustomDataGrid1 customDataGrid11;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderidDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitpriceDataGridViewTextBoxColumn;
@@ -1235,7 +1366,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn itemnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitofmeasureDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
-        private FrameworkControls.Controls.RecordSelectorGrid recordSelectorGrid1;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn creationdateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn creatorDataGridViewTextBoxColumn;
@@ -1247,7 +1377,30 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
-        private FrameworkControls.Controls.CustomButton customButton1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.BindingSource fKrawpurchaseorderraworderlineBindingSource1;
+        private MetroFramework.Controls.MetroGrid metroGrid1;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton metroButton3;
+        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroGrid metroGrid2;
+        private MetroFramework.Controls.MetroTextBox txtOrderId;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private MetroFramework.Controls.MetroTextBox txtCreator;
+        private MetroFramework.Controls.MetroTextBox txtSupplierId;
+        private MetroFramework.Controls.MetroTextBox txtSupplierName;
+        private MetroFramework.Controls.MetroTextBox metroTextBox5;
+        private MetroFramework.Controls.MetroTextBox metroTextBox4;
+        private MetroFramework.Controls.MetroTextBox txtStatus;
+        private MetroFramework.Controls.MetroTextBox metroTextBox2;
+        private MetroFramework.Controls.MetroLabel metroLabel9;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderidDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemidDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitpriceDataGridViewTextBoxColumn1;
@@ -1256,24 +1409,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn unitofmeasureDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderidDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn creationdateDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn creatorDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn approverDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shippingaddressDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplieridDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suppliernameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subtotalDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn1;
-        private FrameworkControls.Controls.CustomButton customButton2;
-        private FrameworkControls.Controls.CustomButton customButton3;
         protected System.Windows.Forms.Panel panelSearch;
-        private System.Windows.Forms.Panel panel1;
-        protected System.Windows.Forms.TextBox txtSearchItemId;
-        private System.Windows.Forms.Panel panel2;
-        protected System.Windows.Forms.ComboBox cmbColumns;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel5;
+        private MetroFramework.Controls.MetroTextBox txtSearch;
+        private System.Windows.Forms.Panel panel6;
+        private MetroFramework.Controls.MetroComboBox cmbColumns;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem1;
 
     }
 }

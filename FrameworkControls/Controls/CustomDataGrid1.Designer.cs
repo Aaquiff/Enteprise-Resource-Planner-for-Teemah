@@ -28,7 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // CustomDataGrid1
+            // 
+            this.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.RowTemplate.Height = 24;
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

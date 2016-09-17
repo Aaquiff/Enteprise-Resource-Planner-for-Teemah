@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace FrameworkControls.Forms
 {
-    public partial class TableWindowBase : Form
+    public partial class TableWindowBase : MetroFramework.Forms.MetroForm
     {
         protected MySqlConnection con = new MySqlConnection();
         private MySqlCommand sc;

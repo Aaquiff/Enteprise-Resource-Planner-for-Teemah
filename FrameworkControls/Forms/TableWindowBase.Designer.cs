@@ -39,20 +39,22 @@
             this.contextMenuStripDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.columnSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet = new System.Data.DataSet();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.panelSearch = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtSearchItemId = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.cmbColumns = new System.Windows.Forms.ComboBox();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet = new System.Data.DataSet();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripDataGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
+            this.metroPanel1.SuspendLayout();
             this.panelSearch.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -107,7 +109,7 @@
             this.toolStripMenuItemDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
             this.toolStripMenuItemDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(60, 66);
+            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(67, 66);
             this.toolStripMenuItemDelete.Text = "Delete";
             this.toolStripMenuItemDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
@@ -120,7 +122,7 @@
             this.toolStripMenuItemPopulate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemPopulate.Name = "toolStripMenuItemPopulate";
             this.toolStripMenuItemPopulate.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.toolStripMenuItemPopulate.Size = new System.Drawing.Size(70, 66);
+            this.toolStripMenuItemPopulate.Size = new System.Drawing.Size(84, 66);
             this.toolStripMenuItemPopulate.Text = "Populate";
             this.toolStripMenuItemPopulate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItemPopulate.Click += new System.EventHandler(this.toolStripMenuItemPopulate_Click);
@@ -133,32 +135,52 @@
             this.toolStripMenuItemSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemSearch.Name = "toolStripMenuItemSearch";
             this.toolStripMenuItemSearch.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.toolStripMenuItemSearch.Size = new System.Drawing.Size(60, 66);
+            this.toolStripMenuItemSearch.Size = new System.Drawing.Size(73, 66);
             this.toolStripMenuItemSearch.Text = "Search";
             this.toolStripMenuItemSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItemSearch.Click += new System.EventHandler(this.toolStripMenuItemSearch_Click);
             // 
             // contextMenuStripDataGrid
             // 
+            this.contextMenuStripDataGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStripDataGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.columnSizeToolStripMenuItem});
             this.contextMenuStripDataGrid.Name = "contextMenuStripDataGrid";
-            this.contextMenuStripDataGrid.Size = new System.Drawing.Size(141, 26);
+            this.contextMenuStripDataGrid.Size = new System.Drawing.Size(167, 30);
             // 
             // columnSizeToolStripMenuItem
             // 
             this.columnSizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.autoSizeToolStripMenuItem});
             this.columnSizeToolStripMenuItem.Name = "columnSizeToolStripMenuItem";
-            this.columnSizeToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.columnSizeToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.columnSizeToolStripMenuItem.Text = "Column Size";
             // 
             // autoSizeToolStripMenuItem
             // 
             this.autoSizeToolStripMenuItem.Name = "autoSizeToolStripMenuItem";
-            this.autoSizeToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.autoSizeToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.autoSizeToolStripMenuItem.Text = "AutoSize";
             this.autoSizeToolStripMenuItem.Click += new System.EventHandler(this.autoSizeToolStripMenuItem_Click);
+            // 
+            // dataSet
+            // 
+            this.dataSet.DataSetName = "NewDataSet";
+            // 
+            // metroPanel1
+            // 
+            this.metroPanel1.Controls.Add(this.panelSearch);
+            this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(20, 60);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(890, 291);
+            this.metroPanel1.TabIndex = 8;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
             // 
             // panelSearch
             // 
@@ -169,8 +191,8 @@
             this.panelSearch.Location = new System.Drawing.Point(0, 0);
             this.panelSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(930, 31);
-            this.panelSearch.TabIndex = 7;
+            this.panelSearch.Size = new System.Drawing.Size(890, 31);
+            this.panelSearch.TabIndex = 8;
             this.panelSearch.Visible = false;
             // 
             // panel1
@@ -179,7 +201,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(200, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(730, 31);
+            this.panel1.Size = new System.Drawing.Size(690, 31);
             this.panel1.TabIndex = 3;
             // 
             // txtSearchItemId
@@ -189,9 +211,8 @@
             this.txtSearchItemId.Location = new System.Drawing.Point(0, 0);
             this.txtSearchItemId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearchItemId.Name = "txtSearchItemId";
-            this.txtSearchItemId.Size = new System.Drawing.Size(730, 29);
+            this.txtSearchItemId.Size = new System.Drawing.Size(690, 34);
             this.txtSearchItemId.TabIndex = 0;
-            this.txtSearchItemId.TextChanged += new System.EventHandler(this.txtSearchItemId_TextChanged);
             // 
             // panel2
             // 
@@ -210,22 +231,18 @@
             this.cmbColumns.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmbColumns.FormattingEnabled = true;
             this.cmbColumns.IntegralHeight = false;
-            this.cmbColumns.ItemHeight = 16;
+            this.cmbColumns.ItemHeight = 20;
             this.cmbColumns.Location = new System.Drawing.Point(0, 0);
             this.cmbColumns.Name = "cmbColumns";
-            this.cmbColumns.Size = new System.Drawing.Size(200, 24);
+            this.cmbColumns.Size = new System.Drawing.Size(200, 28);
             this.cmbColumns.TabIndex = 2;
-            // 
-            // dataSet
-            // 
-            this.dataSet.DataSetName = "NewDataSet";
             // 
             // TableWindowBase
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 371);
-            this.Controls.Add(this.panelSearch);
+            this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -234,12 +251,13 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.contextMenuStripDataGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
+            this.metroPanel1.ResumeLayout(false);
             this.panelSearch.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,12 +274,13 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStripDataGrid;
         private System.Windows.Forms.ToolStripMenuItem columnSizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem autoSizeToolStripMenuItem;
-        protected System.Windows.Forms.ComboBox cmbColumns;
-        protected System.Windows.Forms.TextBox txtSearchItemId;
-        protected System.Windows.Forms.Panel panelSearch;
         protected System.Windows.Forms.BindingSource bindingSource;
         protected System.Data.DataSet dataSet;
-        private System.Windows.Forms.Panel panel2;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
+        protected System.Windows.Forms.Panel panelSearch;
         private System.Windows.Forms.Panel panel1;
+        protected System.Windows.Forms.TextBox txtSearchItemId;
+        private System.Windows.Forms.Panel panel2;
+        protected System.Windows.Forms.ComboBox cmbColumns;
     }
 }

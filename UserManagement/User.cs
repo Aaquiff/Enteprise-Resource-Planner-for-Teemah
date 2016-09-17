@@ -43,6 +43,7 @@ namespace UserManagement
         {
             try
             {
+                this.Validate();
                 userBindingSource.EndEdit();
                 user_roleBindingSource.EndEdit();
                 user_roleTableAdapter.Update(userDataSet);
@@ -165,5 +166,15 @@ namespace UserManagement
         }
 
         #endregion
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            AddRole();
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            RemoveRole();
+        }
     }
 }

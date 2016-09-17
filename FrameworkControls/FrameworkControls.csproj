@@ -30,6 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -42,6 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Entity.cs" />
+    <Compile Include="Classes\EntityParentChild.cs" />
     <Compile Include="Controls\CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -66,12 +80,6 @@
     <Compile Include="Controls\RecordSelectorGrid.Designer.cs">
       <DependentUpon>RecordSelectorGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\FrameworkMessageBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\FrameworkMessageBox.Designer.cs">
-      <DependentUpon>FrameworkMessageBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Dialogs\LOV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +92,18 @@
     <Compile Include="Dialogs\SearchDialog.Designer.cs">
       <DependentUpon>SearchDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormWindowBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormWindowBase.Designer.cs">
+      <DependentUpon>FormWindowBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PanMetroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PanMetroForm.Designer.cs">
+      <DependentUpon>PanMetroForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TableWindowBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,17 +113,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\CustomDataGrid1.resx">
+      <DependentUpon>CustomDataGrid1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\DataGridViewBase.resx">
       <DependentUpon>DataGridViewBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\FrameworkMessageBox.resx">
-      <DependentUpon>FrameworkMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\LOV.resx">
       <DependentUpon>LOV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SearchDialog.resx">
       <DependentUpon>SearchDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormWindowBase.resx">
+      <DependentUpon>FormWindowBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PanMetroForm.resx">
+      <DependentUpon>PanMetroForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TableWindowBase.resx">
       <DependentUpon>TableWindowBase.cs</DependentUpon>

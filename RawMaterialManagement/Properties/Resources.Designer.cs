@@ -73,6 +73,36 @@ namespace RawMaterialManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_change_history_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_change_history_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_change_history_black_24dp1 {
+            get {
+                object obj = ResourceManager.GetObject("ic_change_history_black_24dp1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_change_history_black_24dp2 {
+            get {
+                object obj = ResourceManager.GetObject("ic_change_history_black_24dp2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_delete_2x {
             get {
                 object obj = ResourceManager.GetObject("ic_delete_2x", resourceCulture);
@@ -96,6 +126,36 @@ namespace RawMaterialManagement.Properties {
         internal static System.Drawing.Bitmap ic_filter_list_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("ic_filter_list_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_insert_chart_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_insert_chart_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_insert_chart_black_24dp1 {
+            get {
+                object obj = ResourceManager.GetObject("ic_insert_chart_black_24dp1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_insert_chart_black_24dp2 {
+            get {
+                object obj = ResourceManager.GetObject("ic_insert_chart_black_24dp2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

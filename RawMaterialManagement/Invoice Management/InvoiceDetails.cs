@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using FrameworkControls.Dialogs;
 using MySql.Data.MySqlClient;
 using MySQLDatabaseAccess;
+using MetroFramework;
 
 namespace RawMaterialManagement.Invoice_Management
 {
@@ -20,7 +21,12 @@ namespace RawMaterialManagement.Invoice_Management
         {
             InitializeComponent();
             con = Connection.getConnection();
-            Populate();
+            //this.raw_invoice_tabTableAdapter.Connection = con;
+            foreach (DataColumn item in rawDataSet.raw_invoice_tab.Columns)
+            {
+                if (!cmbColumns.Items.Contains(item.ColumnName))
+                    cmbColumns.Items.Add(item.ColumnName);
+            }
         }
 
         public InvoiceDetails(string invoiceId)
@@ -35,8 +41,6 @@ namespace RawMaterialManagement.Invoice_Management
 
         private void Populate()
         {
-            // TODO: This line of code loads data into the 'rawDataSet.raw_invoice_tab' table. You can move, or remove it, as needed.
-            this.raw_invoice_tabTableAdapter.Connection = con;
             this.raw_invoice_tabTableAdapter.Fill(this.rawDataSet.raw_invoice_tab);
         }
 
@@ -46,11 +50,30 @@ namespace RawMaterialManagement.Invoice_Management
             {
                 DataRowView newRow = raw_invoice_tabBindingSource.AddNew() as DataRowView;
                 newRow.Row.SetField("status","Created");
+                newRow.Row.SetField("invoice_id",getNextId());
+                txtInvoiceId.Text = getNextId();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this.MdiParent,ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
             }
+        }
+
+        private string getNextId()
+        {
+            if (con.State != ConnectionState.Open)
+                con.Open();
+            string NextItemId = "";
+            MySqlCommand com = new MySqlCommand("SELECT MAX(CONVERT(substr(invoice_id,4), SIGNED INTEGER))FROM raw_invoice_tab;", con);
+            MySqlDataReader reader = com.ExecuteReader();
+            if (reader.Read())
+            {
+                int id = reader.GetInt32(0);
+                id = id + 1;
+                NextItemId = "INV" + id.ToString();
+            }
+            con.Close();
+            return NextItemId;
         }
 
         private void Delete()
@@ -61,7 +84,7 @@ namespace RawMaterialManagement.Invoice_Management
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this.MdiParent,ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
             }
         }
 
@@ -69,14 +92,14 @@ namespace RawMaterialManagement.Invoice_Management
         {
             try
             {
-                //this.Validate();
+                this.Validate();
                 raw_invoice_tabBindingSource.EndEdit();
                 raw_invoice_tabTableAdapter.Update(rawDataSet);
-                MessageBox.Show("Saved");
+                MetroMessageBox.Show(this.MdiParent, "Saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Question); 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this.MdiParent,ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
             }
         }
 
@@ -91,13 +114,32 @@ namespace RawMaterialManagement.Invoice_Management
                 DataRowView row = lov.selectedRow;
                 string orderId = row.Row.ItemArray[0].ToString();
                 txtOrderId.Text = orderId;
+                txtNetValue.Text = getTotal(txtOrderId.Text).ToString();
             }
+            
+        }
+
+        private double getTotal(string orderId)
+        {
+            double total = 0;
+            if (con.State != ConnectionState.Open)
+                con.Open();
+            MySqlCommand command = new MySqlCommand("SELECT SUM(amount) FROM raw_order_line where order_id = '"+orderId+"' GROUP BY order_id",con);
+            MySqlDataReader reader = command.ExecuteReader();
+            if(reader.Read())
+            {
+                total = reader.GetDouble(0);
+            }
+            con.Close();
+            return total;
         }
 
         private void InvoiceDetails_Load(object sender, EventArgs e)
         {
-            //Populate();
-
+            // TODO: This line of code loads data into the 'rawDataSet.raw_currency_tab' table. You can move, or remove it, as needed.
+            this.raw_currency_tabTableAdapter.Connection = con;
+            this.raw_currency_tabTableAdapter.Fill(this.rawDataSet.raw_currency_tab);
+            Populate();
         }
 
         private void btnChooseOrder_Click(object sender, EventArgs e)
@@ -144,18 +186,69 @@ namespace RawMaterialManagement.Invoice_Management
                 panelSearch.Visible = true;
         }
 
-        private void txtSearchItemId_TextChanged(object sender, EventArgs e)
+
+        private void raw_invoice_tabBindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
+        {
+            MetroMessageBox.Show(this.MdiParent, e.Exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);  
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            ChooseOrder();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             string columnName = cmbColumns.SelectedItem.ToString();
             if (!String.IsNullOrEmpty(columnName))
             {
                 MySqlDataAdapter search = new MySqlDataAdapter();
                 MySqlCommand sc = new MySqlCommand("select * from raw_invoice_tab where " + columnName + " like @param", con);
-                sc.Parameters.AddWithValue("@param", "%" + txtSearchItemId.Text + "%");
+                sc.Parameters.AddWithValue("@param", "%" + txtSearch.Text + "%");
                 search.SelectCommand = sc;
                 rawDataSet.raw_invoice_tab.Clear();
                 search.Fill(rawDataSet.raw_invoice_tab);
             }
+        }
+
+        private void calculateGrossAmount()
+        {
+            try
+            {
+                double netValue=0, taxValue=0 , discount=0 ;
+                if( !String.IsNullOrEmpty(txtNetValue.Text) )
+                    netValue = Double.Parse(txtNetValue.Text);
+                if ( !String.IsNullOrEmpty(txtTaxValue.Text) )
+                    taxValue = Double.Parse(txtTaxValue.Text);
+                if (!String.IsNullOrEmpty(txtDiscount.Text))
+                    discount = Double.Parse(txtDiscount.Text);
+
+                txtGrossValue.Text = ( ( netValue + taxValue ) * discount / 100).ToString();
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this.MdiParent, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);  
+            }
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+            calculateGrossAmount();
+        }
+
+        private void txtTaxValue_TextChanged(object sender, EventArgs e)
+        {
+            calculateGrossAmount();
+        }
+
+        private void txtNetValue_TextChanged(object sender, EventArgs e)
+        {
+            calculateGrossAmount();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            calculateGrossAmount();
         }
     }
 }

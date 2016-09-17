@@ -80,6 +80,32 @@ namespace Explorer
             }
         }
 
+        public void loadForm(MetroFramework.Forms.MetroForm childForm)
+        {
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+            try
+            {
+                childForm.ControlBox = false;
+                childForm.MdiParent = this;
+                childForm.WindowState = FormWindowState.Maximized;
+                childForm.AutoScroll = true;
+                childForm.Show();
+                //label1.Text = childForm.Text;
+                /*if (menuStripMain.Items.Count == 0)
+                    menuStripMain.Hide();
+                else
+                    menuStripMain.Show();*/
+            }
+            catch (Exception ex)
+            {
+                loadForm(new ExceptionForm(ex));
+            }
+
+        }
+
         public void loadForm(Form childForm)
         {
             if (ActiveMdiChild != null)
@@ -95,10 +121,10 @@ namespace Explorer
                 childForm.AutoScroll = true;
                 childForm.Show();
                 //label1.Text = childForm.Text;
-                if (menuStripMain.Items.Count == 0)
+                /*if (menuStripMain.Items.Count == 0)
                     menuStripMain.Hide();
                 else
-                    menuStripMain.Show();
+                    menuStripMain.Show();*/
             }
             catch (Exception ex)
             {
@@ -200,7 +226,7 @@ namespace Explorer
 
         private void btnSupplier_Click(object sender, EventArgs e)
         {
-            loadForm(new ManageSupplier());
+            loadForm(new frmManagerSupplier());
         }
 
         private void btnOrderDetails_Click(object sender, EventArgs e)
@@ -220,7 +246,7 @@ namespace Explorer
 
         private void btnOrderTab_Click(object sender, EventArgs e)
         {
-            loadForm(new ManagePurchaseOrder());
+
         }
 
         private void toolStripMenuItemHome_Click(object sender, EventArgs e)
@@ -456,7 +482,7 @@ namespace Explorer
 
         private void button24_Click(object sender, EventArgs e)
         {
-            loadForm(new Manage_Roles());
+            loadForm(new tbwManageRoles());
         }
         #endregion
 
@@ -562,6 +588,33 @@ namespace Explorer
         private void button34_Click(object sender, EventArgs e)
         {
             loadForm(new purchaseUpdatecs());
+        }
+
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            About pab = new About();
+            pab.ShowDialog();
+        }
+
+        private void panelBreadCrumbs_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button36_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button36_Click_1(object sender, EventArgs e)
+        {
+            loadForm(new RawMaterialManagement.BasicData.tbwCurrency());
+        }
+
+        private void button37_Click(object sender, EventArgs e)
+        {
+            loadForm(new RawMaterialDashBoard());
         }
 
         
