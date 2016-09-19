@@ -21,8 +21,24 @@ namespace ProductProcessManagement
             TQuery = "select * from remarks";
             clearFilters();
             bindResults();
+            resizeWindowD();
         }
 
+        private void resizeWindow(object sender, EventArgs e)
+        {
+            resizeWindowD();
+        }
+
+        private void resizeWindowD()
+        {
+            tableLayoutPanel1.Width = (int)(this.Width * 1684 / 1920) - 15;
+            tableLayoutPanel1.Height = (int)(this.Height * 948 / 1080) - 15;
+            tableLayoutPanel1.Location = new Point((int)((this.Width * 236 / 1920)), (int)((this.Height * 132 / 1080)));
+            tableLayoutPanel1.AutoScroll = true;
+            //tableLayoutPanel1.AutoScrollPosition = new Point(0,0);
+
+
+        }
 
 
         private void textBox3_Enter(object sender, EventArgs e)
@@ -78,8 +94,8 @@ namespace ProductProcessManagement
             {
                 query += " and";
             }
-            query += " startDate between " + monthCalendar1.SelectionRange.Start.ToString("dd-MM-yyyy") + " and " + monthCalendar2.SelectionRange.Start.ToString("dd-MM-yyyy");
-            MessageBox.Show(query);
+            query += " startDate between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
+            //MessageBox.Show(query);
             TQuery = query;
         
         }
@@ -144,24 +160,24 @@ namespace ProductProcessManagement
         private void button3_Click(object sender, EventArgs e)
         {
             //High Priority Remakrs
-            TQuery = "SELECT * FROM remarks WHERE priority > 8 and status = 'Not Reviewed' and archived = 0 and created between " + monthCalendar1.SelectionRange.Start.ToString("dd-MM-yyyy") + " and " + monthCalendar2.SelectionRange.Start.ToString("dd-MM-yyyy");
-            MessageBox.Show(TQuery);
+            TQuery = "SELECT * FROM remarks WHERE priority > 8 and status = 'Not Reviewed' and archived = 0 and created between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
+            //MessageBox.Show(TQuery);
             bindResults();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             //Not Reviewed Remarks
-            TQuery = "SELECT * FROM remarks WHERE status = 'Not Reviewed' and archived = 0 and created between " + monthCalendar1.SelectionRange.Start.ToString("dd-MM/-yyy") + " and " + monthCalendar2.SelectionRange.Start.ToString("dd-MM-yyyy");
-            MessageBox.Show(TQuery);
+            TQuery = "SELECT * FROM remarks WHERE status = 'Not Reviewed' and archived = 0 and created between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
+            //MessageBox.Show(TQuery);
             bindResults();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             //Recently Archived Remarks
-            TQuery = "SELECT * FROM remarks WHERE archived = 0 and created between " + monthCalendar1.SelectionRange.Start.ToString("dd-MM-yyyy") + " and " + monthCalendar2.SelectionRange.Start.ToString("dd-MM-yyyy");
-            MessageBox.Show(TQuery);
+            TQuery = "SELECT * FROM remarks WHERE archived = 0 and created between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
+            //MessageBox.Show(TQuery);
             bindResults();
         }
 

@@ -17,6 +17,7 @@ using MetroFramework.Forms;
 using MetroFramework.Properties;
 using MetroFramework.Native;
 using MetroFramework;
+using RawMaterialManagement.Reporting;
 
 namespace RawMaterialManagement.Order_Management
 {
@@ -466,6 +467,12 @@ namespace RawMaterialManagement.Order_Management
         private void closeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             CloseOrder();
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            ReportPurchaseOrderViewe rv = new ReportPurchaseOrderViewe(txtOrderId.Text);
+            rv.ShowDialog();
         }
 
     }

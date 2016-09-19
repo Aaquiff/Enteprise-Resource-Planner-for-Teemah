@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using MetroFramework;
+using RawMaterialManagement.Reporting;
 
 namespace RawMaterialManagement.Supplier_Management
 {
@@ -106,6 +107,14 @@ namespace RawMaterialManagement.Supplier_Management
                 panelSearch.Hide();
             else
                 panelSearch.Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataRowView row = bs.Current as DataRowView;
+            string supplierId = row.Row.ItemArray[0].ToString();
+            ReportSupplier rs = new ReportSupplier(supplierId);
+            rs.ShowDialog();
         }
     }
 }

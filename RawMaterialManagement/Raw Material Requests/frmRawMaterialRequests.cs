@@ -23,6 +23,38 @@ namespace RawMaterialManagement.Raw_Material_Requests
             con = Connection.getConnection();
         }
 
+        private void Approve()
+        {
+            try
+            {
+                DataRowView row = rawmatreqBindingSource.Current as DataRowView;
+
+                rawmatreqTableAdapter.RAW_MATERIAL_ORDER_APPROVE(Int32.Parse(row.Row.ItemArray[0].ToString()));
+                MetroMessageBox.Show(this.MdiParent, "Raw Material Request Has Been Approved", "Approved", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                PopulateRequests();
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this.MdiParent, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Reject()
+        {
+            try
+            {
+                DataRowView row = rawmatreqBindingSource.Current as DataRowView;
+
+                rawmatreqTableAdapter.RAW_MATERIAL_ORDER_REJECT(Int32.Parse(row.Row.ItemArray[0].ToString()));
+                MetroMessageBox.Show(this.MdiParent, "Raw Material Request Has Been Rejected", "Rejected", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                PopulateRequests();
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this.MdiParent, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void frmRawMaterialRequests_Load(object sender, EventArgs e)
         {
             PopulateRequests();
@@ -60,34 +92,12 @@ namespace RawMaterialManagement.Raw_Material_Requests
 
         private void approveRequestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DataRowView row = rawmatreqBindingSource.Current as DataRowView;
-
-                rawmatreqTableAdapter.RAW_MATERIAL_ORDER_APPROVE(Int32.Parse(row.Row.ItemArray[0].ToString()));
-                MessageBox.Show("Approved");
-                PopulateRequests();
-            }
-            catch (Exception ex)
-            {
-                MetroMessageBox.Show(this.MdiParent,ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
-            }
+            
         }
 
         private void rejectRequestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DataRowView row = rawmatreqBindingSource.Current as DataRowView;
-
-                rawmatreqTableAdapter.RAW_MATERIAL_ORDER_REJECT(Int32.Parse(row.Row.ItemArray[0].ToString()));
-                MessageBox.Show("Rejected");
-                PopulateRequests();
-            }
-            catch (Exception ex)
-            {
-                MetroMessageBox.Show(this.MdiParent,ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
-            }
+            
         }
 
         private void txtSearchItemId_TextChanged(object sender, EventArgs e)
@@ -102,6 +112,29 @@ namespace RawMaterialManagement.Raw_Material_Requests
                 rawDataSet.rawmatreq.Clear();
                 search.Fill(rawDataSet.rawmatreq);
             }
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            if (panelSearch.Visible)
+                panelSearch.Hide();
+            else
+                panelSearch.Show();
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            Approve();
+        }
+
+        private void cancelToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Reject();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            PopulateRequests();
         }
     }
 }

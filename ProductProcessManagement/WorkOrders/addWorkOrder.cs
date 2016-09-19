@@ -54,7 +54,7 @@ namespace ProductProcessManagement.WorkOrders
         }
 
         private void clear() {
-            quantity.Value = 0;
+            quantity.Value = 1;
             startDate.Value = DateTime.Now;
             exportPoint.Text = "";
             notes.Text = "";
@@ -114,6 +114,36 @@ namespace ProductProcessManagement.WorkOrders
                     //MessageBox.Show("Something went wrong while creating a new work order!");
                     MessageBox.Show(ex.Message);
                 }
+
+
+
+                ///Updatin Product Request Status
+                ///
+                if (referenceNumber > -1)
+                {
+                    try
+                    {
+                        DBConnect connection = new DBConnect();
+                        connection.OpenConnection();
+
+                        MySqlConnection returnConn = new MySqlConnection();
+                        returnConn = connection.GetConnection();
+
+                        string query = "UPDATE ProductReq SET status = 'Approved' WHERE productReqId = " + referenceNumber;
+                        //MessageBox.Show(query);
+                        MySqlCommand cmd = new MySqlCommand(query, returnConn);
+                        cmd.Connection = returnConn;
+                        cmd.ExecuteNonQuery();
+                        connection.CloseConnection();
+                        //MessageBox.Show("Remark has been edited");
+                    }
+                    catch (Exception ex)
+                    {
+                        //MessageBox.Show("Something went wrong while executing the action!");
+                        MessageBox.Show(ex.Message);
+                        //throw;
+                    }
+                }
             
             }
         
@@ -162,11 +192,6 @@ namespace ProductProcessManagement.WorkOrders
         private void button2_Click(object sender, EventArgs e)
         {
             clear();
-        }
-
-        private void startDate_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

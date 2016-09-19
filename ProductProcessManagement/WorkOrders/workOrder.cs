@@ -27,6 +27,9 @@ namespace ProductProcessManagement
         {
             InitializeComponent();
             workOrderId = TworkOrderId;
+            loadDetails();
+            setvViewMode();
+            loadRemarks();
         }
 
         private void loadDetails()
@@ -59,10 +62,12 @@ namespace ProductProcessManagement
                     {
                         int checkReference = read.GetOrdinal("reference");
                         productName.Text = read.GetString("name").ToString();
-                        quantity.Text = read.GetInt32("weight") + "g";
+                        quantity.Text = read.GetInt32("quantity") + "g";
                         startDate.Text = Convert.ToDateTime(read["startDate"]).ToString("dd-MM-yyyy");
                         notes.Text = read.GetString("notes").ToString();
+                        textBox1.Text = read.GetString("exportPoint").ToString();
                         reference.Text = read.IsDBNull(checkReference) ? string.Empty : read.GetString("reference").ToString();
+                        label1.Text = "Work Order: #" + read.GetInt32("workOrderId");
                     }
 
                 }
@@ -106,7 +111,7 @@ namespace ProductProcessManagement
                 returnConn = conn.GetConnection();
 
 
-                query = "select * from Remarks WHERE reference = " + workOrderId;
+                query = "select remarkId,title,status from Remarks WHERE reference = " + workOrderId;
 
                 //cmd.ExecuteNonQuery();
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
@@ -115,6 +120,7 @@ namespace ProductProcessManagement
                 MySqlDataAdapter ada = new MySqlDataAdapter(cmd);
                 ada.Fill(dt);
                 dataGridView1.DataSource = dt;
+                dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
                 conn.CloseConnection();
             }
@@ -130,9 +136,42 @@ namespace ProductProcessManagement
         private void addRemark() { 
             //Add Remakr Window
 
-            Remarks.remark remarkWindow = new Remarks.remark();
+            Remarks.remark remarkWindow = new Remarks.remark(workOrderId,true);
             remarkWindow.FormClosed += new FormClosedEventHandler(remarksEdited);
             remarkWindow.Show();
+        }
+
+
+        private void editWorkOrder() {
+           
+                try
+                {
+                    DBConnect connection = new DBConnect();
+                    connection.OpenConnection();
+                    MySqlConnection returnConn = new MySqlConnection();
+                    returnConn = connection.GetConnection();
+
+
+                    string query = "UPDATE WorkOrders SET notes='" + notes.Text + "', exportPoint='" + textBox1.Text + "' WHERE workOrderId =" + workOrderId;
+                    MySqlCommand cmd = new MySqlCommand(query, returnConn);
+                    //cmd.CommandType = CommandType.Text; //default
+
+                    //connection.OpenConnection();
+                    cmd.ExecuteNonQuery();
+                    connection.CloseConnection();
+
+                    MessageBox.Show("Work order has been edited!");
+                    loadRemarks();
+
+                }
+
+                catch (Exception ex)
+                {
+                    //MessageBox.Show("Something went wrong while deleting the Remark!");
+                    MessageBox.Show(ex.Message);
+                }
+            
+        
         }
 
 
@@ -221,6 +260,27 @@ namespace ProductProcessManagement
         private void button6_Click(object sender, EventArgs e)
         {
             editRemark();
+        }
+
+        private void buttonInitEdit_Click(object sender, EventArgs e)
+        {
+            setEditMode();
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            loadDetails();
+        }
+
+        private void button2Edit_Click(object sender, EventArgs e)
+        {
+            editWorkOrder();
+            setvViewMode();
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            setvViewMode();
         }
     }
 }

@@ -64,7 +64,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label1.Location = new System.Drawing.Point(88, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(395, 65);
+            this.label1.Size = new System.Drawing.Size(396, 65);
             this.label1.TabIndex = 12;
             this.label1.Text = "Product Requests";
             // 
@@ -76,14 +76,14 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(134, 100);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(152, 86);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 0, 30, 30);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 15, 30);
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1017, 561);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(898, 536);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
             // panel1
@@ -95,7 +95,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(30, 30, 30, 0);
-            this.panel1.Size = new System.Drawing.Size(1011, 114);
+            this.panel1.Size = new System.Drawing.Size(877, 114);
             this.panel1.TabIndex = 9;
             // 
             // panel5
@@ -108,7 +108,7 @@
             this.panel5.Location = new System.Drawing.Point(30, 30);
             this.panel5.Margin = new System.Windows.Forms.Padding(30, 30, 30, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(951, 84);
+            this.panel5.Size = new System.Drawing.Size(817, 84);
             this.panel5.TabIndex = 26;
             // 
             // button4
@@ -157,11 +157,11 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(30, 120);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(30, 0, 30, 30);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(30, 0, 34, 30);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(957, 381);
+            this.dataGridView1.Size = new System.Drawing.Size(819, 381);
             this.dataGridView1.TabIndex = 7;
             // 
             // productRequets

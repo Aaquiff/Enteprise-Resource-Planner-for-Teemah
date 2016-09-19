@@ -28,22 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExplorerForm));
-            this.contextMenuStripToolbar = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStripToolbar = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemDock = new System.Windows.Forms.ToolStripMenuItem();
             this.topToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.leftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
-            this.toolStripUser = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemHome = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelBreadCrumbs = new System.Windows.Forms.Panel();
-            this.button35 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -95,6 +90,7 @@
             this.button22 = new System.Windows.Forms.Button();
             this.btnPPM = new System.Windows.Forms.Button();
             this.panelRawMaterial = new System.Windows.Forms.Panel();
+            this.button37 = new System.Windows.Forms.Button();
             this.button36 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
             this.btnInvoiceDetails = new System.Windows.Forms.Button();
@@ -104,7 +100,12 @@
             this.btnRMM = new System.Windows.Forms.Button();
             this.panelUser = new System.Windows.Forms.Panel();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.button37 = new System.Windows.Forms.Button();
+            this.button35 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.toolStripUser = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemHome = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.contextMenuStripToolbar.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -177,61 +178,11 @@
             this.toolStripMain.Text = "toolStrip1";
             this.toolStripMain.Visible = false;
             // 
-            // toolStripUser
-            // 
-            this.toolStripUser.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripUser.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripUser.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem6});
-            this.toolStripUser.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripUser.ForeColor = System.Drawing.Color.Black;
-            this.toolStripUser.Image = ((System.Drawing.Image)(resources.GetObject("toolStripUser.Image")));
-            this.toolStripUser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripUser.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripUser.Name = "toolStripUser";
-            this.toolStripUser.Size = new System.Drawing.Size(64, 75);
-            this.toolStripUser.Text = "User";
-            this.toolStripUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(142, 26);
-            this.toolStripMenuItem6.Text = "Log Out";
-            // 
-            // toolStripMenuItemHome
-            // 
-            this.toolStripMenuItemHome.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripMenuItemHome.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItemHome.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.toolStripMenuItemHome.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemHome.Image")));
-            this.toolStripMenuItemHome.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItemHome.ImageTransparentColor = System.Drawing.Color.Black;
-            this.toolStripMenuItemHome.Name = "toolStripMenuItemHome";
-            this.toolStripMenuItemHome.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.toolStripMenuItemHome.Size = new System.Drawing.Size(66, 78);
-            this.toolStripMenuItemHome.Text = "Home";
-            this.toolStripMenuItemHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripMenuItemHome.Click += new System.EventHandler(this.toolStripMenuItemHome_Click);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::Explorer.Properties.Resources.ic_settings_black_24dp;
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(52, 75);
-            this.toolStripButton1.Text = "Setting";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(4, 55);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -241,14 +192,14 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.BackColor = System.Drawing.Color.DarkGray;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.panelBreadCrumbs);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(359, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1214, 119);
+            this.panel1.Size = new System.Drawing.Size(862, 119);
             this.panel1.TabIndex = 17;
             // 
             // panelBreadCrumbs
@@ -263,42 +214,9 @@
             this.panelBreadCrumbs.Location = new System.Drawing.Point(0, 0);
             this.panelBreadCrumbs.Margin = new System.Windows.Forms.Padding(4);
             this.panelBreadCrumbs.Name = "panelBreadCrumbs";
-            this.panelBreadCrumbs.Size = new System.Drawing.Size(1214, 48);
+            this.panelBreadCrumbs.Size = new System.Drawing.Size(862, 48);
             this.panelBreadCrumbs.TabIndex = 8;
             this.panelBreadCrumbs.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBreadCrumbs_Paint);
-            // 
-            // button35
-            // 
-            this.button35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button35.BackColor = System.Drawing.Color.Transparent;
-            this.button35.FlatAppearance.BorderSize = 0;
-            this.button35.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button35.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateGray;
-            this.button35.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button35.Image = global::Explorer.Properties.Resources.ic_info_white_24dp;
-            this.button35.Location = new System.Drawing.Point(1165, 4);
-            this.button35.Margin = new System.Windows.Forms.Padding(4);
-            this.button35.Name = "button35";
-            this.button35.Size = new System.Drawing.Size(32, 37);
-            this.button35.TabIndex = 2;
-            this.button35.UseVisualStyleBackColor = false;
-            this.button35.Click += new System.EventHandler(this.button35_Click);
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Transparent;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateGray;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Image = global::Explorer.Properties.Resources.ic_menu_white_24dp;
-            this.button8.Location = new System.Drawing.Point(4, 4);
-            this.button8.Margin = new System.Windows.Forms.Padding(4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(32, 37);
-            this.button8.TabIndex = 1;
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // menuStrip1
             // 
@@ -324,7 +242,7 @@
             this.statusStrip.Location = new System.Drawing.Point(0, 616);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip.Size = new System.Drawing.Size(1573, 28);
+            this.statusStrip.Size = new System.Drawing.Size(1221, 28);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -1278,6 +1196,26 @@
             this.panelRawMaterial.TabIndex = 11;
             this.panelRawMaterial.Visible = false;
             // 
+            // button37
+            // 
+            this.button37.BackColor = System.Drawing.Color.Transparent;
+            this.button37.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button37.FlatAppearance.BorderSize = 0;
+            this.button37.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.button37.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.button37.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button37.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button37.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button37.Location = new System.Drawing.Point(0, 186);
+            this.button37.Margin = new System.Windows.Forms.Padding(4);
+            this.button37.Name = "button37";
+            this.button37.Size = new System.Drawing.Size(338, 31);
+            this.button37.TabIndex = 19;
+            this.button37.Text = "DashBoard";
+            this.button37.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button37.UseVisualStyleBackColor = false;
+            this.button37.Click += new System.EventHandler(this.button37_Click);
+            // 
             // button36
             // 
             this.button36.BackColor = System.Drawing.Color.Transparent;
@@ -1444,31 +1382,95 @@
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Username";
             // 
-            // button37
+            // button35
             // 
-            this.button37.BackColor = System.Drawing.Color.Transparent;
-            this.button37.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button37.FlatAppearance.BorderSize = 0;
-            this.button37.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button37.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.button37.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button37.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button37.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button37.Location = new System.Drawing.Point(0, 186);
-            this.button37.Margin = new System.Windows.Forms.Padding(4);
-            this.button37.Name = "button37";
-            this.button37.Size = new System.Drawing.Size(338, 31);
-            this.button37.TabIndex = 19;
-            this.button37.Text = "DashBoard";
-            this.button37.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button37.UseVisualStyleBackColor = false;
-            this.button37.Click += new System.EventHandler(this.button37_Click);
+            this.button35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button35.BackColor = System.Drawing.Color.Transparent;
+            this.button35.FlatAppearance.BorderSize = 0;
+            this.button35.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button35.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateGray;
+            this.button35.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button35.Image = global::Explorer.Properties.Resources.ic_info_white_24dp;
+            this.button35.Location = new System.Drawing.Point(813, 4);
+            this.button35.Margin = new System.Windows.Forms.Padding(4);
+            this.button35.Name = "button35";
+            this.button35.Size = new System.Drawing.Size(32, 37);
+            this.button35.TabIndex = 2;
+            this.button35.UseVisualStyleBackColor = false;
+            this.button35.Click += new System.EventHandler(this.button35_Click);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateGray;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Image = global::Explorer.Properties.Resources.ic_menu_white_24dp;
+            this.button8.Location = new System.Drawing.Point(4, 4);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(32, 37);
+            this.button8.TabIndex = 1;
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // toolStripUser
+            // 
+            this.toolStripUser.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripUser.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripUser.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem6});
+            this.toolStripUser.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripUser.ForeColor = System.Drawing.Color.Black;
+            this.toolStripUser.Image = ((System.Drawing.Image)(resources.GetObject("toolStripUser.Image")));
+            this.toolStripUser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripUser.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripUser.Name = "toolStripUser";
+            this.toolStripUser.Size = new System.Drawing.Size(64, 75);
+            this.toolStripUser.Text = "User";
+            this.toolStripUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(142, 26);
+            this.toolStripMenuItem6.Text = "Log Out";
+            // 
+            // toolStripMenuItemHome
+            // 
+            this.toolStripMenuItemHome.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripMenuItemHome.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItemHome.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.toolStripMenuItemHome.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemHome.Image")));
+            this.toolStripMenuItemHome.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItemHome.ImageTransparentColor = System.Drawing.Color.Black;
+            this.toolStripMenuItemHome.Name = "toolStripMenuItemHome";
+            this.toolStripMenuItemHome.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.toolStripMenuItemHome.Size = new System.Drawing.Size(66, 78);
+            this.toolStripMenuItemHome.Text = "Home";
+            this.toolStripMenuItemHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripMenuItemHome.Click += new System.EventHandler(this.toolStripMenuItemHome_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::Explorer.Properties.Resources.ic_settings_black_24dp;
+            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(52, 75);
+            this.toolStripButton1.Text = "Setting";
+            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // ExplorerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1573, 644);
+            this.ClientSize = new System.Drawing.Size(1221, 644);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelNavigation);

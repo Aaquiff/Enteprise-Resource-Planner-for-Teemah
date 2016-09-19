@@ -73,8 +73,8 @@ namespace RawMaterialManagement.Items_Management
         {
             try
             {
-                bs.EndEdit();
                 this.Validate();
+                bs.EndEdit();                
                 idb.Save();
                 MetroMessageBox.Show(this.MdiParent,"Saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }

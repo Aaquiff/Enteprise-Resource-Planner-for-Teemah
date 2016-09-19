@@ -41,8 +41,8 @@
             this.buttonHighPrioritize = new System.Windows.Forms.Button();
             this.buttonLowPrioritize = new System.Windows.Forms.Button();
             this.notCompleteButton = new System.Windows.Forms.Button();
-            this.buttonUnArchive = new System.Windows.Forms.Button();
             this.buttonComplete = new System.Windows.Forms.Button();
+            this.buttonUnArchive = new System.Windows.Forms.Button();
             this.buttonArchive = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.createButton = new System.Windows.Forms.Button();
@@ -59,6 +59,7 @@
             this.confirmEdit = new System.Windows.Forms.Button();
             this.labelPriority = new System.Windows.Forms.Label();
             this.labelStatus = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -223,25 +224,6 @@
             this.notCompleteButton.UseVisualStyleBackColor = false;
             this.notCompleteButton.Click += new System.EventHandler(this.notCompleteButton_Click);
             // 
-            // buttonUnArchive
-            // 
-            this.buttonUnArchive.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonUnArchive.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonUnArchive.FlatAppearance.BorderSize = 0;
-            this.buttonUnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUnArchive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUnArchive.ForeColor = System.Drawing.Color.White;
-            this.buttonUnArchive.Image = ((System.Drawing.Image)(resources.GetObject("buttonUnArchive.Image")));
-            this.buttonUnArchive.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUnArchive.Location = new System.Drawing.Point(3, 78);
-            this.buttonUnArchive.Name = "buttonUnArchive";
-            this.buttonUnArchive.Size = new System.Drawing.Size(139, 58);
-            this.buttonUnArchive.TabIndex = 41;
-            this.buttonUnArchive.Text = "Unarchive";
-            this.buttonUnArchive.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonUnArchive.UseVisualStyleBackColor = false;
-            this.buttonUnArchive.Click += new System.EventHandler(this.buttonUnArchive_Click);
-            // 
             // buttonComplete
             // 
             this.buttonComplete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -260,6 +242,25 @@
             this.buttonComplete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonComplete.UseVisualStyleBackColor = false;
             this.buttonComplete.Click += new System.EventHandler(this.buttonComplete_Click);
+            // 
+            // buttonUnArchive
+            // 
+            this.buttonUnArchive.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonUnArchive.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonUnArchive.FlatAppearance.BorderSize = 0;
+            this.buttonUnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUnArchive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUnArchive.ForeColor = System.Drawing.Color.White;
+            this.buttonUnArchive.Image = ((System.Drawing.Image)(resources.GetObject("buttonUnArchive.Image")));
+            this.buttonUnArchive.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUnArchive.Location = new System.Drawing.Point(3, 78);
+            this.buttonUnArchive.Name = "buttonUnArchive";
+            this.buttonUnArchive.Size = new System.Drawing.Size(139, 58);
+            this.buttonUnArchive.TabIndex = 41;
+            this.buttonUnArchive.Text = "Unarchive";
+            this.buttonUnArchive.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonUnArchive.UseVisualStyleBackColor = false;
+            this.buttonUnArchive.Click += new System.EventHandler(this.buttonUnArchive_Click);
             // 
             // buttonArchive
             // 
@@ -369,9 +370,11 @@
             // 
             // richTextBoxNotes
             // 
+            this.richTextBoxNotes.BackColor = System.Drawing.Color.White;
             this.richTextBoxNotes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBoxNotes.Location = new System.Drawing.Point(421, 122);
             this.richTextBoxNotes.Name = "richTextBoxNotes";
+            this.richTextBoxNotes.ReadOnly = true;
             this.richTextBoxNotes.Size = new System.Drawing.Size(259, 278);
             this.richTextBoxNotes.TabIndex = 33;
             this.richTextBoxNotes.Text = "";
@@ -401,6 +404,7 @@
             // 
             // textBoxTitle
             // 
+            this.textBoxTitle.BackColor = System.Drawing.Color.White;
             this.textBoxTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxTitle.Location = new System.Drawing.Point(205, 129);
             this.textBoxTitle.Name = "textBoxTitle";
@@ -474,11 +478,27 @@
             this.labelStatus.TabIndex = 41;
             this.labelStatus.Text = "Label Status";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(182, 306);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(124, 44);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "Cancel";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // remark
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 517);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.labelPriority);
             this.Controls.Add(this.confirmEdit);
@@ -548,5 +568,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDownPriority;
         private System.Windows.Forms.Label labelPriority;
         private System.Windows.Forms.Label labelStatus;
+        private System.Windows.Forms.Button button1;
     }
 }

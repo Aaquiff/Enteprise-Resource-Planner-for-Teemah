@@ -26,7 +26,7 @@ namespace ProductProcessManagement
             product = -1;
             productName = "Any";
             clearFilter();
-            TQuery = "SELECT * FROM WorkOrders";
+            TQuery = "SELECT w.workOrderId,p.name,w.quantity,w.status,w.state,w.startDate FROM WorkOrders w,Products p WHERE p.productId = w.productId";
             bindResults();
 
         }
@@ -43,8 +43,8 @@ namespace ProductProcessManagement
 
         private void resizeWindowD()
         {
-            tableLayoutPanel1.Width = (int)(this.Width * 1684 / 1920) - 15;
-            tableLayoutPanel1.Height = (int)(this.Height * 948 / 1080) - 15;
+            tableLayoutPanel1.Width = (int)(this.Width * 1684 / 1920) - 20;
+            tableLayoutPanel1.Height = (int)(this.Height * 948 / 1080) - 40;
             tableLayoutPanel1.Location = new Point((int)((this.Width * 236 / 1920)), (int)((this.Height * 132 / 1080)));
             tableLayoutPanel1.AutoScroll = true;
             //tableLayoutPanel1.AutoScrollPosition = new Point(0,0);
@@ -96,7 +96,7 @@ namespace ProductProcessManagement
                 MySqlDataAdapter ada = new MySqlDataAdapter(cmd);
                 ada.Fill(dt);
                 dataGridView1.DataSource = dt;
-
+                dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 conn.CloseConnection();
             }
 
@@ -134,10 +134,10 @@ namespace ProductProcessManagement
         }
 
         private void genFilterQuery(){
-            string query = "SELECT * FROM WorkOrders where";
+            string query = "SELECT w.workOrderId,p.name,w.quantity,w.status,w.state,w.startDate FROM WorkOrders w,Products p WHERE p.productId = w.productId and";
             if (product != -1)
             {
-                query += " productId = " + product;
+                query += " w.productId = " + product;
             }
             if (comboBox2.Text != "All Statuses")
             {
@@ -145,7 +145,7 @@ namespace ProductProcessManagement
                 {
                     query += " and";
                 }
-                query += " status = '" + comboBox2.Text + "'";
+                query += " w.status = '" + comboBox2.Text + "'";
             }
             if (comboBox3.Text != "All States")
             {
@@ -153,14 +153,14 @@ namespace ProductProcessManagement
                 {
                     query += " and";
                 }
-                query += " state = '" + comboBox3.Text +"'";
+                query += " w.state = '" + comboBox3.Text +"'";
             }
 
             if (((product != -1) || (comboBox2.Text != "All Statuses") || (comboBox3.Text != "All States"))) {
                 query += " and";
             }
-            query += " startDate between " + monthCalendar1.SelectionRange.Start.ToString("dd-MM-yyyy") + " and " + monthCalendar2.SelectionRange.Start.ToString("dd-MM-yyyy");
-            MessageBox.Show(query);
+            query += " w.startDate between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
+            //MessageBox.Show(query);
             TQuery = query;
         }
 
@@ -182,7 +182,7 @@ namespace ProductProcessManagement
                 MessageBox.Show("Please enter a reference Id");
             }
             else {
-                TQuery = "SELECT * FROM WorkOrders where workOrderId = " + textBox2.Text;
+                TQuery = "SELECT w.workOrderId,p.name,w.quantity,w.status,w.state,w.startDate FROM WorkOrders w,Products p WHERE p.productId = w.productId and w.workOrderId = " + textBox2.Text;
                 bindResults();
             }
 
@@ -197,25 +197,63 @@ namespace ProductProcessManagement
         private void button3_Click(object sender, EventArgs e)
         {
             //Ongoing WOrk ORders
-            TQuery = "SELECT * FROM WorkOrders where status <> 'Completed' and startDate between " + monthCalendar1.SelectionRange.Start.ToString("dd/MM/yyyy") + " and " + monthCalendar2.SelectionRange.Start.ToString("dd/MM/yyyy");
-            MessageBox.Show(TQuery);
+            TQuery = "SELECT w.workOrderId,p.name,w.quantity,w.status,w.state,w.startDate FROM WorkOrders w,Products p WHERE p.productId = w.productId and w.status <> 'Completed' and w.startDate between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
+            //MessageBox.Show(TQuery);
             bindResults();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             //Paused Work Orders
-            TQuery = "SELECT * FROM WorkOrders where state = 'Paused' and startDate between " + monthCalendar1.SelectionRange.Start.ToString("dd/MM/yyyy") + " and " + monthCalendar2.SelectionRange.Start.ToString("dd/MM/yyyy");
-            MessageBox.Show(TQuery);
+            TQuery = "SELECT w.workOrderId,p.name,w.quantity,w.status,w.state,w.startDate FROM WorkOrders w,Products p WHERE p.productId = w.productId and w.state = 'Paused' and w.startDate between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
+            //MessageBox.Show(TQuery);
             bindResults();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             //Completed Work Orders
-            TQuery = "SELECT * FROM WorkOrders where status = 'Completed' and startDate between " + monthCalendar1.SelectionRange.Start.ToString("dd/MM/yyyy") + " and " + monthCalendar2.SelectionRange.Start.ToString("dd/MM/yyyy");
-            MessageBox.Show(TQuery);
+            TQuery = "SELECT w.workOrderId,p.name,w.quantity,w.status,w.state,w.startDate FROM WorkOrders w,Products p WHERE p.productId = w.productId and w.status = 'Completed' and w.startDate between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
+            //MessageBox.Show(TQuery);
             bindResults();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            viewWorkOrder();
+        }
+
+        private void viewWorkOrder() {
+            if (getSelectedWorkOrder() > -1)
+            {
+                workOrder workOrderWindow = new workOrder(getSelectedWorkOrder());
+                workOrderWindow.FormClosed += new FormClosedEventHandler(refreshWindow);
+                workOrderWindow.Show();
+            }
+            else {
+                MessageBox.Show("Please Select a work order!");
+            }
+            
+        }
+
+        void refreshWindow(object sender, FormClosedEventArgs e)
+        {
+            bindResults();
+        }
+
+        private int getSelectedWorkOrder()
+        {
+            int selected = dataGridView1.CurrentCell.RowIndex;
+            var remarkId = -1;
+            if (Int32.TryParse(dataGridView1.Rows[selected].Cells[0].Value.ToString(), out remarkId))
+            {
+                return remarkId;
+            }
+            else
+            {
+                MessageBox.Show("Soemthing went wrong!");
+                return -1;
+            }
         }
 
 

@@ -77,7 +77,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label1.Location = new System.Drawing.Point(48, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(287, 45);
+            this.label1.Size = new System.Drawing.Size(288, 45);
             this.label1.TabIndex = 10;
             this.label1.Text = "Create Work Order";
             // 
@@ -194,7 +194,6 @@
             this.startDate.Size = new System.Drawing.Size(259, 20);
             this.startDate.TabIndex = 19;
             this.startDate.Value = new System.DateTime(2016, 8, 25, 1, 36, 19, 0);
-            this.startDate.ValueChanged += new System.EventHandler(this.startDate_ValueChanged);
             // 
             // exportPoint
             // 
@@ -271,10 +270,11 @@
             this.Controls.Add(this.productId);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "addWorkOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "addWorkOrder";
+            this.Text = "Create Work Order";
             ((System.ComponentModel.ISupportInitialize)(this.quantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -23,6 +23,7 @@ namespace ProductProcessManagement.Remarks
         public remark()
         {
             remarkId = -1;
+            workOrderId = -1;
             add = true;
             archived = false;
             priority = 5;
@@ -83,10 +84,10 @@ namespace ProductProcessManagement.Remarks
                             labelPriority.Text = ""  + read.GetInt32("priority");
                             priority = read.GetInt32("priority");
                             label9.Text = Convert.ToDateTime(read["created"]).ToString("dd-MM-yyyy");
-                            comboBoxStatus.SelectedText = read.GetString("status").ToString();
+                            comboBoxStatus.Text = read.GetString("status").ToString();
                             labelStatus.Text = read.GetString("status").ToString();
                             archived = read.GetBoolean("archived");
-                            label7.Text = archived ? "| Archived" : "Not Archived";
+                            label7.Text = archived ? "| Archived" : "| Not Archived";
                             richTextBoxNotes.Text = read.IsDBNull(checkNotes) ? string.Empty : read.GetString("notes").ToString();
                             referenceLabel.Text = read.IsDBNull(checkReference) ? "N/A" : "#" + read.GetString("reference").ToString();
                         }
@@ -112,7 +113,7 @@ namespace ProductProcessManagement.Remarks
             textBoxTitle.Text = ""; //Title
             numericUpDownPriority.Value = 5; //Priority
             label9.Text = DateTime.Now.ToString("dd-MM-yyyy");
-            comboBoxStatus.SelectedText = String.Empty;
+            comboBoxStatus.Text = String.Empty;
             richTextBoxNotes.Text = ""; //Notes
         }
 
@@ -142,6 +143,7 @@ namespace ProductProcessManagement.Remarks
             initEditButton.Visible = true; // Craete
             confirmEdit.Visible = false; // Craete
             panel5.Visible = true; //hiding Dock
+            richTextBoxNotes.ReadOnly = true;
 
             textBoxTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             //textBoxTitle.Enabled = true;
@@ -150,18 +152,20 @@ namespace ProductProcessManagement.Remarks
             numericUpDownPriority.Visible = false;
             labelStatus.Visible = true;
             comboBoxStatus.Visible = false;
+            button1.Visible = false;
             loadRemark();
         }
 
         private void initEdit()
         {
-            add = true;
+            add = false;
             createButton.Visible = false; // Craete
             clearButton.Visible = false; //Clear
             resetButton.Visible = true; // Craete
             initEditButton.Visible = false; // Craete
             confirmEdit.Visible = true; // Craete
             panel5.Visible = true; //hiding Dock
+            richTextBoxNotes.ReadOnly = false;
 
             textBoxTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             textBoxTitle.ReadOnly = false;
@@ -169,13 +173,19 @@ namespace ProductProcessManagement.Remarks
             numericUpDownPriority.Visible = true;
             labelStatus.Visible = false;
             comboBoxStatus.Visible = true;
-        
+            button1.Visible = true;
         }
 
         private void initAdd() {
             remarkId = -1;
-            add = false;
-            referenceLabel.Text = "None";
+            add = true;
+            if (workOrderId > -1)
+            {
+                referenceLabel.Text = "Work Order: #" + workOrderId;
+            }
+            else {
+                referenceLabel.Text = "None";
+            }
             label7.Visible = false;
             createButton.Visible = true; // Craete
             clearButton.Visible = true; //Clear
@@ -190,14 +200,15 @@ namespace ProductProcessManagement.Remarks
             numericUpDownPriority.Visible = true;
             labelStatus.Visible = false;
             comboBoxStatus.Visible = true;
-
+            button1.Visible = false;
             clear();
+            richTextBoxNotes.ReadOnly = false;
         }
 
         private void initAdd(int workOrderId)
         {
             initAdd();
-            referenceLabel.Text = "#" + workOrderId;
+            referenceLabel.Text = "Work Order: #" + workOrderId;
 
         }
 
@@ -229,7 +240,7 @@ namespace ProductProcessManagement.Remarks
             }
 
             //Can be labelStatus.Text as well
-            if (comboBoxStatus.SelectedText == "reviewed")
+            if (labelStatus.Text == "reviewed")
             {
                 notCompleteButton.Visible = true;
                 buttonComplete.Visible = false;
@@ -252,7 +263,7 @@ namespace ProductProcessManagement.Remarks
                 MySqlConnection returnConn = new MySqlConnection();
                 returnConn = connection.GetConnection();
 
-                string query = "UPDATE Remarks SET priority= 8 WHERE remarkId ='" + remarkId + "'";
+                string query = "UPDATE Remarks SET priority= 8 WHERE remarkId =" + remarkId;
 
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
                 cmd.Connection = returnConn;
@@ -279,7 +290,7 @@ namespace ProductProcessManagement.Remarks
                 MySqlConnection returnConn = new MySqlConnection();
                 returnConn = connection.GetConnection();
 
-                string query = "UPDATE Remarks SET priority= 3 WHERE remarkId ='" + remarkId + "'";
+                string query = "UPDATE Remarks SET priority= 3 WHERE remarkId =" + remarkId;
 
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
                 cmd.Connection = returnConn;
@@ -305,7 +316,7 @@ namespace ProductProcessManagement.Remarks
                 MySqlConnection returnConn = new MySqlConnection();
                 returnConn = connection.GetConnection();
 
-                string query = "UPDATE Remarks SET status= 'reviewed' WHERE remarkId ='" + remarkId + "'";
+                string query = "UPDATE Remarks SET status = 'reviewed' WHERE remarkId =" + remarkId;
 
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
                 cmd.Connection = returnConn;
@@ -332,7 +343,7 @@ namespace ProductProcessManagement.Remarks
                 MySqlConnection returnConn = new MySqlConnection();
                 returnConn = connection.GetConnection();
 
-                string query = "UPDATE Remarks SET status= 'not reviewed' WHERE remarkId ='" + remarkId + "'";
+                string query = "UPDATE Remarks SET status = 'not reviewed' WHERE remarkId =" + remarkId;
 
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
                 cmd.Connection = returnConn;
@@ -412,7 +423,7 @@ namespace ProductProcessManagement.Remarks
                 MySqlConnection returnConn = new MySqlConnection();
                 returnConn = connection.GetConnection();
 
-                string query = "insert into Remarks(title,status,priority,created,lastAction,notes,reference,archived) values(@1,@2,@3,@4,@5,@6,@7,@8,@9)";
+                string query = "insert into Remarks(title,status,priority,created,lastAction,notes,reference,archived) values(@1,@2,@3,@4,@5,@6,@7,@8)";
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
                 //cmd.CommandType = CommandType.Text; //default
 
@@ -427,15 +438,16 @@ namespace ProductProcessManagement.Remarks
                 cmd.Parameters.AddWithValue("@1", textBoxTitle.Text);
                 cmd.Parameters.AddWithValue("@2", "not reviewed");
                 cmd.Parameters.AddWithValue("@3", numericUpDownPriority.Value);
-                cmd.Parameters.AddWithValue("@4", DateTime.Now.ToString("dd-MM-yyyy"));
-                cmd.Parameters.AddWithValue("@5", DateTime.Now.ToString("dd-MM-yyyy"));
+                cmd.Parameters.AddWithValue("@4", DateTime.Now.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@5", DateTime.Now.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@6", "");
                 if (workOrderId > -1)
                 {
-                    cmd.Parameters.AddWithValue("@7", "null");
+                    cmd.Parameters.AddWithValue("@7", workOrderId);
+                    
                 }
                 else {
-                    cmd.Parameters.AddWithValue("@7", workOrderId);
+                    cmd.Parameters.AddWithValue("@7", "null");
                 }
                 cmd.Parameters.AddWithValue("@8", "false");
 
@@ -465,8 +477,8 @@ namespace ProductProcessManagement.Remarks
                 MySqlConnection returnConn = new MySqlConnection();
                 returnConn = connection.GetConnection();
 
-                string query = "UPDATE Remarks SET title = '" + textBoxTitle.Text + "' and notes = '" + richTextBoxNotes.Text + "' and priority = " + numericUpDownPriority.Value + " and status = '" + comboBoxStatus.Text + "'  WHERE remarkId ='" + remarkId + "'";
-                MessageBox.Show(query);
+                string query = "UPDATE Remarks SET title = '" + textBoxTitle.Text + "' and notes = '" + richTextBoxNotes.Text + "' and priority = " + numericUpDownPriority.Value + " and status = '" + comboBoxStatus.Text + "'  WHERE remarkId =" + remarkId;
+                //MessageBox.Show(query);
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
                 cmd.Connection = returnConn;
                 cmd.ExecuteNonQuery();
@@ -493,7 +505,7 @@ namespace ProductProcessManagement.Remarks
 
         private void notCompleteButton_Click(object sender, EventArgs e)
         {
-            markCompleted();
+            markNotCompleted();
         }
 
         private void buttonUnArchive_Click(object sender, EventArgs e)
@@ -514,11 +526,13 @@ namespace ProductProcessManagement.Remarks
         private void createButton_Click(object sender, EventArgs e)
         {
             createRemark();
+            this.Close();
         }
 
         private void confirmEdit_Click(object sender, EventArgs e)
         {
             editRemark();
+            initView(remarkId);
         }
 
         private void initEditButton_Click(object sender, EventArgs e)
@@ -534,6 +548,11 @@ namespace ProductProcessManagement.Remarks
         private void resetButton_Click(object sender, EventArgs e)
         {
             reset();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            initView(remarkId);
         }
 
 

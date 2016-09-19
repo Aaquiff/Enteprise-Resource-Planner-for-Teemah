@@ -146,6 +146,7 @@
             // 
             // notes
             // 
+            this.notes.BackColor = System.Drawing.Color.White;
             this.notes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.notes.Location = new System.Drawing.Point(216, 277);
             this.notes.Name = "notes";
@@ -207,9 +208,11 @@
             this.buttonInitEdit.TabIndex = 29;
             this.buttonInitEdit.Text = "Edit";
             this.buttonInitEdit.UseVisualStyleBackColor = false;
+            this.buttonInitEdit.Click += new System.EventHandler(this.buttonInitEdit_Click);
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.Location = new System.Drawing.Point(216, 174);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(259, 20);
@@ -275,7 +278,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(114, 58);
             this.button6.TabIndex = 16;
-            this.button6.Text = "Edit";
+            this.button6.Text = "View";
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
@@ -344,6 +347,7 @@
             this.button2Edit.TabIndex = 33;
             this.button2Edit.Text = "Edit";
             this.button2Edit.UseVisualStyleBackColor = false;
+            this.button2Edit.Click += new System.EventHandler(this.button2Edit_Click);
             // 
             // buttonCancel
             // 
@@ -359,6 +363,7 @@
             this.buttonCancel.TabIndex = 34;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonReset
             // 
@@ -368,12 +373,13 @@
             this.buttonReset.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonReset.ForeColor = System.Drawing.Color.White;
             this.buttonReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonReset.Location = new System.Drawing.Point(216, 403);
+            this.buttonReset.Location = new System.Drawing.Point(216, 460);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(86, 37);
             this.buttonReset.TabIndex = 35;
             this.buttonReset.Text = "Reset";
             this.buttonReset.UseVisualStyleBackColor = false;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // workOrder
             // 
@@ -404,7 +410,7 @@
             this.MaximizeBox = false;
             this.Name = "workOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "workOrder";
+            this.Text = "Work Order";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

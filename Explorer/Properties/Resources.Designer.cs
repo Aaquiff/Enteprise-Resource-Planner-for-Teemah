@@ -83,6 +83,26 @@ namespace Explorer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap black_linux_logo_manjaro1 {
+            get {
+                object obj = ResourceManager.GetObject("black-linux-logo-manjaro1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EXPLORER {
+            get {
+                object obj = ResourceManager.GetObject("EXPLORER", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_info_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("ic_info_black_24dp", resourceCulture);

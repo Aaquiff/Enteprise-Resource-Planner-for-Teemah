@@ -120,6 +120,7 @@ namespace Explorer
                 childForm.WindowState = FormWindowState.Maximized;
                 childForm.AutoScroll = true;
                 childForm.Show();
+                
                 //label1.Text = childForm.Text;
                 /*if (menuStripMain.Items.Count == 0)
                     menuStripMain.Hide();
@@ -221,6 +222,7 @@ namespace Explorer
 
         private void btnItems_Click_1(object sender, EventArgs e)
         {
+            panel1.BackColor = Color.OliveDrab;
             loadForm(new ManageItem());
         }
 
@@ -464,6 +466,7 @@ namespace Explorer
 
         private void button22_Click(object sender, EventArgs e)
         {
+            panel1.BackColor = Color.Blue;
             loadForm(new Dashboard());
         }
 

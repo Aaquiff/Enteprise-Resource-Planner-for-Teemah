@@ -11,6 +11,7 @@ using FrameworkControls.Dialogs;
 using MySql.Data.MySqlClient;
 using MySQLDatabaseAccess;
 using MetroFramework;
+using RawMaterialManagement.Reporting;
 
 namespace RawMaterialManagement.Invoice_Management
 {
@@ -223,7 +224,7 @@ namespace RawMaterialManagement.Invoice_Management
                 if (!String.IsNullOrEmpty(txtDiscount.Text))
                     discount = Double.Parse(txtDiscount.Text);
 
-                txtGrossValue.Text = ( ( netValue + taxValue ) * discount / 100).ToString();
+                txtGrossValue.Text = ( ( netValue + taxValue ) * (100-discount) / 100).ToString();
             }
             catch (Exception ex)
             {
@@ -249,6 +250,12 @@ namespace RawMaterialManagement.Invoice_Management
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             calculateGrossAmount();
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            ReportInvoice invoice = new ReportInvoice(txtInvoiceId.Text);
+            invoice.ShowDialog();
         }
     }
 }

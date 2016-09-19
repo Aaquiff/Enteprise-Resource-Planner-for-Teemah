@@ -4,12 +4,12 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="server=localhost;user id=root;database=itp;allowuservariables=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="localhost(itp)" ParameterPrefix="@" Provider="MySql.Data.MySqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="itpConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="itpConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.RawMaterialManagement.Properties.Settings.GlobalReference.Default.itpConnectionString" Provider="MySql.Data.MySqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="raw_item_tabTableAdapter" GeneratorDataComponentClassName="raw_item_tabTableAdapter" Name="raw_item_tab" UserDataComponentName="raw_item_tabTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="localhost(itp)" DbObjectName="itp.raw_item_tab" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="itpConnectionString (Settings)" DbObjectName="itp.raw_item_tab" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `raw_item_tab` WHERE ((`item_id` = @p1) AND (`name` = @p2) AND ((@p3 = 1 AND `description` IS NULL) OR (`description` = @p4)) AND ((@p5 = 1 AND `stock_level` IS NULL) OR (`stock_level` = @p6)) AND (`unit_of_measure` = @p7) AND ((@p8 = 1 AND `item_category` IS NULL) OR (`item_category` = @p9)) AND ((@p10 = 1 AND `bar_code` IS NULL) OR (`bar_code` = @p11)))</CommandText>
@@ -85,6 +85,60 @@ FROM            raw_item_tab</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="raw_invoiceTableAdapter" GeneratorDataComponentClassName="raw_invoiceTableAdapter" Name="raw_invoice" UserDataComponentName="raw_invoiceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="itpConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        i.invoice_id, i.order_id, i.status, i.`date`, i.due_date, i.original_due_date, i.net_value, i.tax_value, i.gross_value, i.discount, i.currency, o.order_id AS Expr1, o.creation_date, o.creator, o.status AS Expr2, 
+                         o.approver, o.shipping_address, o.supplier_id, o.notes, o.supplier_name, o.sub_total
+FROM            raw_invoice i LEFT OUTER JOIN
+                         raw_purchase_order o ON i.order_id = o.order_id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="invoice_id" DataSetColumn="invoice_id" />
+              <Mapping SourceColumn="order_id" DataSetColumn="order_id" />
+              <Mapping SourceColumn="status" DataSetColumn="status" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="due_date" DataSetColumn="due_date" />
+              <Mapping SourceColumn="original_due_date" DataSetColumn="original_due_date" />
+              <Mapping SourceColumn="net_value" DataSetColumn="net_value" />
+              <Mapping SourceColumn="tax_value" DataSetColumn="tax_value" />
+              <Mapping SourceColumn="gross_value" DataSetColumn="gross_value" />
+              <Mapping SourceColumn="discount" DataSetColumn="discount" />
+              <Mapping SourceColumn="currency" DataSetColumn="currency" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="creation_date" DataSetColumn="creation_date" />
+              <Mapping SourceColumn="creator" DataSetColumn="creator" />
+              <Mapping SourceColumn="Expr2" DataSetColumn="Expr2" />
+              <Mapping SourceColumn="approver" DataSetColumn="approver" />
+              <Mapping SourceColumn="shipping_address" DataSetColumn="shipping_address" />
+              <Mapping SourceColumn="supplier_id" DataSetColumn="supplier_id" />
+              <Mapping SourceColumn="notes" DataSetColumn="notes" />
+              <Mapping SourceColumn="supplier_name" DataSetColumn="supplier_name" />
+              <Mapping SourceColumn="sub_total" DataSetColumn="sub_total" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="itpConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        i.invoice_id, i.order_id, i.status, i.`date`, i.due_date, i.original_due_date, i.net_value, i.tax_value, i.gross_value, i.discount, i.currency, o.order_id AS Expr1, o.creation_date, o.creator, o.status AS Expr2, 
+                         o.approver, o.shipping_address, o.supplier_id, o.notes, o.supplier_name, o.sub_total
+FROM            raw_invoice i LEFT OUTER JOIN
+                         raw_purchase_order o ON i.order_id = o.order_id
+WHERE i.invoice_id = @invoice_id</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="invoice_id" ColumnName="invoice_id" DataSourceName="itp.raw_invoice" DataTypeServer="varchar(200)(200)" DbType="String" Direction="Input" ParameterName="@invoice_id" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="invoice_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -93,7 +147,7 @@ FROM            raw_item_tab</CommandText>
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="raw_item_tab" msprop:Generator_TableClassName="raw_item_tabDataTable" msprop:Generator_TableVarName="tableraw_item_tab" msprop:Generator_TablePropName="raw_item_tab" msprop:Generator_RowDeletingName="raw_item_tabRowDeleting" msprop:Generator_RowChangingName="raw_item_tabRowChanging" msprop:Generator_RowEvHandlerName="raw_item_tabRowChangeEventHandler" msprop:Generator_RowDeletedName="raw_item_tabRowDeleted" msprop:Generator_UserTableName="raw_item_tab" msprop:Generator_RowChangedName="raw_item_tabRowChanged" msprop:Generator_RowEvArgName="raw_item_tabRowChangeEvent" msprop:Generator_RowClassName="raw_item_tabRow">
+        <xs:element name="raw_item_tab" msprop:Generator_TableClassName="raw_item_tabDataTable" msprop:Generator_TableVarName="tableraw_item_tab" msprop:Generator_RowChangedName="raw_item_tabRowChanged" msprop:Generator_TablePropName="raw_item_tab" msprop:Generator_RowDeletingName="raw_item_tabRowDeleting" msprop:Generator_RowChangingName="raw_item_tabRowChanging" msprop:Generator_RowEvHandlerName="raw_item_tabRowChangeEventHandler" msprop:Generator_RowDeletedName="raw_item_tabRowDeleted" msprop:Generator_RowClassName="raw_item_tabRow" msprop:Generator_UserTableName="raw_item_tab" msprop:Generator_RowEvArgName="raw_item_tabRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="item_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnitem_id" msprop:Generator_ColumnPropNameInRow="item_id" msprop:Generator_ColumnPropNameInTable="item_idColumn" msprop:Generator_UserColumnName="item_id" type="xs:int" />
@@ -136,11 +190,114 @@ FROM            raw_item_tab</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="raw_invoice" msprop:Generator_TableClassName="raw_invoiceDataTable" msprop:Generator_TableVarName="tableraw_invoice" msprop:Generator_TablePropName="raw_invoice" msprop:Generator_RowDeletingName="raw_invoiceRowDeleting" msprop:Generator_RowChangingName="raw_invoiceRowChanging" msprop:Generator_RowEvHandlerName="raw_invoiceRowChangeEventHandler" msprop:Generator_RowDeletedName="raw_invoiceRowDeleted" msprop:Generator_UserTableName="raw_invoice" msprop:Generator_RowChangedName="raw_invoiceRowChanged" msprop:Generator_RowEvArgName="raw_invoiceRowChangeEvent" msprop:Generator_RowClassName="raw_invoiceRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="invoice_id" msprop:Generator_ColumnVarNameInTable="columninvoice_id" msprop:Generator_ColumnPropNameInRow="invoice_id" msprop:Generator_ColumnPropNameInTable="invoice_idColumn" msprop:Generator_UserColumnName="invoice_id">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="order_id" msprop:Generator_ColumnVarNameInTable="columnorder_id" msprop:Generator_ColumnPropNameInRow="order_id" msprop:Generator_ColumnPropNameInTable="order_idColumn" msprop:Generator_UserColumnName="order_id">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" type="xs:dateTime" />
+              <xs:element name="due_date" msprop:Generator_ColumnVarNameInTable="columndue_date" msprop:Generator_ColumnPropNameInRow="due_date" msprop:Generator_ColumnPropNameInTable="due_dateColumn" msprop:Generator_UserColumnName="due_date" type="xs:dateTime" />
+              <xs:element name="original_due_date" msprop:Generator_ColumnVarNameInTable="columnoriginal_due_date" msprop:Generator_ColumnPropNameInRow="original_due_date" msprop:Generator_ColumnPropNameInTable="original_due_dateColumn" msprop:Generator_UserColumnName="original_due_date" type="xs:dateTime" />
+              <xs:element name="net_value" msprop:Generator_ColumnVarNameInTable="columnnet_value" msprop:Generator_ColumnPropNameInRow="net_value" msprop:Generator_ColumnPropNameInTable="net_valueColumn" msprop:Generator_UserColumnName="net_value" type="xs:double" />
+              <xs:element name="tax_value" msprop:Generator_ColumnVarNameInTable="columntax_value" msprop:Generator_ColumnPropNameInRow="tax_value" msprop:Generator_ColumnPropNameInTable="tax_valueColumn" msprop:Generator_UserColumnName="tax_value" type="xs:double" />
+              <xs:element name="gross_value" msprop:Generator_ColumnVarNameInTable="columngross_value" msprop:Generator_ColumnPropNameInRow="gross_value" msprop:Generator_ColumnPropNameInTable="gross_valueColumn" msprop:Generator_UserColumnName="gross_value" type="xs:double" />
+              <xs:element name="discount" msprop:Generator_ColumnVarNameInTable="columndiscount" msprop:Generator_ColumnPropNameInRow="discount" msprop:Generator_ColumnPropNameInTable="discountColumn" msprop:Generator_UserColumnName="discount" type="xs:int" />
+              <xs:element name="currency" msprop:Generator_ColumnVarNameInTable="columncurrency" msprop:Generator_ColumnPropNameInRow="currency" msprop:Generator_ColumnPropNameInTable="currencyColumn" msprop:Generator_UserColumnName="currency">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="creation_date" msprop:Generator_ColumnVarNameInTable="columncreation_date" msprop:Generator_ColumnPropNameInRow="creation_date" msprop:Generator_ColumnPropNameInTable="creation_dateColumn" msprop:Generator_UserColumnName="creation_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="creator" msprop:Generator_ColumnVarNameInTable="columncreator" msprop:Generator_ColumnPropNameInRow="creator" msprop:Generator_ColumnPropNameInTable="creatorColumn" msprop:Generator_UserColumnName="creator" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr2" msprop:Generator_ColumnVarNameInTable="columnExpr2" msprop:Generator_ColumnPropNameInRow="Expr2" msprop:Generator_ColumnPropNameInTable="Expr2Column" msprop:Generator_UserColumnName="Expr2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="approver" msprop:Generator_ColumnVarNameInTable="columnapprover" msprop:Generator_ColumnPropNameInRow="approver" msprop:Generator_ColumnPropNameInTable="approverColumn" msprop:Generator_UserColumnName="approver" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="shipping_address" msprop:Generator_ColumnVarNameInTable="columnshipping_address" msprop:Generator_ColumnPropNameInRow="shipping_address" msprop:Generator_ColumnPropNameInTable="shipping_addressColumn" msprop:Generator_UserColumnName="shipping_address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="supplier_id" msprop:Generator_ColumnVarNameInTable="columnsupplier_id" msprop:Generator_ColumnPropNameInRow="supplier_id" msprop:Generator_ColumnPropNameInTable="supplier_idColumn" msprop:Generator_UserColumnName="supplier_id" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="notes" msprop:Generator_ColumnVarNameInTable="columnnotes" msprop:Generator_ColumnPropNameInRow="notes" msprop:Generator_ColumnPropNameInTable="notesColumn" msprop:Generator_UserColumnName="notes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="supplier_name" msprop:Generator_ColumnVarNameInTable="columnsupplier_name" msprop:Generator_ColumnPropNameInRow="supplier_name" msprop:Generator_ColumnPropNameInTable="supplier_nameColumn" msprop:Generator_UserColumnName="supplier_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sub_total" msprop:Generator_ColumnVarNameInTable="columnsub_total" msprop:Generator_ColumnPropNameInRow="sub_total" msprop:Generator_ColumnPropNameInTable="sub_totalColumn" msprop:Generator_UserColumnName="sub_total" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:raw_item_tab" />
       <xs:field xpath="mstns:item_id" />
+    </xs:unique>
+    <xs:unique name="raw_invoice_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:raw_invoice" />
+      <xs:field xpath="mstns:invoice_id" />
     </xs:unique>
   </xs:element>
 </xs:schema>

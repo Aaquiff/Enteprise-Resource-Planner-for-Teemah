@@ -126,6 +126,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reporting\ReportInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\ReportInvoice.Designer.cs">
+      <DependentUpon>ReportInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ReportPurchaseOrderViewe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\ReportPurchaseOrderViewe.Designer.cs">
+      <DependentUpon>ReportPurchaseOrderViewe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ReportStockReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\ReportStockReport.Designer.cs">
+      <DependentUpon>ReportStockReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ReportSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\ReportSupplier.Designer.cs">
+      <DependentUpon>ReportSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporting\ReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,8 +194,22 @@
     <EmbeddedResource Include="RawMaterialDashBoard.resx">
       <DependentUpon>RawMaterialDashBoard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\PurchaseOrderReport.rdlc" />
     <EmbeddedResource Include="Reporting\Report1.rdlc" />
     <EmbeddedResource Include="Reporting\Report2.rdlc" />
+    <EmbeddedResource Include="Reporting\ReportInvoice.resx">
+      <DependentUpon>ReportInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\ReportPurchaseOrderViewe.resx">
+      <DependentUpon>ReportPurchaseOrderViewe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\ReportStockReport.resx">
+      <DependentUpon>ReportStockReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\ReportSupplier.rdlc" />
+    <EmbeddedResource Include="Reporting\ReportSupplier.resx">
+      <DependentUpon>ReportSupplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporting\ReportViewer.resx">
       <DependentUpon>ReportViewer.cs</DependentUpon>
     </EmbeddedResource>

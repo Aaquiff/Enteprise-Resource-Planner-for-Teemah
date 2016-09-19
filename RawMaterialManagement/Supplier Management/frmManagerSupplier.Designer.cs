@@ -56,6 +56,7 @@
             this.toolStripMenuItemSearch = new System.Windows.Forms.ToolStripMenuItem();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.raw_supplier_tabTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_supplier_tabTableAdapter();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
@@ -245,7 +246,8 @@
             this.saveToolStripMenuSave,
             this.toolStripMenuItemDelete,
             this.toolStripMenuItemPopulate,
-            this.toolStripMenuItemSearch});
+            this.toolStripMenuItemSearch,
+            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(13, 2, 0, 2);
@@ -353,6 +355,19 @@
             // 
             this.raw_supplier_tabTableAdapter.ClearBeforeFill = true;
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.toolStripMenuItem1.Image = global::RawMaterialManagement.Properties.Resources.ic_insert_chart_black_24dp2;
+            this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(70, 69);
+            this.toolStripMenuItem1.Text = "Report";
+            this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // frmManagerSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -405,5 +420,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        protected System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

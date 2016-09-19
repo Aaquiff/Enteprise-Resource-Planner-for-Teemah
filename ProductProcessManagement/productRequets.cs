@@ -47,7 +47,7 @@ namespace ProductProcessManagement
                 returnConn = conn.GetConnection();
 
 
-                query = "SELECT r.productReqId,r.productId,p.name,r.quantity,r.notes,r.orderDate,r.requestDate FROM ProductReq r,Products p WHERE r.productId = p.productId";
+                query = "SELECT r.productReqId,r.productId,p.name,r.quantity,r.notes,r.orderDate,r.requestDate FROM ProductReq r,Products p WHERE r.productId = p.productId and status = 'Pending'";
 
                 //cmd.ExecuteNonQuery();
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
@@ -56,7 +56,7 @@ namespace ProductProcessManagement
                 MySqlDataAdapter ada = new MySqlDataAdapter(cmd);
                 ada.Fill(dt);
                 dataGridView1.DataSource = dt;
-
+                dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 conn.CloseConnection();
             }
 
