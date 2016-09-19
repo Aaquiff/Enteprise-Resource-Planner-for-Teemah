@@ -266,7 +266,7 @@
         </ChartNoDataMessage>
         <DataSetName>DataSet1</DataSetName>
         <Height>2.59666in</Height>
-        <Width>4.36667in</Width>
+        <Width>8.59722in</Width>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -544,7 +544,7 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DataSet1</DataSetName>
-        <Left>4.38056in</Left>
+        <Top>2.59666in</Top>
         <Height>2.59666in</Height>
         <Width>4.18333in</Width>
         <ZIndex>1</ZIndex>
@@ -558,7 +558,7 @@
         </Style>
       </Chart>
     </ReportItems>
-    <Height>2.61833in</Height>
+    <Height>5.20166in</Height>
     <Style />
   </Body>
   <Width>8.59722in</Width>
