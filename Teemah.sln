@@ -22,8 +22,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawMaterialManagement", "Ra
 		{7079DC71-6B90-47A7-BB0F-B061F6861D37} = {7079DC71-6B90-47A7-BB0F-B061F6861D37}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagement", "InventoryManagement\InventoryManagement.csproj", "{2A1B25E8-1DC9-46FD-9A2A-F3537B9325B7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesManagement", "SalesManagement\SalesManagement.csproj", "{B6166827-AA20-471C-81C5-912F75040D62}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySQLDatabaseAccess", "MySQLDatabaseAccess\MySQLDatabaseAccess.csproj", "{7A1F3AB0-C5E3-4234-A9D5-D15EF65714B0}"
@@ -66,12 +64,6 @@ Global
 		{075CC06A-38B4-4F27-84BA-29078BB5C4A8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{075CC06A-38B4-4F27-84BA-29078BB5C4A8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{075CC06A-38B4-4F27-84BA-29078BB5C4A8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{2A1B25E8-1DC9-46FD-9A2A-F3537B9325B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A1B25E8-1DC9-46FD-9A2A-F3537B9325B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A1B25E8-1DC9-46FD-9A2A-F3537B9325B7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{2A1B25E8-1DC9-46FD-9A2A-F3537B9325B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A1B25E8-1DC9-46FD-9A2A-F3537B9325B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A1B25E8-1DC9-46FD-9A2A-F3537B9325B7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B6166827-AA20-471C-81C5-912F75040D62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B6166827-AA20-471C-81C5-912F75040D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6166827-AA20-471C-81C5-912F75040D62}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
