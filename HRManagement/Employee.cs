@@ -19,11 +19,16 @@ namespace HRManagement
         String gender,q5;
         String dep, first2,emp;
         String ini;
-        
+        MySqlConnection con = ConnectionOld.getConnection();
         String pw = "1234";
+        String mon,salMonth;
+        String nat;
         Double basSal,otTot,etf,epf;
         int ss;
+        MySqlDataAdapter sda = new MySqlDataAdapter();
+        DataTable datasetOT = new DataTable();
         DataTable dataset;
+        
         #endregion
 
         public Employee()
@@ -83,42 +88,68 @@ namespace HRManagement
                 return true;
         }
 
-        public bool checkMail()
+        /*public bool checkMail()
         {
             string pattern = null;
             pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
 
             if (!Regex.IsMatch(Email_txt.Text, pattern))
             {
-                MessageBox.Show("Not a valid Email address ");
+                
                 return false;
             }
             return true;
+        }*/
+        bool checkMail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public bool checkNIC()
+        /*public bool checkNIC()
         {
             string pattern = null;
-            pattern = "/^[0-9]{9}[vVxX]$/";
+            pattern = "^[0-9]{9}[vVxX]$";
 
             if (!Regex.IsMatch(NIC_txt.Text, pattern))
             {
-                MessageBox.Show("Not a valid NIC Number ");
                 return false;
             }
             return true;
-        }
-
-        public bool checkMobile()
+        }*/
+        public bool checkNIC(String str)
         {
-            if (Mob_txt.MaxLength != 15)
+            if ((str.Count(char.IsDigit) == 9) && // only 9 digits
+                (str.EndsWith("X", StringComparison.OrdinalIgnoreCase)
+                 || str.EndsWith("V", StringComparison.OrdinalIgnoreCase)) && //a letter at the end 'x' or 'v'
+                (str[2] != '4' && str[2] != '9')) //3rd digit can not be equal to 4 or 9
             {
-                MessageBox.Show("Mobile Number should have 10 digits");
+                //Valid
+                return true;
+
+            }
+            else
+            {
+                //invalid
+                return false;
+            }
+        }
+       /* public bool checkMobile()
+        {
+            if (Mob_txt.TextLength < 7 && Mob_txt.TextLength > 15)
+            {
                 return false;
             }
             return true;
         }
-
+        */
         public int getNewId()
         {
             String s = "select max(EmpId) from itp.employee;";
@@ -138,12 +169,68 @@ namespace HRManagement
             return n;
         }
 
+        public void getNoOfLeaveDays()
+        {
+            try
+            {
+                String a = "select COALESCE(sum(NoOfDays),0) from itp.leave_view where EmpId = '" + Connection.getUserIdFromConnectionString() + "' and Status = 'Accepted' and Type = 'Annual' ;";
+                String c = "select COALESCE(sum(NoOfDays),0) from itp.leave_view where EmpId = " + Connection.getUserIdFromConnectionString() + " and Status = 'Accepted' and Type = 'Casual';";
+            MySqlConnection MyConn = ConnectionOld.getConnection();
+            MySqlCommand SelectCommandAnnual = new MySqlCommand(a, MyConn);
+            MySqlCommand SelectCommandCasual = new MySqlCommand(c, MyConn);
+            MySqlDataReader MyReader;
+            MyConn.Open();
+            MyReader = SelectCommandAnnual.ExecuteReader();
+
+            if (MyReader.Read())
+            {
+                
+                    labRemAnnual.Text = (14 - MyReader.GetInt32(0)).ToString();
+                
+            }
+            MyConn.Close();
+            MyReader = null;
+            MyConn.Open();
+            MyReader = SelectCommandCasual.ExecuteReader();
+
+            if (MyReader.Read())
+            {
+                int x;
+                
+                    x = MyReader.GetInt32(0);
+                    labRemCasual.Text = (7 - x).ToString();
+                
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public void Insert()
         {
             isEmpty();
-            checkMail();
-            //checkNIC();
-            //checkMobile();
+            if (!checkMail(this.Email_txt.Text))
+            {
+                MessageBox.Show("Not a valid Email address ");
+                return;
+            }
+            if (labNationality.Text == "NIC" &&(!checkNIC(this.NIC_txt.Text)))
+            {
+                MessageBox.Show("Not a valid NIC Number ");
+                return;
+            }
+            if (Double.Parse(textBox5.Text) < 10000)
+            {
+                MessageBox.Show("Basic Salary should be above 10000");
+                return;
+            }
+            /*if (!checkMobile())
+            {
+                MessageBox.Show("Mobile Number should have 10 digits");
+                return;
+            }*/
             String us = assignUserName();
             int val = getNewId();
             Double sal = Double.Parse(this.textBox5.Text);
@@ -154,6 +241,7 @@ namespace HRManagement
             createUser.CommandType = CommandType.StoredProcedure;
             createUser.Parameters.AddWithValue("user_id_", this.Emp_txt.Text);
             createUser.Parameters.AddWithValue("password_",pw);
+            createUser.Parameters.AddWithValue("name_", this.First_txt.Text + " " + this.Last_txt.Text);
             
             try
             {
@@ -178,6 +266,31 @@ namespace HRManagement
 
         }
 
+        //public void getMonthComboValues()
+        //{
+        //    String[] m = {"January","February","March","April","May","June","July","August","September","October","November","December"};   
+            
+        //        MySqlConnection MyConn = ConnectionOld.getConnection();
+        //        MySqlCommand SelectCommand = new MySqlCommand("select distinct Month from ot;", MyConn);
+        //        MySqlDataReader MyReader;
+        //        MyConn.Open();
+        //        MyReader = SelectCommand.ExecuteReader();
+
+        //        while (MyReader.Read())
+        //        {
+        //            String mon = MyReader.GetString("Month");
+        //            for (int i = 0; i < m.Length; i++)
+        //            {
+        //                if (mon != m[0])
+        //                {
+        //                    combo_Month.Items.Add(mon);
+        //                }
+
+
+        //            }
+ 
+        //        }
+        //}
          public void getDetails()
         {
              MySqlConnection MyConn = ConnectionOld.getConnection();
@@ -192,11 +305,22 @@ namespace HRManagement
                     First_txt.Text = MyReader.GetString("FirstName");
                     Last_txt.Text = MyReader.GetString("LastName");
                     dateTimePicker1.Text = MyReader.GetString("DOB");
-                    Nat_txt.Text = MyReader.GetString("Nationality");
+                    
+                    if ( (MyReader.GetString("Nationality") == "SriLankan") )
+                    {
+                        combo_Nat.Text = "SriLankan";
+
+                    }
+                    else
+                    {
+                        combo_Nat.Text = "Foreigner";
+                        Nat_txt.Text = MyReader.GetString("Nationality");
+                    }
+
                     NIC_txt.Text = MyReader.GetString("NIC");
                     Add_txt.Text = MyReader.GetString("Address");
                     Email_txt.Text = MyReader.GetString("Email");
-                    Mob_txt.Text = MyReader.GetInt32("MobileNo").ToString();
+                    Mob_txt.Text = MyReader.GetString("MobileNo");
                     Posi_combo.Text = MyReader.GetString("Position");
                     Dep_txt.Text = MyReader.GetString("DepId");
                     textBox5.Text = MyReader.GetDouble("BasicSalary").ToString();
@@ -294,6 +418,89 @@ namespace HRManagement
 
         }
 
+         public void refreshOtTable()
+         {
+             MySqlConnection connDatabase = ConnectionOld.getConnection();
+             MySqlCommand q4 = new MySqlCommand(@"select e.EmpId,FirstName,LastName,o.OTHours 
+                                                    from employee e 
+                                                    LEFT OUTER JOIN (
+                                                    select EmpId,OTHours from ot where Month = '@mon' ) o 
+                                                    ON o.EmpId = e.EmpId;",
+
+                 connDatabase);
+             q4.Parameters.AddWithValue("@mon", mon);
+             
+             try
+             {
+                 //MySqlDataAdapter sda = new MySqlDataAdapter();
+                 sda.SelectCommand = q4;
+                 //DataTable dataset = new DataTable();
+                 datasetOT.Clear();
+                 sda.Fill(datasetOT);
+                 //BindingSource bSource = new BindingSource();
+
+                 bindingSource1.DataSource = datasetOT;
+                 dataGridView4.DataSource = bindingSource1;
+                 //sda.Update(dataset);
+             }
+
+             catch (Exception ex)
+             {
+                 MessageBox.Show(ex.Message);
+             }
+         }
+
+         public void defaultOtTable()
+         {
+             MySqlConnection connDatabase = ConnectionOld.getConnection();
+             MySqlCommand q4 = new MySqlCommand("select e.EmpId,FirstName,LastName,o.OTHours from employee e LEFT OUTER JOIN ot o ON e.EmpId = o.EmpId where o.Month = @mon;", connDatabase);
+             q4.Parameters.AddWithValue("@mon", "January");
+
+             try
+             {
+                 //MySqlDataAdapter sda = new MySqlDataAdapter();
+                 sda.SelectCommand = q4;
+                 //DataTable dataset = new DataTable();
+                 datasetOT.Clear();
+                 sda.Fill(datasetOT);
+                 //BindingSource bSource = new BindingSource();
+
+                 bindingSource1.DataSource = datasetOT;
+                 dataGridView4.DataSource = bindingSource1;
+                 //sda.Update(dataset);
+             }
+
+             catch (Exception ex)
+             {
+                 MessageBox.Show(ex.Message);
+             }
+         }
+
+         public void refreshSalaryTable()
+         {
+             MySqlConnection connDatabase = ConnectionOld.getConnection();
+             MySqlCommand q4 = new MySqlCommand("select Month,NetSalary from salary where EmpId = @empid ;", connDatabase);
+             q4.Parameters.AddWithValue("@empId", Connection.getUserIdFromConnectionString());
+             try
+             {
+
+                 MySqlDataAdapter sal = new MySqlDataAdapter();
+                 sal.SelectCommand = q4;
+                 DataTable dt = new DataTable();
+                 sal.Fill(dt);
+                 BindingSource bSal = new BindingSource();
+
+                 bSal.DataSource = dt;
+                 metroGrid1.DataSource = bSal;
+                 //sda.Update(dataset);
+             }
+
+             catch (Exception ex)
+             {
+                 MessageBox.Show(ex.Message);
+             }
+ 
+         }
          public void displayDataGridViewSearch()
          {
              q5 = "select EmpId,FirstName,LastName,Position,DepId,Address,MobileNo,Email from itp.employee ;";
@@ -363,10 +570,12 @@ namespace HRManagement
             Dep_txt.Text = " ";
             textBox5.Text = " ";
             radioButton1.Checked = true;
+           
 
             int val = getNewId();
             Emp_txt.Text = val.ToString();
             Save.Show();
+            Edit.Hide();
            
         }
 
@@ -433,8 +642,12 @@ namespace HRManagement
 
         private void Employee_Load(object sender, EventArgs e)
         {
-            tabControl1.TabPages.Remove(tabCheckLeaveRequests);
-            tabControl1.TabPages.Remove(tabViewSalary);
+            combo_Month.SelectedIndex = 0;
+            radioButton1.Enabled = true;
+            radioButton2.Enabled = true;
+            AddOT.TabPages.Remove(tabCheckLeaveRequests);
+            AddOT.TabPages.Remove(tabAddOT);
+            AddOT.TabPages.Remove(tabCalSalary);
 
             MySqlConnection con = ConnectionOld.getConnection();
             MySqlCommand sc = new MySqlCommand("select role from user_role_tab where user = @user", con);
@@ -450,11 +663,26 @@ namespace HRManagement
                         {
                         case "HR Manager": AddNewEmp.Show();
                                             Save.Show();
-                                            tabControl1.TabPages.Remove(tabSendLeaveRequests);
+                                            AddOT.TabPages.Remove(tabSendLeaveRequests);
+                                            AddOT.TabPages.Remove(tabViewSalary);
                                             this.tabViewSalary.Text = "Calculate Salary";
-                                             tabControl1.TabPages.Add(tabCheckLeaveRequests);
-                                             tabControl1.TabPages.Add(tabViewSalary);
+                                             AddOT.TabPages.Add(tabCheckLeaveRequests);
+                                             AddOT.TabPages.Add(tabAddOT);
+                                             AddOT.TabPages.Add(tabCalSalary);
                                              Rem.Show();
+                                            Emp_txt.ReadOnly = false;
+                                            First_txt.ReadOnly = false;
+                                            Last_txt.ReadOnly = false;
+                                            //radioButton1.Enabled = true;
+                                            //radioButton2.Enabled = true;
+                                            dateTimePicker1.Enabled = true;
+                                            Nat_txt.ReadOnly = false;
+                                            NIC_txt.ReadOnly = false;
+                                            Add_txt.ReadOnly = false;
+                                            Mob_txt.ReadOnly = false;
+                                            Email_txt.ReadOnly = false;
+                                            Posi_combo.Enabled = true;
+                                            textBox5.ReadOnly = false;
                             break;
                         }
                     }
@@ -522,7 +750,7 @@ namespace HRManagement
 
         private void Search_Click(object sender, EventArgs e)
         {
-            displayDataGridViewSearch();
+           // displayDataGridViewSearch();
           
         }
 
@@ -557,16 +785,34 @@ namespace HRManagement
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            combo_Month.SelectedIndex = 0;
             refreshEmpLeaveTable();
             refreshHRLeaveTable();
+            displayDataGridViewSearch();
 
-
-            
+            defaultOtTable();
+            refreshSalaryTable();
+            getNoOfLeaveDays();
+            //getMonthComboValues();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            int Annual = Int32.Parse(labRemAnnual.Text);
+            int Casual = Int32.Parse(labRemCasual.Text);
+
+            if ((this.Type_combo.Text == "Annual") && (Annual <= 0))
+            {
+                MessageBox.Show("You can't apply for Annual leave");
+                return;
+            }
+
+            if ((this.Type_combo.Text == "Casual") && (Casual <= 0))
+            {
+                MessageBox.Show("You can't apply for Casual leave");
+                return;
+            }
+
             DateTime start = Convert.ToDateTime(dateTimePicker3.Text);
             DateTime end = Convert.ToDateTime(dateTimePicker2.Text);
             
@@ -638,104 +884,106 @@ namespace HRManagement
             }
         }
 
-        private void dataGridView3_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView3.SelectedRows.Count > 0)
-            {
-                DataGridViewRow row = this.dataGridView3.SelectedRows[0];
+        //private void dataGridView3_SelectionChanged(object sender, EventArgs e)
+        //{
+        //    if (dataGridView3.SelectedRows.Count > 0)
+        //    {
+        //        MessageBox.Show("hello");
+        //        DataGridViewRow row = this.dataGridView3.SelectedRows[0];
 
-                emp = row.Cells["EmpId"].Value.ToString();
+        //        emp = row.Cells["EmpId"].Value.ToString();
 
-                MySqlConnection MyConn = ConnectionOld.getConnection();
-                MySqlCommand SelectCommand = new MySqlCommand("select FirstName,DepId from itp.employee where EmpId = '" + emp + "' ;", MyConn);
-                MySqlDataReader MyReader;
-                MyConn.Open();
-                MyReader = SelectCommand.ExecuteReader();
+        //        MySqlConnection MyConn = ConnectionOld.getConnection();
+        //        MySqlCommand SelectCommand = new MySqlCommand("select FirstName,DepId from itp.employee where EmpId = '" + emp + "' ;", MyConn);
+        //        MySqlDataReader MyReader;
+        //        MyConn.Open();
+        //        MyReader = SelectCommand.ExecuteReader();
 
-                while (MyReader.Read())
-                {
-                    textBox11.Text = MyReader.GetString("FirstName");
-                    textBox12.Text = MyReader.GetString("DepId");
+        //        while (MyReader.Read())
+        //        {
+        //            MessageBox.Show("How Are u?");
+        //            textBox11.Text = MyReader.GetString("FirstName");
+        //            textBox12.Text = MyReader.GetString("DepId");
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            MySqlConnection MyConn = ConnectionOld.getConnection();
-            MySqlCommand SelectCommand = new MySqlCommand("select * from itp.employee where EmpId = '" + textBox1.Text + "' ;", MyConn);
-            MySqlDataReader MyReader;
-            MyConn.Open();
-            MyReader = SelectCommand.ExecuteReader();
+        //private void textBox1_TextChanged(object sender, EventArgs e)
+        //{
+        //    MySqlConnection MyConn = ConnectionOld.getConnection();
+        //    MySqlCommand SelectCommand = new MySqlCommand("select * from itp.employee where EmpId = '" + textBox1.Text + "' ;", MyConn);
+        //    MySqlDataReader MyReader;
+        //    MyConn.Open();
+        //    MyReader = SelectCommand.ExecuteReader();
 
-            while (MyReader.Read())
-            {
-                name.Text = MyReader.GetString("FirstName");
-                textBox2.Text = MyReader.GetString("DepId");
-                textBox3.Text = MyReader.GetString("Position");
-                textBox7.Text = MyReader.GetString("BasicSalary");
-            }
-
-
+        //    while (MyReader.Read())
+        //    {
+        //        name.Text = MyReader.GetString("FirstName");
+        //        textBox2.Text = MyReader.GetString("DepId");
+        //        textBox3.Text = MyReader.GetString("Position");
+        //        textBox7.Text = MyReader.GetString("BasicSalary");
+        //    }
 
 
-        }
 
-        private void Calculate_Click(object sender, EventArgs e)
-        {
-            Double net = (basSal + otTot) - (etf + epf);
-            // MessageBox.Show("salary is " + net);
-            textBox10.Text = net.ToString();
-        }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
+        //}
 
-            basSal = Double.Parse(textBox7.Text);
-            otTot = (basSal / 240) * Double.Parse(textBox4.Text) * 1.5;
-            textBox6.Text = otTot.ToString();
-            // MessageBox.Show("salary is " + otTot);
-        }
+        //private void Calculate_Click(object sender, EventArgs e)
+        //{
+        //    Double net = (basSal + otTot) - (etf + epf);
+        //    // MessageBox.Show("salary is " + net);
+        //    textBox10.Text = net.ToString();
+        //}
 
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                etf = Double.Parse(textBox7.Text) * 0.03;
-                epf = Double.Parse(textBox7.Text) * 0.08;
-                textBox8.Text = etf.ToString();
-                textBox9.Text = epf.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        //private void textBox4_TextChanged(object sender, EventArgs e)
+        //{
 
-        }
+        //    basSal = Double.Parse(textBox7.Text);
+        //    otTot = (basSal / 240) * Double.Parse(textBox4.Text) * 1.5;
+        //    textBox6.Text = otTot.ToString();
+        //    // MessageBox.Show("salary is " + otTot);
+        //}
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //String SalId = createSalId();
-            //MessageBox.Show("salId " + SalId);
-            String query = "insert into itp.salary(EmpId,OTHours,NetSalary,GivenDate) values('" + textBox1.Text + "','" + textBox4.Text + "','" + textBox10.Text + "',CURDATE()); ";
-            MySqlConnection connDatabase = ConnectionOld.getConnection();
-            MySqlCommand cmdDatabase = new MySqlCommand(query, connDatabase);
-            MySqlDataReader myReader;
+        //private void textBox7_TextChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        etf = Double.Parse(textBox7.Text) * 0.03;
+        //        epf = Double.Parse(textBox7.Text) * 0.08;
+        //        textBox8.Text = etf.ToString();
+        //        textBox9.Text = epf.ToString();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
 
-            try
-            {
-                connDatabase.Open();
-                myReader = cmdDatabase.ExecuteReader();
-                MessageBox.Show("Records are saved successfully");
+        //}
 
-            }
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+        //    //String SalId = createSalId();
+        //    //MessageBox.Show("salId " + SalId);
+        //    String query = "insert into itp.salary(EmpId,OTHours,NetSalary,GivenDate) values('" + textBox1.Text + "','" + textBox4.Text + "','" + textBox10.Text + "',CURDATE()); ";
+        //    MySqlConnection connDatabase = ConnectionOld.getConnection();
+        //    MySqlCommand cmdDatabase = new MySqlCommand(query, connDatabase);
+        //    MySqlDataReader myReader;
 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //    try
+        //    {
+        //        connDatabase.Open();
+        //        myReader = cmdDatabase.ExecuteReader();
+        //        MessageBox.Show("Records are saved successfully");
+
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
         private void textBox13_TextChanged(object sender, EventArgs e)
         {
@@ -753,16 +1001,152 @@ namespace HRManagement
 
         #endregion
 
-       
+        private void tabAddOT_Click(object sender, EventArgs e)
+        {
 
-       
+        }
 
-        
+        private void CalSalary_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                con.Open();
+                MySqlCommand command = new MySqlCommand("calcSalary",con);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("_month", salMonth);
+                command.ExecuteScalar();
+                
+                MessageBox.Show("Salary is calculated for "+salMonth);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
 
-     
-        
+        private void Ot_Save_Click(object sender, EventArgs e)
+        {
+            
+            MySqlCommand ic = new MySqlCommand("INSERT INTO ot (EmpId,OTHours,Month) VALUES (@empid,@ot,'" + mon + "')", con);
+            ic.Parameters.Add("@empid", MySqlDbType.Int32, 200, "EmpId");
+            ic.Parameters.Add("@ot", MySqlDbType.Float, 200, "OTHours");
+            
 
-       
+            MySqlCommand uc = new MySqlCommand("INSERT INTO ot (EmpId,OTHours,Month) VALUES (@empid,@ot,'"+mon+"')", con);
+            uc.Parameters.Add("@empid", MySqlDbType.Int32, 200, "EmpId");
+            uc.Parameters.Add("@ot", MySqlDbType.Float,200,"OTHours");
+            
+
+            sda.InsertCommand = ic;
+            sda.UpdateCommand = uc;
+            this.Validate();
+            bindingSource1.EndEdit();
+            sda.Update(datasetOT);
+            MessageBox.Show("OT Hours Added");
+        }
+
+        private void combo_Month_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void combo_Month_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            String month = this.combo_Month.Text;
+            switch (month)
+            {
+                case "January"  : mon = "January"; break;
+                case "February" : mon = "February"; break;
+                case "March"    : mon = "March"; break;
+                case "April"    : mon = "April"; break;
+                case "May"      : mon = "May"; break;
+                case "June"     : mon = "June"; break;
+                case "July"     : mon = "July"; break;
+                case "August"   : mon = "August"; break;
+                case "September": mon = "September"; break;
+                case "October"  : mon = "October"; break;
+                case "November" : mon = "November"; break;
+                case "December" : mon = "December"; break;
+
+            }
+            refreshOtTable();
+           
+        }
+
+        private void comboSalMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            salMonth = this.comboSalMonth.Text;
+        }
+
+        private void radForeigner_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void radSrilankan_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void combo_Nat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String comboNat = this.combo_Nat.Text;
+            if (comboNat == "SriLankan")
+            {
+                labNationality.Text = "NIC";
+                //Nat_txt.Enabled = false;
+                labMention.Hide();
+                Nat_txt.Hide();
+            }
+            else
+            {
+                nat = this.Nat_txt.Text;
+                labNationality.Text = "Passport No";
+                labMention.Show();
+                Nat_txt.Show();
+                Nat_txt.Enabled = true;
+            }
+        }
+
+        private void dataGridView3_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            if (dataGridView3.SelectedRows.Count > 0)
+            {
+                MessageBox.Show("hello");
+                DataGridViewRow row = this.dataGridView3.SelectedRows[0];
+
+                emp = row.Cells["EmpId"].Value.ToString();
+
+                MySqlConnection MyConn = ConnectionOld.getConnection();
+                MySqlCommand SelectCommand = new MySqlCommand("select FirstName,DepId from itp.employee where EmpId = '" + emp + "' ;", MyConn);
+                MySqlDataReader MyReader;
+                MyConn.Open();
+                MyReader = SelectCommand.ExecuteReader();
+
+                while (MyReader.Read())
+                {
+                    MessageBox.Show("How Are u?");
+                    textBox11.Text = MyReader.GetString("FirstName");
+                    textBox12.Text = MyReader.GetString("DepId");
+
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SalaryReportViewer viewer = new SalaryReportViewer();
+            viewer.ShowDialog();
+        }
+
+  
        
         
 
