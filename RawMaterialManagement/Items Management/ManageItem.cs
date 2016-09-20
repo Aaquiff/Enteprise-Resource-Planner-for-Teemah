@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using FrameworkControls.Dialogs;
 using FrameworkControls.Forms;
+using FrameworkControls.Classes;
 using MetroFramework;
 
 namespace RawMaterialManagement.Items_Management
