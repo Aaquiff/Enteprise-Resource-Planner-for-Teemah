@@ -42,9 +42,9 @@ namespace Explorer
                 con.Open();
                 this.DialogResult = DialogResult.OK;
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                FrameworkControls.Classes.PanException.Show(this,ex);
             }
             finally
             {

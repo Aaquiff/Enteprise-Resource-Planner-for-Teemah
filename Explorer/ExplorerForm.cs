@@ -51,9 +51,9 @@ namespace Explorer
                 con.Open();
                 con.Close();
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                FrameworkControls.Classes.PanException.Show(this, ex);
             }
             loadPermissionInfo();
         }
@@ -168,9 +168,9 @@ namespace Explorer
                     }
                 }
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                FrameworkControls.Classes.PanException.Show(this, ex);
             }
             finally
             {

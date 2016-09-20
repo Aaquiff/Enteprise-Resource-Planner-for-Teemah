@@ -39,7 +39,8 @@ namespace RawMaterialManagement.Supplier_Management
             {
                 string columnName = cmbColumns.SelectedItem.ToString();
                 MySqlDataAdapter search = new MySqlDataAdapter();
-                MySqlCommand sc = new MySqlCommand("select * from raw_supplier_tab where " + columnName + " like @param");
+                MySqlCommand sc = new MySqlCommand("select * from raw_supplier_tab where @columnName like @param");
+                sc.Parameters.AddWithValue("@columnName",columnName);
                 sc.Parameters.AddWithValue("@param", "%" + txtSearch.Text + "%");
                 db.FillBy(sc);
             }

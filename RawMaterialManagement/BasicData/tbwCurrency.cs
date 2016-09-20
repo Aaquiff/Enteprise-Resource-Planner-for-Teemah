@@ -88,7 +88,8 @@ namespace RawMaterialManagement.BasicData
             {
                 string columnName = cmbColumns.SelectedItem.ToString();
                 MySqlDataAdapter search = new MySqlDataAdapter();
-                MySqlCommand sc = new MySqlCommand("select * from raw_currency_tab where " + columnName + " like @param",con);
+                MySqlCommand sc = new MySqlCommand("select * from raw_currency_tab where @columnName like @param",con);
+                sc.Parameters.AddWithValue("@columnName",columnName);
                 sc.Parameters.AddWithValue("@param", "%" + txtSearch.Text + "%");
                 search.SelectCommand = sc;
                 this.rawDataSet.Clear();

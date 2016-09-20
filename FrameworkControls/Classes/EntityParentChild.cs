@@ -43,7 +43,7 @@ namespace FrameworkControls.Classes
                 System.Windows.Forms.MessageBox.Show("Saved");
                 Fill();
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
