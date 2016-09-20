@@ -23,8 +23,11 @@ namespace RawMaterialManagement.Reporting
 
         private void ReportViewer_Load(object sender, EventArgs e)
         {
-            this.raw_item_tabTableAdapter.Fill(this.DataSet1.raw_item_tab);
+            //this.raw_item_tabTableAdapter.Fill(this.DataSet1.raw_item_tab);
             
+            MySqlDataAdapter itemAdapter = new MySqlDataAdapter("select * from raw_item_tab order by stock_level desc limit 10", con);
+            itemAdapter.Fill(this.DataSet1.raw_item_tab);
+            //this.raw_item_tabTableAdapter.Fill(this.rawDataSet.raw_item_tab);
             this.reportViewer1.RefreshReport();
         }
     }
