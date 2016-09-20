@@ -166,37 +166,47 @@ namespace SalesManagement.Class_files
 
         public static bool isEmail(String s)
         {
+            //try
+            //{
+            //    int num = s.IndexOf('@');
+            //    int num2 = s.IndexOf('.');
+
+            //    if (!String.IsNullOrEmpty(s) && (s[0] != ' ' || s[0] != '\t' || s[0] != '.'))
+            //    {
+            //        if (s.EndsWith(".com") || s.EndsWith(".lk"))
+            //        {
+            //            if (num < num2 && (num + 1) != num2)
+            //            {
+            //                return true;
+            //            }
+            //            else
+            //            {
+            //                MessageBox.Show(null, "Invalid Email ID", "Error");
+            //                return false;
+            //            }
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show(null, "Enter a valid Email ID", "Error");
+            //            return false;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show(null, "Enter a valid Email ID", "Error");
+            //        return false;
+            //    }
+
+            //}
+            //catch
+            //{
+            //    return false;
+            //}
+
             try
             {
-                int num = s.IndexOf('@');
-                int num2 = s.IndexOf('.');
-
-                if (!String.IsNullOrEmpty(s) && (s[0] != ' ' || s[0] != '\t' || s[0] != '.'))
-                {
-                    if (s.EndsWith(".com") || s.EndsWith(".lk"))
-                    {
-                        if (num < num2 && (num + 1) != num2)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            MessageBox.Show(null, "Invalid Email ID", "Error");
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show(null, "Enter a valid Email ID", "Error");
-                        return false;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(null, "Enter a valid Email ID", "Error");
-                    return false;
-                }
-
+                var addr = new System.Net.Mail.MailAddress(s);
+                return addr.Address == s;
             }
             catch
             {
