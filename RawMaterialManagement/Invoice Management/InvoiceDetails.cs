@@ -65,7 +65,7 @@ namespace RawMaterialManagement.Invoice_Management
             if (con.State != ConnectionState.Open)
                 con.Open();
             string NextItemId = "";
-            MySqlCommand com = new MySqlCommand("SELECT MAX(CONVERT(substr(invoice_id,4), SIGNED INTEGER))FROM raw_invoice_tab;", con);
+            MySqlCommand com = new MySqlCommand("SELECT COALESCE(MAX(CONVERT(substr(invoice_id,4), SIGNED INTEGER)) ,0) FROM raw_invoice_tab;", con);
             MySqlDataReader reader = com.ExecuteReader();
             if (reader.Read())
             {
@@ -112,10 +112,13 @@ namespace RawMaterialManagement.Invoice_Management
             lov.ShowDialog();
             if (lov.DialogResult == DialogResult.OK)
             {
-                DataRowView row = lov.selectedRow;
-                string orderId = row.Row.ItemArray[0].ToString();
-                txtOrderId.Text = orderId;
-                txtNetValue.Text = getTotal(txtOrderId.Text).ToString();
+                if(lov.selectedRow != null)
+                {
+                    DataRowView row = lov.selectedRow;
+                    string orderId = row.Row.ItemArray[0].ToString();
+                    txtOrderId.Text = orderId;
+                    txtNetValue.Text = getTotal(txtOrderId.Text).ToString();
+                }
             }
             
         }

@@ -174,7 +174,7 @@ namespace RawMaterialManagement.Order_Management
             if (con.State != ConnectionState.Open)
                 con.Open();
             string NextItemId = "";
-            MySqlCommand com = new MySqlCommand("SELECT MAX(CONVERT(substr(order_id,6), SIGNED INTEGER))FROM raw_purchase_order_tab;", con);
+            MySqlCommand com = new MySqlCommand("SELECT COALESCE(MAX(CONVERT(substr(order_id,6), SIGNED INTEGER)),0 ) FROM raw_purchase_order_tab;", con);
             MySqlDataReader reader = com.ExecuteReader();
             if (reader.Read())
             {
