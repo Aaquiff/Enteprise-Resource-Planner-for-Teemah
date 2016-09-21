@@ -143,6 +143,7 @@ namespace SalesManagement.Class_files
 
         }
 
+        #region isNumber
         public static bool isNumber(String s)
         {
             try
@@ -162,7 +163,8 @@ namespace SalesManagement.Class_files
                 MessageBox.Show("" + ex);
                 return false;
             }
-        }
+        } 
+        #endregion
 
         public static bool isEmail(String s)
         {

@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using SalesManagement.Class_files;
+using SalesManagement.Purchase_Records;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,15 +10,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FrameworkControls.Classes;
 
 namespace SalesManagement.Buyer_Records
 {
     public partial class buyerAdd : Form
     {
         bool x = false;
+        
         public buyerAdd()
         {
             InitializeComponent();
+
+            string optional = "Optional";
+            
+            fax.Text = optional;
+            fax.TextAlign = HorizontalAlignment.Center;
+            fax.ForeColor = Color.LightGray;
+
+            email.Text = optional;
+            email.TextAlign = HorizontalAlignment.Center;
+            email.ForeColor = Color.LightGray;
         }
 
         private void addBtn_Click(object sender, EventArgs e)
@@ -36,97 +49,121 @@ namespace SalesManagement.Buyer_Records
             string contactNo = contactNum.Text;
 
 
-            if (validate.isEmpty(storeName) && validate.isContact(office) && validate.isNumber(credit) && validate.isEmpty(storeAddress) && 
-                validate.isChar(storeCity) && validate.isChar(storeDistrict) && validate.isChar(contactName) &&
-                validate.isChar(contactJobTitle) && validate.isContact(contactNo))
+            if (!accessDb.isExist(store.Text, "buyer", "storeName"))
             {
-                this.x = true;
-
-                if(!String.IsNullOrEmpty(faxNo))
+                if (validate.isEmpty(storeName) && validate.isContact(office) && validate.isNumber(credit) && validate.isEmpty(storeAddress) &&
+                        validate.isChar(storeCity) && validate.isChar(storeDistrict) && validate.isChar(contactName) &&
+                        validate.isChar(contactJobTitle) && validate.isContact(contactNo))
                 {
-                    this.x = validate.isContact(faxNo);
-                }
+                    this.x = true;
 
-                if(!String.IsNullOrEmpty(mail))
-                {
-                    this.x = validate.isEmail(mail);
-                }                
-            }
-            //else
-            //{
-            //    this.x = false;
-            //}
-
-
-            if (this.x == true)
-            {
-                if (MessageBox.Show("Store name cannot be changed hereafter. Do you wish to continue?", "Confirmation", MessageBoxButtons.YesNo)==DialogResult.Yes)
-                {
-                    try
+                    if (!String.IsNullOrEmpty(faxNo))
                     {
-                        DBConnect connection = new DBConnect();
-                        connection.OpenConnection();
-                        MySqlConnection returnConn = new MySqlConnection();
-                        returnConn = connection.GetConnection();
-
-                        string query = "INSERT INTO itp.buyer (storeName, contactName, contactJob, officeNo, personalNo, fax, email, address, city, district, creditLimit) VALUES (@1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11)";
-                        MySqlCommand cmd = new MySqlCommand(query, returnConn);
-                        //cmd.CommandType = CommandType.Text; //default
-
-                        cmd.Parameters.AddWithValue("@1", storeName);
-                        cmd.Parameters.AddWithValue("@2", contactName);
-                        cmd.Parameters.AddWithValue("@3", contactJobTitle);
-                        cmd.Parameters.AddWithValue("@4", office);
-                        cmd.Parameters.AddWithValue("@5", contactNo);
-                        cmd.Parameters.AddWithValue("@6", faxNo);
-                        cmd.Parameters.AddWithValue("@7", mail);
-                        cmd.Parameters.AddWithValue("@8", storeAddress);
-                        cmd.Parameters.AddWithValue("@9", storeCity);
-                        cmd.Parameters.AddWithValue("@10", storeDistrict);
-                        cmd.Parameters.AddWithValue("@11", credit);
-                        //connection.OpenConnection();
-                        cmd.ExecuteNonQuery();
-                        connection.CloseConnection();
-
-                        MessageBox.Show("New buyer added to the database");
-
+                        this.x = validate.isContact(faxNo);
                     }
 
-                    catch (Exception ex)
+                    if (!String.IsNullOrEmpty(mail))
                     {
-                        MessageBox.Show(ex.Message);
-                    } 
+                        this.x = validate.isEmail(mail);
+                    }
+                }
+
+                if (fax.Text == "" || fax.Text == "Optional")
+                {
+                    faxNo = null;
+                }
+
+                if (email.Text == "" || email.Text == "Optional")
+                {
+                    mail = null;
+                }
+
+                if (this.x == true)
+                {
+                    if (MessageBox.Show("Store name cannot be changed hereafter.\n Do you wish to continue?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            DBConnect connection = new DBConnect();
+                            connection.OpenConnection();
+                            MySqlConnection returnConn = new MySqlConnection();
+                            returnConn = connection.GetConnection();
+
+                            string query = "INSERT INTO itp.buyer (storeName, contactName, contactJob, officeNo, personalNo, fax, email, address, city, district, creditLimit) VALUES (@1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11)";
+                            MySqlCommand cmd = new MySqlCommand(query, returnConn);
+                            //cmd.CommandType = CommandType.Text; //default
+
+                            cmd.Parameters.AddWithValue("@1", storeName);
+                            cmd.Parameters.AddWithValue("@2", contactName);
+                            cmd.Parameters.AddWithValue("@3", contactJobTitle);
+                            cmd.Parameters.AddWithValue("@4", office);
+                            cmd.Parameters.AddWithValue("@5", contactNo);
+                            cmd.Parameters.AddWithValue("@6", faxNo);
+                            cmd.Parameters.AddWithValue("@7", mail);
+                            cmd.Parameters.AddWithValue("@8", storeAddress);
+                            cmd.Parameters.AddWithValue("@9", storeCity);
+                            cmd.Parameters.AddWithValue("@10", storeDistrict);
+                            cmd.Parameters.AddWithValue("@11", credit);
+                            //connection.OpenConnection();
+                            cmd.ExecuteNonQuery();
+                            connection.CloseConnection();
+
+                            MessageBox.Show("New buyer added to the database");
+
+                            clearText();
+
+                            buyerView bv = new buyerView();
+                            bv.Show();
+                        }
+
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                    else
+                    {
+                        store.Focus();
+                    }
+                }
+                else
+                {
+                    store.Focus();
                 } 
             }
             else
             {
-                MessageBox.Show(this, "Try again", "Error");
+                MessageBox.Show("Store details already contains in the database");
             }
-
-
         }
 
-        private void backBtn_Click(object sender, EventArgs e)
+        private void clearText()
         {
-            //this.Close();
-            //buyerHome buy = new buyerHome();
-            //buy.Show();
-
-        }
-
-        private void address_TextChanged(object sender, EventArgs e)
-        {
-
+            store.Text = "";
+            officeNo.Text = "";
+            creditLimit.Text = "";
+            fax.Text = "";
+            email.Text = "";
+            address.Text = "";
+            city.Text = "";
+            district.Text = "";
+            contact.Text = "";
+            contactJob.Text = "";
+            contactNum.Text = "";
         }
 
         private void fax_Click(object sender, EventArgs e)
         {
             fax.ResetText();
+            fax.TextAlign = HorizontalAlignment.Left;
+            fax.ForeColor = Color.Black;
         }
 
         private void email_Click(object sender, EventArgs e)
         {
             email.ResetText();
+            email.TextAlign = HorizontalAlignment.Left;
+            email.ForeColor = Color.Black;
         }
     }
 }

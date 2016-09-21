@@ -58,6 +58,7 @@
     <Compile Include="Classes\EntityParentChild.cs" />
     <Compile Include="Classes\PanEmail.cs" />
     <Compile Include="Classes\PanException.cs" />
+    <Compile Include="Classes\PanMessage.cs" />
     <Compile Include="Controls\CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>

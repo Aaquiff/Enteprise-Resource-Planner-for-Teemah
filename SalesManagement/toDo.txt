@@ -1,0 +1,6 @@
+﻿>	masked text box
+>	NIC email validation
+>	name cannot be changed while updating 
+>	store Name duplicate 
+>	payment status changes when its fully paid
+>	

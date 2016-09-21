@@ -9,15 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using SalesManagement.Class_files;
+using FrameworkControls.Classes;
 
 namespace SalesManagement.Purchase_Records
 {
     public partial class purchaseAdd2 : Form
     {
-        private bool itemChange = false;
-        private bool dateChange = false;
-        private bool agentChange = false;
-
         private string tempPID;
         private double tempTotal;
         private string tempUnitPrice;
@@ -35,17 +32,19 @@ namespace SalesManagement.Purchase_Records
 
         private void purchaseAdd2_Load(object sender, EventArgs e)
         {
+            //show today's date
             label10.Text = DateTime.Now.ToShortDateString();
 
+            //get comboBox values from tables
             getColumn("buyer", "storeName", comboBox2);
             getColumn("employee", "empId", comboBox1);
-            getColumn("product", "productName", comboBox3);
+            getColumn("inv_newitems", "ProductName", comboBox3);
 
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "yyyy-MM-dd";
-
+            //DateTimePicker properties
+            dateTimeProps();
         }
 
+        #region add Discount
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             string tot = textBox5.Text;
@@ -70,8 +69,10 @@ namespace SalesManagement.Purchase_Records
                 textBox5.Text = null;
             }
 
-        }
+        } 
+        #endregion
 
+        #region add Special price
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -83,7 +84,8 @@ namespace SalesManagement.Purchase_Records
                 textBox3.Undo();
                 textBox3.ReadOnly = true;
             }
-        }
+        } 
+        #endregion
 
         public void getColumn(string table, string column, ComboBox comboName)
         {
@@ -105,6 +107,7 @@ namespace SalesManagement.Purchase_Records
 
         }
 
+        #region gets unit price and maximum retail price of the selected product
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox4.ResetText();
@@ -118,19 +121,21 @@ namespace SalesManagement.Purchase_Records
             MySqlConnection returnConn = new MySqlConnection();
             returnConn = conn.GetConnection();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM itp.product WHERE productName ='" + choice + "'", returnConn);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM itp.inv_newitems WHERE ProductName ='" + choice + "'", returnConn);
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
             conn.CloseConnection();
 
-            textBox2.Text = dt.Rows[0]["mrp"].ToString();
-            this.tempUnitPrice = dt.Rows[0]["unitPrice"].ToString();
+            textBox2.Text = dt.Rows[0]["MaximumRetailPrice"].ToString();
+            this.tempUnitPrice = dt.Rows[0]["UnitPrice"].ToString();
 
             textBox3.Text = this.tempUnitPrice;
-            this.tempPID = dt.Rows[0]["productId"].ToString();
-        }
+            this.tempPID = dt.Rows[0]["ProductID"].ToString();
+        } 
+        #endregion
 
+        #region total calculates while entering the quantity / else error
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
             string qty = (textBox4.Text);
@@ -157,8 +162,10 @@ namespace SalesManagement.Purchase_Records
                     MessageBox.Show("Enter valid quantity");
                 }
             }
-        }
+        } 
+        #endregion
 
+        //add to cart method
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox4.Text == "0" || String.IsNullOrEmpty(textBox4.Text))
@@ -178,10 +185,11 @@ namespace SalesManagement.Purchase_Records
                 this.count = this.count + this.tempTotal;
                 textBox5.Text = this.count.ToString();
 
-                MessageBox.Show("Successfully added");
+                //MessageBox.Show("Successfully added");
             }
         }
 
+        //confirm order method
         private void button3_Click(object sender, EventArgs e)
         {
             string query;
@@ -207,7 +215,7 @@ namespace SalesManagement.Purchase_Records
                             + dataGridView1.Rows[i].Cells[3].Value + ","
                             + dataGridView1.Rows[i].Cells[2].Value + ","
                             + dataGridView1.Rows[i].Cells[4].Value + ","
-                            + this.tempDate + ","
+                            + "'" + this.tempDate + "',"
                             + "'" + this.tempAgent + "');";
 
                         MySqlCommand cmd = new MySqlCommand(query, returnConn);
@@ -232,7 +240,8 @@ namespace SalesManagement.Purchase_Records
                 }
                 else
                 {
-                    MessageBox.Show("Please recheck your entry");
+                    PanMessage.Show(this,"Please recheck your entry");
+                    //MessageBox.Show("Please recheck your entry");
                 }
 
             }
@@ -273,10 +282,32 @@ namespace SalesManagement.Purchase_Records
         {
             if (MessageBox.Show("Do you really want to cancel this process?", "Confirmation", MessageBoxButtons.YesNo)==DialogResult.Yes)
             {
-                this.Close();
-                purchaseHome home = new purchaseHome();
-                home.Show();
+                //cboxHour.Items.Clear();
+                comboBox1.SelectedIndex = -1;
+                comboBox2.SelectedIndex = -1;
+                comboBox3.SelectedIndex = -1;
+
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+                textBox4.Text = "";
+
+                checkBox1.Checked = false;
+                checkBox2.Checked = false;
+
+                label13.Text = "0";
+
+                dateTimeProps();
             }
+        }
+
+        private void dateTimeProps()
+        {
+            dateTimePicker1.ShowUpDown = true;
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "yyyy-MM-dd";
+            dateTimePicker1.MinDate = DateTime.Now.AddDays(1);
+            dateTimePicker1.MaxDate = DateTime.Now.AddMonths(5);
         }
     }
 }

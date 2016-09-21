@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(buyerAdd));
             this.addBtn = new System.Windows.Forms.Button();
-            this.backBtn = new System.Windows.Forms.Button();
-            this.contactNum = new System.Windows.Forms.TextBox();
             this.contactJob = new System.Windows.Forms.TextBox();
             this.contact = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,7 +38,6 @@
             this.creditLimit = new System.Windows.Forms.TextBox();
             this.city = new System.Windows.Forms.TextBox();
             this.address = new System.Windows.Forms.TextBox();
-            this.officeNo = new System.Windows.Forms.TextBox();
             this.store = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -50,42 +47,26 @@
             this.label1 = new System.Windows.Forms.Label();
             this.district = new System.Windows.Forms.TextBox();
             this.email = new System.Windows.Forms.TextBox();
-            this.fax = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.officeNo = new System.Windows.Forms.MaskedTextBox();
+            this.contactNum = new System.Windows.Forms.MaskedTextBox();
+            this.fax = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(715, 331);
+            this.addBtn.Location = new System.Drawing.Point(715, 342);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(121, 35);
             this.addBtn.TabIndex = 22;
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
-            // 
-            // backBtn
-            // 
-            this.backBtn.Location = new System.Drawing.Point(459, 331);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(121, 35);
-            this.backBtn.TabIndex = 23;
-            this.backBtn.Text = "Back";
-            this.backBtn.UseVisualStyleBackColor = true;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
-            // 
-            // contactNum
-            // 
-            this.contactNum.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.contactNum.Location = new System.Drawing.Point(162, 107);
-            this.contactNum.Name = "contactNum";
-            this.contactNum.Size = new System.Drawing.Size(232, 20);
-            this.contactNum.TabIndex = 35;
             // 
             // contactJob
             // 
@@ -149,14 +130,6 @@
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(232, 44);
             this.address.TabIndex = 46;
-            this.address.TextChanged += new System.EventHandler(this.address_TextChanged);
-            // 
-            // officeNo
-            // 
-            this.officeNo.Location = new System.Drawing.Point(170, 66);
-            this.officeNo.Name = "officeNo";
-            this.officeNo.Size = new System.Drawing.Size(232, 20);
-            this.officeNo.TabIndex = 45;
             // 
             // store
             // 
@@ -232,17 +205,7 @@
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(232, 20);
             this.email.TabIndex = 57;
-            this.email.Text = "(Optional)";
             this.email.Click += new System.EventHandler(this.email_Click);
-            // 
-            // fax
-            // 
-            this.fax.Location = new System.Drawing.Point(170, 140);
-            this.fax.Name = "fax";
-            this.fax.Size = new System.Drawing.Size(232, 20);
-            this.fax.TabIndex = 56;
-            this.fax.Text = "(Optional)";
-            this.fax.Click += new System.EventHandler(this.fax_Click);
             // 
             // label7
             // 
@@ -264,8 +227,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.contactNum);
             this.groupBox1.Controls.Add(this.contactJob);
+            this.groupBox1.Controls.Add(this.contactNum);
             this.groupBox1.Controls.Add(this.contact);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
@@ -292,11 +255,36 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Billing Details";
             // 
+            // officeNo
+            // 
+            this.officeNo.Location = new System.Drawing.Point(170, 66);
+            this.officeNo.Mask = "(11)-0000000";
+            this.officeNo.Name = "officeNo";
+            this.officeNo.Size = new System.Drawing.Size(232, 20);
+            this.officeNo.TabIndex = 60;
+            // 
+            // contactNum
+            // 
+            this.contactNum.Location = new System.Drawing.Point(162, 107);
+            this.contactNum.Mask = "(999)-000000";
+            this.contactNum.Name = "contactNum";
+            this.contactNum.Size = new System.Drawing.Size(232, 20);
+            this.contactNum.TabIndex = 61;
+            // 
+            // fax
+            // 
+            this.fax.Location = new System.Drawing.Point(170, 140);
+            this.fax.Name = "fax";
+            this.fax.Size = new System.Drawing.Size(232, 20);
+            this.fax.TabIndex = 56;
+            this.fax.Click += new System.EventHandler(this.fax_Click);
+            // 
             // buyerAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 403);
+            this.Controls.Add(this.officeNo);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.email);
@@ -304,12 +292,10 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.creditLimit);
-            this.Controls.Add(this.officeNo);
             this.Controls.Add(this.store);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.backBtn);
             this.Controls.Add(this.addBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "buyerAdd";
@@ -326,8 +312,6 @@
         #endregion
 
         private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.Button backBtn;
-        private System.Windows.Forms.TextBox contactNum;
         private System.Windows.Forms.TextBox contactJob;
         private System.Windows.Forms.TextBox contact;
         private System.Windows.Forms.Label label5;
@@ -336,7 +320,6 @@
         private System.Windows.Forms.TextBox creditLimit;
         private System.Windows.Forms.TextBox city;
         private System.Windows.Forms.TextBox address;
-        private System.Windows.Forms.TextBox officeNo;
         private System.Windows.Forms.TextBox store;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -346,10 +329,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox district;
         private System.Windows.Forms.TextBox email;
-        private System.Windows.Forms.TextBox fax;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.MaskedTextBox officeNo;
+        private System.Windows.Forms.MaskedTextBox contactNum;
+        private System.Windows.Forms.TextBox fax;
     }
 }
