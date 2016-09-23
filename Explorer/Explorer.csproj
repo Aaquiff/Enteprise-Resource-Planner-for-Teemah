@@ -115,6 +115,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageQueue\PanMessageQueue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MessageQueue\PanMessageQueue.Designer.cs">
+      <DependentUpon>PanMessageQueue.cs</DependentUpon>
+    </Compile>
     <Compile Include="PanAboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageQueue\PanMessageQueue.resx">
+      <DependentUpon>PanMessageQueue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PanAboutBox.resx">
       <DependentUpon>PanAboutBox.cs</DependentUpon>

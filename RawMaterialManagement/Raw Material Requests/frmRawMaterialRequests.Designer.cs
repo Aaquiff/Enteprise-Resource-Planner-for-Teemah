@@ -46,6 +46,14 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+            this.rawMatReqIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.requestDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notesDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.referenceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStripRequest = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.approveRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rejectRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,14 +73,6 @@
             this.cancelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toBeApprovedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rawMatReqIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.requestDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notesDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.referenceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.raw_item_tabBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawmatreqBindingSource)).BeginInit();
@@ -111,7 +111,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(34, 62);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 23);
+            this.label4.Size = new System.Drawing.Size(72, 17);
             this.label4.TabIndex = 9;
             this.label4.Text = "Item Name";
             // 
@@ -121,7 +121,7 @@
             this.textBox4.Location = new System.Drawing.Point(34, 81);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(294, 29);
+            this.textBox4.Size = new System.Drawing.Size(294, 25);
             this.textBox4.TabIndex = 8;
             // 
             // raw_item_tabBindingSource
@@ -145,7 +145,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(31, 172);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 23);
+            this.label3.Size = new System.Drawing.Size(74, 17);
             this.label3.TabIndex = 7;
             this.label3.Text = "Description";
             // 
@@ -164,7 +164,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(34, 115);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 23);
+            this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Stock Level";
             // 
@@ -173,7 +173,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(34, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 23);
+            this.label1.Size = new System.Drawing.Size(48, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Item Id";
             // 
@@ -183,7 +183,7 @@
             this.textBox2.Location = new System.Drawing.Point(34, 134);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(294, 29);
+            this.textBox2.Size = new System.Drawing.Size(294, 25);
             this.textBox2.TabIndex = 3;
             // 
             // textBox1
@@ -192,7 +192,7 @@
             this.textBox1.Location = new System.Drawing.Point(34, 30);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(294, 29);
+            this.textBox1.Size = new System.Drawing.Size(294, 25);
             this.textBox1.TabIndex = 2;
             // 
             // splitContainer1
@@ -273,188 +273,6 @@
             this.metroGrid1.Style = MetroFramework.MetroColorStyle.Lime;
             this.metroGrid1.TabIndex = 3;
             // 
-            // contextMenuStripRequest
-            // 
-            this.contextMenuStripRequest.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStripRequest.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.approveRequestToolStripMenuItem,
-            this.rejectRequestToolStripMenuItem});
-            this.contextMenuStripRequest.Name = "contextMenuStripRequest";
-            this.contextMenuStripRequest.Size = new System.Drawing.Size(199, 56);
-            // 
-            // approveRequestToolStripMenuItem
-            // 
-            this.approveRequestToolStripMenuItem.Name = "approveRequestToolStripMenuItem";
-            this.approveRequestToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
-            this.approveRequestToolStripMenuItem.Text = "Approve Request";
-            this.approveRequestToolStripMenuItem.Click += new System.EventHandler(this.approveRequestToolStripMenuItem_Click);
-            // 
-            // rejectRequestToolStripMenuItem
-            // 
-            this.rejectRequestToolStripMenuItem.Name = "rejectRequestToolStripMenuItem";
-            this.rejectRequestToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
-            this.rejectRequestToolStripMenuItem.Text = "Reject Request";
-            this.rejectRequestToolStripMenuItem.Click += new System.EventHandler(this.rejectRequestToolStripMenuItem_Click);
-            // 
-            // rawmatreqTableAdapter
-            // 
-            this.rawmatreqTableAdapter.ClearBeforeFill = true;
-            // 
-            // raw_item_tabTableAdapter
-            // 
-            this.raw_item_tabTableAdapter.ClearBeforeFill = true;
-            // 
-            // panelSearch
-            // 
-            this.panelSearch.BackColor = System.Drawing.SystemColors.Window;
-            this.panelSearch.Controls.Add(this.panel1);
-            this.panelSearch.Controls.Add(this.panel3);
-            this.panelSearch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSearch.Location = new System.Drawing.Point(0, 0);
-            this.panelSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(1012, 31);
-            this.panelSearch.TabIndex = 18;
-            this.panelSearch.Visible = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.txtSearchItemId);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(200, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(812, 31);
-            this.panel1.TabIndex = 3;
-            // 
-            // txtSearchItemId
-            // 
-            this.txtSearchItemId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSearchItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchItemId.Location = new System.Drawing.Point(0, 0);
-            this.txtSearchItemId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSearchItemId.Name = "txtSearchItemId";
-            this.txtSearchItemId.Size = new System.Drawing.Size(812, 34);
-            this.txtSearchItemId.TabIndex = 0;
-            this.txtSearchItemId.TextChanged += new System.EventHandler(this.txtSearchItemId_TextChanged);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.cmbColumns);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 31);
-            this.panel3.TabIndex = 4;
-            // 
-            // cmbColumns
-            // 
-            this.cmbColumns.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbColumns.DropDownHeight = 136;
-            this.cmbColumns.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbColumns.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmbColumns.FormattingEnabled = true;
-            this.cmbColumns.IntegralHeight = false;
-            this.cmbColumns.ItemHeight = 21;
-            this.cmbColumns.Location = new System.Drawing.Point(0, 0);
-            this.cmbColumns.Name = "cmbColumns";
-            this.cmbColumns.Size = new System.Drawing.Size(200, 29);
-            this.cmbColumns.TabIndex = 2;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.splitContainer1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 31);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1012, 601);
-            this.panel4.TabIndex = 19;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.White;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5,
-            this.filterToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 31);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1288, 76);
-            this.menuStrip1.TabIndex = 30;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.Visible = false;
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.toolStripMenuItem2.Image = global::RawMaterialManagement.Properties.Resources.ic_file_download_2x;
-            this.toolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(84, 72);
-            this.toolStripMenuItem2.Text = "Populate";
-            this.toolStripMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.toolStripMenuItem4.Image = global::RawMaterialManagement.Properties.Resources.ic_search_2x;
-            this.toolStripMenuItem4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(73, 72);
-            this.toolStripMenuItem4.Text = "Search";
-            this.toolStripMenuItem4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem6,
-            this.cancelToolStripMenuItem1});
-            this.toolStripMenuItem5.Image = global::RawMaterialManagement.Properties.Resources.ic_change_history_black_24dp2;
-            this.toolStripMenuItem5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(61, 72);
-            this.toolStripMenuItem5.Text = "Status";
-            this.toolStripMenuItem5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(181, 26);
-            this.toolStripMenuItem6.Text = "Approve";
-            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
-            // 
-            // cancelToolStripMenuItem1
-            // 
-            this.cancelToolStripMenuItem1.Name = "cancelToolStripMenuItem1";
-            this.cancelToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
-            this.cancelToolStripMenuItem1.Text = "Reject";
-            this.cancelToolStripMenuItem1.Click += new System.EventHandler(this.cancelToolStripMenuItem1_Click);
-            // 
-            // filterToolStripMenuItem
-            // 
-            this.filterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toBeApprovedToolStripMenuItem});
-            this.filterToolStripMenuItem.Image = global::RawMaterialManagement.Properties.Resources.ic_filter_list_black_24dp;
-            this.filterToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
-            this.filterToolStripMenuItem.Size = new System.Drawing.Size(60, 72);
-            this.filterToolStripMenuItem.Text = "Filter";
-            this.filterToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toBeApprovedToolStripMenuItem
-            // 
-            this.toBeApprovedToolStripMenuItem.Name = "toBeApprovedToolStripMenuItem";
-            this.toBeApprovedToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
-            this.toBeApprovedToolStripMenuItem.Text = "To Be Approved";
-            // 
             // rawMatReqIdDataGridViewTextBoxColumn1
             // 
             this.rawMatReqIdDataGridViewTextBoxColumn1.DataPropertyName = "rawMatReqId";
@@ -511,9 +329,191 @@
             this.referenceDataGridViewTextBoxColumn1.Name = "referenceDataGridViewTextBoxColumn1";
             this.referenceDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
+            // contextMenuStripRequest
+            // 
+            this.contextMenuStripRequest.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripRequest.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.approveRequestToolStripMenuItem,
+            this.rejectRequestToolStripMenuItem});
+            this.contextMenuStripRequest.Name = "contextMenuStripRequest";
+            this.contextMenuStripRequest.Size = new System.Drawing.Size(165, 48);
+            // 
+            // approveRequestToolStripMenuItem
+            // 
+            this.approveRequestToolStripMenuItem.Name = "approveRequestToolStripMenuItem";
+            this.approveRequestToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.approveRequestToolStripMenuItem.Text = "Approve Request";
+            this.approveRequestToolStripMenuItem.Click += new System.EventHandler(this.approveRequestToolStripMenuItem_Click);
+            // 
+            // rejectRequestToolStripMenuItem
+            // 
+            this.rejectRequestToolStripMenuItem.Name = "rejectRequestToolStripMenuItem";
+            this.rejectRequestToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.rejectRequestToolStripMenuItem.Text = "Reject Request";
+            this.rejectRequestToolStripMenuItem.Click += new System.EventHandler(this.rejectRequestToolStripMenuItem_Click);
+            // 
+            // rawmatreqTableAdapter
+            // 
+            this.rawmatreqTableAdapter.ClearBeforeFill = true;
+            // 
+            // raw_item_tabTableAdapter
+            // 
+            this.raw_item_tabTableAdapter.ClearBeforeFill = true;
+            // 
+            // panelSearch
+            // 
+            this.panelSearch.BackColor = System.Drawing.SystemColors.Window;
+            this.panelSearch.Controls.Add(this.panel1);
+            this.panelSearch.Controls.Add(this.panel3);
+            this.panelSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSearch.Location = new System.Drawing.Point(0, 0);
+            this.panelSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelSearch.Name = "panelSearch";
+            this.panelSearch.Size = new System.Drawing.Size(1012, 31);
+            this.panelSearch.TabIndex = 18;
+            this.panelSearch.Visible = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.txtSearchItemId);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(200, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(812, 31);
+            this.panel1.TabIndex = 3;
+            // 
+            // txtSearchItemId
+            // 
+            this.txtSearchItemId.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSearchItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchItemId.Location = new System.Drawing.Point(0, 0);
+            this.txtSearchItemId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearchItemId.Name = "txtSearchItemId";
+            this.txtSearchItemId.Size = new System.Drawing.Size(812, 29);
+            this.txtSearchItemId.TabIndex = 0;
+            this.txtSearchItemId.TextChanged += new System.EventHandler(this.txtSearchItemId_TextChanged);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.cmbColumns);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 31);
+            this.panel3.TabIndex = 4;
+            // 
+            // cmbColumns
+            // 
+            this.cmbColumns.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbColumns.DropDownHeight = 136;
+            this.cmbColumns.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbColumns.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbColumns.FormattingEnabled = true;
+            this.cmbColumns.IntegralHeight = false;
+            this.cmbColumns.ItemHeight = 17;
+            this.cmbColumns.Location = new System.Drawing.Point(0, 0);
+            this.cmbColumns.Name = "cmbColumns";
+            this.cmbColumns.Size = new System.Drawing.Size(200, 25);
+            this.cmbColumns.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.splitContainer1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 31);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1012, 601);
+            this.panel4.TabIndex = 19;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.White;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5,
+            this.filterToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 31);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1288, 76);
+            this.menuStrip1.TabIndex = 30;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Visible = false;
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.toolStripMenuItem2.Image = global::RawMaterialManagement.Properties.Resources.ic_file_download_2x;
+            this.toolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(70, 72);
+            this.toolStripMenuItem2.Text = "Populate";
+            this.toolStripMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.toolStripMenuItem4.Image = global::RawMaterialManagement.Properties.Resources.ic_search_2x;
+            this.toolStripMenuItem4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(60, 72);
+            this.toolStripMenuItem4.Text = "Search";
+            this.toolStripMenuItem4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem6,
+            this.cancelToolStripMenuItem1});
+            this.toolStripMenuItem5.Image = global::RawMaterialManagement.Properties.Resources.ic_change_history_black_24dp2;
+            this.toolStripMenuItem5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(60, 72);
+            this.toolStripMenuItem5.Text = "Status";
+            this.toolStripMenuItem5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(119, 22);
+            this.toolStripMenuItem6.Text = "Approve";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
+            // 
+            // cancelToolStripMenuItem1
+            // 
+            this.cancelToolStripMenuItem1.Name = "cancelToolStripMenuItem1";
+            this.cancelToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.cancelToolStripMenuItem1.Text = "Reject";
+            this.cancelToolStripMenuItem1.Click += new System.EventHandler(this.cancelToolStripMenuItem1_Click);
+            // 
+            // filterToolStripMenuItem
+            // 
+            this.filterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toBeApprovedToolStripMenuItem});
+            this.filterToolStripMenuItem.Image = global::RawMaterialManagement.Properties.Resources.ic_filter_list_black_24dp;
+            this.filterToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(60, 72);
+            this.filterToolStripMenuItem.Text = "Filter";
+            this.filterToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toBeApprovedToolStripMenuItem
+            // 
+            this.toBeApprovedToolStripMenuItem.Name = "toBeApprovedToolStripMenuItem";
+            this.toBeApprovedToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.toBeApprovedToolStripMenuItem.Text = "To Be Approved";
+            // 
             // frmRawMaterialRequests
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1012, 632);

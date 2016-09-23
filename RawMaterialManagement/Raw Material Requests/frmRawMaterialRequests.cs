@@ -21,6 +21,18 @@ namespace RawMaterialManagement.Raw_Material_Requests
         {
             InitializeComponent();
             con = Connection.getConnection();
+            // TODO: This line of code loads data into the 'rawDataSet.raw_item_tab' table. You can move, or remove it, as needed.
+            this.raw_item_tabTableAdapter.Connection = con;
+            this.raw_item_tabTableAdapter.Fill(this.rawDataSet.raw_item_tab);
+            // TODO: This line of code loads data into the 'rawDataSet.rawmatreq' table. You can move, or remove it, as needed.
+            this.rawmatreqTableAdapter.Connection = con;
+            this.rawmatreqTableAdapter.Fill(this.rawDataSet.rawmatreq);
+        }
+
+        private void CheckReorderLevel(string rawMatReqId)
+        {
+
+            
         }
 
         private void Approve()
@@ -28,9 +40,10 @@ namespace RawMaterialManagement.Raw_Material_Requests
             try
             {
                 DataRowView row = rawmatreqBindingSource.Current as DataRowView;
-
-                rawmatreqTableAdapter.RAW_MATERIAL_ORDER_APPROVE(Int32.Parse(row.Row.ItemArray[0].ToString()));
+                string rawMatReqId = row.Row.ItemArray[0].ToString();
+                rawmatreqTableAdapter.RAW_MATERIAL_ORDER_APPROVE(Int32.Parse(rawMatReqId));
                 MetroMessageBox.Show(this.MdiParent, "Raw Material Request Has Been Approved", "Approved", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                CheckReorderLevel(rawMatReqId);
                 PopulateRequests();
             }
             catch (Exception ex)

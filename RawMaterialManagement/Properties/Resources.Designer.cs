@@ -63,6 +63,16 @@ namespace RawMaterialManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _20150831_55e46b18e2a80 {
+            get {
+                object obj = ResourceManager.GetObject("20150831_55e46b18e2a80", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_add_circle_outline_2x {
             get {
                 object obj = ResourceManager.GetObject("ic_add_circle_outline_2x", resourceCulture);
@@ -176,6 +186,16 @@ namespace RawMaterialManagement.Properties {
         internal static System.Drawing.Bitmap ic_search_2x {
             get {
                 object obj = ResourceManager.GetObject("ic_search_2x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap incentive_negotiations_icon {
+            get {
+                object obj = ResourceManager.GetObject("incentive-negotiations-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

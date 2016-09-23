@@ -22,8 +22,15 @@ namespace MySQLDatabaseAccess
             
             try
             {
-                MySqlConnection con = new MySqlConnection(connectionString);
-                return con;
+                if (String.IsNullOrEmpty(connectionString))
+                {
+                    return new MySqlConnection("server=localhost;database=itp;user id=root");
+                }
+                else
+                {
+                    MySqlConnection con = new MySqlConnection(connectionString);
+                    return con;
+                }
             }
             catch (Exception ex)
             {

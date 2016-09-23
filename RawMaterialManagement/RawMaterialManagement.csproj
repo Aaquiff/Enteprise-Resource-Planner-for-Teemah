@@ -70,6 +70,12 @@
     <Compile Include="BasicData\tbwCurrency.Designer.cs">
       <DependentUpon>tbwCurrency.cs</DependentUpon>
     </Compile>
+    <Compile Include="BasicData\tbwRawSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicData\tbwRawSettings.Designer.cs">
+      <DependentUpon>tbwRawSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Invoice Management\InvoiceDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     <Compile Include="Supplier Management\SupplierDB.cs" />
     <EmbeddedResource Include="BasicData\tbwCurrency.resx">
       <DependentUpon>tbwCurrency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicData\tbwRawSettings.resx">
+      <DependentUpon>tbwRawSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Invoice Management\InvoiceDetails.resx">
       <DependentUpon>InvoiceDetails.cs</DependentUpon>
@@ -296,6 +305,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ic_insert_chart_black_24dp2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20150831_55e46b18e2a80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\incentive-negotiations-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

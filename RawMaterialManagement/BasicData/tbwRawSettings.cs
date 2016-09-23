@@ -1,4 +1,8 @@
-﻿using System;
+﻿using FrameworkControls.Classes;
+using MetroFramework;
+using MySql.Data.MySqlClient;
+using MySQLDatabaseAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,20 +11,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MetroFramework;
-using MySql.Data.MySqlClient;
 
 namespace RawMaterialManagement.BasicData
 {
-    public partial class tbwCurrency : Form
+    public partial class tbwRawSettings : Form
     {
         MySqlConnection con;
-        public tbwCurrency()
+        public tbwRawSettings()
         {
             InitializeComponent();
-            con = MySQLDatabaseAccess.Connection.getConnection();
-            this.raw_currency_tabTableAdapter.Connection = con;
-            this.raw_currency_tabTableAdapter.Fill(this.rawDataSet.raw_currency_tab);
+            con = Connection.getConnection();
+            this.raw_settings_tabTableAdapter.Connection = con;
+            Populate();
+        }
+
+        private void tbwRawSettings_Load(object sender, EventArgs e)
+        {
+            Populate();
+        }
+
+        private void Populate()
+        {
+            
+            this.raw_settings_tabTableAdapter.Fill(this.rawDataSet.raw_settings_tab);
 
             foreach (DataColumn item in this.rawDataSet.raw_currency_tab.Columns)
             {
@@ -28,8 +41,14 @@ namespace RawMaterialManagement.BasicData
                     cmbColumns.Items.Add(item.ColumnName);
             }
         }
+        
 
-        private void tbwCurrency_Load(object sender, EventArgs e)
+        private void metroGrid1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            PanException.metroGrid1_DataError(this.MdiParent, sender, e);
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
@@ -38,11 +57,11 @@ namespace RawMaterialManagement.BasicData
         {
             try
             {
-                rawcurrencytabBindingSource.AddNew();
+                rawsettingstabBindingSource.AddNew();
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this.MdiParent, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                PanException.Show(this.MdiParent,ex);
             }
         }
 
@@ -51,8 +70,8 @@ namespace RawMaterialManagement.BasicData
             try
             {
                 this.Validate();
-                rawcurrencytabBindingSource.EndEdit();
-                raw_currency_tabTableAdapter.Update(rawDataSet.raw_currency_tab);
+                rawsettingstabBindingSource.EndEdit();
+                raw_settings_tabTableAdapter.Update(rawDataSet.raw_settings_tab);
                 MetroMessageBox.Show(this.MdiParent, "Saved", "Error", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
             catch (Exception ex)
@@ -65,12 +84,17 @@ namespace RawMaterialManagement.BasicData
         {
             try
             {
-                rawcurrencytabBindingSource.RemoveCurrent();
+                rawsettingstabBindingSource.RemoveCurrent();
             }
             catch (Exception ex)
             {
                 MetroMessageBox.Show(this.MdiParent, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void toolStripMenuItemPopulate_Click(object sender, EventArgs e)
+        {
+            Populate();
         }
 
         private void toolStripMenuItemSearch_Click(object sender, EventArgs e)
@@ -87,27 +111,14 @@ namespace RawMaterialManagement.BasicData
             {
                 string columnName = cmbColumns.SelectedItem.ToString();
                 MySqlDataAdapter search = new MySqlDataAdapter();
-                MySqlCommand sc = new MySqlCommand("select * from raw_currency_tab where " + columnName + " like @param", con);
+                MySqlCommand sc = new MySqlCommand("select * from raw_settings_tab where " + columnName + " like @param", con);
                 sc.Parameters.AddWithValue("@param", "%" + txtSearch.Text + "%");
                 search.SelectCommand = sc;
                 this.rawDataSet.Clear();
-                search.Fill(this.rawDataSet.raw_currency_tab);
+                search.Fill(this.rawDataSet.raw_settings_tab);
             }
             else
-                this.raw_currency_tabTableAdapter.Fill(this.rawDataSet.raw_currency_tab);
-        }
-
-        private void toolStripMenuItemPopulate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.raw_currency_tabTableAdapter.Fill(this.rawDataSet.raw_currency_tab);
-            }
-            catch (Exception ex)
-            {
-                MetroMessageBox.Show(this.MdiParent, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
+                Populate();
         }
     }
 }

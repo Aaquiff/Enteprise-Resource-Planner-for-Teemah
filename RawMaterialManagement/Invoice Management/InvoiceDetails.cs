@@ -22,7 +22,12 @@ namespace RawMaterialManagement.Invoice_Management
         {
             InitializeComponent();
             con = Connection.getConnection();
-            //this.raw_invoice_tabTableAdapter.Connection = con;
+
+            this.raw_invoice_tabTableAdapter.Connection = con;
+            this.raw_currency_tabTableAdapter.Connection = con;
+
+            Populate();
+
             foreach (DataColumn item in rawDataSet.raw_invoice_tab.Columns)
             {
                 if (!cmbColumns.Items.Contains(item.ColumnName))
@@ -40,9 +45,40 @@ namespace RawMaterialManagement.Invoice_Management
             searchAdapter.Fill(rawDataSet.raw_invoice_tab);
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            raw_invoice_tabBindingSource.EndEdit();
+            if (rawDataSet.HasChanges())
+            {
+
+                switch (MetroMessageBox.Show(this.MdiParent, "Do you want to save your changes?", "Closing", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2))
+                {
+                    case DialogResult.No:
+                        break;
+                    case DialogResult.Yes:
+                        this.Validate();
+                        if (!Save())
+                        {
+                            e.Cancel = true;
+
+                        }
+                        break;
+                    case DialogResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                    default:
+                        e.Cancel = true;
+                        break;
+                }
+            }
+            base.OnFormClosing(e);
+
+        }
+
         private void Populate()
         {
             this.raw_invoice_tabTableAdapter.Fill(this.rawDataSet.raw_invoice_tab);
+            this.raw_currency_tabTableAdapter.Fill(this.rawDataSet.raw_currency_tab);
         }
 
         private void New()
@@ -89,19 +125,21 @@ namespace RawMaterialManagement.Invoice_Management
             }
         }
 
-        private void Save()
+        private bool Save()
         {
             try
             {
                 this.Validate();
                 raw_invoice_tabBindingSource.EndEdit();
                 raw_invoice_tabTableAdapter.Update(rawDataSet);
-                MetroMessageBox.Show(this.MdiParent, "Saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Question); 
+                MetroMessageBox.Show(this.MdiParent, "Saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return true;
             }
             catch (Exception ex)
             {
                 MetroMessageBox.Show(this.MdiParent,ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
             }
+            return false;
         }
 
         private void ChooseOrder()
@@ -112,13 +150,10 @@ namespace RawMaterialManagement.Invoice_Management
             lov.ShowDialog();
             if (lov.DialogResult == DialogResult.OK)
             {
-                if(lov.selectedRow != null)
-                {
-                    DataRowView row = lov.selectedRow;
-                    string orderId = row.Row.ItemArray[0].ToString();
-                    txtOrderId.Text = orderId;
-                    txtNetValue.Text = getTotal(txtOrderId.Text).ToString();
-                }
+                DataRowView row = lov.selectedRow;
+                string orderId = row.Row.ItemArray[0].ToString();
+                txtOrderId.Text = orderId;
+                txtNetValue.Text = getTotal(txtOrderId.Text).ToString();
             }
             
         }
@@ -140,9 +175,6 @@ namespace RawMaterialManagement.Invoice_Management
 
         private void InvoiceDetails_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'rawDataSet.raw_currency_tab' table. You can move, or remove it, as needed.
-            this.raw_currency_tabTableAdapter.Connection = con;
-            this.raw_currency_tabTableAdapter.Fill(this.rawDataSet.raw_currency_tab);
             Populate();
         }
 

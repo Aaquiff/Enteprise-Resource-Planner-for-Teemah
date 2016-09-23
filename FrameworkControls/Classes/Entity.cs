@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
 using MetroFramework.Forms;
+using System.Windows.Forms;
+using System.Windows;
 
 namespace FrameworkControls.Classes
 {
@@ -26,19 +28,27 @@ namespace FrameworkControls.Classes
             adapter.Fill(dataSet);
         }
 
-        public void Save()
+        public bool Save()
         {
             adapter.Update(dataSet);
             Fill();
+            return true;            
         }
 
         public void FillBy(MySqlCommand command)
         {
-            dataSet.Clear();
-            command.Connection = con;
-            MySqlDataAdapter ad = new MySqlDataAdapter(command);
+            try
+            {
+                dataSet.Clear();
+                command.Connection = con;
+                MySqlDataAdapter ad = new MySqlDataAdapter(command);
 
-            ad.Fill(dataSet);
+                ad.Fill(dataSet);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
     }

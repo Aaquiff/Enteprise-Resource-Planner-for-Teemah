@@ -33,14 +33,60 @@ namespace RawMaterialManagement.Supplier_Management
 
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            bs.EndEdit();
+            if (db.dataSet.HasChanges())
+            {
+
+                switch (MetroMessageBox.Show(this.MdiParent, "Do you want to save your changes?", "Closing", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2))
+                {
+                    case DialogResult.No:
+                        break;
+                    case DialogResult.Yes:
+                        try
+                        {
+                            this.Validate();
+                            //db.Save();
+                            if (!db.Save())
+                            {
+                                e.Cancel = true;
+                                
+                            }
+                            else
+                            {
+                                MetroMessageBox.Show(this.MdiParent, "Saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                            }
+                            }
+                            
+                        catch (Exception ex)
+                        {
+                            MetroMessageBox.Show(this.MdiParent, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            e.Cancel = true;
+                        }
+                        
+                        break;
+                    case DialogResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                    default:
+                        e.Cancel = true;
+                        break;
+                }
+            }
+            base.OnFormClosing(e);
+        }
+
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(txtSearch.Text) && cmbColumns.SelectedItem != null)
             {
                 string columnName = cmbColumns.SelectedItem.ToString();
                 MySqlDataAdapter search = new MySqlDataAdapter();
-                MySqlCommand sc = new MySqlCommand("select * from raw_supplier_tab where @columnName like @param");
-                sc.Parameters.AddWithValue("@columnName",columnName);
+                MySqlCommand sc = new MySqlCommand("select * from raw_supplier_tab where " + columnName + " like @param");
                 sc.Parameters.AddWithValue("@param", "%" + txtSearch.Text + "%");
                 db.FillBy(sc);
             }

@@ -54,9 +54,9 @@
             this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemPopulate = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSearch = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.raw_supplier_tabTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_supplier_tabTableAdapter();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
@@ -83,10 +83,10 @@
             // 
             this.panel3.Controls.Add(this.metroGrid1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 118);
+            this.panel3.Location = new System.Drawing.Point(0, 45);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(867, 284);
+            this.panel3.Size = new System.Drawing.Size(867, 357);
             this.panel3.TabIndex = 8;
             // 
             // metroGrid1
@@ -143,7 +143,7 @@
             this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid1.RowTemplate.Height = 30;
             this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid1.Size = new System.Drawing.Size(867, 284);
+            this.metroGrid1.Size = new System.Drawing.Size(867, 357);
             this.metroGrid1.Style = MetroFramework.MetroColorStyle.Lime;
             this.metroGrid1.TabIndex = 0;
             this.metroGrid1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.metroGrid1_DataError);
@@ -200,7 +200,7 @@
             this.panelSearch.BackColor = System.Drawing.SystemColors.Window;
             this.panelSearch.Controls.Add(this.panel6);
             this.panelSearch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSearch.Location = new System.Drawing.Point(0, 73);
+            this.panelSearch.Location = new System.Drawing.Point(0, 0);
             this.panelSearch.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(867, 45);
@@ -222,18 +222,18 @@
             // 
             this.txtSearch.Location = new System.Drawing.Point(226, 5);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(648, 30);
+            this.txtSearch.Size = new System.Drawing.Size(648, 26);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // cmbColumns
             // 
             this.cmbColumns.FormattingEnabled = true;
-            this.cmbColumns.ItemHeight = 24;
+            this.cmbColumns.ItemHeight = 23;
             this.cmbColumns.Location = new System.Drawing.Point(4, 5);
             this.cmbColumns.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbColumns.Name = "cmbColumns";
-            this.cmbColumns.Size = new System.Drawing.Size(215, 30);
+            this.cmbColumns.Size = new System.Drawing.Size(215, 29);
             this.cmbColumns.TabIndex = 0;
             this.cmbColumns.UseSelectable = true;
             // 
@@ -251,7 +251,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(13, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(867, 73);
+            this.menuStrip1.Size = new System.Drawing.Size(867, 70);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -264,7 +264,7 @@
             this.toolStripMenuItemNew.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemNew.Name = "toolStripMenuItemNew";
             this.toolStripMenuItemNew.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.toolStripMenuItemNew.Size = new System.Drawing.Size(60, 69);
+            this.toolStripMenuItemNew.Size = new System.Drawing.Size(60, 66);
             this.toolStripMenuItemNew.Text = "New";
             this.toolStripMenuItemNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItemNew.Click += new System.EventHandler(this.toolStripMenuItemNew_Click);
@@ -277,7 +277,7 @@
             this.saveToolStripMenuSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.saveToolStripMenuSave.Name = "saveToolStripMenuSave";
             this.saveToolStripMenuSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuSave.Size = new System.Drawing.Size(60, 69);
+            this.saveToolStripMenuSave.Size = new System.Drawing.Size(60, 66);
             this.saveToolStripMenuSave.Text = "Save";
             this.saveToolStripMenuSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.saveToolStripMenuSave.Click += new System.EventHandler(this.saveToolStripMenuSave_Click);
@@ -290,7 +290,7 @@
             this.toolStripMenuItemDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
             this.toolStripMenuItemDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(67, 69);
+            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(60, 66);
             this.toolStripMenuItemDelete.Text = "Delete";
             this.toolStripMenuItemDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
@@ -303,7 +303,7 @@
             this.toolStripMenuItemPopulate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemPopulate.Name = "toolStripMenuItemPopulate";
             this.toolStripMenuItemPopulate.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.toolStripMenuItemPopulate.Size = new System.Drawing.Size(84, 69);
+            this.toolStripMenuItemPopulate.Size = new System.Drawing.Size(70, 66);
             this.toolStripMenuItemPopulate.Text = "Populate";
             this.toolStripMenuItemPopulate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItemPopulate.Click += new System.EventHandler(this.toolStripMenuItemPopulate_Click);
@@ -316,10 +316,23 @@
             this.toolStripMenuItemSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemSearch.Name = "toolStripMenuItemSearch";
             this.toolStripMenuItemSearch.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.toolStripMenuItemSearch.Size = new System.Drawing.Size(73, 69);
+            this.toolStripMenuItemSearch.Size = new System.Drawing.Size(60, 66);
             this.toolStripMenuItemSearch.Text = "Search";
             this.toolStripMenuItemSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItemSearch.Click += new System.EventHandler(this.toolStripMenuItemSearch_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.toolStripMenuItem1.Image = global::RawMaterialManagement.Properties.Resources.ic_insert_chart_black_24dp2;
+            this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 66);
+            this.toolStripMenuItem1.Text = "Report";
+            this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // metroTextBox1
             // 
@@ -355,22 +368,9 @@
             // 
             this.raw_supplier_tabTableAdapter.ClearBeforeFill = true;
             // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.toolStripMenuItem1.Image = global::RawMaterialManagement.Properties.Resources.ic_insert_chart_black_24dp2;
-            this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(70, 69);
-            this.toolStripMenuItem1.Text = "Report";
-            this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
             // frmManagerSupplier
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 422);
             this.Controls.Add(this.panel1);

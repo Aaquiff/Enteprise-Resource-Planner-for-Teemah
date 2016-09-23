@@ -18,6 +18,7 @@ using MetroFramework.Properties;
 using MetroFramework.Native;
 using MetroFramework;
 using RawMaterialManagement.Reporting;
+using FrameworkControls.Classes;
 
 namespace RawMaterialManagement.Order_Management
 {
@@ -33,7 +34,14 @@ namespace RawMaterialManagement.Order_Management
         {
             InitializeComponent();
             con = Connection.getConnection();
-            PopulateOrder();            
+            this.raw_purchase_orderTableAdapter.Connection = con;
+            this.raw_purchase_orderTableAdapter.Fill(this.rawDataSet.raw_purchase_order);
+
+            this.raw_order_lineTableAdapter.Connection = con;
+            this.raw_order_lineTableAdapter.Fill(this.rawDataSet.raw_order_line);
+
+            splitContainerMain.Panel1Collapsed = false;
+            splitContainerMain.Panel1.Show();         
         }
 
         public OrderDetail(string orderid)
@@ -55,31 +63,37 @@ namespace RawMaterialManagement.Order_Management
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            base.OnFormClosing(e);
 
-            if (e.CloseReason == CloseReason.WindowsShutDown) return;
-            rawpurchaseorderBindingSource.EndEdit();
             fKrawpurchaseorderraworderlineBindingSource.EndEdit();
+            rawpurchaseorderBindingSource.EndEdit();
             if (rawDataSet.HasChanges())
             {
-                switch (MessageBox.Show(this, "Do you want to save your changes?", "Closing", MessageBoxButtons.YesNoCancel))
+
+                switch (MetroMessageBox.Show(this.MdiParent, "Do you want to save your changes?", "Closing", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2))
                 {
                     case DialogResult.No:
                         break;
                     case DialogResult.Yes:
-                        Save();
+                            this.Validate();
+                            if (!Save())
+                            {
+                                e.Cancel = true;
+
+                            }
                         break;
                     case DialogResult.Cancel:
                         e.Cancel = true;
                         break;
                     default:
+                        e.Cancel = true;
                         break;
                 }
             }
+            base.OnFormClosing(e);
 
         }
 
-        private void Save()
+        private bool Save()
         {
             try
             {
@@ -99,13 +113,14 @@ namespace RawMaterialManagement.Order_Management
                 raw_order_lineTableAdapter.Adapter.Update(rawDataSet.raw_order_line);
 
                 MetroMessageBox.Show(this.MdiParent,"Saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            
+                return true;
             }
             catch (Exception ex)
             {
                 MetroMessageBox.Show(this.MdiParent,ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             
             }
+            return false;
         }
 
         private void Delete()
@@ -162,10 +177,9 @@ namespace RawMaterialManagement.Order_Management
                 txtCreator.Text = Connection.getUserIdFromConnectionString();
                 txtOrderId.Text = getNextId();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                PanException.Show(this.MdiParent,ex);
             }
         }
 
@@ -174,7 +188,7 @@ namespace RawMaterialManagement.Order_Management
             if (con.State != ConnectionState.Open)
                 con.Open();
             string NextItemId = "";
-            MySqlCommand com = new MySqlCommand("SELECT COALESCE(MAX(CONVERT(substr(order_id,6), SIGNED INTEGER)),0 ) FROM raw_purchase_order_tab;", con);
+            MySqlCommand com = new MySqlCommand("SELECT COALESCE(MAX(CONVERT(substr(order_id,6), SIGNED INTEGER)) ,0) FROM raw_purchase_order_tab;", con);
             MySqlDataReader reader = com.ExecuteReader();
             if (reader.Read())
             {

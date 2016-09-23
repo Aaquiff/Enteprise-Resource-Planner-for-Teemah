@@ -85,10 +85,10 @@
             reportDataSource1.Value = this.raw_item_tabBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "RawMaterialManagement.Reporting.Report1.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(20, 74);
-            this.reportViewer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.reportViewer1.Location = new System.Drawing.Point(15, 60);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(972, 457);
+            this.reportViewer1.Size = new System.Drawing.Size(729, 372);
             this.reportViewer1.TabIndex = 0;
             // 
             // raw_invoiceBindingSource
@@ -120,13 +120,13 @@
             // 
             // ReportViewer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1012, 551);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(759, 448);
             this.Controls.Add(this.reportViewer1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReportViewer";
-            this.Padding = new System.Windows.Forms.Padding(20, 74, 20, 20);
+            this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
             this.Text = "Stock Report";
             this.Load += new System.EventHandler(this.ReportViewer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.raw_item_tabBindingSource)).EndInit();

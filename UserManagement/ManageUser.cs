@@ -18,7 +18,7 @@ namespace UserManagement
 
             MySqlCommand sc = new MySqlCommand("select user,name from user_tab", con);
 
-            MySqlCommand ic = new MySqlCommand("call `itp`.`create_user`(@user,@password,@name);", con);
+            MySqlCommand ic = new MySqlCommand("call `create_user`(@user,@password,@name);", con);
             ic.CommandType = CommandType.StoredProcedure;
             ic.Parameters.Add("@user", MySqlDbType.VarChar, 15, "user");
             ic.Parameters.Add("@password", MySqlDbType.VarChar, 200, "password");

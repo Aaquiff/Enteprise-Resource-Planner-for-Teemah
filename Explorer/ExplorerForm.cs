@@ -29,6 +29,7 @@ using SalesManagement.Buyer_Records;
 using SalesManagement.Payment_Records;
 using SalesManagement.Purchase_Records;
 using SalesManagement.Class_files;
+using RawMaterialManagement.BasicData;
 
 
 namespace Explorer
@@ -80,58 +81,34 @@ namespace Explorer
             }
         }
 
-        public void loadForm(MetroFramework.Forms.MetroForm childForm)
-        {
-            if (ActiveMdiChild != null)
-            {
-                ActiveMdiChild.Close();
-            }
-            try
-            {
-                childForm.ControlBox = false;
-                childForm.MdiParent = this;
-                childForm.WindowState = FormWindowState.Maximized;
-                childForm.AutoScroll = true;
-                childForm.Show();
-                //label1.Text = childForm.Text;
-                /*if (menuStripMain.Items.Count == 0)
-                    menuStripMain.Hide();
-                else
-                    menuStripMain.Show();*/
-            }
-            catch (Exception ex)
-            {
-                loadForm(new ExceptionForm(ex));
-            }
-
-        }
-
         public void loadForm(Form childForm)
         {
             if (ActiveMdiChild != null)
             {
                 ActiveMdiChild.Close();
             }
-            try
-            {       
-                childForm.BackColor = Color.White;
-                childForm.ControlBox = false;
-                childForm.MdiParent = this;
-                childForm.WindowState = FormWindowState.Maximized;
-                childForm.AutoScroll = true;
-                childForm.Show();
-                
-                //label1.Text = childForm.Text;
-                /*if (menuStripMain.Items.Count == 0)
-                    menuStripMain.Hide();
-                else
-                    menuStripMain.Show();*/
-            }
-            catch (Exception ex)
+            if (ActiveMdiChild == null)
             {
-                loadForm(new ExceptionForm(ex));
-            }
+                try
+                {
+                    childForm.BackColor = Color.White;
+                    childForm.ControlBox = false;
+                    childForm.MdiParent = this;
+                    childForm.WindowState = FormWindowState.Maximized;
+                    childForm.AutoScroll = true;
+                    childForm.Show();
 
+                    //label1.Text = childForm.Text;
+                    if (menuStripMain.Items.Count == 0)
+                        menuStripMain.Hide();
+                    else
+                        menuStripMain.Show();
+                }
+                catch (Exception ex)
+                {
+                    loadForm(new ExceptionForm(ex));
+                }
+            }
         }
 
         private void loadPermissionInfo()
@@ -222,23 +199,54 @@ namespace Explorer
 
         private void btnItems_Click_1(object sender, EventArgs e)
         {
-            panel1.BackColor = Color.OliveDrab;
+            try
+            {
+                panel1.BackColor = Color.OliveDrab;
             loadForm(new ManageItem());
+            }
+            catch (Exception ex)
+            {
+                loadForm(new ExceptionForm(ex));
+            }
         }
 
         private void btnSupplier_Click(object sender, EventArgs e)
         {
-            loadForm(new frmManagerSupplier());
+            
+            try
+            {
+                loadForm(new frmManagerSupplier());
+            }
+            catch (Exception ex)
+            {
+                loadForm(new ExceptionForm(ex));
+            }
         }
 
         private void btnOrderDetails_Click(object sender, EventArgs e)
         {
-            loadForm(new OrderDetail());
+            
+            try
+            {
+                loadForm(new OrderDetail());
+            }
+            catch (Exception ex)
+            {
+                loadForm(new ExceptionForm(ex));
+            }
         }
 
         private void btnInvoiceDetails_Click(object sender, EventArgs e)
         {
-            loadForm(new InvoiceDetails());
+            
+            try
+            {
+                loadForm(new InvoiceDetails());
+            }
+            catch (Exception ex)
+            {
+                loadForm(new ExceptionForm(ex));
+            }
         }
 
         private void btnInvoiceTab_Click(object sender, EventArgs e)
@@ -505,10 +513,14 @@ namespace Explorer
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.NavigatorVisible)
+            /*if (Properties.Settings.Default.NavigatorVisible)
                 Properties.Settings.Default.NavigatorVisible = false;
             else
-                Properties.Settings.Default.NavigatorVisible = true;
+                Properties.Settings.Default.NavigatorVisible = true;*/
+            if (splitContainerSideBar.Visible)
+                splitContainerSideBar.Hide();
+            else
+                splitContainerSideBar.Show();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -585,12 +597,20 @@ namespace Explorer
 
         private void button33_Click(object sender, EventArgs e)
         {
-            loadForm(new frmRawMaterialRequests());
+            
+            try
+            {
+                loadForm(new frmRawMaterialRequests());
+            }
+            catch (Exception ex)
+            {
+                loadForm(new ExceptionForm(ex));
+            }
         }
 
         private void button34_Click(object sender, EventArgs e)
         {
-            //loadForm(new purchaseUpdatecs());
+            loadForm(new purchaseUpdatecs());
         }
 
 
@@ -612,12 +632,38 @@ namespace Explorer
 
         private void button36_Click_1(object sender, EventArgs e)
         {
-            loadForm(new RawMaterialManagement.BasicData.tbwCurrency());
+            try
+            {
+                loadForm(new RawMaterialManagement.BasicData.tbwCurrency());
+            }
+            catch (Exception ex)
+            {
+                loadForm(new ExceptionForm(ex));
+            }
         }
 
         private void button37_Click(object sender, EventArgs e)
         {
-            loadForm(new RawMaterialDashBoard());
+            try
+            {
+                loadForm(new RawMaterialDashBoard());
+            }
+            catch (Exception ex)
+            {
+                loadForm(new ExceptionForm(ex));
+            }
+        }
+
+        private void button38_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                loadForm(new tbwRawSettings());
+            }
+            catch (Exception ex)
+            {
+                loadForm(new ExceptionForm(ex));
+            }
         }
 
         
