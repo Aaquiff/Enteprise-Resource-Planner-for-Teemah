@@ -46,4 +46,94 @@ CREATE TABLE `salary` (
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 
+
+
+
+
+
+
+
+
+
+CREATE TABLE `ot` (
+  `EmpId` int(11) NOT NULL,
+  `OTHours` float DEFAULT NULL,
+  `Month` varchar(45) NOT NULL,
+  PRIMARY KEY (`EmpId`,`Month`),
+  CONSTRAINT `ot-empid` FOREIGN KEY (`EmpId`) REFERENCES `employee` (`EmpId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+---------leave view-----------
+
+
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `leave_view` AS select `leave`.`LeaveId` AS `LeaveId`,`leave`.`EmpId` AS `EmpId`,`leave`.`RequestedDate` AS `RequestedDate`,`leave`.`StartDate` AS `StartDate`,`leave`.`EndDate` AS `EndDate`,(to_days(`leave`.`EndDate`) - to_days(`leave`.`StartDate`)) AS `NoOfDays`,`leave`.`Type` AS `Type`,`leave`.`Reason` AS `Reason`,`leave`.`Status` AS `Status` from `leave`;
+
+
+
+-----STORED PROCEDURE------
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `calcSalary`(IN _month varchar(30) )
+BEGIN
+	DECLARE v_finished INTEGER DEFAULT 0;
+	declare eid int;
+    declare ot float;
+	declare bSal double;
+    declare etf double;
+    declare epf double;
+    declare otTot double;
+    declare net double;
+    declare mon varchar(30);
+    
+    declare cur1 cursor for select EmpId,OTHours,Month from ot;
+    DECLARE CONTINUE HANDLER 
+        FOR NOT FOUND SET v_finished = 1;
+        
+    open cur1;
+	read_loop: LOOP			
+		FETCH cur1 INTO eid,ot,mon;
+		IF v_finished = 1 THEN
+					LEAVE read_loop;
+		END IF;
+        if mon = _month then
+        
+			select BasicSalary into bSal from employee where EmpId = eid;
+			set otTot = (bSal / 240) * ot * 1.5;
+			set etf = bSal * 0.03;
+			set epf = bSal * 0.08;
+			set net = (bSal + otTot) - (etf + epf);
+			
+			insert into salary(EmpId,NetSalary,GivenDate,Month)
+			Values (eid,net,CURDATE(),mon);
+		
+        end if;
+    end loop;
+    close cur1;
+END$$
+DELIMITER ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------Report View query--------
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `advancesalary` AS select `salary`.`Month` AS `Month`,sum(`salary`.`NetSalary`) AS `NetSalary` from `salary` group by `salary`.`Month`;
+
+
+
+
+
+
+
