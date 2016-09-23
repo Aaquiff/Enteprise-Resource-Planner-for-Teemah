@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Text.RegularExpressions;
 using MySQLDatabaseAccess;
+using MetroFramework;
+using FrameworkControls.Classes;
 
 namespace HRManagement
 {
@@ -46,42 +48,50 @@ namespace HRManagement
         {
             if (First_txt.Text == " ")
             {
-                MessageBox.Show("FirstName can't be null");
+                //MessageBox.Show("FirstName can't be null");
+                PanException.Show(this.MdiParent, "Validation Error", "FirstName can't be null");
                 return false;
             }
             else if (Last_txt.Text == " ")
             {
-                MessageBox.Show("LastName can't be null");
+               // MessageBox.Show("LastName can't be null");
+                PanException.Show(this.MdiParent, "Validation Error", "LastName can't be null");
                 return false;
             }
-            else if (Nat_txt.Text == " ")
+            else if (nat == null)
             {
-                MessageBox.Show("Nationality can't be null");
+                //MessageBox.Show("Nationality can't be null");
+                PanException.Show(this.MdiParent, "Validation Error", "Nationality can't be null");
                 return false;
             }
             else if (NIC_txt.Text == " ")
             {
-                MessageBox.Show("NIC can't be null");
+                //MessageBox.Show("NIC can't be null");
+                PanException.Show(this.MdiParent, "Validation Error", "NIC can't be null");
                 return false;
             }
             else if (Add_txt.Text == " ")
             {
-                MessageBox.Show("Address can't be null");
+                //MessageBox.Show("Address can't be null");
+                PanException.Show(this.MdiParent, "Validation Error", "Address can't be null");
                 return false;
             }
-            else if (Mob_txt.Text == " ")
+            else if (Mob_txt.Text == "(__) __-_______")
             {
-                MessageBox.Show("MobileNo can't be null");
+                //MessageBox.Show("MobileNo can't be null");
+                PanException.Show(this.MdiParent, "Validation Error", "MobileNo can't be null");
                 return false;
             }
             else if (Email_txt.Text == " ")
             {
-                MessageBox.Show("Email can't be null");
+                //MessageBox.Show("Email can't be null");
+                PanException.Show(this.MdiParent, "Validation Error", "Email can't be null");
                 return false;
             }
             else if (Posi_combo.Text == " ")
             {
-                MessageBox.Show("Position can't be null");
+                //MessageBox.Show("Position can't be null");
+                PanException.Show(this.MdiParent, "Validation Error", "Position can't be null");
                 return false;
             }
             else
@@ -202,28 +212,32 @@ namespace HRManagement
                 
             }
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                PanException.Show(this.MdiParent,ex);
             }
         }
 
         public void Insert()
         {
             isEmpty();
-            if (!checkMail(this.Email_txt.Text))
+           
+             if (!checkMail(this.Email_txt.Text))
             {
-                MessageBox.Show("Not a valid Email address ");
+                //MessageBox.Show("Not a valid Email address ");
+                PanException.Show(this.MdiParent, "Validation Error", "Not a valid Email address");
                 return;
             }
-            if (labNationality.Text == "NIC" &&(!checkNIC(this.NIC_txt.Text)))
+            else if (labNationality.Text == "NIC" &&(!checkNIC(this.NIC_txt.Text)))
             {
-                MessageBox.Show("Not a valid NIC Number ");
+                //MessageBox.Show("Not a valid NIC Number ");
+                PanException.Show(this.MdiParent, "Validation Error", "Not a valid NIC Number");
                 return;
             }
-            if (Double.Parse(textBox5.Text) < 10000)
+            else if (Double.Parse(textBox5.Text) < 10000)
             {
-                MessageBox.Show("Basic Salary should be above 10000");
+                //MessageBox.Show("Basic Salary should be above 10000");
+                PanException.Show(this.MdiParent, "Validation Error", "Basic Salary should be above 10000");
                 return;
             }
             /*if (!checkMobile())
@@ -234,7 +248,7 @@ namespace HRManagement
             String us = assignUserName();
             int val = getNewId();
             Double sal = Double.Parse(this.textBox5.Text);
-            String query = "insert into itp.employee(EmpId,FirstName,LastName,Nationality,Email,MobileNo,NIC,Position,DepId,Gender,DOB,Address,UserName,Password,BasicSalary) values('" + this.Emp_txt.Text + "','" + this.First_txt.Text + "','" + this.Last_txt.Text + "','" + this.Nat_txt.Text + "','" + this.Email_txt.Text + "','" + this.Mob_txt.Text + "','" + this.NIC_txt.Text + "','" + this.Posi_combo.Text + "','" + dep + "','" + gender + "','" + this.dateTimePicker1.Text + "','" + this.Add_txt.Text + "','" + us + "','" + pw + "','" + sal + "'); ";
+            String query = "insert into itp.employee(EmpId,FirstName,LastName,Nationality,Email,MobileNo,NIC,Position,DepId,Gender,DOB,Address,UserName,Password,BasicSalary) values('" + this.Emp_txt.Text + "','" + this.First_txt.Text + "','" + this.Last_txt.Text + "','" + nat + "','" + this.Email_txt.Text + "','" + this.Mob_txt.Text + "','" + this.NIC_txt.Text + "','" + this.Posi_combo.Text + "','" + dep + "','" + gender + "','" + this.dateTimePicker1.Text + "','" + this.Add_txt.Text + "','" + us + "','" + pw + "','" + sal + "'); ";
             MySqlConnection connDatabase = ConnectionOld.getConnection();
             MySqlCommand cmdDatabase = new MySqlCommand(query, connDatabase);
             MySqlCommand createUser = new MySqlCommand("CREATE_USER",connDatabase);
@@ -248,13 +262,14 @@ namespace HRManagement
                 connDatabase.Open();
                 cmdDatabase.ExecuteNonQuery();
                 createUser.ExecuteNonQuery();
-                MessageBox.Show("Records are saved successfully\n" + this.First_txt.Text +  this.Last_txt.Text +  " 's Username is " + us);
+                //MessageBox.Show("Records are saved successfully\n" + this.First_txt.Text +  this.Last_txt.Text +  " 's Username is " + us);
+                PanMessage.Show(this.MdiParent, "Success", "Records are saved successfully\n" + this.First_txt.Text + this.Last_txt.Text + " 's Username is " + us);
                 
             }
 
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                PanException.Show(this.MdiParent,ex);
             }
         }
 
@@ -350,12 +365,13 @@ namespace HRManagement
             {
                 connDatabase.Open();
                 myReader = cmdDatabase.ExecuteReader();
-                MessageBox.Show("Records are edited successfully");
+                //MessageBox.Show("Records are edited successfully");
+                PanMessage.Show(this.MdiParent, "Success", "Records are edited successfully");
             }
 
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                PanException.Show(this.MdiParent,ex);
             }
         }
 
@@ -381,9 +397,9 @@ namespace HRManagement
                     //sda.Update(dataset);
                 }
 
-                catch (Exception ex)
+                catch (MySqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    PanException.Show(this.MdiParent,ex);
                 }
             }
         }
@@ -410,9 +426,9 @@ namespace HRManagement
                     //sda.Update(dataset);
                 }
 
-                catch (Exception ex)
+                catch (MySqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    PanException.Show(this.MdiParent,ex);
                 }
             }
 
@@ -420,19 +436,21 @@ namespace HRManagement
 
          public void refreshOtTable()
          {
+             //MessageBox.Show("Hello");
              MySqlConnection connDatabase = ConnectionOld.getConnection();
              MySqlCommand q4 = new MySqlCommand(@"select e.EmpId,FirstName,LastName,o.OTHours 
                                                     from employee e 
                                                     LEFT OUTER JOIN (
-                                                    select EmpId,OTHours from ot where Month = '@mon' ) o 
-                                                    ON o.EmpId = e.EmpId;",
+                                                    select EmpId,OTHours from ot where Month = '"+ mon +"' ) o ON o.EmpId =e.EmpId;",
 
                  connDatabase);
-             q4.Parameters.AddWithValue("@mon", mon);
+             //q4.Parameters.AddWithValue("@mon", mon);
+            
              
              try
              {
-                 //MySqlDataAdapter sda = new MySqlDataAdapter();
+                 
+                // MySqlDataAdapter sda = new MySqlDataAdapter();
                  sda.SelectCommand = q4;
                  //DataTable dataset = new DataTable();
                  datasetOT.Clear();
@@ -441,12 +459,13 @@ namespace HRManagement
 
                  bindingSource1.DataSource = datasetOT;
                  dataGridView4.DataSource = bindingSource1;
+                 
                  //sda.Update(dataset);
              }
 
-             catch (Exception ex)
+             catch (MySqlException ex)
              {
-                 MessageBox.Show(ex.Message);
+                 PanException.Show(this.MdiParent,ex);
              }
          }
 
@@ -470,9 +489,9 @@ namespace HRManagement
                  //sda.Update(dataset);
              }
 
-             catch (Exception ex)
+             catch (MySqlException ex)
              {
-                 MessageBox.Show(ex.Message);
+                 PanException.Show(this.MdiParent,ex);
              }
          }
 
@@ -495,9 +514,9 @@ namespace HRManagement
                  //sda.Update(dataset);
              }
 
-             catch (Exception ex)
+             catch (MySqlException ex)
              {
-                 MessageBox.Show(ex.Message);
+                 PanException.Show(this.MdiParent,ex);
              }
  
          }
@@ -520,9 +539,9 @@ namespace HRManagement
                  //sda.Update(dataset);
              }
 
-             catch (Exception ex)
+             catch (MySqlException ex)
              {
-                 MessageBox.Show(ex.Message);
+                 PanException.Show(this.MdiParent,ex);
              }
          }
 
@@ -557,6 +576,7 @@ namespace HRManagement
 
         private void Add_Click(object sender, EventArgs e)
         {
+            groupBox4.Hide();
             First_txt.Text = " ";
             Last_txt.Text = " ";
             radioButton2.Checked = false;
@@ -642,12 +662,16 @@ namespace HRManagement
 
         private void Employee_Load(object sender, EventArgs e)
         {
+            dateTimePicker3.MinDate = DateTime.Now.AddDays(1);
+            dateTimePicker2.MinDate = dateTimePicker3.MinDate.AddDays(1);
+            dateTimePicker2.MaxDate = DateTime.Now.AddMonths(2);
+            refreshSalaryTable();
             combo_Month.SelectedIndex = 0;
             radioButton1.Enabled = true;
             radioButton2.Enabled = true;
             AddOT.TabPages.Remove(tabCheckLeaveRequests);
             AddOT.TabPages.Remove(tabAddOT);
-            AddOT.TabPages.Remove(tabCalSalary);
+            //AddOT.TabPages.Remove(tabCalSalary);
 
             MySqlConnection con = ConnectionOld.getConnection();
             MySqlCommand sc = new MySqlCommand("select role from user_role_tab where user = @user", con);
@@ -664,11 +688,11 @@ namespace HRManagement
                         case "HR Manager": AddNewEmp.Show();
                                             Save.Show();
                                             AddOT.TabPages.Remove(tabSendLeaveRequests);
-                                            AddOT.TabPages.Remove(tabViewSalary);
-                                            this.tabViewSalary.Text = "Calculate Salary";
+                                            //AddOT.TabPages.Remove(tabViewSalary);
+                                            //this.tabViewSalary.Text = "Calculate Salary";
                                              AddOT.TabPages.Add(tabCheckLeaveRequests);
                                              AddOT.TabPages.Add(tabAddOT);
-                                             AddOT.TabPages.Add(tabCalSalary);
+                                             //AddOT.TabPages.Add(tabCalSalary);
                                              Rem.Show();
                                             Emp_txt.ReadOnly = false;
                                             First_txt.ReadOnly = false;
@@ -683,13 +707,14 @@ namespace HRManagement
                                             Email_txt.ReadOnly = false;
                                             Posi_combo.Enabled = true;
                                             textBox5.ReadOnly = false;
+                                            combo_Nat.Enabled = true;
                             break;
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (MySqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    PanException.Show(this.MdiParent,ex);
                 }
                 finally
                 {
@@ -773,13 +798,14 @@ namespace HRManagement
             {
                 connDatabase.Open();
                 myReader = cmdDatabase.ExecuteReader();
-                MessageBox.Show("Record is deleted successfully");
+                //MessageBox.Show("Record is deleted successfully");
+                PanMessage.Show(this.MdiParent, "Record Deleted" ,"Record is deleted successfully");
                 displayDataGridViewSearch();
             }
 
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                PanException.Show(this.MdiParent,ex);
             }
         }
 
@@ -803,15 +829,19 @@ namespace HRManagement
 
             if ((this.Type_combo.Text == "Annual") && (Annual <= 0))
             {
-                MessageBox.Show("You can't apply for Annual leave");
+                //MessageBox.Show("You can't apply for Annual leave");
+                PanMessage.Show(this.MdiParent, "Annual leave", "You can't apply for Annual leave");
                 return;
             }
 
             if ((this.Type_combo.Text == "Casual") && (Casual <= 0))
             {
-                MessageBox.Show("You can't apply for Casual leave");
+               // MessageBox.Show("You can't apply for Casual leave");
+                PanMessage.Show(this.MdiParent, "Casual leave", "You can't apply for Casual leave");
                 return;
             }
+           
+           
 
             DateTime start = Convert.ToDateTime(dateTimePicker3.Text);
             DateTime end = Convert.ToDateTime(dateTimePicker2.Text);
@@ -830,14 +860,15 @@ namespace HRManagement
             {
                 connDatabase.Open();
                 cmdDatabase.ExecuteNonQuery();
-                MessageBox.Show("Records are saved successfully\n");
+                //MessageBox.Show("Records are saved successfully\n");
+                PanMessage.Show(this.MdiParent, "Success", "Records are saved successfully");
                 refreshEmpLeaveTable();
 
             }
 
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                PanException.Show(this.MdiParent,ex);
             }
 
         }
@@ -853,13 +884,15 @@ namespace HRManagement
             {
                 connDatabase.Open();
                 myReader = cmdDatabase.ExecuteReader();
-                MessageBox.Show("You have accepted the request");
+                //MessageBox.Show("You have accepted the request");
+                PanMessage.Show(this.MdiParent, "Leave Request", "Leave request accepted");
+                
                 refreshHRLeaveTable();
             }
 
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                PanException.Show(this.MdiParent,ex);
             }
         }
 
@@ -874,13 +907,14 @@ namespace HRManagement
             {
                 connDatabase.Open();
                 myReader = cmdDatabase.ExecuteReader();
-                MessageBox.Show("You have rejected the request");
+                //MessageBox.Show("You have rejected the request");
+                PanMessage.Show(this.MdiParent, "Leave Request", "Leave request rejected");
                 refreshHRLeaveTable();
             }
 
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                PanException.Show(this.MdiParent,ex);
             }
         }
 
@@ -955,9 +989,9 @@ namespace HRManagement
         //        textBox8.Text = etf.ToString();
         //        textBox9.Text = epf.ToString();
         //    }
-        //    catch (Exception ex)
+        //    catch (MySqlException ex)
         //    {
-        //        MessageBox.Show(ex.Message);
+        //        PanException.Show(this.MdiParent,ex);
         //    }
 
         //}
@@ -979,9 +1013,9 @@ namespace HRManagement
 
         //    }
 
-        //    catch (Exception ex)
+        //    catch (MySqlException ex)
         //    {
-        //        MessageBox.Show(ex.Message);
+        //        PanException.Show(this.MdiParent,ex);
         //    }
         //}
 
@@ -1008,25 +1042,7 @@ namespace HRManagement
 
         private void CalSalary_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (con.State != ConnectionState.Open)
-                con.Open();
-                MySqlCommand command = new MySqlCommand("calcSalary",con);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("_month", salMonth);
-                command.ExecuteScalar();
-                
-                MessageBox.Show("Salary is calculated for "+salMonth);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                con.Close();
-            }
+            
         }
 
         private void Ot_Save_Click(object sender, EventArgs e)
@@ -1047,7 +1063,8 @@ namespace HRManagement
             this.Validate();
             bindingSource1.EndEdit();
             sda.Update(datasetOT);
-            MessageBox.Show("OT Hours Added");
+            //MessageBox.Show("OT Hours Added");
+            PanMessage.Show(this.MdiParent, "OT Hours", "OT hours have been added");
         }
 
         private void combo_Month_SelectedIndexChanged(object sender, EventArgs e)
@@ -1074,25 +1091,12 @@ namespace HRManagement
                 case "December" : mon = "December"; break;
 
             }
+            //MessageBox.Show(mon);
             refreshOtTable();
            
         }
 
-        private void comboSalMonth_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            salMonth = this.comboSalMonth.Text;
-        }
-
-        private void radForeigner_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void radSrilankan_CheckedChanged(object sender, EventArgs e)
-        {
-            
-            
-        }
+      
 
         private void combo_Nat_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1102,6 +1106,7 @@ namespace HRManagement
                 labNationality.Text = "NIC";
                 //Nat_txt.Enabled = false;
                 labMention.Hide();
+                nat = "SriLankan";
                 Nat_txt.Hide();
             }
             else
@@ -1119,7 +1124,7 @@ namespace HRManagement
 
             if (dataGridView3.SelectedRows.Count > 0)
             {
-                MessageBox.Show("hello");
+                
                 DataGridViewRow row = this.dataGridView3.SelectedRows[0];
 
                 emp = row.Cells["EmpId"].Value.ToString();
@@ -1132,7 +1137,7 @@ namespace HRManagement
 
                 while (MyReader.Read())
                 {
-                    MessageBox.Show("How Are u?");
+                    
                     textBox11.Text = MyReader.GetString("FirstName");
                     textBox12.Text = MyReader.GetString("DepId");
 
@@ -1140,12 +1145,47 @@ namespace HRManagement
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+       
+        private void button2_Click_1(object sender, EventArgs e)
         {
             SalaryReportViewer viewer = new SalaryReportViewer();
             viewer.ShowDialog();
         }
 
+        private void CalSalary_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                MySqlCommand command = new MySqlCommand("calcSalary", con);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("_month", salMonth);
+                command.ExecuteScalar();
+                
+                //MessageBox.Show("Salary is calculated for "+salMonth);
+                PanMessage.Show(this.MdiParent, "Salary", "Salary is calculated for " + salMonth);
+            }
+            catch (MySqlException ex)
+            {
+                PanException.Show(this.MdiParent, ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+        private void comboSalMonth_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            salMonth = this.comboSalMonth.Text;
+           
+        }
+
+      
+
+      
   
        
         

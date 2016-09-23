@@ -15,7 +15,10 @@ namespace FrameworkControls.Classes
         {
             MetroMessageBox.Show(owner, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
+        public static void Show(IWin32Window owner, string title, string message)
+        {
+            MetroMessageBox.Show(owner, message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
     }
 }

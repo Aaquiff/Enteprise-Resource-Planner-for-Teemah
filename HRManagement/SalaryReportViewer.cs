@@ -22,12 +22,16 @@ namespace HRManagement
 
         private void SalaryReportViewer_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'itpDataSet.salary' table. You can move, or remove it, as needed.
-            //this.salaryTableAdapter.Fill(this.itpDataSet.salary);
-            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM salary",con);
-            adapter.Fill(this.itpDataSet.salary);
-            
+            // TODO: This line of code loads data into the 'itpDataSet2.advancesalary' table. You can move, or remove it, as needed.
+            this.advancesalaryTableAdapter1.Fill(this.itpDataSet2.advancesalary);
+            // TODO: This line of code loads data into the 'itpDataSet2.advancesalary' table. You can move, or remove it, as needed.
+           // this.advancesalaryTableAdapter.Fill(this.itpDataSet2.advancesalary);
+
             this.reportViewer1.RefreshReport();
         }
+
+       
+        //select Month, sum(NetSalary) from salary group by Month
+       
     }
 }

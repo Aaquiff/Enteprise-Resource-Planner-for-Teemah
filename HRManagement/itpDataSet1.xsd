@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="itpDataSet1" targetNamespace="http://tempuri.org/itpDataSet1.xsd" xmlns:mstns="http://tempuri.org/itpDataSet1.xsd" xmlns="http://tempuri.org/itpDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="itpConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="itpConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HRManagement.Properties.Settings.GlobalReference.Default.itpConnectionString1" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="advancesalaryTableAdapter" GeneratorDataComponentClassName="advancesalaryTableAdapter" Name="advancesalary" UserDataComponentName="advancesalaryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="itpConnectionString1 (Settings)" DbObjectName="itp.advancesalary" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `Month`, `sum(NetSalary)` FROM `itp`.`advancesalary`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Month" DataSetColumn="Month" />
+              <Mapping SourceColumn="sum(NetSalary)" DataSetColumn="sum(NetSalary)" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="itpDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="itpDataSet1" msprop:Generator_UserDSName="itpDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="advancesalary" msprop:Generator_TableClassName="advancesalaryDataTable" msprop:Generator_TableVarName="tableadvancesalary" msprop:Generator_TablePropName="advancesalary" msprop:Generator_RowDeletingName="advancesalaryRowDeleting" msprop:Generator_RowChangingName="advancesalaryRowChanging" msprop:Generator_RowEvHandlerName="advancesalaryRowChangeEventHandler" msprop:Generator_RowDeletedName="advancesalaryRowDeleted" msprop:Generator_UserTableName="advancesalary" msprop:Generator_RowChangedName="advancesalaryRowChanged" msprop:Generator_RowEvArgName="advancesalaryRowChangeEvent" msprop:Generator_RowClassName="advancesalaryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Month" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_UserColumnName="Month">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sum_x0028_NetSalary_x0029_" msprop:Generator_ColumnVarNameInTable="_columnsum_NetSalary_" msprop:Generator_ColumnPropNameInRow="_sum_NetSalary_" msprop:Generator_ColumnPropNameInTable="_sum_NetSalary_Column" msprop:Generator_UserColumnName="sum(NetSalary)" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
