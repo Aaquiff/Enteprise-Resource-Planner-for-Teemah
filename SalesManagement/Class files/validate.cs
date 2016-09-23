@@ -46,44 +46,59 @@ namespace SalesManagement.Class_files
 
         }
 
-        public static bool isNic(String s)
+        public static bool isNic(String str)
         {
-            bool x = false;
+            //bool x = false;
 
-            if (s.Length == 10)
+            //if (s.Length == 10)
+            //{
+            //    if ((s.IndexOf('V')) >= 0 || (s.IndexOf('v')) >= 0)
+            //    {
+            //        if ((s[9] == 'v') || (s[9] == 'V'))
+            //        {
+            //            for (int i = 0; i < s.Length - 1; i++)
+            //            {
+            //                if (validate.isNumber(i.ToString()))
+            //                {
+            //                    x = true;
+            //                }
+            //                else
+            //                {
+            //                    x = false;
+            //                }
+            //            }
+
+            //            if (x == true)
+            //                return true;
+            //            else
+            //                return false;
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show(null, "Invalid NIC Number", "Error");
+            //            return false;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show(null, "Invalid NIC Number", "Error");
+            //        return false;
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show(null, "Invalid NIC Number", "Error");
+            //    return false;
+            //}
+
+            if ((str.Count(char.IsDigit) == 9) && // only 9 digits
+                (str.EndsWith("X", StringComparison.OrdinalIgnoreCase)
+                 || str.EndsWith("V", StringComparison.OrdinalIgnoreCase)) && //a letter at the end 'x' or 'v'
+                (str[2] != '4' && str[2] != '9')) //3rd digit can not be equal to 4 or 9
             {
-                if ((s.IndexOf('V')) >= 0 || (s.IndexOf('v')) >= 0)
-                {
-                    if ((s[9] == 'v') || (s[9] == 'V'))
-                    {
-                        for (int i = 0; i < s.Length - 1; i++)
-                        {
-                            if (validate.isNumber(i.ToString()))
-                            {
-                                x = true;
-                            }
-                            else
-                            {
-                                x = false;
-                            }
-                        }
+                //Valid
+                return true;
 
-                        if (x == true)
-                            return true;
-                        else
-                            return false;
-                    }
-                    else
-                    {
-                        MessageBox.Show(null, "Invalid NIC Number", "Error");
-                        return false;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(null, "Invalid NIC Number", "Error");
-                    return false;
-                }
             }
             else
             {

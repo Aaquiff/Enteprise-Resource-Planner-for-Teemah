@@ -174,13 +174,13 @@ namespace SalesManagement.Purchase_Records
             }
             else
             {
-                DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                DataGridViewRow row = (DataGridViewRow)metroGrid1.Rows[0].Clone();
                 row.Cells[0].Value = this.tempPID;
                 row.Cells[1].Value = this.tempItem;
                 row.Cells[2].Value = this.tempUnitPrice;
                 row.Cells[3].Value = textBox4.Text;
                 row.Cells[4].Value = this.tempTotal;
-                dataGridView1.Rows.Add(row);
+                metroGrid1.Rows.Add(row);
 
                 this.count = this.count + this.tempTotal;
                 textBox5.Text = this.count.ToString();
@@ -203,25 +203,25 @@ namespace SalesManagement.Purchase_Records
                 returnConn = conn.GetConnection();
 
 
-                if (!string.IsNullOrEmpty(textBox1.Text) || !string.IsNullOrEmpty(this.tempBuyerId) || dataGridView1.Rows.Count != 0 || !string.IsNullOrEmpty(this.tempDate) || !string.IsNullOrEmpty(this.tempAgent))
+                if (!string.IsNullOrEmpty(textBox1.Text) || !string.IsNullOrEmpty(this.tempBuyerId) || metroGrid1.Rows.Count != 0 || !string.IsNullOrEmpty(this.tempDate) || !string.IsNullOrEmpty(this.tempAgent))
                 {
-                    for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                    for (int i = 0; i < metroGrid1.Rows.Count - 1; i++)
                     {
 
                         query = "INSERT INTO itp.orders (invoiceNo, buyerId, productId, quantity, unitPrice, total, shippingDate, empId) VALUES ("
                             + "'" + textBox1.Text + "',"
                             + "'" + this.tempBuyerId + "',"
-                            + dataGridView1.Rows[i].Cells[0].Value + ","
-                            + dataGridView1.Rows[i].Cells[3].Value + ","
-                            + dataGridView1.Rows[i].Cells[2].Value + ","
-                            + dataGridView1.Rows[i].Cells[4].Value + ","
+                            + metroGrid1.Rows[i].Cells[0].Value + ","
+                            + metroGrid1.Rows[i].Cells[3].Value + ","
+                            + metroGrid1.Rows[i].Cells[2].Value + ","
+                            + metroGrid1.Rows[i].Cells[4].Value + ","
                             + "'" + this.tempDate + "',"
                             + "'" + this.tempAgent + "');";
 
                         MySqlCommand cmd = new MySqlCommand(query, returnConn);
                         cmd.ExecuteNonQuery();
 
-                        mailOrder += "" + dataGridView1.Rows[i].Cells[0].Value + " (" + dataGridView1.Rows[i].Cells[3].Value + ") =" + dataGridView1.Rows[i].Cells[4].Value + " \n";
+                        mailOrder += "" + metroGrid1.Rows[i].Cells[0].Value + " (" + metroGrid1.Rows[i].Cells[3].Value + ") =" + metroGrid1.Rows[i].Cells[4].Value + " \n";
 
                     }
                     MessageBox.Show("Order has been placed");
@@ -271,10 +271,10 @@ namespace SalesManagement.Purchase_Records
 
         private void button4_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            foreach (DataGridViewRow row in metroGrid1.SelectedRows)
             {
                 if (!row.IsNewRow)
-                    dataGridView1.Rows.Remove(row);
+                    metroGrid1.Rows.Remove(row);
             }
         }
 
@@ -282,7 +282,6 @@ namespace SalesManagement.Purchase_Records
         {
             if (MessageBox.Show("Do you really want to cancel this process?", "Confirmation", MessageBoxButtons.YesNo)==DialogResult.Yes)
             {
-                //cboxHour.Items.Clear();
                 comboBox1.SelectedIndex = -1;
                 comboBox2.SelectedIndex = -1;
                 comboBox3.SelectedIndex = -1;
@@ -297,6 +296,11 @@ namespace SalesManagement.Purchase_Records
 
                 label13.Text = "0";
 
+                this.metroGrid1.Rows.Clear();
+                this.metroGrid1.DataSource = null;
+                //this.metroGrid1.Rows.Clear();
+                this.metroGrid1.Refresh();
+
                 dateTimeProps();
             }
         }
@@ -308,6 +312,11 @@ namespace SalesManagement.Purchase_Records
             dateTimePicker1.CustomFormat = "yyyy-MM-dd";
             dateTimePicker1.MinDate = DateTime.Now.AddDays(1);
             dateTimePicker1.MaxDate = DateTime.Now.AddMonths(5);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

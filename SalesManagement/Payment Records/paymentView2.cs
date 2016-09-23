@@ -27,7 +27,7 @@ namespace SalesManagement.Payment_Records
         {
             accessDb ad = new accessDb();
             DataSet ds = ad.getData("payment");
-            dataGridView1.DataSource = ds.Tables["payment"].DefaultView;
+            metroGrid1.DataSource = ds.Tables["payment"].DefaultView;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,5 +36,7 @@ namespace SalesManagement.Payment_Records
             paymentHome home = new paymentHome();
             home.Show();
         }
+
+        
     }
 }

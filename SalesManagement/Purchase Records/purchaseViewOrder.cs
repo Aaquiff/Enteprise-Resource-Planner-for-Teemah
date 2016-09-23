@@ -34,10 +34,10 @@ namespace SalesManagement.Purchase_Records
         {
             accessDb ad = new accessDb();
             DataSet ds = ad.getData("orders");
-            dataGridView1.DataSource = ds.Tables["orders"].DefaultView;
+            metroGrid1.DataSource = ds.Tables["orders"].DefaultView;
 
             DataSet ds2 = ad.getData("invoice");
-            dataGridView2.DataSource = ds2.Tables["invoice"].DefaultView;
+            metroGrid2.DataSource = ds2.Tables["invoice"].DefaultView;
 
         }
 

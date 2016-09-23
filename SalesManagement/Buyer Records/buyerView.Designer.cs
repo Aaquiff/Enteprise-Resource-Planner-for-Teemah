@@ -29,19 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(buyerView));
-            this.viewTable = new System.Windows.Forms.DataGridView();
-            this.storeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactJobDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.officeNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personalNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.faxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.districtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creditLimitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buyerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itpDataSet = new SalesManagement.itpDataSet();
             this.buyerTableAdapter = new SalesManagement.itpDataSetTableAdapters.buyerTableAdapter();
@@ -54,113 +45,13 @@
             this.radioAdd = new System.Windows.Forms.RadioButton();
             this.radioContact = new System.Windows.Forms.RadioButton();
             this.radioStore = new System.Windows.Forms.RadioButton();
-            this.back = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.viewTable)).BeginInit();
+            this.viewTable = new MetroFramework.Controls.MetroGrid();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.buyerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itpDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.viewTable)).BeginInit();
             this.SuspendLayout();
-            // 
-            // viewTable
-            // 
-            this.viewTable.AllowUserToAddRows = false;
-            this.viewTable.AllowUserToDeleteRows = false;
-            this.viewTable.AllowUserToOrderColumns = true;
-            this.viewTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.viewTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.storeNameDataGridViewTextBoxColumn,
-            this.contactNameDataGridViewTextBoxColumn,
-            this.contactJobDataGridViewTextBoxColumn,
-            this.officeNoDataGridViewTextBoxColumn,
-            this.personalNoDataGridViewTextBoxColumn,
-            this.faxDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.cityDataGridViewTextBoxColumn,
-            this.districtDataGridViewTextBoxColumn,
-            this.creditLimitDataGridViewTextBoxColumn});
-            this.viewTable.Location = new System.Drawing.Point(0, 0);
-            this.viewTable.Name = "viewTable";
-            this.viewTable.ReadOnly = true;
-            this.viewTable.Size = new System.Drawing.Size(1144, 208);
-            this.viewTable.TabIndex = 0;
-            // 
-            // storeNameDataGridViewTextBoxColumn
-            // 
-            this.storeNameDataGridViewTextBoxColumn.DataPropertyName = "storeName";
-            this.storeNameDataGridViewTextBoxColumn.HeaderText = "Store Name";
-            this.storeNameDataGridViewTextBoxColumn.Name = "storeNameDataGridViewTextBoxColumn";
-            this.storeNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contactNameDataGridViewTextBoxColumn
-            // 
-            this.contactNameDataGridViewTextBoxColumn.DataPropertyName = "contactName";
-            this.contactNameDataGridViewTextBoxColumn.HeaderText = "Contact Name";
-            this.contactNameDataGridViewTextBoxColumn.Name = "contactNameDataGridViewTextBoxColumn";
-            this.contactNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contactJobDataGridViewTextBoxColumn
-            // 
-            this.contactJobDataGridViewTextBoxColumn.DataPropertyName = "contactJob";
-            this.contactJobDataGridViewTextBoxColumn.HeaderText = "Contact Job Title";
-            this.contactJobDataGridViewTextBoxColumn.Name = "contactJobDataGridViewTextBoxColumn";
-            this.contactJobDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // officeNoDataGridViewTextBoxColumn
-            // 
-            this.officeNoDataGridViewTextBoxColumn.DataPropertyName = "officeNo";
-            this.officeNoDataGridViewTextBoxColumn.HeaderText = "Office No.";
-            this.officeNoDataGridViewTextBoxColumn.Name = "officeNoDataGridViewTextBoxColumn";
-            this.officeNoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // personalNoDataGridViewTextBoxColumn
-            // 
-            this.personalNoDataGridViewTextBoxColumn.DataPropertyName = "personalNo";
-            this.personalNoDataGridViewTextBoxColumn.HeaderText = "Contact No.";
-            this.personalNoDataGridViewTextBoxColumn.Name = "personalNoDataGridViewTextBoxColumn";
-            this.personalNoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // faxDataGridViewTextBoxColumn
-            // 
-            this.faxDataGridViewTextBoxColumn.DataPropertyName = "fax";
-            this.faxDataGridViewTextBoxColumn.HeaderText = "Fax";
-            this.faxDataGridViewTextBoxColumn.Name = "faxDataGridViewTextBoxColumn";
-            this.faxDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "E-mail";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cityDataGridViewTextBoxColumn
-            // 
-            this.cityDataGridViewTextBoxColumn.DataPropertyName = "city";
-            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
-            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
-            this.cityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // districtDataGridViewTextBoxColumn
-            // 
-            this.districtDataGridViewTextBoxColumn.DataPropertyName = "district";
-            this.districtDataGridViewTextBoxColumn.HeaderText = "District";
-            this.districtDataGridViewTextBoxColumn.Name = "districtDataGridViewTextBoxColumn";
-            this.districtDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // creditLimitDataGridViewTextBoxColumn
-            // 
-            this.creditLimitDataGridViewTextBoxColumn.DataPropertyName = "creditLimit";
-            this.creditLimitDataGridViewTextBoxColumn.HeaderText = "Credit Limit";
-            this.creditLimitDataGridViewTextBoxColumn.Name = "creditLimitDataGridViewTextBoxColumn";
-            this.creditLimitDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // buyerBindingSource
             // 
@@ -180,7 +71,7 @@
             // 
             this.searchKey.Location = new System.Drawing.Point(111, 28);
             this.searchKey.Name = "searchKey";
-            this.searchKey.Size = new System.Drawing.Size(776, 20);
+            this.searchKey.Size = new System.Drawing.Size(965, 20);
             this.searchKey.TabIndex = 1;
             this.searchKey.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -203,16 +94,16 @@
             this.groupBox1.Controls.Add(this.radioStore);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.searchKey);
-            this.groupBox1.Location = new System.Drawing.Point(10, 214);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(938, 116);
+            this.groupBox1.Size = new System.Drawing.Size(1120, 116);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             // 
             // radioCredit
             // 
             this.radioCredit.AutoSize = true;
-            this.radioCredit.Location = new System.Drawing.Point(811, 73);
+            this.radioCredit.Location = new System.Drawing.Point(1000, 73);
             this.radioCredit.Name = "radioCredit";
             this.radioCredit.Size = new System.Drawing.Size(76, 17);
             this.radioCredit.TabIndex = 14;
@@ -223,7 +114,7 @@
             // radioDis
             // 
             this.radioDis.AutoSize = true;
-            this.radioDis.Location = new System.Drawing.Point(650, 73);
+            this.radioDis.Location = new System.Drawing.Point(770, 73);
             this.radioDis.Name = "radioDis";
             this.radioDis.Size = new System.Drawing.Size(57, 17);
             this.radioDis.TabIndex = 13;
@@ -234,7 +125,7 @@
             // radioCity
             // 
             this.radioCity.AutoSize = true;
-            this.radioCity.Location = new System.Drawing.Point(505, 73);
+            this.radioCity.Location = new System.Drawing.Point(576, 73);
             this.radioCity.Name = "radioCity";
             this.radioCity.Size = new System.Drawing.Size(42, 17);
             this.radioCity.TabIndex = 12;
@@ -245,7 +136,7 @@
             // radioAdd
             // 
             this.radioAdd.AutoSize = true;
-            this.radioAdd.Location = new System.Drawing.Point(348, 73);
+            this.radioAdd.Location = new System.Drawing.Point(392, 73);
             this.radioAdd.Name = "radioAdd";
             this.radioAdd.Size = new System.Drawing.Size(63, 17);
             this.radioAdd.TabIndex = 11;
@@ -277,40 +168,84 @@
             this.radioStore.UseVisualStyleBackColor = true;
             this.radioStore.CheckedChanged += new System.EventHandler(this.radioStore_CheckedChanged);
             // 
-            // back
+            // viewTable
             // 
-            this.back.Location = new System.Drawing.Point(1027, 297);
-            this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(93, 33);
-            this.back.TabIndex = 10;
-            this.back.Text = "Back";
-            this.back.UseVisualStyleBackColor = true;
-            this.back.Click += new System.EventHandler(this.back_Click);
+            this.viewTable.AllowUserToAddRows = false;
+            this.viewTable.AllowUserToDeleteRows = false;
+            this.viewTable.AllowUserToOrderColumns = true;
+            this.viewTable.AllowUserToResizeRows = false;
+            this.viewTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.viewTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.viewTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.viewTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.viewTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.viewTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.viewTable.DefaultCellStyle = dataGridViewCellStyle2;
+            this.viewTable.EnableHeadersVisualStyles = false;
+            this.viewTable.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.viewTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.viewTable.Location = new System.Drawing.Point(12, 146);
+            this.viewTable.Name = "viewTable";
+            this.viewTable.ReadOnly = true;
+            this.viewTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.viewTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.viewTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.viewTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.viewTable.Size = new System.Drawing.Size(1120, 229);
+            this.viewTable.TabIndex = 15;
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 393);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1144, 37);
+            this.panel1.TabIndex = 16;
             // 
             // buyerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1144, 351);
-            this.Controls.Add(this.back);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1144, 430);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.viewTable);
+            this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "buyerView";
             this.Text = "View Customer Details";
             this.Load += new System.EventHandler(this.viewAll_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.viewTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buyerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itpDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.viewTable)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView viewTable;
         private itpDataSet itpDataSet;
         private System.Windows.Forms.BindingSource buyerBindingSource;
         private itpDataSetTableAdapters.buyerTableAdapter buyerTableAdapter;
@@ -323,17 +258,7 @@
         private System.Windows.Forms.RadioButton radioAdd;
         private System.Windows.Forms.RadioButton radioContact;
         private System.Windows.Forms.RadioButton radioStore;
-        private System.Windows.Forms.Button back;
-        private System.Windows.Forms.DataGridViewTextBoxColumn storeNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contactNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contactJobDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn officeNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn personalNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn faxDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn districtDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn creditLimitDataGridViewTextBoxColumn;
+        private MetroFramework.Controls.MetroGrid viewTable;
+        private System.Windows.Forms.Panel panel1;
     }
 }

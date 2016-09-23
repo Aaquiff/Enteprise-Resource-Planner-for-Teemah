@@ -16,6 +16,7 @@ namespace SalesManagement.Payment_Records
     {
         private string ptotal;
         private string pcredit;
+        private string due;
 
         public paymentAdd()
         {
@@ -69,16 +70,30 @@ namespace SalesManagement.Payment_Records
             label17.Visible = true;
             label17.Text = this.pcredit;
 
-            //string due = adb.getData("due3", "invoiceNo", comboBox1.Text, "totalPaid");
+            string due = adb.getData("due", "invoiceNo", comboBox1.Text, "totalPaid");
 
-            //if (string.IsNullOrEmpty(due) || due == "0") 
-            //{
-            //    label16.Text = this.ptotal;
-            //}
-            //else
-            //{
-            //    label16.Text = (double.Parse(this.ptotal) - double.Parse(due)).ToString();
-            //}
+            if (double.Parse(this.ptotal) - double.Parse(due)==0)
+            {
+                radioButton1.Enabled = false;
+                radioButton2.Enabled = false;
+                
+                groupBox1.Enabled = false;
+                groupBox2.Enabled = false;
+            }
+            else
+            {
+                radioButton1.Enabled = true;
+                radioButton2.Enabled = true;
+            }
+
+            if (string.IsNullOrEmpty(due) || due == "0")
+            {
+                label16.Text = this.ptotal;
+            }
+            else
+            {
+                label16.Text = (double.Parse(this.ptotal) - double.Parse(due)).ToString();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

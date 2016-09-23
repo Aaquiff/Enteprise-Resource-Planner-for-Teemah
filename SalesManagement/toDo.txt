@@ -1,6 +1,27 @@
-﻿>	masked text box
->	NIC email validation
->	name cannot be changed while updating 
->	store Name duplicate 
->	payment status changes when its fully paid
->	
+﻿>	XXX		masked text box
+			validation part has to be removed! check it!
+
+>	XXX		NIC email validation 
+
+>			check addbuyer interface once again
+			check the validation part
+
+>	XXX		name cannot be changed while updating --> change the textbox to read only or LABEL			
+
+>			store Name duplicate 
+
+>	XXX		payment status changes when its fully paid
+			if DUE == 0 lock all the controls and show a Pan Message thingy
+
+>	!!!		auto-increasing in the sql
+			manual given name in the software -- cause that's how they do it! --> refer their Excel spreadsheet
+			
+>			report on monthly sales and periodical sales --> date selection period & 
+			issue invoice thingy
+
+>	XXX		remove update purchase order status interface from SALES! 
+
+>			METRO GRID thing!
+
+>			PurchaseAdd2 button2_click event table reset case
+			"there is no row at position 0"

@@ -77,7 +77,7 @@
             // 
             this.updateBtn.Location = new System.Drawing.Point(593, 18);
             this.updateBtn.Name = "updateBtn";
-            this.updateBtn.Size = new System.Drawing.Size(94, 40);
+            this.updateBtn.Size = new System.Drawing.Size(94, 28);
             this.updateBtn.TabIndex = 95;
             this.updateBtn.Text = "Update";
             this.updateBtn.UseVisualStyleBackColor = true;
@@ -153,6 +153,7 @@
             // 
             this.store.Location = new System.Drawing.Point(120, 12);
             this.store.Name = "store";
+            this.store.ReadOnly = true;
             this.store.Size = new System.Drawing.Size(232, 20);
             this.store.TabIndex = 76;
             // 
@@ -381,9 +382,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(593, 77);
+            this.button1.Location = new System.Drawing.Point(593, 64);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 39);
+            this.button1.Size = new System.Drawing.Size(94, 27);
             this.button1.TabIndex = 108;
             this.button1.Text = "Remove";
             this.button1.UseVisualStyleBackColor = true;

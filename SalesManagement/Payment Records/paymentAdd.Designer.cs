@@ -133,7 +133,6 @@
             this.label11.Size = new System.Drawing.Size(72, 13);
             this.label11.TabIndex = 10;
             this.label11.Text = "Due Amount :";
-            this.label11.Visible = false;
             // 
             // label12
             // 
@@ -306,10 +305,9 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(154, 289);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 13);
+            this.label16.Size = new System.Drawing.Size(10, 13);
             this.label16.TabIndex = 56;
-            this.label16.Text = "label16";
-            this.label16.Visible = false;
+            this.label16.Text = "-";
             // 
             // button1
             // 
