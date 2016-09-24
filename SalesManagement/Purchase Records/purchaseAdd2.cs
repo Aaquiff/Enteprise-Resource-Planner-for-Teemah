@@ -159,7 +159,7 @@ namespace SalesManagement.Purchase_Records
                 }
                 else
                 {
-                    MessageBox.Show("Enter valid quantity");
+                    PanException.Show(this.MdiParent, "Invalid input", "Enter valid quantity amount");
                 }
             }
         } 
@@ -170,7 +170,7 @@ namespace SalesManagement.Purchase_Records
         {
             if (textBox4.Text == "0" || String.IsNullOrEmpty(textBox4.Text))
             {
-                MessageBox.Show("Select quantity");
+                PanException.Show(this.MdiParent, "Error", "Select quantity");
             }
             else
             {
@@ -224,30 +224,41 @@ namespace SalesManagement.Purchase_Records
                         mailOrder += "" + metroGrid1.Rows[i].Cells[0].Value + " (" + metroGrid1.Rows[i].Cells[3].Value + ") =" + metroGrid1.Rows[i].Cells[4].Value + " \n";
 
                     }
-                    MessageBox.Show("Order has been placed");
+                    
+                    PanMessage.Show(this.MdiParent, "Order has been placed");
                     conn.CloseConnection();
 
                     if (!String.IsNullOrEmpty(this.tempMail))
                     {
-                        mailOrder += "------------------------------------------ \n" +
-                                                "Grand total = " + this.count + "\n" +
-                                                "Delivery Date = " + this.tempDate;
+                        try
+                        {
+                            mailOrder += "------------------------------------------ \n" +
+                                                                    "Grand total = " + this.count + "\n" +
+                                                                    "Delivery Date = " + this.tempDate;
 
-                        emailThis mail = new emailThis();
-                        mail.sendMail(this.tempMail, mailOrder);
-                        
+                            emailThis mail = new emailThis();
+                            mail.sendMail(this.tempMail, mailOrder);
+                        }
+                        catch (Exception ex)
+                        {
+                            PanException.Show(this.MdiParent, "Error", "Mail has not been sent");
+                            
+                        }
                     }
+
+                    //invoiceViewer.method1(textBox1.Text);
+                    //invoiceViewer.method2(textBox2.Text);
                 }
+
                 else
                 {
-                    PanMessage.Show(this,"Please recheck your entry");
-                    //MessageBox.Show("Please recheck your entry");
+                    PanException.Show(this,"Invalid inputs", "Please recheck your entry");
                 }
 
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show("" + ex);
+                PanException.Show(this.MdiParent, "Error", "Invoice duplicating is not allowed");
 
             }
         }
@@ -296,10 +307,9 @@ namespace SalesManagement.Purchase_Records
 
                 label13.Text = "0";
 
-                this.metroGrid1.Rows.Clear();
-                this.metroGrid1.DataSource = null;
                 //this.metroGrid1.Rows.Clear();
-                this.metroGrid1.Refresh();
+                //this.metroGrid1.DataSource = null;
+                //this.metroGrid1.Refresh();
 
                 dateTimeProps();
             }
@@ -316,7 +326,8 @@ namespace SalesManagement.Purchase_Records
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            invoiceViewer inv = new invoiceViewer(textBox1.Text);
+            inv.Show();
         }
     }
 }

@@ -13,6 +13,7 @@ using MySQLDatabaseAccess;
 using MetroFramework;
 using FrameworkControls.Classes;
 
+
 namespace HRManagement
 {
     public partial class Employee : Form
@@ -110,12 +111,52 @@ namespace HRManagement
             }
             return true;
         }*/
-        bool checkMail(string email)
+        //bool checkMail(string email)
+        //{
+        //    try
+        //    {
+        //        var addr = new System.Net.Mail.MailAddress(email);
+        //        return addr.Address == email;
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
+        
+        public static bool checkMail(String s)
         {
             try
             {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
+                int num = s.IndexOf('@');
+                int num2 = s.IndexOf('.');
+
+                if (!string.IsNullOrEmpty(s) && (s[0] != ' ' || s[0] != '\t' || s[0] != '.'))
+                {
+                    if (s.EndsWith(".com") || s.EndsWith(".lk"))
+                    {
+                        if (num < num2 && (num + 1) != num2)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            MessageBox.Show(null, "invalid email id", "error");
+                            return false;
+                        }
+                }
+                    else
+                    {
+                        MessageBox.Show(null, "enter a valid email id", "error");
+                        return false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(null, "enter a valid email id", "error");
+                    return false;
+                }
+
             }
             catch
             {
@@ -586,7 +627,7 @@ namespace HRManagement
             Email_txt.Text = " ";
             Nat_txt.Text = " ";
             NIC_txt.Text = " ";
-            Posi_combo.Text = " ";
+            Posi_combo.SelectedIndex = -1;
             Dep_txt.Text = " ";
             textBox5.Text = " ";
             radioButton1.Checked = true;
@@ -632,10 +673,20 @@ namespace HRManagement
                 dep = "Finance";
                 ini = "FM";
             }
-            else if (position == "HR Manager")
+            else if (position == "Finished Good Manager")
             {
-                dep = "Human Resource";
-                ini = "HR";
+                dep = "Products";
+                ini = "PD";
+            }
+            else if (position == "Product Process Manager")
+            {
+                dep = "Products";
+                ini = "PD";
+            }
+            else if (position == "Raw Materials Manager")
+            {
+                dep = "Materials";
+                ini = "RM";
             }
 
             Dep_txt.Text = dep;
@@ -662,6 +713,7 @@ namespace HRManagement
 
         private void Employee_Load(object sender, EventArgs e)
         {
+            Emp_txt.ReadOnly = true;
             dateTimePicker3.MinDate = DateTime.Now.AddDays(1);
             dateTimePicker2.MinDate = dateTimePicker3.MinDate.AddDays(1);
             dateTimePicker2.MaxDate = DateTime.Now.AddMonths(2);
@@ -694,7 +746,7 @@ namespace HRManagement
                                              AddOT.TabPages.Add(tabAddOT);
                                              //AddOT.TabPages.Add(tabCalSalary);
                                              Rem.Show();
-                                            Emp_txt.ReadOnly = false;
+                                            //Emp_txt.ReadOnly = false;
                                             First_txt.ReadOnly = false;
                                             Last_txt.ReadOnly = false;
                                             //radioButton1.Enabled = true;
@@ -827,20 +879,28 @@ namespace HRManagement
             int Annual = Int32.Parse(labRemAnnual.Text);
             int Casual = Int32.Parse(labRemCasual.Text);
 
-            if ((this.Type_combo.Text == "Annual") && (Annual <= 0))
+
+            DateTime endDate = dateTimePicker2.Value;
+            DateTime startDate = dateTimePicker3.Value;
+
+            TimeSpan tspan = endDate - startDate;
+
+            int differenceInDays = tspan.Days;
+           
+            if ((this.Type_combo.Text == "Annual") && (differenceInDays > Annual))
             {
-                //MessageBox.Show("You can't apply for Annual leave");
-                PanMessage.Show(this.MdiParent, "Annual leave", "You can't apply for Annual leave");
+                PanException.Show(this.MdiParent, "Annual leave", "You are exceeding the number of remaining annual days");
                 return;
             }
 
-            if ((this.Type_combo.Text == "Casual") && (Casual <= 0))
+            if ((this.Type_combo.Text == "Casual") && (differenceInDays > Casual))
             {
-               // MessageBox.Show("You can't apply for Casual leave");
-                PanMessage.Show(this.MdiParent, "Casual leave", "You can't apply for Casual leave");
+                PanException.Show(this.MdiParent, "Casual leave", "You are exceeding the number of remaining casual days");
                 return;
             }
-           
+
+
+
            
 
             DateTime start = Convert.ToDateTime(dateTimePicker3.Text);
@@ -861,7 +921,7 @@ namespace HRManagement
                 connDatabase.Open();
                 cmdDatabase.ExecuteNonQuery();
                 //MessageBox.Show("Records are saved successfully\n");
-                PanMessage.Show(this.MdiParent, "Success", "Records are saved successfully");
+                PanMessage.Show(this.MdiParent, "Success", "Your leave request has been sent");
                 refreshEmpLeaveTable();
 
             }
@@ -918,106 +978,7 @@ namespace HRManagement
             }
         }
 
-        //private void dataGridView3_SelectionChanged(object sender, EventArgs e)
-        //{
-        //    if (dataGridView3.SelectedRows.Count > 0)
-        //    {
-        //        MessageBox.Show("hello");
-        //        DataGridViewRow row = this.dataGridView3.SelectedRows[0];
-
-        //        emp = row.Cells["EmpId"].Value.ToString();
-
-        //        MySqlConnection MyConn = ConnectionOld.getConnection();
-        //        MySqlCommand SelectCommand = new MySqlCommand("select FirstName,DepId from itp.employee where EmpId = '" + emp + "' ;", MyConn);
-        //        MySqlDataReader MyReader;
-        //        MyConn.Open();
-        //        MyReader = SelectCommand.ExecuteReader();
-
-        //        while (MyReader.Read())
-        //        {
-        //            MessageBox.Show("How Are u?");
-        //            textBox11.Text = MyReader.GetString("FirstName");
-        //            textBox12.Text = MyReader.GetString("DepId");
-
-        //        }
-        //    }
-        //}
-
-        //private void textBox1_TextChanged(object sender, EventArgs e)
-        //{
-        //    MySqlConnection MyConn = ConnectionOld.getConnection();
-        //    MySqlCommand SelectCommand = new MySqlCommand("select * from itp.employee where EmpId = '" + textBox1.Text + "' ;", MyConn);
-        //    MySqlDataReader MyReader;
-        //    MyConn.Open();
-        //    MyReader = SelectCommand.ExecuteReader();
-
-        //    while (MyReader.Read())
-        //    {
-        //        name.Text = MyReader.GetString("FirstName");
-        //        textBox2.Text = MyReader.GetString("DepId");
-        //        textBox3.Text = MyReader.GetString("Position");
-        //        textBox7.Text = MyReader.GetString("BasicSalary");
-        //    }
-
-
-
-
-        //}
-
-        //private void Calculate_Click(object sender, EventArgs e)
-        //{
-        //    Double net = (basSal + otTot) - (etf + epf);
-        //    // MessageBox.Show("salary is " + net);
-        //    textBox10.Text = net.ToString();
-        //}
-
-        //private void textBox4_TextChanged(object sender, EventArgs e)
-        //{
-
-        //    basSal = Double.Parse(textBox7.Text);
-        //    otTot = (basSal / 240) * Double.Parse(textBox4.Text) * 1.5;
-        //    textBox6.Text = otTot.ToString();
-        //    // MessageBox.Show("salary is " + otTot);
-        //}
-
-        //private void textBox7_TextChanged(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        etf = Double.Parse(textBox7.Text) * 0.03;
-        //        epf = Double.Parse(textBox7.Text) * 0.08;
-        //        textBox8.Text = etf.ToString();
-        //        textBox9.Text = epf.ToString();
-        //    }
-        //    catch (MySqlException ex)
-        //    {
-        //        PanException.Show(this.MdiParent,ex);
-        //    }
-
-        //}
-
-        //private void button2_Click(object sender, EventArgs e)
-        //{
-        //    //String SalId = createSalId();
-        //    //MessageBox.Show("salId " + SalId);
-        //    String query = "insert into itp.salary(EmpId,OTHours,NetSalary,GivenDate) values('" + textBox1.Text + "','" + textBox4.Text + "','" + textBox10.Text + "',CURDATE()); ";
-        //    MySqlConnection connDatabase = ConnectionOld.getConnection();
-        //    MySqlCommand cmdDatabase = new MySqlCommand(query, connDatabase);
-        //    MySqlDataReader myReader;
-
-        //    try
-        //    {
-        //        connDatabase.Open();
-        //        myReader = cmdDatabase.ExecuteReader();
-        //        MessageBox.Show("Records are saved successfully");
-
-        //    }
-
-        //    catch (MySqlException ex)
-        //    {
-        //        PanException.Show(this.MdiParent,ex);
-        //    }
-        //}
+   
 
         private void textBox13_TextChanged(object sender, EventArgs e)
         {
@@ -1035,16 +996,7 @@ namespace HRManagement
 
         #endregion
 
-        private void tabAddOT_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CalSalary_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+       
         private void Ot_Save_Click(object sender, EventArgs e)
         {
             
@@ -1181,6 +1133,11 @@ namespace HRManagement
         {
             salMonth = this.comboSalMonth.Text;
            
+        }
+
+        private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePicker2.MinDate = dateTimePicker3.Value.AddDays(1);
         }
 
       

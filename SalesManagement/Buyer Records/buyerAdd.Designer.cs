@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(buyerAdd));
             this.addBtn = new System.Windows.Forms.Button();
             this.contactJob = new System.Windows.Forms.TextBox();
@@ -51,11 +52,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.officeNo = new System.Windows.Forms.MaskedTextBox();
-            this.contactNum = new System.Windows.Forms.MaskedTextBox();
             this.fax = new System.Windows.Forms.TextBox();
+            this.officeNo2 = new System.Windows.Forms.TextBox();
+            this.contactNum2 = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // addBtn
@@ -137,6 +140,7 @@
             this.store.Name = "store";
             this.store.Size = new System.Drawing.Size(232, 20);
             this.store.TabIndex = 44;
+            this.store.TextChanged += new System.EventHandler(this.store_TextChanged);
             // 
             // label11
             // 
@@ -227,8 +231,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.contactNum2);
             this.groupBox1.Controls.Add(this.contactJob);
-            this.groupBox1.Controls.Add(this.contactNum);
             this.groupBox1.Controls.Add(this.contact);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
@@ -255,22 +259,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Billing Details";
             // 
-            // officeNo
-            // 
-            this.officeNo.Location = new System.Drawing.Point(170, 66);
-            this.officeNo.Mask = "(11)-0000000";
-            this.officeNo.Name = "officeNo";
-            this.officeNo.Size = new System.Drawing.Size(232, 20);
-            this.officeNo.TabIndex = 60;
-            // 
-            // contactNum
-            // 
-            this.contactNum.Location = new System.Drawing.Point(162, 107);
-            this.contactNum.Mask = "(999)-000000";
-            this.contactNum.Name = "contactNum";
-            this.contactNum.Size = new System.Drawing.Size(232, 20);
-            this.contactNum.TabIndex = 61;
-            // 
             // fax
             // 
             this.fax.Location = new System.Drawing.Point(170, 140);
@@ -279,12 +267,30 @@
             this.fax.TabIndex = 56;
             this.fax.Click += new System.EventHandler(this.fax_Click);
             // 
+            // officeNo2
+            // 
+            this.officeNo2.Location = new System.Drawing.Point(170, 66);
+            this.officeNo2.Name = "officeNo2";
+            this.officeNo2.Size = new System.Drawing.Size(232, 20);
+            this.officeNo2.TabIndex = 61;
+            // 
+            // contactNum2
+            // 
+            this.contactNum2.Location = new System.Drawing.Point(162, 107);
+            this.contactNum2.Name = "contactNum2";
+            this.contactNum2.Size = new System.Drawing.Size(232, 20);
+            this.contactNum2.TabIndex = 62;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // buyerAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 403);
-            this.Controls.Add(this.officeNo);
+            this.Controls.Add(this.officeNo2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.email);
@@ -304,6 +310,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,8 +340,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.MaskedTextBox officeNo;
-        private System.Windows.Forms.MaskedTextBox contactNum;
         private System.Windows.Forms.TextBox fax;
+        private System.Windows.Forms.TextBox officeNo2;
+        private System.Windows.Forms.TextBox contactNum2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

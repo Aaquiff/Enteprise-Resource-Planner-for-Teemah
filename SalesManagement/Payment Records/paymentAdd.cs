@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using FrameworkControls.Classes;
 
 namespace SalesManagement.Payment_Records
 {
@@ -133,7 +134,7 @@ namespace SalesManagement.Payment_Records
                     }
                     else
                     {
-                        MessageBox.Show("Invalid value for amount, Please check again");
+                        PanException.Show(this.MdiParent, "Invalid Input", "Invalid value for amount");
                     }
                     
                 }
@@ -152,23 +153,23 @@ namespace SalesManagement.Payment_Records
                     }
                     else
                     {
-                        MessageBox.Show("Invalid values, Please check again");
+                        PanException.Show(this.MdiParent, "Error", "Invalid Inputs");
                     }
                 }
                 else
-                    MessageBox.Show("Select a payment method");
+                    PanException.Show(this.MdiParent, "Error", "Select a payment method");
                 
                 //connection.OpenConnection();
                 cmd.ExecuteNonQuery();
                 connection.CloseConnection();
 
-                MessageBox.Show("Success");
+                PanMessage.Show(this.MdiParent,"Success");
 
             }
             
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                PanException.Show(this.MdiParent, ex);
             }
         }
 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using SalesManagement.Class_files;
+using FrameworkControls.Classes;
 
 
 namespace SalesManagement.Buyer_Records
@@ -51,15 +52,15 @@ namespace SalesManagement.Buyer_Records
                         listBox1.Items.Add(store);
                     }
                 }
-                catch (Exception ex)
+                catch (MySqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    PanException.Show(this.MdiParent, ex);
                 }
             }
 
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                PanException.Show(this.MdiParent, ex);
             }
         }
 
@@ -108,16 +109,16 @@ namespace SalesManagement.Buyer_Records
                     }
 
                 }
-                catch (Exception ex)
+                catch (MySqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    PanException.Show(this.MdiParent, ex);
 
                 }
             }
 
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                PanException.Show(this.MdiParent, ex);
             }
         }
 
@@ -160,17 +161,17 @@ namespace SalesManagement.Buyer_Records
 
                     this.listBox1.Items.Clear();
                     fillList();
-                    MessageBox.Show("Buyer information updated");
+                    PanMessage.Show(this.MdiParent, "Success", "Buyer information updated");
                 }
-                catch (Exception ex)
+                catch (MySqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    PanException.Show(this.MdiParent, ex);
                     //throw;
                 } 
             }
             else
             {
-                MessageBox.Show(this, "Check entered fields", "Error");                
+                PanException.Show(this.MdiParent, "Invalid entries", "Check entered fields");                
             }
         }
 
@@ -198,14 +199,14 @@ namespace SalesManagement.Buyer_Records
                     cmd.ExecuteNonQuery();
                     connection.CloseConnection();
 
-                    MessageBox.Show("Entry deleted successfully");
+                    PanMessage.Show(this.MdiParent, "Success", "Entry deleted successfully");
                     this.listBox1.Items.Clear();
                     fillList();
 
                 }
-                catch (Exception ex)
+                catch (MySqlException ex)
                 {
-                    MessageBox.Show(""+ex);
+                    PanException.Show(this.MdiParent, ex);
                 } 
             }
         }
