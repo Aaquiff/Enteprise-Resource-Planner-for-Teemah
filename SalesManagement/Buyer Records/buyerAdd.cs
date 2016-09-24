@@ -37,7 +37,7 @@ namespace SalesManagement.Buyer_Records
         {
             //assign
             string storeName = store.Text;
-            string office = officeNo.Text;
+            string office = officeNo2.Text;
             string credit = creditLimit.Text; //check sales info
             string faxNo = fax.Text;
             string mail = email.Text;
@@ -46,11 +46,10 @@ namespace SalesManagement.Buyer_Records
             string storeDistrict = district.Text;
             string contactName = contact.Text;
             string contactJobTitle = contactJob.Text;
-            string contactNo = contactNum.Text;
+            string contactNo = contactNum2.Text;
 
 
-            if (!accessDb.isExist(store.Text, "buyer", "storeName"))
-            {
+            
                 if (validate.isEmpty(storeName) && validate.isContact(office) && validate.isNumber(credit) && validate.isEmpty(storeAddress) &&
                         validate.isChar(storeCity) && validate.isChar(storeDistrict) && validate.isChar(contactName) &&
                         validate.isChar(contactJobTitle) && validate.isContact(contactNo))
@@ -130,17 +129,13 @@ namespace SalesManagement.Buyer_Records
                 {
                     store.Focus();
                 } 
-            }
-            else
-            {
-                MessageBox.Show("Store details already contains in the database");
-            }
+           
         }
 
         private void clearText()
         {
             store.Text = "";
-            officeNo.Text = "";
+            officeNo2.Text = "";
             creditLimit.Text = "";
             fax.Text = "";
             email.Text = "";
@@ -149,7 +144,7 @@ namespace SalesManagement.Buyer_Records
             district.Text = "";
             contact.Text = "";
             contactJob.Text = "";
-            contactNum.Text = "";
+            contactNum2.Text = "";
         }
 
         private void fax_Click(object sender, EventArgs e)
@@ -164,6 +159,11 @@ namespace SalesManagement.Buyer_Records
             email.ResetText();
             email.TextAlign = HorizontalAlignment.Left;
             email.ForeColor = Color.Black;
+        }
+
+        private void store_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

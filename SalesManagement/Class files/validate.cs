@@ -188,7 +188,7 @@ namespace SalesManagement.Class_files
             //    int num = s.IndexOf('@');
             //    int num2 = s.IndexOf('.');
 
-            //    if (!String.IsNullOrEmpty(s) && (s[0] != ' ' || s[0] != '\t' || s[0] != '.'))
+            //    if (!string.IsNullOrEmpty(s) && (s[0] != ' ' || s[0] != '\t' || s[0] != '.'))
             //    {
             //        if (s.EndsWith(".com") || s.EndsWith(".lk"))
             //        {
@@ -198,19 +198,19 @@ namespace SalesManagement.Class_files
             //            }
             //            else
             //            {
-            //                MessageBox.Show(null, "Invalid Email ID", "Error");
+            //               MessageBox.Show(null, "invalid email id", "error");
             //                return false;
             //            }
             //        }
             //        else
             //        {
-            //            MessageBox.Show(null, "Enter a valid Email ID", "Error");
+            //            MessageBox.Show(null, "enter a valid email id", "error");
             //            return false;
             //        }
             //    }
             //    else
             //    {
-            //        MessageBox.Show(null, "Enter a valid Email ID", "Error");
+            //        MessageBox.Show(null, "enter a valid email id", "error");
             //        return false;
             //    }
 
