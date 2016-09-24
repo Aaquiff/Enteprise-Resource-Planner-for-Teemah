@@ -50,7 +50,6 @@ namespace ProductProcessManagement.Products
         private void button1_Click(object sender, EventArgs e)
         {
             saveProduct();
-            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -142,7 +141,7 @@ namespace ProductProcessManagement.Products
                 connection.CloseConnection();
 
                 MessageBox.Show("New Product has been added!");
-
+                this.Close();
             }
 
             catch (Exception ex)
@@ -167,6 +166,7 @@ namespace ProductProcessManagement.Products
                 cmd.ExecuteNonQuery();
                 connection.CloseConnection();
                 MessageBox.Show("Product has been updated");
+                this.Close();
             }
             catch (Exception ex)
             {

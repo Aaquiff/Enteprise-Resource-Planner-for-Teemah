@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MetroFramework;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,111 +19,6 @@ namespace FinanceManagement
         public Asset_Repair_US()
         {
             InitializeComponent();
-        }
-
-        private void button_add_Click(object sender, EventArgs e)
-        {
-            String message = "";
-            String passetID = " ";
-            String pserial = " ";
-            String pdescription = " ";
-            String pinsurance = "No";
-            String pwarranty = "No";
-            String pstatus = "";
-            String pjobdate = "";
-            try
-            {
-                if (textBox_repairid.Text.Length > 3)
-                {
-                    if ((String.IsNullOrWhiteSpace(textBox_repairid.Text)) || (textBox_repairid.Text == " ") || (textBox_repairid.Text[0] != 'R') || (textBox_repairid.Text[1] != 'I') || (textBox_repairid.Text[2] != 'D'))
-                        errorProvider1.SetError(textBox_repairid, "Eg: RID000");
-                    else
-                        errorProvider1.Clear();
-                }
-
-                passetID = textBox_assetID.Text;
-                if ((String.IsNullOrWhiteSpace(passetID)) || (passetID == " ") || (passetID[0] != 'A') || (passetID[1] != 'I') || (passetID[2] != 'D'))
-                    message += "Valid Asset ID\n";
-
-                if (textBox_serialnumber.ReadOnly == false)
-                {
-                    if (String.IsNullOrWhiteSpace(textBox_serialnumber.Text))
-                        message += "Serial Number\n";
-                    else
-                        pserial = textBox_serialnumber.Text;
-                }
-                else
-                    pserial = " ";;
-
-                if (radioButton_pending.Checked)
-                    pstatus = "Pending";
-                else if (radioButton_done.Checked)
-                    pstatus = "Done";
-                else
-                    pstatus = "Cannot";
-
-                pjobdate = dateTimePicker_repair.Value.ToString("yyyy-MM-dd");
-
-                if (checkBox_insurance.Checked)
-                    pinsurance = "Yes";
-
-                if (checkBox_warranty.Checked)
-                    pwarranty = "Yes";
-
-                if (String.IsNullOrWhiteSpace(richTextBox_problem.Text) || richTextBox_problem.Text == "Please enter the problem specified")
-                    message += "Description";
-                else
-                    pdescription = richTextBox_problem.Text;
-
-                if (message == "")
-                {
-                    DialogResult result;
-                    result = MessageBox.Show("Do you want to Proceed?", "Please confirm the update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            DBConnects connection = new DBConnects();
-                            connection.OpenConnection();
-
-                            MySqlConnection returnConn = new MySqlConnection();
-                            returnConn = connection.GetConnection();
-
-                            string query = "UPDATE asset_repair SET Job_Date ='" + pjobdate + "', Job_Status='" + pstatus + "', Problem_Specified ='" + richTextBox_problem.Text + "', Serial_Number='" + textBox_serialnumber.Text + "', Warranty_Status='" + pwarranty + "', Insurance_Status='" + pinsurance + "' where Repair_ID='" + textBox_repairid.Text + "'";
-
-                            MySqlCommand cmd = new MySqlCommand(query, returnConn);
-                            cmd.Connection = returnConn;
-                            cmd.ExecuteNonQuery();
-                            connection.CloseConnection();
-                            MessageBox.Show("Asset information updated");
-
-                            //refresh
-                            textBox_repairid.Clear();
-                            textBox_assetID.Clear();
-                            textBox_serialnumber.Clear();
-                            checkBox_insurance.Checked = false;
-                            checkBox_warranty.Checked = false;
-                            radioButton_cannot.Checked = false;
-                            radioButton_done.Checked = false;
-                            radioButton_pending.Checked = false;
-                            richTextBox_problem.Clear();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                    }
-                }
-                else
-                    MessageBox.Show("" + message, "Please Provide", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            FillGrid();
         }
 
         private void radioButton_cannot_CheckedChanged(object sender, EventArgs e)
@@ -221,32 +117,18 @@ namespace FinanceManagement
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MetroMessageBox.Show(this,ex.Message);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this,ex.Message);
             }
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void button_refresh_Click(object sender, EventArgs e)
-        {
-            FillGrid();
-            textBox_repairid.Clear();
-            textBox_assetID.Clear();
-            textBox_serialnumber.Clear();
-            checkBox_insurance.Checked = false;
-            checkBox_warranty.Checked = false;
-            radioButton_cannot.Checked = false;
-            radioButton_done.Checked = false;
-            radioButton_pending.Checked = false;
-            richTextBox_problem.Clear();
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -272,13 +154,6 @@ namespace FinanceManagement
         private void label9_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void button_back_Click(object sender, EventArgs e)
-        {
-            AssetRepair asset = new AssetRepair();
-            asset.Show();
-            this.Close();
         }
 
         private void richTextBox_problem_TextChanged(object sender, EventArgs e)
@@ -330,13 +205,6 @@ namespace FinanceManagement
             dataGridView2.DataSource = ds.Tables["asset_repair"].DefaultView;
         }
 
-        private void button_search_Click(object sender, EventArgs e)
-        {
-            if ((textBox_assetID.Text == "") || (textBox_assetID.Text==" "))
-                MessageBox.Show("Please provide a Asset ID");
-            FillSpecific();
-        }
-
         public void FillSpecific()
         {
             String passetid;
@@ -373,6 +241,161 @@ namespace FinanceManagement
                 radioButton_pending.Checked = false;
                 richTextBox_problem.Clear();
             }
+        }
+
+        private void dataGridView2_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            rowindex = dataGridView2.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dataGridView2.Rows[rowindex];
+            cclick = Convert.ToString(selectedRow.Cells["repair"].Value);
+            textBox_repairid.Text = cclick;
+            if ((cclick == " ") || (cclick == null) || (cclick == ""))
+            {
+                textBox_repairid.Clear();
+                textBox_assetID.Clear();
+                textBox_serialnumber.Clear();
+                checkBox_insurance.Checked = false;
+                checkBox_warranty.Checked = false;
+                radioButton_cannot.Checked = false;
+                radioButton_done.Checked = false;
+                radioButton_pending.Checked = false;
+                richTextBox_problem.Clear();
+            }
+
+
+        }
+
+        private void button_back_Click_1(object sender, EventArgs e)
+        {
+            AssetRepair asset = new AssetRepair();
+            asset.Show();
+            this.Close();
+        }
+
+        private void button_search_Click(object sender, EventArgs e)
+        {
+            if ((textBox_assetID.Text == "") || (textBox_assetID.Text == " "))
+                MetroMessageBox.Show(this,"Please provide a Asset ID");
+            FillSpecific();
+        }
+
+        private void button_update_Click(object sender, EventArgs e)
+        {
+            String message = "";
+            String passetID = " ";
+            String pserial = " ";
+            String pdescription = " ";
+            String pinsurance = "No";
+            String pwarranty = "No";
+            String pstatus = "";
+            String pjobdate = "";
+            try
+            {
+                if (textBox_repairid.Text.Length > 3)
+                {
+                    if ((String.IsNullOrWhiteSpace(textBox_repairid.Text)) || (textBox_repairid.Text == " ") || (textBox_repairid.Text[0] != 'R') || (textBox_repairid.Text[1] != 'I') || (textBox_repairid.Text[2] != 'D'))
+                        errorProvider1.SetError(textBox_repairid, "Eg: RID000");
+                    else
+                        errorProvider1.Clear();
+                }
+
+                passetID = textBox_assetID.Text;
+                if ((String.IsNullOrWhiteSpace(passetID)) || (passetID == " ") || (passetID[0] != 'A') || (passetID[1] != 'I') || (passetID[2] != 'D'))
+                    message += "Valid Asset ID\n";
+
+                if (textBox_serialnumber.ReadOnly == false)
+                {
+                    if (String.IsNullOrWhiteSpace(textBox_serialnumber.Text))
+                        message += "Serial Number\n";
+                    else
+                        pserial = textBox_serialnumber.Text;
+                }
+                else
+                    pserial = " "; ;
+
+                if (radioButton_pending.Checked)
+                    pstatus = "Pending";
+                else if (radioButton_done.Checked)
+                    pstatus = "Done";
+                else
+                    pstatus = "Cannot";
+
+                pjobdate = dateTimePicker_repair.Value.ToString("yyyy-MM-dd");
+
+                if (checkBox_insurance.Checked)
+                    pinsurance = "Yes";
+
+                if (checkBox_warranty.Checked)
+                    pwarranty = "Yes";
+
+                if (String.IsNullOrWhiteSpace(richTextBox_problem.Text) || richTextBox_problem.Text == "Please enter the problem specified")
+                    message += "Description";
+                else
+                    pdescription = richTextBox_problem.Text;
+
+                if (message == "")
+                {
+                    DialogResult result;
+                    result = MetroMessageBox.Show(this,"Do you want to Proceed?", "Please confirm the update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            DBConnects connection = new DBConnects();
+                            connection.OpenConnection();
+
+                            MySqlConnection returnConn = new MySqlConnection();
+                            returnConn = connection.GetConnection();
+
+                            string query = "UPDATE asset_repair SET Job_Date ='" + pjobdate + "', Job_Status='" + pstatus + "', Problem_Specified ='" + richTextBox_problem.Text + "', Serial_Number='" + textBox_serialnumber.Text + "', Warranty_Status='" + pwarranty + "', Insurance_Status='" + pinsurance + "' where Repair_ID='" + textBox_repairid.Text + "'";
+
+                            MySqlCommand cmd = new MySqlCommand(query, returnConn);
+                            cmd.Connection = returnConn;
+                            cmd.ExecuteNonQuery();
+                            connection.CloseConnection();
+                            MessageBox.Show("Asset information updated");
+
+                            //refresh
+                            textBox_repairid.Clear();
+                            textBox_assetID.Clear();
+                            textBox_serialnumber.Clear();
+                            checkBox_insurance.Checked = false;
+                            checkBox_warranty.Checked = false;
+                            radioButton_cannot.Checked = false;
+                            radioButton_done.Checked = false;
+                            radioButton_pending.Checked = false;
+                            richTextBox_problem.Clear();
+                        }
+                        catch (Exception ex)
+                        {
+                            MetroMessageBox.Show(this,ex.Message);
+                        }
+                    }
+                }
+                else
+                    MetroMessageBox.Show(this,"" + message, "Please Provide", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this,ex.Message);
+            }
+
+            FillGrid();
+        }
+
+        private void button_refresh_Click(object sender, EventArgs e)
+        {
+            FillGrid();
+            textBox_repairid.Clear();
+            textBox_assetID.Clear();
+            textBox_serialnumber.Clear();
+            checkBox_insurance.Checked = false;
+            checkBox_warranty.Checked = false;
+            radioButton_cannot.Checked = false;
+            radioButton_done.Checked = false;
+            radioButton_pending.Checked = false;
+            richTextBox_problem.Clear();
         }
 
     }

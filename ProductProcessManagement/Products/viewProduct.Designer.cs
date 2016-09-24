@@ -291,7 +291,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "viewProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "viewProduct";
+            this.Text = "View Product";
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);

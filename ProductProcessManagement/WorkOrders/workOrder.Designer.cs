@@ -43,7 +43,6 @@
             this.startDate = new System.Windows.Forms.Label();
             this.reference = new System.Windows.Forms.Label();
             this.buttonInitEdit = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -54,6 +53,8 @@
             this.button2Edit = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonReset = new System.Windows.Forms.Button();
+            this.textBox12 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -71,6 +72,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(1014, 571);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -170,9 +172,9 @@
             this.quantity.BackColor = System.Drawing.Color.White;
             this.quantity.Location = new System.Drawing.Point(213, 143);
             this.quantity.Name = "quantity";
-            this.quantity.Size = new System.Drawing.Size(19, 13);
+            this.quantity.Size = new System.Drawing.Size(38, 13);
             this.quantity.TabIndex = 25;
-            this.quantity.Text = "0g";
+            this.quantity.Text = "0 units";
             // 
             // startDate
             // 
@@ -209,14 +211,6 @@
             this.buttonInitEdit.Text = "Edit";
             this.buttonInitEdit.UseVisualStyleBackColor = false;
             this.buttonInitEdit.Click += new System.EventHandler(this.buttonInitEdit_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(216, 174);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(259, 20);
-            this.textBox1.TabIndex = 30;
             // 
             // tableLayoutPanel1
             // 
@@ -381,17 +375,41 @@
             this.buttonReset.UseVisualStyleBackColor = false;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
+            // textBox12
+            // 
+            this.textBox12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textBox12.FormattingEnabled = true;
+            this.textBox12.Items.AddRange(new object[] {
+            "Nintavur Inventory",
+            "Batticaloa Inventory",
+            "Kalmunai Inventory"});
+            this.textBox12.Location = new System.Drawing.Point(216, 174);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(259, 21);
+            this.textBox12.TabIndex = 36;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(216, 177);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 37;
+            this.label8.Text = "label8";
+            // 
             // workOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 571);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.textBox12);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.button2Edit);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonInitEdit);
             this.Controls.Add(this.reference);
             this.Controls.Add(this.startDate);
@@ -436,7 +454,6 @@
         private System.Windows.Forms.Label startDate;
         private System.Windows.Forms.Label reference;
         private System.Windows.Forms.Button buttonInitEdit;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel2;
@@ -447,6 +464,8 @@
         private System.Windows.Forms.Button button2Edit;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.ComboBox textBox12;
+        private System.Windows.Forms.Label label8;
 
     }
 }

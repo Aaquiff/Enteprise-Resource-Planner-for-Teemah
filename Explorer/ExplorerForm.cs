@@ -215,6 +215,7 @@ namespace Explorer
             
             try
             {
+                panel1.BackColor = Color.OliveDrab;
                 loadForm(new frmManagerSupplier());
             }
             catch (Exception ex)
@@ -228,6 +229,7 @@ namespace Explorer
             
             try
             {
+                panel1.BackColor = Color.OliveDrab;
                 loadForm(new OrderDetail());
             }
             catch (Exception ex)
@@ -241,6 +243,7 @@ namespace Explorer
             
             try
             {
+                panel1.BackColor = Color.OliveDrab;
                 loadForm(new InvoiceDetails());
             }
             catch (Exception ex)
@@ -474,7 +477,7 @@ namespace Explorer
 
         private void button22_Click(object sender, EventArgs e)
         {
-            panel1.BackColor = Color.Blue;
+            panel1.BackColor = Color.OliveDrab;
             loadForm(new Dashboard());
         }
 
@@ -600,6 +603,7 @@ namespace Explorer
             
             try
             {
+                panel1.BackColor = Color.OliveDrab;
                 loadForm(new frmRawMaterialRequests());
             }
             catch (Exception ex)
@@ -634,6 +638,7 @@ namespace Explorer
         {
             try
             {
+                panel1.BackColor = Color.OliveDrab;
                 loadForm(new RawMaterialManagement.BasicData.tbwCurrency());
             }
             catch (Exception ex)
@@ -646,6 +651,7 @@ namespace Explorer
         {
             try
             {
+                panel1.BackColor = Color.OliveDrab;
                 loadForm(new RawMaterialDashBoard());
             }
             catch (Exception ex)
@@ -658,6 +664,7 @@ namespace Explorer
         {
             try
             {
+                panel1.BackColor = Color.OliveDrab;
                 loadForm(new tbwRawSettings());
             }
             catch (Exception ex)

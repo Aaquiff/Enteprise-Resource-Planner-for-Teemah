@@ -48,6 +48,7 @@ namespace RawMaterialManagement.Invoice_Management
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             raw_invoice_tabBindingSource.EndEdit();
+            rawDataSet.raw_currency_tab.RejectChanges();
             if (rawDataSet.HasChanges())
             {
 

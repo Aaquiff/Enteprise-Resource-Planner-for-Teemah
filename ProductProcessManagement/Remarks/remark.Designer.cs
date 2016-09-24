@@ -292,6 +292,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(694, 517);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // createButton
             // 
@@ -385,8 +386,8 @@
             this.comboBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStatus.FormattingEnabled = true;
             this.comboBoxStatus.Items.AddRange(new object[] {
-            "reviewed",
-            "not reviewed"});
+            "Reviewed",
+            "Not Reviewed"});
             this.comboBoxStatus.Location = new System.Drawing.Point(205, 263);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(194, 21);
@@ -526,7 +527,7 @@
             this.MaximizeBox = false;
             this.Name = "remark";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Remarks";
+            this.Text = "Remark";
             this.panel5.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

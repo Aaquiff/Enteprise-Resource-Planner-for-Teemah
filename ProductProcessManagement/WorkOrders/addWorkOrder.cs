@@ -39,6 +39,7 @@ namespace ProductProcessManagement.WorkOrders
             quantity.Value = Tquantity;
             productId.Text = productName;
             reference.Text = "" + Treference;
+            button3.Enabled = false; // to Disable the button
         }
 
 
@@ -106,13 +107,14 @@ namespace ProductProcessManagement.WorkOrders
                     connection.CloseConnection();
 
                     MessageBox.Show("New Work Order has been Started!");
+                    ProductProcessManagement.WorkOrderCtrl.onStarted();
 
                 }
 
                 catch (Exception ex)
                 {
-                    //MessageBox.Show("Something went wrong while creating a new work order!");
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Something went wrong while creating a new work order!");
+                    //MessageBox.Show(ex.Message);
                 }
 
 
@@ -135,15 +137,51 @@ namespace ProductProcessManagement.WorkOrders
                         cmd.Connection = returnConn;
                         cmd.ExecuteNonQuery();
                         connection.CloseConnection();
+                        WorkOrderCtrl.onProductAccpeted();
                         //MessageBox.Show("Remark has been edited");
                     }
                     catch (Exception ex)
                     {
-                        //MessageBox.Show("Something went wrong while executing the action!");
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("Something went wrong while executing the action!");
+                        //MessageBox.Show(ex.Message);
                         //throw;
                     }
                 }
+
+                //Creating Raw material Request
+                try
+                {
+                    DBConnect connection = new DBConnect();
+                    connection.OpenConnection();
+                    MySqlConnection returnConn = new MySqlConnection();
+                    returnConn = connection.GetConnection();
+                    MySqlCommand cmd;
+
+                    string query = "insert into RawMatReq(productId,quantity,requestDate,orderDate,status,notes,reference) values(@1,@2,@3,@4,'pending',null,null);";
+                    cmd = new MySqlCommand(query, returnConn);
+                    //cmd.CommandType = CommandType.Text; //default
+
+                    cmd.Parameters.AddWithValue("@1", product);
+                    cmd.Parameters.AddWithValue("@2", quantity.Value);
+                    cmd.Parameters.AddWithValue("@3", startDate.Value);
+                    cmd.Parameters.AddWithValue("@4", startDate.Value.AddDays(1));
+
+                    //connection.OpenConnection();
+                    cmd.ExecuteNonQuery();
+                    connection.CloseConnection();
+
+                    //MessageBox.Show("Raw Material Request as been sent!");
+                    //ProductProcessManagement.WorkOrderCtrl.onStarted();
+
+                }
+
+                catch (Exception ex)
+                {
+                    //MessageBox.Show("Something went wrong while making a raw material request!");
+                    //MessageBox.Show(ex.Message);
+                }
+                WorkOrderCtrl.onStarted();
+                this.Close();
             
             }
         
@@ -156,6 +194,10 @@ namespace ProductProcessManagement.WorkOrders
                 return false;
             }
 
+            if (exportPoint.Text == "") {
+                MessageBox.Show("Please select an export point!");
+                return false;
+            }
             //No Other Validation Needed as the they are valdied in teh element itself
             return true;
         }
@@ -186,7 +228,7 @@ namespace ProductProcessManagement.WorkOrders
         private void button1_Click(object sender, EventArgs e)
         {
             addWorkOrderAction();
-            this.Close();
+           
         }
 
         private void button2_Click(object sender, EventArgs e)

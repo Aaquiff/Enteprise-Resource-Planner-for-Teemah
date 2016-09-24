@@ -155,6 +155,10 @@
       <Project>{7a1f3ab0-c5e3-4234-a9d5-d15ef65714b0}</Project>
       <Name>MySQLDatabaseAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RawMaterialManagement\RawMaterialManagement.csproj">
+      <Project>{075cc06a-38b4-4f27-84ba-29078bb5c4a8}</Project>
+      <Name>RawMaterialManagement</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

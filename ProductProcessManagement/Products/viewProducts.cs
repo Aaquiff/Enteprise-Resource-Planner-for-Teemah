@@ -18,7 +18,7 @@ namespace ProductProcessManagement.Products
         public viewProducts()
         {
             InitializeComponent();
-            TQuery = "SELECT * FROM Products";
+            TQuery = "SELECT productId as 'Product Id', name as 'Name',description as 'Description',notes as 'Notes' FROM Products";
             bindResults();
             resizeWindowD();
         }
@@ -65,25 +65,25 @@ namespace ProductProcessManagement.Products
         }
 
         private void searchId() {
-            if (textBox1.Text.Trim() == "")
+            if (textBox1.Text.Trim() == "" || textBox1.Text.Trim() == "Enter a Product Id...")
             {
                 MessageBox.Show("Please enter a productId!", "Please check the inputs");
             }
             else {
-                TQuery = "SELECT * FROM Products WHERE productId = " + textBox1.Text.Trim() + "";
+                TQuery = "SELECT productId as 'Product Id', name as 'Name',description as 'Description',notes as 'Notes' FROM Products WHERE productId = " + textBox1.Text.Trim() + "";
                 bindResults();
             }
         }
 
         private void searchName()
         {
-            if (textBox2.Text.Trim() == "")
+            if (textBox2.Text.Trim() == "" || textBox2.Text.Trim() == "Enter a Product Name...")
             {
                 MessageBox.Show("Please enter a search term!", "Please check the inputs");
             }
             else
             {
-                TQuery = "SELECT * FROM Products WHERE name LIKE '%" + textBox2.Text.Trim() + "%'";
+                TQuery = "SELECT productId as 'Product Id', name as 'Name',description as 'Description',notes as 'Notes' FROM Products WHERE name LIKE '%" + textBox2.Text.Trim() + "%'";
                 bindResults();
             }
         }
@@ -95,33 +95,43 @@ namespace ProductProcessManagement.Products
 
         private void deleteProduct(int productId)
         {
-            if (productId >= 0) {
-                try
+            if (productId >= 0)
+            {
+
+                DialogResult dr = MessageBox.Show("All data related to the prduct will be deleted! Do you wish to continue?", "Do you wish to continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dr == DialogResult.Yes)
                 {
-                    DBConnect connection = new DBConnect();
-                    connection.OpenConnection();
-                    MySqlConnection returnConn = new MySqlConnection();
-                    returnConn = connection.GetConnection();
+                    try
+                    {
+                        DBConnect connection = new DBConnect();
+                        connection.OpenConnection();
+                        MySqlConnection returnConn = new MySqlConnection();
+                        returnConn = connection.GetConnection();
 
 
-                    string query = "DELETE FROM Products WHERE productId=" + productId;
-                    MySqlCommand cmd = new MySqlCommand(query, returnConn);
-                    //cmd.CommandType = CommandType.Text; //default
+                        string query = "DELETE FROM Products WHERE productId=" + productId;
+                        MySqlCommand cmd = new MySqlCommand(query, returnConn);
+                        //cmd.CommandType = CommandType.Text; //default
 
-                    //connection.OpenConnection();
-                    cmd.ExecuteNonQuery();
-                    connection.CloseConnection();
+                        //connection.OpenConnection();
+                        cmd.ExecuteNonQuery();
+                        connection.CloseConnection();
 
-                    MessageBox.Show("Product has been deleted!");
-                    bindResults();
+                        MessageBox.Show("Product has been deleted!");
+                        bindResults();
 
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Something went wrong while deleting the Product!");
+                        //MessageBox.Show(ex.Message);
+                    }
                 }
-
-                catch (Exception ex)
-                {
-                    //MessageBox.Show("Something went wrong while deleting the Product!");
-                    MessageBox.Show(ex.Message);
-                }
+            }
+            else {
+                MessageBox.Show("Select a product to delete!");
+            
             }
         }
 
@@ -129,7 +139,6 @@ namespace ProductProcessManagement.Products
             if (productId >= 0)
             {
                 addEditProduct editWindow = new Products.addEditProduct(productId);
-                
                 //http://stackoverflow.com/questions/4759334/how-can-i-close-a-login-form-and-show-the-main-form-without-my-application-closi
                 editWindow.FormClosed += new FormClosedEventHandler(formsClosed);
                 editWindow.Show();
@@ -146,6 +155,7 @@ namespace ProductProcessManagement.Products
             if (productId >= 0)
             {
                 viewProduct viewWindow = new Products.viewProduct(productId);
+                viewWindow.FormClosed += new FormClosedEventHandler(formsClosed);
                 viewWindow.Show();
             }
         }
@@ -177,7 +187,7 @@ namespace ProductProcessManagement.Products
                 MySqlDataAdapter ada = new MySqlDataAdapter(cmd);
                 ada.Fill(dt);
                 dataGridView1.DataSource = dt;
-
+                dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 conn.CloseConnection();
             }
 
@@ -192,7 +202,7 @@ namespace ProductProcessManagement.Products
         //Refresh Products Button Click
         private void button3_Click(object sender, EventArgs e)
         {
-            TQuery = "SELECT * FROM Products";
+            TQuery = "SELECT productId as 'Product Id', name as 'Name',description as 'Description',notes as 'Notes' FROM Products";
             bindResults();
         }
 
@@ -233,6 +243,43 @@ namespace ProductProcessManagement.Products
                 MessageBox.Show("Soemthing went wrong!");
                 return -1;
             }
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Enter a Product Id...")
+            {
+                textBox1.Text = "";
+            }
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                textBox1.Text = "Enter a Product Id...";
+            }
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "Enter a Product Name...")
+            {
+                textBox2.Text = "";
+            }
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                textBox2.Text = "Enter a Product Name...";
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
 

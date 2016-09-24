@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MetroFramework;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,21 +19,6 @@ namespace FinanceManagement
         public Asset_US()
         {
             InitializeComponent();
-        }
-
-        private void button_add_Click(object sender, EventArgs e)
-        {
-            FillSpecific();/*
-            comboBox_property.SelectedItem = -1;
-            textBox_serialnumber.Clear();
-            textBox_ownership.Clear();
-            textBox_value.Clear();
-            checkBox_insurance.Checked = false;
-            checkBox_warranty.Checked = false;
-            checkBox_status.Checked = false;
-            textBox_lifetime.Clear();
-            textBox_usage.Clear();
-            richTextBox_description.Clear();*/
         }
 
         public void FillGrid()
@@ -61,23 +47,6 @@ namespace FinanceManagement
             textBox_lifetime.Clear();
             textBox_usage.Clear();
             richTextBox_description.Clear();
-        }
-
-        private void button_back_Click(object sender, EventArgs e)
-        {
-            AssetManagement asset = new AssetManagement();
-            this.Close();
-            asset.Show();
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void textBox_assetID_TextChanged(object sender, EventArgs e)
@@ -145,12 +114,12 @@ namespace FinanceManagement
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MetroMessageBox.Show(this,ex.Message);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this,ex.Message);
             }
         }
 
@@ -172,7 +141,116 @@ namespace FinanceManagement
             dataGridView2.DataSource = ds.Tables["asset"].DefaultView;
         }
 
-        private void button_update_Click(object sender, EventArgs e)
+        public bool IsDigit(String temp)
+        {
+            bool result = false;
+            for (int i = 0; i < temp.Length; i++)
+            {
+                char c = temp[i];
+                if (c >= '0' && c <= '9')
+                    result = true;
+
+                else
+                {
+                    result = false;
+                    break;
+                }
+
+
+            }
+            return result;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void textBox_ownership_TextChanged(object sender, EventArgs e)
+        {
+            if (IsDigit(textBox_ownership.Text))
+                errorProvider1.SetError(textBox_ownership, "Cannot contain digits");
+            else
+                errorProvider1.Clear();
+        }
+
+        private void textBox_value_TextChanged(object sender, EventArgs e)
+        {
+            if (!IsDigit(textBox_value.Text))
+                errorProvider1.SetError(textBox_value, "Cannot contain letter");
+            else
+                errorProvider1.Clear();
+        }
+
+        private void textBox_lifetime_TextChanged(object sender, EventArgs e)
+        {
+            if (!IsDigit(textBox_lifetime.Text))
+                errorProvider1.SetError(textBox_lifetime, "Cannot contain letter");
+            else
+                errorProvider1.Clear();
+        }
+
+        private void textBox_usage_TextChanged(object sender, EventArgs e)
+        {
+            if (!IsDigit(textBox_lifetime.Text))
+                errorProvider1.SetError(textBox_lifetime, "Cannot contain letter");
+            else
+                errorProvider1.Clear();
+        }
+
+        private void comboBox_property_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox_property.SelectedIndex != -1)
+            {
+                String temp = comboBox_property.SelectedItem.ToString();
+
+                if (temp == "Building")
+                    textBox_serialnumber.ReadOnly = true;
+                else if (temp == "Land")
+                    textBox_serialnumber.ReadOnly = true;
+                else
+                    textBox_serialnumber.ReadOnly = false;
+            }
+        }
+
+        private void textBox_serialnumber_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            rowindex = dataGridView2.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dataGridView2.Rows[rowindex];
+            cclick = Convert.ToString(selectedRow.Cells["asset"].Value);
+            textBox_assetID.Text = cclick;
+            if ((cclick == " ") || (cclick == null) || (cclick == ""))
+            {
+                comboBox_property.SelectedItem = -1;
+                textBox_serialnumber.Clear();
+                textBox_ownership.Clear();
+                textBox_value.Clear();
+                checkBox_insurance.Checked = false;
+                checkBox_warranty.Checked = false;
+                checkBox_status.Checked = false;
+                textBox_lifetime.Clear();
+                textBox_usage.Clear();
+                richTextBox_description.Clear();
+            }
+        }
+
+        private void button_back_Click_1(object sender, EventArgs e)
+        {
+            AssetManagement asset = new AssetManagement();
+            this.Close();
+            asset.Show();
+        }
+
+        private void button_search_Click(object sender, EventArgs e)
+        {
+            FillSpecific();
+        }
+
+        private void button_update_Click_1(object sender, EventArgs e)
         {
             //textBox_assetID.ReadOnly = true;
             String message = "";
@@ -247,7 +325,7 @@ namespace FinanceManagement
                 if (message == "")
                 {
                     DialogResult result;
-                    result = MessageBox.Show("Do you want to Proceed?", "Please confirm the update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    result = MetroMessageBox.Show(this,"Do you want to Proceed?", "Please confirm the update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
                         try
@@ -267,6 +345,7 @@ namespace FinanceManagement
                             MessageBox.Show("Asset information updated");
 
                             //refresh
+                            FillGrid();
                             comboBox_property.SelectedItem = -1;
                             textBox_serialnumber.Clear();
                             textBox_ownership.Clear();
@@ -280,121 +359,34 @@ namespace FinanceManagement
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(ex.Message);
+                            MetroMessageBox.Show(this,ex.Message);
                         }
                     }
                 }
                 else
-                    MessageBox.Show("" + message, "Please Provide", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MetroMessageBox.Show(this,"" + message, "Please Provide", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this,ex.Message);
             }
         }
 
-        public bool IsDigit(String temp)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            bool result = false;
-            for (int i = 0; i < temp.Length; i++)
-            {
-                char c = temp[i];
-                if (c >= '0' && c <= '9')
-                    result = true;
-
-                else
-                {
-                    result = false;
-                    break;
-                }
-
-
-            }
-            return result;
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void textBox_ownership_TextChanged(object sender, EventArgs e)
-        {
-            if (IsDigit(textBox_ownership.Text))
-                errorProvider1.SetError(textBox_ownership, "Cannot contain digits");
-            else
-                errorProvider1.Clear();
-        }
-
-        private void textBox_value_TextChanged(object sender, EventArgs e)
-        {
-            if (!IsDigit(textBox_value.Text))
-                errorProvider1.SetError(textBox_value, "Cannot contain letter");
-            else
-                errorProvider1.Clear();
-        }
-
-        private void textBox_lifetime_TextChanged(object sender, EventArgs e)
-        {
-            if (!IsDigit(textBox_lifetime.Text))
-                errorProvider1.SetError(textBox_lifetime, "Cannot contain letter");
-            else
-                errorProvider1.Clear();
-        }
-
-        private void textBox_usage_TextChanged(object sender, EventArgs e)
-        {
-            if (!IsDigit(textBox_lifetime.Text))
-                errorProvider1.SetError(textBox_lifetime, "Cannot contain letter");
-            else
-                errorProvider1.Clear();
-        }
-
-        private void comboBox_property_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBox_property.SelectedIndex != -1)
-            {
-                String temp = comboBox_property.SelectedItem.ToString();
-
-                if (temp == "Building")
-                    textBox_serialnumber.ReadOnly = true;
-                else if (temp == "Land")
-                    textBox_serialnumber.ReadOnly = true;
-                else
-                    textBox_serialnumber.ReadOnly = false;
-            }
-        }
-
-        private void dataGridView2_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            rowindex = dataGridView2.SelectedCells[0].RowIndex;
-            DataGridViewRow selectedRow = dataGridView2.Rows[rowindex];
-            cclick = Convert.ToString(selectedRow.Cells["Asset_ID"].Value);
-            textBox_assetID.Text = cclick;
-            if ((cclick == " ") || (cclick == null) || (cclick ==""))
-            {
-                comboBox_property.SelectedItem = -1;
-                textBox_serialnumber.Clear();
-                textBox_ownership.Clear();
-                textBox_value.Clear();
-                checkBox_insurance.Checked = false;
-                checkBox_warranty.Checked = false;
-                checkBox_status.Checked = false;
-                textBox_lifetime.Clear();
-                textBox_usage.Clear();
-                richTextBox_description.Clear();
-            }
-
-        }
-
-        private void textBox_serialnumber_TextChanged(object sender, EventArgs e)
-        {
-
+            FillGrid();
+            textBox_assetID.Clear();
+            comboBox_property.SelectedIndex = -1;
+            textBox_serialnumber.Clear();
+            textBox_ownership.Clear();
+            textBox_value.Clear();
+            checkBox_insurance.Checked = false;
+            checkBox_warranty.Checked = false;
+            checkBox_status.Checked = false;
+            textBox_lifetime.Clear();
+            textBox_usage.Clear();
+            richTextBox_description.Clear();
         }
     }
 }

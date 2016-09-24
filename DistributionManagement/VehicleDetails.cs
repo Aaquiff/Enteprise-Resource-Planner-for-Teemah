@@ -39,13 +39,15 @@ namespace DistributionManagement
             {
                 conn.Open();
                 MySqlCommand Cmd = new MySqlCommand
-                    (@"INSERT INTO vehicle_tab (vehicle_type,vehicle_id,vehicle_no,vehicle_size,date) 
-                    VALUES (@VehiType,@VehiId,@VehiNo,@VehiSiz,@Date)", conn);
+                (@"INSERT INTO vehicle_tab (VehiType,VehiNo) 
+                    VALUES (@VehiType,@VehiNo)", conn);
+//                    (@"INSERT INTO vehicle_tab (VehiType,VehiId,VehiNo) 
+//                    VALUES (@VehiType,@VehiId,@VehiNo)", conn);
                 Cmd.Parameters.AddWithValue("@VehiType", VehiType.Text);
-                Cmd.Parameters.AddWithValue("@VehiId", VehiId.Text);
+               // Cmd.Parameters.AddWithValue("@VehiId", VehiId.Text);
                 Cmd.Parameters.AddWithValue("@VehiNo", VehiNo.Text);
-                Cmd.Parameters.AddWithValue("@VehiSiz", VehiSiz.Text);
-                Cmd.Parameters.AddWithValue("@Date", DateTime.Now);
+                //Cmd.Parameters.AddWithValue("@VehiSiz", VehiSiz.Text);
+                //Cmd.Parameters.AddWithValue("@Date", DateTime.Now);
 
                 if (Cmd.ExecuteNonQuery() == 1)
                 {
@@ -53,7 +55,7 @@ namespace DistributionManagement
                     VehiType.Text = "";
                     VehiId.Text = "";
                     VehiNo.Text = "";
-                    VehiSiz.Text = "";
+                    //VehiSiz.Text = "";
                     disp_data();
                 }                
 
@@ -74,12 +76,14 @@ namespace DistributionManagement
 
         public void disp_data()
         {
-            MySqlCommand Cmd = new MySqlCommand("select * from vehicle_tab",conn);
+            MySqlCommand Cmd = new MySqlCommand("select * from vehicle_tab", conn);
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(Cmd);
             da.Fill(dt);
-            dataGridView1.DataSource = dt;
-
+            dgv_vehicle.DataSource = dt;
+            dgv_vehicle.Columns[0].HeaderText = "Vehicle Type";
+            dgv_vehicle.Columns[1].HeaderText = "Vehicle ID";
+            dgv_vehicle.Columns[2].HeaderText = "Vehicle Number";
         }
         
         private void VehiType_TextChanged(object sender, EventArgs e)
@@ -101,13 +105,28 @@ namespace DistributionManagement
         private void button2_Click(object sender, EventArgs e)
         {
             updateVehicle();
+            disp_data();
         }
 
         private void updateVehicle()
         {
-            MySqlCommand Cmd = new MySqlCommand("Update vehicle_tab set vehicle_id= '" + VehiType.Text + "' , vehicle_no='" + VehiNo + "' , vehicle_size='" + VehiSiz + "' , date='" + Date + "' where vehicle_type='" + VehiId.Text + "'",conn);
-            Cmd.ExecuteNonQuery();            
-            MessageBox.Show("Update Successfully");
+            try
+            {
+                conn.Open();
+                MySqlCommand Cmd = new MySqlCommand("Update vehicle_tab set VehiType= '" + VehiType.Text + "' , VehiNo='" + VehiNo.Text + "'  where VehiId='" + VehiId.Text + "'", conn);
+                Cmd.ExecuteNonQuery();
+                MessageBox.Show("Update Successfully");
+            }
+            catch (Exception ex)
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -116,7 +135,7 @@ namespace DistributionManagement
             try
             {
                 conn.Open();
-                MySqlCommand Cmd = new MySqlCommand("delete from vehicle_tab where vehicle_type ='" + VehiType.Text + "'",conn);
+                MySqlCommand Cmd = new MySqlCommand("delete from vehicle_tab where VehiId ='" + VehiId.Text + "'", conn);
                 Cmd.ExecuteNonQuery();
             
                 MessageBox.Show("Delete Successfully");
@@ -139,18 +158,18 @@ namespace DistributionManagement
             VehiType.Text = "";
             VehiId.Text = "";
             VehiNo.Text = "";
-            VehiSiz.Text = "";
+            //VehiSiz.Text = "";
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            conn.Open();
-            MySqlCommand Cmd = new MySqlCommand("select * from vehicle_tab where vehicle_type ='" + VehiType.Text + "'",conn);
-            DataTable dt = new DataTable();
-            MySqlDataAdapter da = new MySqlDataAdapter(Cmd);
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            conn.Close();
+            //conn.Open();
+            //MySqlCommand Cmd = new MySqlCommand("select * from vehicle_tab where vehicle_type ='" + VehiType.Text + "'",conn);
+            //DataTable dt = new DataTable();
+            //MySqlDataAdapter da = new MySqlDataAdapter(Cmd);
+            //da.Fill(dt);
+            //dgv_vehicle.DataSource = dt;
+            //conn.Close();
             
         }
 
@@ -164,5 +183,41 @@ namespace DistributionManagement
         //private System.Windows.Forms.TextBox VehiSiz;
 
         internal MySqlConnection returnconn { get; set; }
+
+        private void dgv_vehicle_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
+            
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("select * from vehicle_tab where VehiId like '" + textBox4.Text + "%' ", conn);
+                // MessageBox.Show(query);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dgv_vehicle.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void dgv_vehicle_RowHeaderMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            VehiType.Text = dgv_vehicle.Rows[e.RowIndex].Cells[0].Value.ToString();
+            VehiId.Text = dgv_vehicle.Rows[e.RowIndex].Cells[1].Value.ToString();
+            VehiNo.Text = dgv_vehicle.Rows[e.RowIndex].Cells[2].Value.ToString();
+        }
     }
 }

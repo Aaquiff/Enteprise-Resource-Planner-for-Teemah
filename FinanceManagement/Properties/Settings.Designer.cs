@@ -33,5 +33,15 @@ namespace FinanceManagement.Properties {
                 return ((string)(this["teemahConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;persistsecurityinfo=True;database=teemah")]
+        public string teemahConnectionString1 {
+            get {
+                return ((string)(this["teemahConnectionString1"]));
+            }
+        }
     }
 }

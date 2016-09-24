@@ -82,7 +82,7 @@ namespace ProductProcessManagement.Products
                 returnConn = conn.GetConnection();
 
 
-                query = "select pr.rawMaterialId,r.name,pr.quantity from Products_RawMaterials as pr,Products as p,raw_item_tab as r where pr.productId = p.productId and r.item_id = pr.rawMaterialId and pr.productId =" + productId;
+                query = "select pr.rawMaterialId as 'Item Id',r.name as 'Name',pr.quantity as 'Quantity' from Products_RawMaterials as pr,Products as p,raw_item_tab as r where pr.productId = p.productId and r.item_id = pr.rawMaterialId and pr.productId =" + productId;
 
                 //cmd.ExecuteNonQuery();
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);

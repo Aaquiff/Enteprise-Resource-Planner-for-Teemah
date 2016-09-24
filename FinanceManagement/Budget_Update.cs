@@ -23,7 +23,7 @@ namespace FinanceManagement
             InitializeComponent();
         }
 
-        private void button_delete_Click(object sender, EventArgs e)
+        /*private void button_delete_Click(object sender, EventArgs e)
         {
             String message = "";
             try
@@ -71,7 +71,7 @@ namespace FinanceManagement
                      pamount = Convert.ToDouble(textBox_total.Text);
                  else
                      message += "Total\n";*/
-                ptot = pemployee + pmaintanance + pmarketing + ptransport;
+               /* ptot = pemployee + pmaintanance + pmarketing + ptransport;
                 textBox_total.Text = ptot.ToString();
 
                 if (message == "")
@@ -98,7 +98,7 @@ namespace FinanceManagement
 
                             FillGrid();
                             //refresh
-                            /*comboBox_property.SelectedItem = -1;
+                            comboBox_property.SelectedItem = -1;
                             textBox_serialnumber.Clear();
                             textBox_ownership.Clear();
                             textBox_value.Clear();
@@ -107,7 +107,7 @@ namespace FinanceManagement
                             checkBox_status.Checked = false;
                             textBox_lifetime.Clear();
                             textBox_usage.Clear();
-                            richTextBox_description.Clear();*/
+                            richTextBox_description.Clear();
                         }
                         catch (Exception ex)
                         {
@@ -123,28 +123,14 @@ namespace FinanceManagement
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+        }*/
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowindex = dataGridView1.SelectedCells[0].RowIndex;
             DataGridViewRow selectedRow = dataGridView1.Rows[rowindex];
             String cclick = Convert.ToString(selectedRow.Cells["Budget_Year"].Value);
-            textBox_budgetid.Text = cclick;
-            /*if ((cclick == " ") || (cclick == null) || (cclick == ""))
-            {
-                comboBox_property.SelectedItem = -1;
-                textBox_serialnumber.Clear();
-                textBox_ownership.Clear();
-                textBox_value.Clear();
-                checkBox_insurance.Checked = false;
-                checkBox_warranty.Checked = false;
-                checkBox_status.Checked = false;
-                textBox_lifetime.Clear();
-                textBox_usage.Clear();
-                richTextBox_description.Clear();
-            }*/
-        }
+            textBox_budgetid.Text = cclick;        }
 
         private void textBox_budgetid_TextChanged(object sender, EventArgs e)
         {
@@ -231,21 +217,122 @@ namespace FinanceManagement
             dataGridView1.DataSource = ds.Tables["fms_budget"].DefaultView;
         }
 
-        private void button_refresh_Click(object sender, EventArgs e)
-        {
-            FillGrid();
-        }
-
         private void Budget_Update_Load(object sender, EventArgs e)
         {
             FillGrid();
         }
 
-        private void button_back_Click(object sender, EventArgs e)
+        private void dataGridView1_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowindex = dataGridView1.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dataGridView1.Rows[rowindex];
+            String cclick = Convert.ToString(selectedRow.Cells["budget"].Value);
+            textBox_budgetid.Text = cclick;
+        }
+
+        private void dateTimePicker_Budget_ValueChanged(object sender, EventArgs e)
+        {
+            /*dateTimePicker_Budget.MinDate = DateTime.Now;
+            dateTimePicker1.MinDate = dateTimePicker_Budget.Value.AddYears(1);*/
+        }
+
+        private void button_back_Click_1(object sender, EventArgs e)
         {
             this.Close();
             BudgetManagement budget = new BudgetManagement();
             budget.Show();
+        }
+
+        private void button_delete_Click_1(object sender, EventArgs e)
+        {
+            String message = "";
+            try
+            {
+                int pbudgetYear = 0;
+                pemployee = Convert.ToDouble(textBox_employee.Text);
+                pmaintanance = Convert.ToDouble(textBox_maintanance.Text);
+                pmarketing = Convert.ToDouble(textBox_marketing.Text);
+                ptransport = Convert.ToDouble(textBox_transport.Text);
+                String pstartdate = dateTimePicker_Budget.Value.ToString("yyyy-MM-dd");
+                String penddate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+                String pdescription = "";
+
+                if (IsDigit(textBox_budgetid.Text))
+                {
+                    pbudgetYear = Convert.ToInt32(textBox_budgetid.Text);
+                    if ((pbudgetYear > 1900) && (pbudgetYear < 2100))
+                    {
+
+                    }
+                    else
+                        message += "Valid Budget Year\n";
+                }
+                else
+                    message += "Valid Budget Year\n";
+
+                if (!IsDigit(textBox_employee.Text))
+                    message += "Employee Cost\n";
+
+                if (!IsDigit(textBox_maintanance.Text))
+                    message += "Maintanance Cost\n";
+
+                if (!IsDigit(textBox_transport.Text))
+                    message += "Transport Cost\n";
+
+                if (!IsDigit(textBox_marketing.Text))
+                    message += "Marketing Cost\n";
+
+                if (String.IsNullOrWhiteSpace(richTextBox_description.Text) || richTextBox_description.Text == "Type all other wanted details here")
+                    message += "Description\n";
+                else
+                    pdescription = richTextBox_description.Text;
+
+                ptot = pemployee + pmaintanance + pmarketing + ptransport;
+                textBox_total.Text = ptot.ToString();
+
+                if (message == "")
+                {
+                    DialogResult result;
+                    result = MessageBox.Show("Do you want to Proceed?", "Please confirm the update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            DBConnects connection = new DBConnects();
+                            connection.OpenConnection();
+
+                            MySqlConnection returnConn = new MySqlConnection();
+                            returnConn = connection.GetConnection();
+
+                            string query = "UPDATE fms_budget SET Budget_Start_Date='" + pstartdate + "', Budget_End_Date='" + penddate + "', Employee_Cost='" + textBox_employee.Text + "', Maintanance_Cost='" + textBox_maintanance.Text + "', Marketing_Cost='" + textBox_marketing.Text + "', Transport_Cost='" + textBox_transport.Text + "', Description='" + richTextBox_description.Text + "', Total_Value='" + textBox_total.Text + "' where Budget_Year='" + textBox_budgetid.Text + "'";
+
+                            MySqlCommand cmd = new MySqlCommand(query, returnConn);
+                            cmd.Connection = returnConn;
+                            cmd.ExecuteNonQuery();
+                            connection.CloseConnection();
+                            MessageBox.Show("Budget information updated");
+
+                            FillGrid();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                }
+                else
+                    MessageBox.Show("" + message, "Please Provide", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_refresh_Click_1(object sender, EventArgs e)
+        {
+            FillGrid();
         }
 
     }

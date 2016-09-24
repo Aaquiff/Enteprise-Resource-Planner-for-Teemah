@@ -41,11 +41,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.quantity = new System.Windows.Forms.NumericUpDown();
             this.startDate = new System.Windows.Forms.DateTimePicker();
-            this.exportPoint = new System.Windows.Forms.TextBox();
             this.reference = new System.Windows.Forms.TextBox();
             this.notes = new System.Windows.Forms.RichTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.exportPoint = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.quantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -195,13 +195,6 @@
             this.startDate.TabIndex = 19;
             this.startDate.Value = new System.DateTime(2016, 8, 25, 1, 36, 19, 0);
             // 
-            // exportPoint
-            // 
-            this.exportPoint.Location = new System.Drawing.Point(186, 221);
-            this.exportPoint.Name = "exportPoint";
-            this.exportPoint.Size = new System.Drawing.Size(259, 20);
-            this.exportPoint.TabIndex = 20;
-            // 
             // reference
             // 
             this.reference.BackColor = System.Drawing.Color.White;
@@ -248,15 +241,28 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // exportPoint
+            // 
+            this.exportPoint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.exportPoint.FormattingEnabled = true;
+            this.exportPoint.Items.AddRange(new object[] {
+            "Nintavur Inventory",
+            "Batticaloa Inventory",
+            "Kalmunai Inventory"});
+            this.exportPoint.Location = new System.Drawing.Point(186, 218);
+            this.exportPoint.Name = "exportPoint";
+            this.exportPoint.Size = new System.Drawing.Size(259, 21);
+            this.exportPoint.TabIndex = 24;
+            // 
             // addWorkOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(507, 499);
+            this.Controls.Add(this.exportPoint);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.notes);
             this.Controls.Add(this.reference);
-            this.Controls.Add(this.exportPoint);
             this.Controls.Add(this.startDate);
             this.Controls.Add(this.quantity);
             this.Controls.Add(this.button1);
@@ -297,9 +303,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NumericUpDown quantity;
         private System.Windows.Forms.DateTimePicker startDate;
-        private System.Windows.Forms.TextBox exportPoint;
         private System.Windows.Forms.TextBox reference;
         private System.Windows.Forms.RichTextBox notes;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox exportPoint;
     }
 }

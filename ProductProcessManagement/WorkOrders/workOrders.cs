@@ -26,7 +26,7 @@ namespace ProductProcessManagement
             product = -1;
             productName = "Any";
             clearFilter();
-            TQuery = "SELECT w.workOrderId,p.name,w.quantity,w.status,w.state,w.startDate FROM WorkOrders w,Products p WHERE p.productId = w.productId";
+            TQuery = "SELECT w.workOrderId as 'WO ID',p.name as 'Product',w.quantity as 'Quantity',w.status as 'Status',w.state as 'State',w.startDate as 'Start Date' FROM WorkOrders w,Products p WHERE p.productId = w.productId";
             bindResults();
 
         }
@@ -134,7 +134,7 @@ namespace ProductProcessManagement
         }
 
         private void genFilterQuery(){
-            string query = "SELECT w.workOrderId,p.name,w.quantity,w.status,w.state,w.startDate FROM WorkOrders w,Products p WHERE p.productId = w.productId and";
+            string query = "SELECT w.workOrderId as 'WO ID',p.name as 'Product',w.quantity as 'Quantity',w.status as 'Status',w.state as 'State',w.startDate as 'Start Date' FROM WorkOrders w,Products p WHERE p.productId = w.productId and";
             if (product != -1)
             {
                 query += " w.productId = " + product;
@@ -182,7 +182,7 @@ namespace ProductProcessManagement
                 MessageBox.Show("Please enter a reference Id");
             }
             else {
-                TQuery = "SELECT w.workOrderId,p.name,w.quantity,w.status,w.state,w.startDate FROM WorkOrders w,Products p WHERE p.productId = w.productId and w.workOrderId = " + textBox2.Text;
+                TQuery = "SELECT w.workOrderId as 'WO ID',p.name as 'Product',w.quantity as 'Quantity',w.status as 'Status',w.state as 'State',w.startDate as 'Start Date' FROM WorkOrders w,Products p WHERE p.productId = w.productId and w.workOrderId = " + textBox2.Text;
                 bindResults();
             }
 
@@ -197,7 +197,7 @@ namespace ProductProcessManagement
         private void button3_Click(object sender, EventArgs e)
         {
             //Ongoing WOrk ORders
-            TQuery = "SELECT w.workOrderId,p.name,w.quantity,w.status,w.state,w.startDate FROM WorkOrders w,Products p WHERE p.productId = w.productId and w.status <> 'Completed' and w.startDate between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
+            TQuery = "SELECT w.workOrderId as 'WO ID',p.name as 'Product',w.quantity as 'Quantity',w.status as 'Status',w.state as 'State',w.startDate as 'Start Date' FROM WorkOrders w,Products p WHERE p.productId = w.productId and w.status <> 'Completed' and w.startDate between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
             //MessageBox.Show(TQuery);
             bindResults();
         }
@@ -205,7 +205,7 @@ namespace ProductProcessManagement
         private void button4_Click(object sender, EventArgs e)
         {
             //Paused Work Orders
-            TQuery = "SELECT w.workOrderId,p.name,w.quantity,w.status,w.state,w.startDate FROM WorkOrders w,Products p WHERE p.productId = w.productId and w.state = 'Paused' and w.startDate between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
+            TQuery = "SELECT w.workOrderId as 'WO ID',p.name as 'Product',w.quantity as 'Quantity',w.status as 'Status',w.state as 'State',w.startDate as 'Start Date' FROM WorkOrders w,Products p WHERE p.productId = w.productId and w.state = 'Paused' and w.startDate between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
             //MessageBox.Show(TQuery);
             bindResults();
         }
@@ -213,7 +213,7 @@ namespace ProductProcessManagement
         private void button6_Click(object sender, EventArgs e)
         {
             //Completed Work Orders
-            TQuery = "SELECT w.workOrderId,p.name,w.quantity,w.status,w.state,w.startDate FROM WorkOrders w,Products p WHERE p.productId = w.productId and w.status = 'Completed' and w.startDate between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
+            TQuery = "SELECT w.workOrderId as 'WO ID',p.name as 'Product',w.quantity as 'Quantity',w.status as 'Status',w.state as 'State',w.startDate as 'Start Date' FROM WorkOrders w,Products p WHERE p.productId = w.productId and w.status = 'Completed' and w.startDate between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
             //MessageBox.Show(TQuery);
             bindResults();
         }

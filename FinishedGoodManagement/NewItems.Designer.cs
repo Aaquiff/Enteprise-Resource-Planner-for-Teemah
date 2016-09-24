@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_receiveddate = new System.Windows.Forms.DateTimePicker();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.batchno = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -40,13 +42,17 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.productid = new System.Windows.Forms.ComboBox();
             this.packet = new System.Windows.Forms.RadioButton();
             this.box = new System.Windows.Forms.RadioButton();
+            this.unitprice = new System.Windows.Forms.TextBox();
             this.priceperunit = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.quantity = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -57,15 +63,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new MetroFramework.Controls.MetroGrid();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.productid = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -79,9 +84,9 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(194, 353);
+            this.button6.Location = new System.Drawing.Point(114, 442);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.Size = new System.Drawing.Size(113, 39);
             this.button6.TabIndex = 7;
             this.button6.Text = "DELETE";
             this.button6.UseVisualStyleBackColor = true;
@@ -89,30 +94,19 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(106, 356);
+            this.button5.Location = new System.Drawing.Point(194, 395);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.Size = new System.Drawing.Size(113, 41);
             this.button5.TabIndex = 6;
             this.button5.Text = "UPDATE";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 43);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(514, 376);
-            this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
-            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(9, 353);
+            this.button4.Location = new System.Drawing.Point(29, 395);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(113, 41);
             this.button4.TabIndex = 3;
             this.button4.Text = "ADD";
             this.button4.UseVisualStyleBackColor = true;
@@ -145,6 +139,7 @@
             this.manufactureddate.Name = "manufactureddate";
             this.manufactureddate.Size = new System.Drawing.Size(200, 20);
             this.manufactureddate.TabIndex = 1;
+            this.manufactureddate.ValueChanged += new System.EventHandler(this.manufactureddate_ValueChanged);
             // 
             // expireddate
             // 
@@ -176,25 +171,37 @@
             this.groupBox2.Controls.Add(this.productid);
             this.groupBox2.Controls.Add(this.packet);
             this.groupBox2.Controls.Add(this.box);
+            this.groupBox2.Controls.Add(this.unitprice);
             this.groupBox2.Controls.Add(this.priceperunit);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.quantity);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Location = new System.Drawing.Point(8, 190);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(380, 159);
+            this.groupBox2.Size = new System.Drawing.Size(380, 199);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Product Detail";
             // 
+            // productid
+            // 
+            this.productid.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.productid.FormattingEnabled = true;
+            this.productid.Location = new System.Drawing.Point(115, 19);
+            this.productid.Name = "productid";
+            this.productid.Size = new System.Drawing.Size(200, 21);
+            this.productid.TabIndex = 10;
+            this.productid.TextChanged += new System.EventHandler(this.productid_TextChanged);
+            // 
             // packet
             // 
             this.packet.AutoSize = true;
-            this.packet.Location = new System.Drawing.Point(186, 139);
+            this.packet.Location = new System.Drawing.Point(186, 173);
             this.packet.Name = "packet";
             this.packet.Size = new System.Drawing.Size(59, 17);
             this.packet.TabIndex = 9;
@@ -205,7 +212,7 @@
             // box
             // 
             this.box.AutoSize = true;
-            this.box.Location = new System.Drawing.Point(115, 139);
+            this.box.Location = new System.Drawing.Point(115, 173);
             this.box.Name = "box";
             this.box.Size = new System.Drawing.Size(43, 17);
             this.box.TabIndex = 9;
@@ -213,6 +220,15 @@
             this.box.Text = "Box";
             this.box.UseVisualStyleBackColor = true;
             this.box.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // unitprice
+            // 
+            this.unitprice.Location = new System.Drawing.Point(115, 147);
+            this.unitprice.Name = "unitprice";
+            this.unitprice.Size = new System.Drawing.Size(200, 20);
+            this.unitprice.TabIndex = 2;
+            this.unitprice.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
+            this.unitprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceperunit_KeyPress);
             // 
             // priceperunit
             // 
@@ -222,6 +238,16 @@
             this.priceperunit.TabIndex = 2;
             this.priceperunit.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
             this.priceperunit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceperunit_KeyPress);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(115, 55);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(200, 20);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantity_KeyPress);
             // 
             // quantity
             // 
@@ -259,6 +285,15 @@
             this.label16.TabIndex = 0;
             this.label16.Text = "Quantity";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 147);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Unit Price";
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -271,7 +306,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(18, 143);
+            this.label18.Location = new System.Drawing.Point(15, 173);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(44, 13);
             this.label18.TabIndex = 0;
@@ -324,11 +359,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(288, 353);
+            this.button1.Location = new System.Drawing.Point(290, 440);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(113, 41);
             this.button1.TabIndex = 12;
-            this.button1.Text = "Clear All";
+            this.button1.Text = "CLEAR ALL";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -344,13 +379,58 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(427, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(529, 484);
             this.panel3.TabIndex = 14;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridView1.Location = new System.Drawing.Point(12, 58);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(505, 414);
+            this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick_1);
             // 
             // panel4
             // 
@@ -381,25 +461,6 @@
             this.panel2.TabIndex = 13;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // productid
-            // 
-            this.productid.FormattingEnabled = true;
-            this.productid.Location = new System.Drawing.Point(115, 19);
-            this.productid.Name = "productid";
-            this.productid.Size = new System.Drawing.Size(200, 21);
-            this.productid.TabIndex = 10;
-            this.productid.TextChanged += new System.EventHandler(this.productid_TextChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(115, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantity_KeyPress);
-            // 
             // NewItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,13 +470,13 @@
             this.Name = "NewItems";
             this.Text = "Inventory";
             this.Load += new System.EventHandler(this.NewItems_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -443,7 +504,6 @@
         private System.Windows.Forms.DateTimePicker expireddate;
         private System.Windows.Forms.TextBox priceperunit;
         private System.Windows.Forms.TextBox quantity;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DateTimePicker txt_receiveddate;
@@ -459,5 +519,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox productid;
         private System.Windows.Forms.TextBox textBox1;
+        private MetroFramework.Controls.MetroGrid dataGridView1;
+        private System.Windows.Forms.TextBox unitprice;
+        private System.Windows.Forms.Label label2;
     }
 }

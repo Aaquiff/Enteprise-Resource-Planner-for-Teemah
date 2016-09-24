@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,14 +18,72 @@ namespace FinanceManagement
             InitializeComponent();
         }
 
-        private void button_back_Click(object sender, EventArgs e)
+        private void richTextBox_problem_Click(object sender, EventArgs e)
+        {
+            richTextBox_problem.Clear();
+        }
+
+        private void AssetRepair_Load(object sender, EventArgs e)
+        {
+            FillGrid();
+        }
+
+        private void textBox_repairid_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_repairid.Text.Length > 3)
+            {
+                if ((String.IsNullOrWhiteSpace(textBox_repairid.Text)) || (textBox_repairid.Text == " ") || (textBox_repairid.Text[0] != 'R') || (textBox_repairid.Text[1] != 'I') || (textBox_repairid.Text[2] != 'D'))
+                    errorProvider1.SetError(textBox_repairid, "Eg: RID000");
+                else
+                    errorProvider1.Clear();
+            }
+        }
+
+        private void textBox_assetID_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_assetID.Text.Length > 3)
+            {
+                if ((String.IsNullOrWhiteSpace(textBox_assetID.Text)) || (textBox_assetID.Text == " ") || (textBox_assetID.Text[0] != 'A') || (textBox_assetID.Text[1] != 'I') || (textBox_assetID.Text[2] != 'D'))
+                    errorProvider1.SetError(textBox_assetID, "Eg: AID000");
+                else
+                    errorProvider1.Clear();
+            }
+        }
+
+        public void FillGrid()
+        {
+            FinManagement dba = new FinManagement();
+            DataSet ds = dba.getAll("asset_repair");
+            dataGridView2.DataSource = ds.Tables["asset_repair"].DefaultView;
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
         {
             AssetManagement asset = new AssetManagement();
             asset.Show();
             this.Close();
         }
 
-        private void button_add_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FillGrid();
+            textBox_repairid.Clear();
+            textBox_assetID.Clear();
+            textBox_serialnumber.Clear();
+            checkBox_insurance.Checked = false;
+            checkBox_warranty.Checked = false;
+            richTextBox_problem.Clear();
+            radioButton_pending.Checked = false;
+            radioButton_done.Checked = false;
+            radioButton_cannot.Checked = false;
+        }
+
+        private void button_add_Click_1(object sender, EventArgs e)
         {
             String message = "";
             String prepairid;
@@ -75,7 +134,7 @@ namespace FinanceManagement
                 if (message == "")
                 {
                     DialogResult result;
-                    result = MessageBox.Show("You wish to Continue?", "Valid Details", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    result = MetroMessageBox.Show(this,"You wish to Continue?", "Valid Details", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
                         FinManagement add = new FinManagement();
@@ -95,76 +154,26 @@ namespace FinanceManagement
                     }
                 }
                 else
-                    MessageBox.Show("" + message, "Please Provide", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MetroMessageBox.Show(this,"" + message, "Please Provide", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 FillGrid();
 
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this,ex.Message);
             }
         }
 
-        private void richTextBox_problem_Click(object sender, EventArgs e)
-        {
-            richTextBox_problem.Clear();
-        }
-
-        private void AssetRepair_Load(object sender, EventArgs e)
-        {
-            FillGrid();
-        }
-
-        private void button_refresh_Click(object sender, EventArgs e)
-        {
-            FillGrid();
-            textBox_repairid.Clear();
-            textBox_assetID.Clear();
-            textBox_serialnumber.Clear();
-            checkBox_insurance.Checked = false;
-            checkBox_warranty.Checked = false;
-            richTextBox_problem.Clear();
-            radioButton_pending.Checked = false;
-            radioButton_done.Checked = false;
-            radioButton_cannot.Checked = false;
-
-
-        }
-
-        private void textBox_repairid_TextChanged(object sender, EventArgs e)
-        {
-            if (textBox_repairid.Text.Length > 3)
-            {
-                if ((String.IsNullOrWhiteSpace(textBox_repairid.Text)) || (textBox_repairid.Text == " ") || (textBox_repairid.Text[0] != 'R') || (textBox_repairid.Text[1] != 'I') || (textBox_repairid.Text[2] != 'D'))
-                    errorProvider1.SetError(textBox_repairid, "Eg: RID000");
-                else
-                    errorProvider1.Clear();
-            }
-        }
-
-        private void textBox_assetID_TextChanged(object sender, EventArgs e)
-        {
-            if (textBox_assetID.Text.Length > 3)
-            {
-                if ((String.IsNullOrWhiteSpace(textBox_assetID.Text)) || (textBox_assetID.Text == " ") || (textBox_assetID.Text[0] != 'A') || (textBox_assetID.Text[1] != 'I') || (textBox_assetID.Text[2] != 'D'))
-                    errorProvider1.SetError(textBox_assetID, "Eg: AID000");
-                else
-                    errorProvider1.Clear();
-            }
-        }
-
-        public void FillGrid()
-        {
-            FinManagement dba = new FinManagement();
-            DataSet ds = dba.getAll("asset_repair");
-            dataGridView2.DataSource = ds.Tables["asset_repair"].DefaultView;
-        }
-
-        private void button_search_Click(object sender, EventArgs e)
+        private void button_search_Click_1(object sender, EventArgs e)
         {
             Asset_Repair_US asset = new Asset_Repair_US();
-            asset.ShowDialog();
+            asset.Show();
+            this.Close();
+        }
+
+        private void metroButton1_Click_1(object sender, EventArgs e)
+        {
         }
     }
 }

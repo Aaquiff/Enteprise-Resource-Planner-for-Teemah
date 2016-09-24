@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MetroFramework;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -393,8 +394,6 @@ namespace FinanceManagement
 
                 cmd.ExecuteNonQuery();
                 connection.CloseConnection();
-
-                MessageBox.Show("New Expense added to the database");
                 return true;
 
             }

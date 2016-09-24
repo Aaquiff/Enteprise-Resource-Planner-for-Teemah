@@ -20,6 +20,7 @@ namespace ProductProcessManagement
         //constructor
         public DBConnect()
         {
+            
             Initialize();
         }
 

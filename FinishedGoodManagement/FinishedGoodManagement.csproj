@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{ED321857-409A-4BBF-8B93-CAA919BCA529}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FinishedGoodManagement</RootNamespace>
     <AssemblyName>FinishedGoodManagement</AssemblyName>
@@ -31,9 +31,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
@@ -55,6 +52,17 @@
       <HintPath>..\packages\LiveCharts.Wpf.0.7.11\lib\net45\LiveCharts.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\..\Source\Repos\ITP\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\..\..\Source\Repos\ITP\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>..\..\..\Source\Repos\ITP\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="microsoft.visualstudio.designer.interfaces, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\packages\Microsoft.VisualStudio.Designer.Interfaces.1.1.4322\lib\microsoft.visualstudio.designer.interfaces.dll</HintPath>
@@ -77,6 +85,7 @@
     <Reference Include="System.Net" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -104,12 +113,36 @@
     <Compile Include="Email.Designer.cs">
       <DependentUpon>Email.cs</DependentUpon>
     </Compile>
+    <Compile Include="ErrorError.cs" />
+    <Compile Include="inv_itpDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inv_itpDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="inv_itpDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inv_itpDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="OrderedItems.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OrderedItems.Designer.cs">
       <DependentUpon>OrderedItems.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewerNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerNew.Designer.cs">
+      <DependentUpon>ReportViewerNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewerOLD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerOLD.Designer.cs">
+      <DependentUpon>ReportViewerOLD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SucessError.cs" />
     <Compile Include="WorkOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +166,13 @@
     <EmbeddedResource Include="OrderedItems.resx">
       <DependentUpon>OrderedItems.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewerNew.resx">
+      <DependentUpon>ReportViewerNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="ReportViewerOLD.resx">
+      <DependentUpon>ReportViewerOLD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WorkOrder.resx">
       <DependentUpon>WorkOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +188,29 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WorkOrderReportOLD.rdlc" />
+    <None Include="inv_itpDataSet.xsc">
+      <DependentUpon>inv_itpDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="inv_itpDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>inv_itpDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="inv_itpDataSet.xss">
+      <DependentUpon>inv_itpDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="inv_itpDataSet1.xsc">
+      <DependentUpon>inv_itpDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="inv_itpDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>inv_itpDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="inv_itpDataSet1.xss">
+      <DependentUpon>inv_itpDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -164,6 +227,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FrameworkControls\FrameworkControls.csproj">
+      <Project>{7079dc71-6b90-47a7-bb0f-b061f6861d37}</Project>
+      <Name>FrameworkControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySQLDatabaseAccess\MySQLDatabaseAccess.csproj">
+      <Project>{7a1f3ab0-c5e3-4234-a9d5-d15ef65714b0}</Project>
+      <Name>MySQLDatabaseAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

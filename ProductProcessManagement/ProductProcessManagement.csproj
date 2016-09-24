@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D1EAB747-DFBF-4D2F-B36A-25DD5F71F12B}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProductProcessManagement</RootNamespace>
     <AssemblyName>ProductProcessManagement</AssemblyName>
@@ -38,12 +38,16 @@
     <Reference Include="FrameworkControls">
       <HintPath>..\FrameworkControls\bin\Debug\FrameworkControls.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySQLDatabaseAccess">
       <HintPath>..\MySQLDatabaseAccess\bin\Debug\MySQLDatabaseAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +65,11 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnect.cs" />
+    <Compile Include="PPReports.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PPReports.xsd</DependentUpon>
+    </Compile>
     <Compile Include="productRequets.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,11 +114,47 @@
     <Compile Include="Remarks\remarks.Designer.cs">
       <DependentUpon>remarks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Products_vs_Time.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Products_vs_Time.Designer.cs">
+      <DependentUpon>Products_vs_Time.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Products_vs_Time_Taken.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Products_vs_Time_Taken.Designer.cs">
+      <DependentUpon>Products_vs_Time_Taken.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Remark_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Remark_Report.Designer.cs">
+      <DependentUpon>Remark_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Work_Orders_vs_Time.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Work_Orders_vs_Time.Designer.cs">
+      <DependentUpon>Work_Orders_vs_Time.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Work_Orders_vs_Time_Taken.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Work_Orders_vs_Time_Taken.Designer.cs">
+      <DependentUpon>Work_Orders_vs_Time_Taken.cs</DependentUpon>
+    </Compile>
     <Compile Include="teemahDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>teemahDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="teemahDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>teemahDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="WorkOrderCtrl.cs" />
     <Compile Include="WorkOrders\addWorkOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +213,26 @@
     <EmbeddedResource Include="Remarks\remarks.resx">
       <DependentUpon>remarks.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Products_vs_Time.rdlc" />
+    <EmbeddedResource Include="Reports\Products_vs_Time.resx">
+      <DependentUpon>Products_vs_Time.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Products_vs_Time_Taken.rdlc" />
+    <EmbeddedResource Include="Reports\Products_vs_Time_Taken.resx">
+      <DependentUpon>Products_vs_Time_Taken.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Remark_Report.rdlc" />
+    <EmbeddedResource Include="Reports\Remark_Report.resx">
+      <DependentUpon>Remark_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Work_Orders_vs_Time_taken.rdlc" />
+    <EmbeddedResource Include="Reports\Work_Orders_vs_Time.rdlc" />
+    <EmbeddedResource Include="Reports\Work_Orders_vs_Time.resx">
+      <DependentUpon>Work_Orders_vs_Time.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Work_Orders_vs_Time_Taken.resx">
+      <DependentUpon>Work_Orders_vs_Time_Taken.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WorkOrders\addWorkOrder.resx">
       <DependentUpon>addWorkOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +245,17 @@
     <EmbeddedResource Include="WorkOrders\workOrders.resx">
       <DependentUpon>workOrders.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="PPReports.xsc">
+      <DependentUpon>PPReports.xsd</DependentUpon>
+    </None>
+    <None Include="PPReports.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PPReports.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PPReports.xss">
+      <DependentUpon>PPReports.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -200,15 +276,22 @@
     <None Include="teemahDataSet.xss">
       <DependentUpon>teemahDataSet.xsd</DependentUpon>
     </None>
+    <None Include="teemahDataSet1.xsc">
+      <DependentUpon>teemahDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="teemahDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>teemahDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="teemahDataSet1.xss">
+      <DependentUpon>teemahDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Notifications\" />
-    <Folder Include="RawMaterialRequests\" />
-    <Folder Include="TransportRequests\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="assets\bg1.jpg" />
   </ItemGroup>

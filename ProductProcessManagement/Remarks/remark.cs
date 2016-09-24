@@ -113,7 +113,7 @@ namespace ProductProcessManagement.Remarks
             textBoxTitle.Text = ""; //Title
             numericUpDownPriority.Value = 5; //Priority
             label9.Text = DateTime.Now.ToString("dd-MM-yyyy");
-            comboBoxStatus.Text = String.Empty;
+            comboBoxStatus.Text = "Not Reviewed";
             richTextBoxNotes.Text = ""; //Notes
         }
 
@@ -139,9 +139,9 @@ namespace ProductProcessManagement.Remarks
             remarkId = TremarkId;
             createButton.Visible = false; // Craete
             clearButton.Visible = false; //Clear
-            resetButton.Visible = false; // Craete
-            initEditButton.Visible = true; // Craete
-            confirmEdit.Visible = false; // Craete
+            resetButton.Visible = false; // Rest
+            initEditButton.Visible = true; // Init Edit
+            confirmEdit.Visible = false; // Confirm Edit
             panel5.Visible = true; //hiding Dock
             richTextBoxNotes.ReadOnly = true;
 
@@ -240,7 +240,7 @@ namespace ProductProcessManagement.Remarks
             }
 
             //Can be labelStatus.Text as well
-            if (labelStatus.Text == "reviewed")
+            if (labelStatus.Text == "Reviewed")
             {
                 notCompleteButton.Visible = true;
                 buttonComplete.Visible = false;
@@ -316,7 +316,7 @@ namespace ProductProcessManagement.Remarks
                 MySqlConnection returnConn = new MySqlConnection();
                 returnConn = connection.GetConnection();
 
-                string query = "UPDATE Remarks SET status = 'reviewed' WHERE remarkId =" + remarkId;
+                string query = "UPDATE Remarks SET status = 'Reviewed' WHERE remarkId =" + remarkId;
 
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
                 cmd.Connection = returnConn;
@@ -343,7 +343,7 @@ namespace ProductProcessManagement.Remarks
                 MySqlConnection returnConn = new MySqlConnection();
                 returnConn = connection.GetConnection();
 
-                string query = "UPDATE Remarks SET status = 'not reviewed' WHERE remarkId =" + remarkId;
+                string query = "UPDATE Remarks SET status = 'Not Reviewed' WHERE remarkId =" + remarkId;
 
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
                 cmd.Connection = returnConn;
@@ -428,19 +428,18 @@ namespace ProductProcessManagement.Remarks
                 //cmd.CommandType = CommandType.Text; //default
 
 
-                textBoxTitle.Text = ""; //Title
-                numericUpDownPriority.Value = 5; //Priority
-                label9.Text = DateTime.Now.ToString("dd-MM-yyyy");
-                comboBoxStatus.SelectedText = String.Empty;
-                richTextBoxNotes.Text = ""; //Notes
-
+                //textBoxTitle.Text = ""; //Title
+                //numericUpDownPriority.Value = 5; //Priority
+                //label9.Text = DateTime.Now.ToString("dd-MM-yyyy");
+                //comboBoxStatus.SelectedText = String.Empty;
+                //richTextBoxNotes.Text = ""; //Notes
 
                 cmd.Parameters.AddWithValue("@1", textBoxTitle.Text);
-                cmd.Parameters.AddWithValue("@2", "not reviewed");
+                cmd.Parameters.AddWithValue("@2", "Not Reviewed");
                 cmd.Parameters.AddWithValue("@3", numericUpDownPriority.Value);
                 cmd.Parameters.AddWithValue("@4", DateTime.Now.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@5", DateTime.Now.ToString("yyyy-MM-dd"));
-                cmd.Parameters.AddWithValue("@6", "");
+                cmd.Parameters.AddWithValue("@6", richTextBoxNotes.Text);
                 if (workOrderId > -1)
                 {
                     cmd.Parameters.AddWithValue("@7", workOrderId);
@@ -449,13 +448,13 @@ namespace ProductProcessManagement.Remarks
                 else {
                     cmd.Parameters.AddWithValue("@7", "null");
                 }
-                cmd.Parameters.AddWithValue("@8", "false");
+                cmd.Parameters.AddWithValue("@8", "0");
 
-                //connection.OpenConnection();
                 cmd.ExecuteNonQuery();
                 connection.CloseConnection();
-
+                
                 MessageBox.Show("Remark has been created");
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -477,13 +476,15 @@ namespace ProductProcessManagement.Remarks
                 MySqlConnection returnConn = new MySqlConnection();
                 returnConn = connection.GetConnection();
 
-                string query = "UPDATE Remarks SET title = '" + textBoxTitle.Text + "' and notes = '" + richTextBoxNotes.Text + "' and priority = " + numericUpDownPriority.Value + " and status = '" + comboBoxStatus.Text + "'  WHERE remarkId =" + remarkId;
-                //MessageBox.Show(query);
+                string query = "UPDATE Remarks SET title = '" + textBoxTitle.Text + "', notes = '" + richTextBoxNotes.Text + "', priority = " + numericUpDownPriority.Value + ", status = '" + comboBoxStatus.Text + "'  WHERE remarkId =" + remarkId;
+
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
                 cmd.Connection = returnConn;
                 cmd.ExecuteNonQuery();
+
                 connection.CloseConnection();
                 MessageBox.Show("Remark has been edited");
+                loadRemark();
             }
             catch (Exception ex)
             {
@@ -526,7 +527,7 @@ namespace ProductProcessManagement.Remarks
         private void createButton_Click(object sender, EventArgs e)
         {
             createRemark();
-            this.Close();
+            
         }
 
         private void confirmEdit_Click(object sender, EventArgs e)
@@ -552,7 +553,13 @@ namespace ProductProcessManagement.Remarks
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Cancel Button
             initView(remarkId);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
 
 

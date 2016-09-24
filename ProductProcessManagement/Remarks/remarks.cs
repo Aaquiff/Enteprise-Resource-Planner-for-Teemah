@@ -18,7 +18,7 @@ namespace ProductProcessManagement
         public remarks()
         {
             InitializeComponent();
-            TQuery = "select * from remarks";
+            TQuery = "SELECT remarkId as 'Remark Id',title as 'Title',status as 'Status',priority as 'Priority',created as 'Created',notes as 'Notes',archived as 'Is Archived' from remarks";
             clearFilters();
             bindResults();
             resizeWindowD();
@@ -68,10 +68,10 @@ namespace ProductProcessManagement
         }
 
         private void genFilterQuary() {
-            string query = "SELECT * FROM WorkOrders where";
+            string query = "SELECT remarkId as 'Remark Id',title as 'Title',status as 'Status',priority as 'Priority',created as 'Created',notes as 'Notes',archived as 'Is Archived' FROM remarks where";
             if (textBoxTitle.Text != "Title...." && textBoxTitle.Text != "")
             {
-                query += " title = " + textBoxTitle.Text;
+                query += " title LIKE '%" + textBoxTitle.Text + "%'";
             }
             if (comboBoxStatus.Text != "Any Status")
             {
@@ -94,7 +94,7 @@ namespace ProductProcessManagement
             {
                 query += " and";
             }
-            query += " startDate between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
+            query += " created between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
             //MessageBox.Show(query);
             TQuery = query;
         
@@ -121,7 +121,7 @@ namespace ProductProcessManagement
                 MySqlDataAdapter ada = new MySqlDataAdapter(cmd);
                 ada.Fill(dt);
                 dataGridView1.DataSource = dt;
-
+                dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 conn.CloseConnection();
             }
 
@@ -151,7 +151,7 @@ namespace ProductProcessManagement
             }
             else
             {
-                TQuery = "SELECT * FROM remarks WHERE remarkId = " + textBoxReference.Text;
+                TQuery = "SELECT remarkId as 'Remark Id',title as 'Title',status as 'Status',priority as 'Priority',created as 'Created',notes as 'Notes',archived as 'Is Archived' FROM remarks WHERE remarkId = " + textBoxReference.Text;
                 bindResults();
             }
 
@@ -160,7 +160,7 @@ namespace ProductProcessManagement
         private void button3_Click(object sender, EventArgs e)
         {
             //High Priority Remakrs
-            TQuery = "SELECT * FROM remarks WHERE priority > 8 and status = 'Not Reviewed' and archived = 0 and created between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
+            TQuery = "SELECT remarkId as 'Remark Id',title as 'Title',status as 'Status',priority as 'Priority',created as 'Created',notes as 'Notes',archived as 'Is Archived' FROM remarks WHERE priority > 7 and status = 'Not Reviewed' and archived = 0 and created between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
             //MessageBox.Show(TQuery);
             bindResults();
         }
@@ -168,7 +168,7 @@ namespace ProductProcessManagement
         private void button4_Click(object sender, EventArgs e)
         {
             //Not Reviewed Remarks
-            TQuery = "SELECT * FROM remarks WHERE status = 'Not Reviewed' and archived = 0 and created between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
+            TQuery = "SELECT remarkId as 'Remark Id',title as 'Title',status as 'Status',priority as 'Priority',created as 'Created',notes as 'Notes',archived as 'Is Archived' FROM remarks WHERE status = 'Not Reviewed' and archived = 0 and created between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
             //MessageBox.Show(TQuery);
             bindResults();
         }
@@ -176,9 +176,59 @@ namespace ProductProcessManagement
         private void button6_Click(object sender, EventArgs e)
         {
             //Recently Archived Remarks
-            TQuery = "SELECT * FROM remarks WHERE archived = 0 and created between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
+            TQuery = "SELECT remarkId as 'Remark Id',title as 'Title',status as 'Status',priority as 'Priority',created as 'Created',notes as 'Notes',archived as 'Is Archived' FROM remarks WHERE archived = 1 and created between '" + monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd") + "' and '" + monthCalendar2.SelectionRange.Start.ToString("yyyy-MM-dd") + "'";
             //MessageBox.Show(TQuery);
             bindResults();
+        }
+
+        private int getSelectedRemark()
+        {
+            int selected = dataGridView1.CurrentCell.RowIndex;
+            var remarkId = -1;
+            if (Int32.TryParse(dataGridView1.Rows[selected].Cells[0].Value.ToString(), out remarkId))
+            {
+                return remarkId;
+            }
+            else
+            {
+                //MessageBox.Show("Soemthing went wrong!");
+                return -1;
+            }
+        }
+
+        public void viewRemark() {
+            if (getSelectedRemark() > -1)
+            {
+                Remarks.remark remarkWindow = new Remarks.remark(getSelectedRemark());
+                remarkWindow.FormClosed += new FormClosedEventHandler(refreshWindow);
+                remarkWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please Select a Remark!");
+            }
+        }
+
+        void refreshWindow(object sender, FormClosedEventArgs e)
+        {
+            bindResults();
+        }
+
+
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            viewRemark();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
 

@@ -36,8 +36,8 @@ namespace ProductProcessManagement
         {
             //Query DB and put reuslts
             productName.Text = "";
-            quantity.Text = "" + "0g";
-            textBox1.Text = "";
+            quantity.Text = "" + "0 units";
+            textBox12.Text = "";
             startDate.Text = "";
             reference.Text = "";
             notes.Text = "";
@@ -62,11 +62,12 @@ namespace ProductProcessManagement
                     {
                         int checkReference = read.GetOrdinal("reference");
                         productName.Text = read.GetString("name").ToString();
-                        quantity.Text = read.GetInt32("quantity") + "g";
+                        quantity.Text = read.GetInt32("quantity") + " units";
                         startDate.Text = Convert.ToDateTime(read["startDate"]).ToString("dd-MM-yyyy");
                         notes.Text = read.GetString("notes").ToString();
-                        textBox1.Text = read.GetString("exportPoint").ToString();
-                        reference.Text = read.IsDBNull(checkReference) ? string.Empty : read.GetString("reference").ToString();
+                        textBox12.Text = read.GetString("exportPoint").ToString();
+                        label8.Text = read.GetString("exportPoint").ToString();
+                        reference.Text = read.IsDBNull(checkReference) ? string.Empty : "#" + read.GetString("reference").ToString();
                         label1.Text = "Work Order: #" + read.GetInt32("workOrderId");
                     }
 
@@ -74,14 +75,16 @@ namespace ProductProcessManagement
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Something went wrong while laoding WorkOrder!");
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong while laoding WorkOrder!");
+                //MessageBox.Show(ex.Message);
             }
         }
 
         private void setvViewMode() { 
             //Enable and disbale elements
-            textBox1.ReadOnly = true;
+            //textBox12.Enabled = false;
+            label8.Visible = true;
+            textBox12.Visible = false;
             notes.ReadOnly = true;
             buttonCancel.Visible = false;
             button2Edit.Visible = false;
@@ -90,7 +93,9 @@ namespace ProductProcessManagement
        }
 
         private void setEditMode() {
-            textBox1.ReadOnly = false;
+            //textBox12.Enabled = true;
+            label8.Visible = false;
+            textBox12.Visible = true;
             notes.ReadOnly = false;
             buttonCancel.Visible = true;
             button2Edit.Visible = true;
@@ -111,7 +116,7 @@ namespace ProductProcessManagement
                 returnConn = conn.GetConnection();
 
 
-                query = "select remarkId,title,status from Remarks WHERE reference = " + workOrderId;
+                query = "select remarkId as 'Remark Id',title as 'Title',status as 'Status' from Remarks WHERE reference = " + workOrderId + " AND archived = 0";
 
                 //cmd.ExecuteNonQuery();
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
@@ -127,8 +132,8 @@ namespace ProductProcessManagement
 
             catch (Exception ex)
             {
-                //MessageBox.Show("Something went wrong while laoding Remarks!");
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong while laoding Remarks!");
+                //MessageBox.Show(ex.Message);
             }
         }
 
@@ -152,7 +157,7 @@ namespace ProductProcessManagement
                     returnConn = connection.GetConnection();
 
 
-                    string query = "UPDATE WorkOrders SET notes='" + notes.Text + "', exportPoint='" + textBox1.Text + "' WHERE workOrderId =" + workOrderId;
+                    string query = "UPDATE WorkOrders SET notes='" + notes.Text + "', exportPoint='" + textBox12.Text + "' WHERE workOrderId =" + workOrderId;
                     MySqlCommand cmd = new MySqlCommand(query, returnConn);
                     //cmd.CommandType = CommandType.Text; //default
 
@@ -167,8 +172,8 @@ namespace ProductProcessManagement
 
                 catch (Exception ex)
                 {
-                    //MessageBox.Show("Something went wrong while deleting the Remark!");
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Something went wrong while deleting the Remark!");
+                    //MessageBox.Show(ex.Message);
                 }
             
         
@@ -179,32 +184,38 @@ namespace ProductProcessManagement
             //Delete Remakr SQL
             if (getSelectedRemark() > -1)
             {
-                try
-                {
-                    DBConnect connection = new DBConnect();
-                    connection.OpenConnection();
-                    MySqlConnection returnConn = new MySqlConnection();
-                    returnConn = connection.GetConnection();
+
+                DialogResult dr = MessageBox.Show("All data related to the remark will be deleted! Do you wish to continue?", "Do you wish to continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dr == DialogResult.Yes) {
+                    try
+                    {
+                        DBConnect connection = new DBConnect();
+                        connection.OpenConnection();
+                        MySqlConnection returnConn = new MySqlConnection();
+                        returnConn = connection.GetConnection();
 
 
-                    string query = "DELETE FROM Remarks WHERE remarkId=" + getSelectedRemark();
-                    MySqlCommand cmd = new MySqlCommand(query, returnConn);
-                    //cmd.CommandType = CommandType.Text; //default
+                        string query = "DELETE FROM Remarks WHERE remarkId=" + getSelectedRemark();
+                        MySqlCommand cmd = new MySqlCommand(query, returnConn);
+                        //cmd.CommandType = CommandType.Text; //default
 
-                    //connection.OpenConnection();
-                    cmd.ExecuteNonQuery();
-                    connection.CloseConnection();
+                        //connection.OpenConnection();
+                        cmd.ExecuteNonQuery();
+                        connection.CloseConnection();
 
-                    MessageBox.Show("Remark has been deleted!");
-                    loadRemarks();
+                        MessageBox.Show("Remark has been deleted!");
+                        loadRemarks();
 
+                    }
+
+                    catch (Exception ex)
+                    {
+                        //MessageBox.Show("Something went wrong while deleting the Remark!");
+                        MessageBox.Show(ex.Message);
+                    }
                 }
 
-                catch (Exception ex)
-                {
-                    //MessageBox.Show("Something went wrong while deleting the Remark!");
-                    MessageBox.Show(ex.Message);
-                }
             }
             else
             {
@@ -234,17 +245,26 @@ namespace ProductProcessManagement
 
         private int getSelectedRemark()
         {
-            int selected = dataGridView1.CurrentCell.RowIndex;
-            var remarkId = 0;
-            if (Int32.TryParse(dataGridView1.Rows[selected].Cells[0].Value.ToString(), out remarkId))
+            try
             {
-                return remarkId;
+                int selected = dataGridView1.CurrentCell.RowIndex;
+                var remarkId = -1;
+                if (Int32.TryParse(dataGridView1.Rows[selected].Cells[0].Value.ToString(), out remarkId))
+                {
+                    return remarkId;
+                }
+                else
+                {
+                    MessageBox.Show("Soemthing went wrong!");
+                    return -1;
+                }
             }
-            else
-            {
-                MessageBox.Show("Soemthing went wrong!");
+            catch (Exception ex) {
+
+                //MessageBox.Show("Please select a remark!");
                 return -1;
             }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -281,6 +301,11 @@ namespace ProductProcessManagement
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             setvViewMode();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

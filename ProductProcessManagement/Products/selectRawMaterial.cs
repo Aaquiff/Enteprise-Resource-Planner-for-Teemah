@@ -23,7 +23,7 @@ namespace ProductProcessManagement.Products
             InitializeComponent();
             productId = -1;
             rawMaterialId = -1;
-            Tquery = "select item_id,name,description from raw_item_tab";
+            Tquery = "select item_id as 'Item Id',name as 'Name',description as 'Description' from raw_item_tab";
         }
 
         public selectRawMaterial(int TprodcutId)
@@ -32,7 +32,7 @@ namespace ProductProcessManagement.Products
             productId = TprodcutId;
             rawMaterialId = -1;
             add = true;
-            Tquery = "select item_id,name,description from raw_item_tab";
+            Tquery = "select item_id as 'Item Id',name as 'Name',description as 'Description' from raw_item_tab";
             label1.Text = "Add Raw Material";
             button1.Text = "Add!";
             loadRawMaterial();
@@ -51,7 +51,7 @@ namespace ProductProcessManagement.Products
             loadRawMaterialDetails();
             if (rawMaterialId > -1)
             {
-                Tquery = "select item_id,name,description from raw_item_tab where item_id =" + rawMaterialId;
+                Tquery = "select item_id as 'Item Id',name as 'Name',description as 'Description' from raw_item_tab where item_id =" + rawMaterialId;
             }
             //MessageBox.Show("" + productId + " " + rawMaterialId);
             loadRawMaterial();
@@ -132,13 +132,14 @@ namespace ProductProcessManagement.Products
         }
 
         private void filterQuery() {
-            Tquery = "select item_id,name,description  from raw_item_tab where name like '%" + textBox1.Text + "%'";
+            Tquery = "select item_id as 'Item Id',name as 'Name',description as 'Description'  from raw_item_tab where name like '%" + textBox1.Text + "%'";
             loadRawMaterial();
         }
 
         private void addRawMaterial() {
             //Checking a Raw Material is selected
-            if (getSelectedRawMaterial() >= 0) {
+            if (getSelectedRawMaterial() >= 0)
+            {
                 try
                 {
                     DBConnect connection = new DBConnect();
@@ -170,8 +171,11 @@ namespace ProductProcessManagement.Products
                 {
                     //MessageBox.Show("Something went wrong while deleting the Raw Material!");
                     MessageBox.Show("Raw Material alraedy Exixst! Please select a differnt one...");
-                    MessageBox.Show(ex.Message);
+                    //MessageBox.Show(ex.Message);
                 }
+            }
+            else {
+                MessageBox.Show("Please select a raw material!");
             }
 
         }
@@ -215,7 +219,7 @@ namespace ProductProcessManagement.Products
         {
             int selected = dataGridView1.CurrentCell.RowIndex;
             //The follwoing shoudl be -1 //Attention
-            var rawMaterialId = 0;
+            var rawMaterialId = -1;
             if (Int32.TryParse(dataGridView1.Rows[selected].Cells[0].Value.ToString(), out rawMaterialId))
             {
                 return rawMaterialId;

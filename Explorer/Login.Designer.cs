@@ -50,7 +50,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(12, 97);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 28);
+            this.label1.Size = new System.Drawing.Size(81, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username";
             // 
@@ -60,9 +60,8 @@
             this.txtUser.Location = new System.Drawing.Point(16, 122);
             this.txtUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(322, 34);
+            this.txtUser.Size = new System.Drawing.Size(322, 29);
             this.txtUser.TabIndex = 1;
-            this.txtUser.Text = "root";
             // 
             // pictureBox1
             // 
@@ -81,7 +80,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(322, 34);
+            this.txtPassword.Size = new System.Drawing.Size(322, 29);
             this.txtPassword.TabIndex = 2;
             // 
             // label2
@@ -90,7 +89,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(12, 155);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 28);
+            this.label2.Size = new System.Drawing.Size(76, 21);
             this.label2.TabIndex = 3;
             this.label2.Text = "Password";
             // 
@@ -99,7 +98,7 @@
             this.txtServer.Location = new System.Drawing.Point(16, 237);
             this.txtServer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtServer.Name = "txtServer";
-            this.txtServer.Size = new System.Drawing.Size(322, 34);
+            this.txtServer.Size = new System.Drawing.Size(322, 29);
             this.txtServer.TabIndex = 3;
             this.txtServer.Text = "localhost";
             // 
@@ -109,7 +108,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(12, 212);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 28);
+            this.label3.Size = new System.Drawing.Size(55, 21);
             this.label3.TabIndex = 5;
             this.label3.Text = "Server";
             // 
@@ -120,7 +119,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(149, 347);
+            this.button1.Location = new System.Drawing.Point(149, 294);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 29);
@@ -137,7 +136,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(270, 347);
+            this.button2.Location = new System.Drawing.Point(270, 294);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(68, 29);
@@ -150,7 +149,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(97, 23);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(252, 28);
+            this.label4.Size = new System.Drawing.Size(205, 21);
             this.label4.TabIndex = 9;
             this.label4.Text = "Enterprise Resource Planner";
             // 
@@ -160,34 +159,36 @@
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(94, 47);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 46);
+            this.label5.Size = new System.Drawing.Size(104, 37);
             this.label5.TabIndex = 10;
             this.label5.Text = "Teemah";
             // 
             // txtDatabase
             // 
-            this.txtDatabase.Location = new System.Drawing.Point(16, 295);
+            this.txtDatabase.Location = new System.Drawing.Point(12, 331);
             this.txtDatabase.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDatabase.Name = "txtDatabase";
-            this.txtDatabase.Size = new System.Drawing.Size(322, 34);
+            this.txtDatabase.Size = new System.Drawing.Size(322, 29);
             this.txtDatabase.TabIndex = 4;
             this.txtDatabase.Text = "itp";
+            this.txtDatabase.Visible = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(12, 270);
+            this.label6.Location = new System.Drawing.Point(12, 306);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 28);
+            this.label6.Size = new System.Drawing.Size(55, 21);
             this.label6.TabIndex = 11;
             this.label6.Text = "Server";
+            this.label6.Visible = false;
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 389);
+            this.ClientSize = new System.Drawing.Size(357, 330);
             this.Controls.Add(this.txtDatabase);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);

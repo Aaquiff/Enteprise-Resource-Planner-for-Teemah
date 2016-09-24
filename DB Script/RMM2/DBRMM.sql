@@ -349,6 +349,17 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `RAW_PURCHASE_ORDER_DELETE`(
+	IN order_id_ VARCHAR(20)
+)
+BEGIN
+	
+    DELETE FROM raw_order_line_tab WHERE order_id = order_id_;
+    DELETE FROM raw_purchase_order_tab WHERE order_id = order_id_;
+END$$
+DELIMITER ;
+
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `RAW_PURCHASE_ORDER_LINE_DELETE`(
 	IN order_id_ VARCHAR(20),
     IN item_id_ INT(11)

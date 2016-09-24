@@ -61,7 +61,136 @@ namespace FinanceManagement
             FillGrid();
         }
 
-        private void button_add_Click(object sender, EventArgs e)
+        private void button_refresh_Click(object sender, EventArgs e)
+        {
+            FillGrid();
+        }
+
+        public void FillGrid()
+        {
+            FinManagement dba = new FinManagement();
+            DataSet ds = dba.getAll("fms_budget");
+            dataGridView1.DataSource = ds.Tables["fms_budget"].DefaultView;
+        }
+
+
+        public void FillSpecific()
+        {
+            String pbudgetyear;
+            pbudgetyear = textBox_budgetid.Text;
+            FinManagement dba = new FinManagement();
+            DataSet ds = dba.getSpecificBID("fms_budget", pbudgetyear);
+            dataGridView1.DataSource = ds.Tables["fms_budget"].DefaultView;
+        }
+
+        //checking whether a string value contains all digits
+        public bool IsDigit(String temp)
+        {
+            bool result = false;
+            for (int i = 0; i < temp.Length; i++)
+            {
+                char c = temp[i];
+                if (c >= '0' && c <= '9')
+                    result = true;
+
+                else
+                {
+                    result = false;
+                    break;
+                }
+
+
+            }
+            return result;
+        }
+
+        private void richTextBox_description_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox_total_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_total_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox_description_Click(object sender, EventArgs e)
+        {
+            richTextBox_description.Clear();
+        }
+
+        private void textBox_budgetid_TextChanged(object sender, EventArgs e)
+        {
+
+            if (IsDigit(textBox_budgetid.Text))
+            {
+                int pbudgetYear = Convert.ToInt32(textBox_budgetid.Text);
+                if ((pbudgetYear > 1900) && (pbudgetYear < 2100))
+                {
+                    errorProvider1.Clear();
+                    FillSpecific();
+                }
+                else
+                    errorProvider1.SetError(textBox_budgetid, "Enter a Year");
+
+
+            }
+            else
+                errorProvider1.SetError(textBox_budgetid, "Enter a Year");
+
+        }
+
+        private void textBox_specification_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_employee_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox_maintanance_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox_marketing_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void textBox_transport_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Budget_Update update = new Budget_Update();
+            update.Show();
+        }
+
+        private void dateTimePicker_Budget_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePicker_Budget.MinDate = DateTime.Now;
+            dateTimePicker1.MinDate = dateTimePicker_Budget.Value.AddYears(1);
+        }
+
+        private void button_back_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            FinanceManagementDashBoard finance = new FinanceManagementDashBoard();
+            finance.Show();
+        }
+
+        private void button_add_Click_1(object sender, EventArgs e)
         {
             String message = "";
             try
@@ -71,10 +200,9 @@ namespace FinanceManagement
                 pmaintanance = Convert.ToDouble(textBox_maintanance.Text);
                 pmarketing = Convert.ToDouble(textBox_marketing.Text);
                 ptransport = Convert.ToDouble(textBox_transport.Text);
+                String pdescription = "";
                 String pstartdate = dateTimePicker_Budget.Value.ToString("yyyy-MM-dd");
                 String penddate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
-                String pdescription = "";
-
                 if (IsDigit(textBox_budgetid.Text))
                 {
                     pbudgetYear = Convert.ToInt32(textBox_budgetid.Text);
@@ -132,120 +260,27 @@ namespace FinanceManagement
             {
                 MessageBox.Show(ex.Message);
             }
-
-
-
         }
 
-        private void button_refresh_Click(object sender, EventArgs e)
-        {
-            FillGrid();
-        }
-
-        public void FillGrid()
-        {
-            FinManagement dba = new FinManagement();
-            DataSet ds = dba.getAll("fms_budget");
-            dataGridView1.DataSource = ds.Tables["fms_budget"].DefaultView;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             FillSpecific();
         }
 
-        public void FillSpecific()
+        private void button_update_Click(object sender, EventArgs e)
         {
-            String pbudgetyear;
-            pbudgetyear = textBox_budgetid.Text;
-            FinManagement dba = new FinManagement();
-            DataSet ds = dba.getSpecificBID("fms_budget", pbudgetyear);
-            dataGridView1.DataSource = ds.Tables["fms_budget"].DefaultView;
+            this.Close();
+            Budget_Update update = new Budget_Update();
+            update.Show();
         }
 
-        //checking whether a string value contains all digits
-        public bool IsDigit(String temp)
+        private void button_refresh_Click_1(object sender, EventArgs e)
         {
-            bool result = false;
-            for (int i = 0; i < temp.Length; i++)
-            {
-                char c = temp[i];
-                if (c >= '0' && c <= '9')
-                    result = true;
-
-                else
-                {
-                    result = false;
-                    break;
-                }
-
-
-            }
-            return result;
+            FillGrid();
         }
 
-        private void richTextBox_description_TextChanged(object sender, EventArgs e)
+        private void metroButton1_Click(object sender, EventArgs e)
         {
-            //richTextBox_description.Clear();
-        }
-
-        private void textBox_total_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_total_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox_description_Click(object sender, EventArgs e)
-        {
-            richTextBox_description.Clear();
-        }
-
-        private void textBox_budgetid_TextChanged(object sender, EventArgs e)
-        {
-
-
-            if (IsDigit(textBox_budgetid.Text))
-            {
-                int pbudgetYear = Convert.ToInt32(textBox_budgetid.Text);
-                if ((pbudgetYear > 1900) && (pbudgetYear < 2100))
-                    errorProvider1.Clear();
-                else
-                    errorProvider1.SetError(textBox_budgetid, "Enter a Year");
-
-
-            }
-            else
-                errorProvider1.SetError(textBox_budgetid, "Enter a Year");
-
-        }
-
-        private void textBox_specification_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_employee_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void textBox_maintanance_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void textBox_marketing_TextChanged(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void textBox_transport_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
 

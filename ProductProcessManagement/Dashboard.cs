@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ProductProcessManagement
 {
@@ -18,11 +19,6 @@ namespace ProductProcessManagement
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
         {
 
         }
@@ -45,6 +41,61 @@ namespace ProductProcessManagement
         private void groupBox2_Enter_1(object sender, EventArgs e)
         {
 
+        }
+
+ 
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'teemahDataSet.remarks' table. You can move, or remove it, as needed.
+
+        }
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Reports.Products_vs_Time r1 = new Reports.Products_vs_Time();
+            r1.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Reports.Products_vs_Time_Taken r1 = new Reports.Products_vs_Time_Taken();
+            r1.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Reports.Remark_Report r1 = new Reports.Remark_Report();
+            r1.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Reports.Work_Orders_vs_Time r1 = new Reports.Work_Orders_vs_Time();
+            r1.Show();
+
+
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            Reports.Work_Orders_vs_Time_Taken r1 = new Reports.Work_Orders_vs_Time_Taken();
+            r1.Show();
         }
     }
 }

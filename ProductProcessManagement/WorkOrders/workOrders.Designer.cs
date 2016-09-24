@@ -94,7 +94,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label1.Location = new System.Drawing.Point(64, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(369, 81);
+            this.label1.Size = new System.Drawing.Size(298, 65);
             this.label1.TabIndex = 6;
             this.label1.Text = "Work Orders";
             // 
@@ -138,11 +138,11 @@
             this.tableLayoutPanel2.Controls.Add(this.panel4, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel3, 3, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(15, 19);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(15, 15);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(772, 196);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(772, 200);
             this.tableLayoutPanel2.TabIndex = 11;
             // 
             // tableLayoutPanel3
@@ -161,7 +161,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.49484F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.69072F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.83505F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(266, 190);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(266, 194);
             this.tableLayoutPanel3.TabIndex = 12;
             // 
             // tableLayoutPanel7
@@ -177,7 +177,7 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(266, 31);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(266, 32);
             this.tableLayoutPanel7.TabIndex = 12;
             // 
             // textBox1
@@ -187,7 +187,7 @@
             this.textBox1.Location = new System.Drawing.Point(3, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(135, 35);
+            this.textBox1.Size = new System.Drawing.Size(135, 29);
             this.textBox1.TabIndex = 11;
             this.textBox1.Text = "All Products";
             // 
@@ -214,13 +214,13 @@
             this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel2, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.comboBox3, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 62);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 63);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.42105F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.57895F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(266, 74);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(266, 76);
             this.tableLayoutPanel4.TabIndex = 19;
             // 
             // flowLayoutPanel2
@@ -232,7 +232,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 32);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(266, 42);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(266, 44);
             this.flowLayoutPanel2.TabIndex = 19;
             // 
             // button1
@@ -279,7 +279,7 @@
             "Stopped"});
             this.comboBox3.Location = new System.Drawing.Point(3, 3);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(260, 31);
+            this.comboBox3.Size = new System.Drawing.Size(260, 27);
             this.comboBox3.TabIndex = 11;
             // 
             // tableLayoutPanel5
@@ -289,14 +289,14 @@
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 136);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 139);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(266, 54);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(266, 55);
             this.tableLayoutPanel5.TabIndex = 12;
             // 
             // tableLayoutPanel6
@@ -312,7 +312,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(266, 40);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(266, 41);
             this.tableLayoutPanel6.TabIndex = 20;
             // 
             // textBox2
@@ -321,7 +321,7 @@
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(3, 3);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(188, 35);
+            this.textBox2.Size = new System.Drawing.Size(188, 29);
             this.textBox2.TabIndex = 3;
             // 
             // button2
@@ -345,7 +345,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 14);
+            this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Referenec Id";
             // 
@@ -363,9 +363,9 @@
             "Manufacturing",
             "Waiting for Product Transporation ",
             "Completed"});
-            this.comboBox2.Location = new System.Drawing.Point(3, 34);
+            this.comboBox2.Location = new System.Drawing.Point(3, 35);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(260, 31);
+            this.comboBox2.Size = new System.Drawing.Size(260, 27);
             this.comboBox2.TabIndex = 1;
             // 
             // panel4
@@ -375,7 +375,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(305, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(229, 190);
+            this.panel4.Size = new System.Drawing.Size(229, 194);
             this.panel4.TabIndex = 12;
             // 
             // label3
@@ -383,7 +383,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 19);
+            this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Start Date";
             // 
@@ -400,7 +400,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(540, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(229, 190);
+            this.panel3.Size = new System.Drawing.Size(229, 194);
             this.panel3.TabIndex = 12;
             // 
             // label4
@@ -409,7 +409,7 @@
             this.label4.Location = new System.Drawing.Point(18, 13);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 19);
+            this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "End Date";
             // 
@@ -517,7 +517,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(13, 28);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(170, 32);
+            this.label5.Size = new System.Drawing.Size(131, 25);
             this.label5.TabIndex = 11;
             this.label5.Text = "Quick Filters: ";
             // 
@@ -605,7 +605,7 @@
             // 
             // workOrders
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1184, 642);
@@ -615,7 +615,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "workOrders";
-            this.Text = "workOrders";
+            this.Text = "Work Orders";
             this.Resize += new System.EventHandler(this.resizeWindow);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);

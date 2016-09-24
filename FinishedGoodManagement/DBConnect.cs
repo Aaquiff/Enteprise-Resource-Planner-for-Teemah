@@ -29,14 +29,7 @@ namespace FinishedGoodManagement
         //Initialize values
         private void Initialize()
         {
-            server = "localhost";
-            database = "inv_itp";
-            uid = "root";
-            password = "1234";
-
-            string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
-            connection = new MySqlConnection(connectionString);
+            connection = MySQLDatabaseAccess.Connection.getConnection();
         }
 
         public MySqlConnection GetConnection()
@@ -55,8 +48,15 @@ namespace FinishedGoodManagement
             //throw new NotImplementedException();
             try
             {
-                connection.Open();
-                return true;
+                if (connection.State != System.Data.ConnectionState.Open)
+                {
+                    connection.Open();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
 
             catch (MySqlException ex)

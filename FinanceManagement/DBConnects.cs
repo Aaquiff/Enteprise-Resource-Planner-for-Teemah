@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using MySQLDatabaseAccess;
 
 namespace FinanceManagement
 {
@@ -26,7 +25,8 @@ namespace FinanceManagement
         //Initialize values
         private void Initialize()
         {
-            connection = Connection.getConnection();
+
+            connection = MySQLDatabaseAccess.Connection.getConnection();
         }
 
         public MySqlConnection GetConnection()

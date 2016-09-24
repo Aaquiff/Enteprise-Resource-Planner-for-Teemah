@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,119 +23,9 @@ namespace FinanceManagement
             FillGrid();
         }
 
-        private void button_back_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FinanceManagementDashBoard finance = new FinanceManagementDashBoard();
-            finance.Show();
-        }
-
-        private void button_add_Click(object sender, EventArgs e)
-        {
-            String message = "";
-            //variable declaration to get the entered values
-            String pproperty = " ";
-            String passetID = " ";
-            String pserial = "Not rated";
-            String pownership = " ";
-            double pvalue = 0;
-            int plifeTime = 0;
-            int pusage = 0;
-            String pdescription = " ";
-            String pinsurance = "No";
-            String pwarranty = "No";
-            String pstatus = "Inactive";
-            try
-            {
-
-                passetID = textBox_assetID.Text;
-                if ((String.IsNullOrWhiteSpace(passetID)) || (passetID == " ") || (passetID[0] != 'A') || (passetID[1] != 'I') || (passetID[2] != 'D'))
-                    message += "Valid Asset ID\n";
-
-                if (comboBox_property.SelectedIndex == -1)
-                    message += "Property\n";
-                else
-                    pproperty = comboBox_property.SelectedItem.ToString();
-
-                if (textBox_serialnumber.ReadOnly == false)
-                {
-                    if (String.IsNullOrWhiteSpace(textBox_serialnumber.Text))
-                        message += "Serial Number\n";
-                    else
-                        pserial = textBox_serialnumber.Text;
-                }
-                else
-                    pserial = "Not rated";
-
-                if (String.IsNullOrWhiteSpace(textBox_ownership.Text) || (IsDigit(textBox_ownership.Text)))
-                    message += "Ownership\n";
-                else
-                    pownership = textBox_ownership.Text;
-
-                if (String.IsNullOrWhiteSpace(textBox_value.Text) || (!IsDigit(textBox_value.Text)))
-                    message += "Value\n";
-                else
-                    pvalue = Convert.ToDouble(textBox_value.Text);
-
-                if (checkBox_insurance.Checked)
-                    pinsurance = "Yes";
-
-                if (checkBox_warranty.Checked)
-                    pwarranty = "Yes";
-
-                if (checkBox_status.Checked)
-                    pstatus = "Active";
-
-                if (String.IsNullOrWhiteSpace(textBox_lifetime.Text) || (!IsDigit(textBox_lifetime.Text)))
-                    message += "Life-Time\n";
-                else
-                    plifeTime = Convert.ToInt16(textBox_lifetime.Text);
-
-                if (String.IsNullOrWhiteSpace(textBox_usage.Text) || (!IsDigit(textBox_usage.Text)))
-                    message += "Usage\n";
-                else
-                    pusage = Convert.ToInt16(textBox_usage.Text);
-
-                if (String.IsNullOrWhiteSpace(richTextBox_description.Text) || richTextBox_description.Text == "Type all other wanted details here")
-                    message += "Description";
-                else
-                    pdescription = richTextBox_description.Text;
-
-                if (message == "")
-                {
-                    DialogResult result;
-                    result = MessageBox.Show("You wish to Continue?", "Valid Details", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        FinManagement add = new FinManagement();
-                        add.addAsset(passetID, pproperty, pserial, pownership, pvalue, pinsurance, pwarranty, pstatus, plifeTime, pusage, pdescription);
-
-                        FillGrid();
-                    }
-                }
-                else
-                    MessageBox.Show("" + message, "Please Provide", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
-
-        private void button_refresh_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            AssetRepair repair = new AssetRepair();
-            repair.Show();
         }
 
         private void comboBox_type_SelectedIndexChanged(object sender, EventArgs e)
@@ -277,15 +168,125 @@ namespace FinanceManagement
             dataGridView2.DataSource = ds.Tables["asset"].DefaultView;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_back_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            FinanceManagementDashBoard finance = new FinanceManagementDashBoard();
+            finance.Show();
+        }
+
+        private void button_add_Click_1(object sender, EventArgs e)
+        {
+            String message = "";
+            //variable declaration to get the entered values
+            String pproperty = " ";
+            String passetID = " ";
+            String pserial = "Not rated";
+            String pownership = " ";
+            double pvalue = 0;
+            int plifeTime = 0;
+            int pusage = 0;
+            String pdescription = " ";
+            String pinsurance = "No";
+            String pwarranty = "No";
+            String pstatus = "Inactive";
+            try
+            {
+
+                passetID = textBox_assetID.Text;
+                if ((String.IsNullOrWhiteSpace(passetID)) || (passetID == " ") || (passetID[0] != 'A') || (passetID[1] != 'I') || (passetID[2] != 'D'))
+                    message += "Valid Asset ID\n";
+
+                if (comboBox_property.SelectedIndex == -1)
+                    message += "Property\n";
+                else
+                    pproperty = comboBox_property.SelectedItem.ToString();
+
+                if (textBox_serialnumber.ReadOnly == false)
+                {
+                    if (String.IsNullOrWhiteSpace(textBox_serialnumber.Text))
+                        message += "Serial Number\n";
+                    else
+                        pserial = textBox_serialnumber.Text;
+                }
+                else
+                    pserial = "Not rated";
+
+                if (String.IsNullOrWhiteSpace(textBox_ownership.Text) || (IsDigit(textBox_ownership.Text)))
+                    message += "Ownership\n";
+                else
+                    pownership = textBox_ownership.Text;
+
+                if (String.IsNullOrWhiteSpace(textBox_value.Text) || (!IsDigit(textBox_value.Text)))
+                    message += "Value\n";
+                else
+                    pvalue = Convert.ToDouble(textBox_value.Text);
+
+                if (checkBox_insurance.Checked)
+                    pinsurance = "Yes";
+
+                if (checkBox_warranty.Checked)
+                    pwarranty = "Yes";
+
+                if (checkBox_status.Checked)
+                    pstatus = "Active";
+
+                if (String.IsNullOrWhiteSpace(textBox_lifetime.Text) || (!IsDigit(textBox_lifetime.Text)))
+                    message += "Life-Time\n";
+                else
+                    plifeTime = Convert.ToInt16(textBox_lifetime.Text);
+
+                if (String.IsNullOrWhiteSpace(textBox_usage.Text) || (!IsDigit(textBox_usage.Text)))
+                    message += "Usage\n";
+                else
+                    pusage = Convert.ToInt16(textBox_usage.Text);
+
+                if (String.IsNullOrWhiteSpace(richTextBox_description.Text) || richTextBox_description.Text == "Type all other wanted details here")
+                    message += "Description";
+                else
+                    pdescription = richTextBox_description.Text;
+
+                if (message == "")
+                {
+                    DialogResult result;
+                    result = MetroMessageBox.Show(this,"You wish to Continue?", "Valid Details", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        FinManagement add = new FinManagement();
+                        add.addAsset(passetID, pproperty, pserial, pownership, pvalue, pinsurance, pwarranty, pstatus, plifeTime, pusage, pdescription);
+
+                        FillGrid();
+                    }
+                }
+                else
+                    MetroMessageBox.Show(this,"" + message, "Please Provide", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this,ex.Message);
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
             FillGrid();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void metroButton1_Click(object sender, EventArgs e)
         {
             Asset_US asset = new Asset_US();
-            asset.ShowDialog();
+            this.Close();
+            asset.Show();
+        }
+
+        private void button_refresh_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AssetRepair repair = new AssetRepair();
+            repair.Show();
         }
 
     }

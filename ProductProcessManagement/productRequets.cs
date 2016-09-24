@@ -47,7 +47,7 @@ namespace ProductProcessManagement
                 returnConn = conn.GetConnection();
 
 
-                query = "SELECT r.productReqId,r.productId,p.name,r.quantity,r.notes,r.orderDate,r.requestDate FROM ProductReq r,Products p WHERE r.productId = p.productId and status = 'Pending'";
+                query = "SELECT r.productReqId as 'Request Id',r.productId as 'Product Id',p.name as 'Name',r.quantity as 'Quantity',r.notes as 'Notes' ,r.orderDate as 'Order Date',r.requestDate as 'Request Date' FROM ProductReq r,Products p WHERE r.productId = p.productId and status = 'Pending'";
 
                 //cmd.ExecuteNonQuery();
                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
@@ -78,7 +78,7 @@ namespace ProductProcessManagement
             }
             else
             {
-                MessageBox.Show("Soemthing went wrong!");
+                MessageBox.Show("Something went wrong!");
                 return -1;
             }
         }
@@ -118,7 +118,39 @@ namespace ProductProcessManagement
         private void deny() {
             if (getSelectedRequest() > -1)
             {
-                MessageBox.Show("Deny Function is not Ready");
+                int selected = dataGridView1.CurrentCell.RowIndex;
+                int refernce;
+                if (Int32.TryParse(dataGridView1.Rows[selected].Cells[0].Value.ToString(), out refernce)) { }
+
+                DialogResult dr = MessageBox.Show("Do you want to deny the request?", "Do you wish to continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dr == DialogResult.Yes) {
+                    try
+                    {
+                        DBConnect connection = new DBConnect();
+                        connection.OpenConnection();
+
+                        MySqlConnection returnConn = new MySqlConnection();
+                        returnConn = connection.GetConnection();
+
+                        string query = "UPDATE ProductReq SET status = 'Denied' WHERE productReqId = " + refernce;
+                        //MessageBox.Show(query);
+                        MySqlCommand cmd = new MySqlCommand(query, returnConn);
+                        cmd.Connection = returnConn;
+                        cmd.ExecuteNonQuery();
+                        connection.CloseConnection();
+                        MessageBox.Show("Request has been denied");
+                        bindResults();
+                        WorkOrderCtrl.onProductDenied();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Something went wrong while executing the action!");
+                        //MessageBox.Show(ex.Message);
+                        //throw;
+                    }
+                }
+
             }
             else
             {
