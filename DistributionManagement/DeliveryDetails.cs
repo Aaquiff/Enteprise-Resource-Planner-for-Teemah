@@ -30,8 +30,21 @@ namespace DistributionManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            addDelivery();
+            
+            
+            if (DeliAdd == null)
+            {
+                MessageBox.Show("Delivery address not entered");
+        
+            }
+            else if (Quantity == null)
+            {
+                MessageBox.Show("Quantity not entered");
+            }
+            else
+            {
+                addDelivery();
+            }
         }
 
         private void populate()
@@ -42,34 +55,37 @@ namespace DistributionManagement
             da.Fill(dt);
             dataGridView1.DataSource = dt;
 
-            //dataGridView1.Columns[0].HeaderText = "DeliveryId";
-            //dataGridView1.Columns[1].HeaderText = "Delivery Add";
-            //dataGridView1.Columns[2].HeaderText = "Order Id";
-            //dataGridView1.Columns[3].HeaderText = "Buyer Id";
-            //dataGridView1.Columns[0].HeaderText = "Emp Id";
-            //dataGridView1.Columns[1].HeaderText = "Route Id";
-            //dataGridView1.Columns[2].HeaderText = "Vehicle Id";
-            //dataGridView1.Columns[3].HeaderText = "Quantity";
-            //dataGridView1.Columns[3].HeaderText = "Quantity";
+            dataGridView1.Columns[0].HeaderText = "DeliveryId";
+            dataGridView1.Columns[1].HeaderText = "Delivery Add";
+            dataGridView1.Columns[2].HeaderText = "Order Id";
+            dataGridView1.Columns[3].HeaderText = "Buyer Id";
+            dataGridView1.Columns[4].HeaderText = "Emp Id";
+            dataGridView1.Columns[5].HeaderText = "Route Id";
+            dataGridView1.Columns[6].HeaderText = "Vehicle Id";
+            dataGridView1.Columns[7].HeaderText = "Quantity";
+            dataGridView1.Columns[8].HeaderText = "date";
         }
 
         private void addDelivery()
         {
             try
             {
-                conn.Open();
-                MySqlCommand Cmd = new MySqlCommand
-                         ("INSERT INTO delivery_tab (delivery_address,sales_id,buyer_id,employee_id,route_id,vehicle_no,quantity,date) VALUES (@DeliAdd,@comboBox1,@BuyId,@EmpId,@RouteId,@VehiNo,@Quantity,@Date)", conn);
-               // Cmd.Parameters.AddWithValue("@DeliId", DeliId.Text);
+               // conn.Open();
+                String query="INSERT INTO delivery_tab (delivery_address,sales_id,buyer_id,employee_id,route_id,vehicle_no,quantity,date) VALUES (@DeliAdd,@comboBox1,@BuyId,@EmpId,@RouteId,@VehiNo,@Quantity,@Date)";
+                  MySqlCommand Cmd = new MySqlCommand(query, conn);
+
+                
+                // Cmd.Parameters.AddWithValue("@DeliId", DeliId.Text);
                 Cmd.Parameters.AddWithValue("@DeliAdd", DeliAdd.Text);
-                Cmd.Parameters.AddWithValue("@SaleId", comboBox1.Text);
+                Cmd.Parameters.AddWithValue("@comboBox1", comboBox1.Text);
                 Cmd.Parameters.AddWithValue("@BuyId", BuyId.Text);
                 Cmd.Parameters.AddWithValue("@EmpId", EmpId.Text);
                 Cmd.Parameters.AddWithValue("@RouteId", RouteId.Text);
                 Cmd.Parameters.AddWithValue("@VehiNo", VehiNo.Text);
                 Cmd.Parameters.AddWithValue("@Quantity", Quantity.Text);
-                Cmd.Parameters.AddWithValue("@Date", DateTime.Now);
-
+                Cmd.Parameters.AddWithValue("@Date", Date.Value.ToString("yyyy-MM-dd"));
+               // Cmd.Parameters.AddWithValue("@Date", Date.Text);
+                conn.Open();
                 if (Cmd.ExecuteNonQuery() == 1)
                 {
                     MessageBox.Show("Delivery Details Added Successfully");
@@ -82,6 +98,8 @@ namespace DistributionManagement
                     RouteId.Text = "";
                     VehiNo.Text = "";
                     Quantity.Text = "";
+
+                    populate();
                 }                
             }
             catch (Exception ex)
@@ -420,6 +438,19 @@ namespace DistributionManagement
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DeliId.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            DeliAdd.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            comboBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            BuyId.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            EmpId.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            RouteId.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            VehiNo.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+            Quantity.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+            Date.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
         }
 
     }

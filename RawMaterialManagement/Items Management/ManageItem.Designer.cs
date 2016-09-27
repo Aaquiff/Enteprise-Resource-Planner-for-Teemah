@@ -46,6 +46,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+            this.itemidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stocklevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitofmeasureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.itemcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rawitemtabBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rawDataSet = new RawMaterialManagement.RawDataSet();
             this.panelSearch = new System.Windows.Forms.Panel();
@@ -56,13 +63,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.raw_item_tabTableAdapter = new RawMaterialManagement.RawDataSetTableAdapters.raw_item_tabTableAdapter();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.itemidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stocklevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitofmeasureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.itemcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).BeginInit();
@@ -131,7 +131,7 @@
             this.toolStripMenuItemDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
             this.toolStripMenuItemDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(60, 69);
+            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(67, 69);
             this.toolStripMenuItemDelete.Text = "Delete";
             this.toolStripMenuItemDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
@@ -144,7 +144,7 @@
             this.toolStripMenuItemPopulate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemPopulate.Name = "toolStripMenuItemPopulate";
             this.toolStripMenuItemPopulate.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.toolStripMenuItemPopulate.Size = new System.Drawing.Size(70, 69);
+            this.toolStripMenuItemPopulate.Size = new System.Drawing.Size(84, 69);
             this.toolStripMenuItemPopulate.Text = "Populate";
             this.toolStripMenuItemPopulate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItemPopulate.Click += new System.EventHandler(this.toolStripMenuItemPopulate_Click);
@@ -157,7 +157,7 @@
             this.toolStripMenuItemSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemSearch.Name = "toolStripMenuItemSearch";
             this.toolStripMenuItemSearch.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.toolStripMenuItemSearch.Size = new System.Drawing.Size(60, 69);
+            this.toolStripMenuItemSearch.Size = new System.Drawing.Size(73, 69);
             this.toolStripMenuItemSearch.Text = "Search";
             this.toolStripMenuItemSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItemSearch.Click += new System.EventHandler(this.toolStripMenuItemSearch_Click);
@@ -170,7 +170,7 @@
             this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 69);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(70, 69);
             this.toolStripMenuItem1.Text = "Report";
             this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
@@ -249,6 +249,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle2;
             this.metroGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroGrid1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.metroGrid1.EnableHeadersVisualStyles = false;
             this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -271,6 +272,61 @@
             this.metroGrid1.Style = MetroFramework.MetroColorStyle.Lime;
             this.metroGrid1.TabIndex = 0;
             this.metroGrid1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.metroGrid1_DataError_1);
+            // 
+            // itemidDataGridViewTextBoxColumn
+            // 
+            this.itemidDataGridViewTextBoxColumn.DataPropertyName = "item_id";
+            this.itemidDataGridViewTextBoxColumn.HeaderText = "Item Id";
+            this.itemidDataGridViewTextBoxColumn.Name = "itemidDataGridViewTextBoxColumn";
+            this.itemidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // stocklevelDataGridViewTextBoxColumn
+            // 
+            this.stocklevelDataGridViewTextBoxColumn.DataPropertyName = "stock_level";
+            this.stocklevelDataGridViewTextBoxColumn.HeaderText = "Stock Level";
+            this.stocklevelDataGridViewTextBoxColumn.Name = "stocklevelDataGridViewTextBoxColumn";
+            // 
+            // unitofmeasureDataGridViewTextBoxColumn
+            // 
+            this.unitofmeasureDataGridViewTextBoxColumn.DataPropertyName = "unit_of_measure";
+            this.unitofmeasureDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.unitofmeasureDataGridViewTextBoxColumn.HeaderText = "Unit Of Measure";
+            this.unitofmeasureDataGridViewTextBoxColumn.Items.AddRange(new object[] {
+            "Gram",
+            "Liter"});
+            this.unitofmeasureDataGridViewTextBoxColumn.Name = "unitofmeasureDataGridViewTextBoxColumn";
+            this.unitofmeasureDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.unitofmeasureDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // itemcategoryDataGridViewTextBoxColumn
+            // 
+            this.itemcategoryDataGridViewTextBoxColumn.DataPropertyName = "item_category";
+            this.itemcategoryDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.itemcategoryDataGridViewTextBoxColumn.HeaderText = "Item Category";
+            this.itemcategoryDataGridViewTextBoxColumn.Items.AddRange(new object[] {
+            "Production",
+            "Packing"});
+            this.itemcategoryDataGridViewTextBoxColumn.Name = "itemcategoryDataGridViewTextBoxColumn";
+            this.itemcategoryDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.itemcategoryDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // barcodeDataGridViewTextBoxColumn
+            // 
+            this.barcodeDataGridViewTextBoxColumn.DataPropertyName = "bar_code";
+            this.barcodeDataGridViewTextBoxColumn.HeaderText = "Bar Code";
+            this.barcodeDataGridViewTextBoxColumn.Name = "barcodeDataGridViewTextBoxColumn";
             // 
             // rawitemtabBindingSource
             // 
@@ -350,10 +406,10 @@
             // cmbColumns
             // 
             this.cmbColumns.FormattingEnabled = true;
-            this.cmbColumns.ItemHeight = 23;
+            this.cmbColumns.ItemHeight = 24;
             this.cmbColumns.Location = new System.Drawing.Point(3, 3);
             this.cmbColumns.Name = "cmbColumns";
-            this.cmbColumns.Size = new System.Drawing.Size(191, 29);
+            this.cmbColumns.Size = new System.Drawing.Size(191, 30);
             this.cmbColumns.TabIndex = 0;
             this.cmbColumns.UseSelectable = true;
             // 
@@ -370,61 +426,6 @@
             // raw_item_tabTableAdapter
             // 
             this.raw_item_tabTableAdapter.ClearBeforeFill = true;
-            // 
-            // itemidDataGridViewTextBoxColumn
-            // 
-            this.itemidDataGridViewTextBoxColumn.DataPropertyName = "item_id";
-            this.itemidDataGridViewTextBoxColumn.HeaderText = "Item Id";
-            this.itemidDataGridViewTextBoxColumn.Name = "itemidDataGridViewTextBoxColumn";
-            this.itemidDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            // 
-            // stocklevelDataGridViewTextBoxColumn
-            // 
-            this.stocklevelDataGridViewTextBoxColumn.DataPropertyName = "stock_level";
-            this.stocklevelDataGridViewTextBoxColumn.HeaderText = "Stock Level";
-            this.stocklevelDataGridViewTextBoxColumn.Name = "stocklevelDataGridViewTextBoxColumn";
-            // 
-            // unitofmeasureDataGridViewTextBoxColumn
-            // 
-            this.unitofmeasureDataGridViewTextBoxColumn.DataPropertyName = "unit_of_measure";
-            this.unitofmeasureDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.unitofmeasureDataGridViewTextBoxColumn.HeaderText = "Unit Of Measure";
-            this.unitofmeasureDataGridViewTextBoxColumn.Items.AddRange(new object[] {
-            "Gram",
-            "Liter"});
-            this.unitofmeasureDataGridViewTextBoxColumn.Name = "unitofmeasureDataGridViewTextBoxColumn";
-            this.unitofmeasureDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.unitofmeasureDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // itemcategoryDataGridViewTextBoxColumn
-            // 
-            this.itemcategoryDataGridViewTextBoxColumn.DataPropertyName = "item_category";
-            this.itemcategoryDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.itemcategoryDataGridViewTextBoxColumn.HeaderText = "Item Category";
-            this.itemcategoryDataGridViewTextBoxColumn.Items.AddRange(new object[] {
-            "Production",
-            "Packing"});
-            this.itemcategoryDataGridViewTextBoxColumn.Name = "itemcategoryDataGridViewTextBoxColumn";
-            this.itemcategoryDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.itemcategoryDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // barcodeDataGridViewTextBoxColumn
-            // 
-            this.barcodeDataGridViewTextBoxColumn.DataPropertyName = "bar_code";
-            this.barcodeDataGridViewTextBoxColumn.HeaderText = "Bar Code";
-            this.barcodeDataGridViewTextBoxColumn.Name = "barcodeDataGridViewTextBoxColumn";
             // 
             // ManageItem
             // 

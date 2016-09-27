@@ -33,8 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button_refresh = new MetroFramework.Controls.MetroButton();
             this.button_delete = new MetroFramework.Controls.MetroButton();
-            this.button_back = new MetroFramework.Controls.MetroButton();
             this.dataGridView1 = new MetroFramework.Controls.MetroGrid();
             this.Budget = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.start_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,7 +64,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button_refresh = new MetroFramework.Controls.MetroButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -75,7 +74,6 @@
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.button_refresh);
             this.panel1.Controls.Add(this.button_delete);
-            this.panel1.Controls.Add(this.button_back);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label11);
@@ -101,6 +99,16 @@
             this.panel1.Size = new System.Drawing.Size(944, 546);
             this.panel1.TabIndex = 1;
             // 
+            // button_refresh
+            // 
+            this.button_refresh.Location = new System.Drawing.Point(816, 494);
+            this.button_refresh.Name = "button_refresh";
+            this.button_refresh.Size = new System.Drawing.Size(87, 42);
+            this.button_refresh.TabIndex = 41;
+            this.button_refresh.Text = "Refresh";
+            this.button_refresh.UseSelectable = true;
+            this.button_refresh.Click += new System.EventHandler(this.button_refresh_Click_1);
+            // 
             // button_delete
             // 
             this.button_delete.Location = new System.Drawing.Point(700, 494);
@@ -110,16 +118,6 @@
             this.button_delete.Text = "Update";
             this.button_delete.UseSelectable = true;
             this.button_delete.Click += new System.EventHandler(this.button_delete_Click_1);
-            // 
-            // button_back
-            // 
-            this.button_back.Location = new System.Drawing.Point(582, 494);
-            this.button_back.Name = "button_back";
-            this.button_back.Size = new System.Drawing.Size(87, 42);
-            this.button_back.TabIndex = 39;
-            this.button_back.Text = "Back";
-            this.button_back.UseSelectable = true;
-            this.button_back.Click += new System.EventHandler(this.button_back_Click_1);
             // 
             // dataGridView1
             // 
@@ -428,16 +426,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // button_refresh
-            // 
-            this.button_refresh.Location = new System.Drawing.Point(816, 494);
-            this.button_refresh.Name = "button_refresh";
-            this.button_refresh.Size = new System.Drawing.Size(87, 42);
-            this.button_refresh.TabIndex = 41;
-            this.button_refresh.Text = "Refresh";
-            this.button_refresh.UseSelectable = true;
-            this.button_refresh.Click += new System.EventHandler(this.button_refresh_Click_1);
-            // 
             // Budget_Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,7 +476,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn transport;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
-        private MetroFramework.Controls.MetroButton button_back;
         private MetroFramework.Controls.MetroButton button_delete;
         private MetroFramework.Controls.MetroButton button_refresh;
     }

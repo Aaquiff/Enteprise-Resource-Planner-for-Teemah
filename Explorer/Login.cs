@@ -52,5 +52,23 @@ namespace Explorer
             }
         }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
+            this.FocusMe();
+        }
+
+        private void Login_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           if( e.KeyChar == 'a')
+           {
+               MessageBox.Show("Test");
+           }
+        }
+
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
     }
 }

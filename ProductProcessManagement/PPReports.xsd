@@ -2,9 +2,11 @@
 <xs:schema id="PPReports" targetNamespace="http://tempuri.org/PPReports.xsd" xmlns:mstns="http://tempuri.org/PPReports.xsd" xmlns="http://tempuri.org/PPReports.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="teemahConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="teemahConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ProductProcessManagement.Properties.Settings.GlobalReference.Default.teemahConnectionString" Provider="MySql.Data.MySqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="itpConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="itpConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ProductProcessManagement.Properties.Settings.GlobalReference.Default.itpConnectionString" Provider="MySql.Data.MySqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="itpConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="itpConnectionString2 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ProductProcessManagement.Properties.Settings.GlobalReference.Default.itpConnectionString2" Provider="MySql.Data.MySqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="cdsTableAdapter" GeneratorDataComponentClassName="cdsTableAdapter" Name="cds" UserDataComponentName="cdsTableAdapter">
@@ -2136,10 +2138,11 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="products_vs_timeTableAdapter" GeneratorDataComponentClassName="products_vs_timeTableAdapter" Name="products_vs_time" UserDataComponentName="products_vs_timeTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="teemahConnectionString (Settings)" DbObjectName="teemah.products_vs_time" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="itpConnectionString (Settings)" DbObjectName="itp.products_vs_time" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT `Year`, `Month`, `Product`, `ProductID`, `Total` FROM `teemah`.`products_vs_time`</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Year, Month, Product, ProductID, Total
+FROM     products_vs_time</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -2156,10 +2159,11 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="products_vs_time_takenTableAdapter" GeneratorDataComponentClassName="products_vs_time_takenTableAdapter" Name="products_vs_time_taken" UserDataComponentName="products_vs_time_takenTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="teemahConnectionString (Settings)" DbObjectName="teemah.products_vs_time_taken" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="itpConnectionString2 (Settings)" DbObjectName="itp.products_vs_time_taken" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT `ProductID`, `Product_Name`, `Duration` FROM `teemah`.`products_vs_time_taken`</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ProductID, Product_Name, Duration
+FROM     products_vs_time_taken</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -2222,10 +2226,11 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="remark_reportTableAdapter" GeneratorDataComponentClassName="remark_reportTableAdapter" Name="remark_report" UserDataComponentName="remark_reportTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="teemahConnectionString (Settings)" DbObjectName="teemah.remark_report" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="itpConnectionString (Settings)" DbObjectName="itp.remark_report" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT `Title`, `Status`, `Notes`, `Priority`, `Creation_Date` FROM `teemah`.`remark_report`</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Title, Status, Notes, Priority, Creation_Date
+FROM     remark_report</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -2242,10 +2247,11 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="work_orders_vs_timeTableAdapter" GeneratorDataComponentClassName="work_orders_vs_timeTableAdapter" Name="work_orders_vs_time" UserDataComponentName="work_orders_vs_timeTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="teemahConnectionString (Settings)" DbObjectName="teemah.work_orders_vs_time" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="itpConnectionString (Settings)" DbObjectName="itp.work_orders_vs_time" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT `Year`, `Month`, `Total` FROM `teemah`.`work_orders_vs_time`</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Year, Month, Total
+FROM     work_orders_vs_time</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -2260,10 +2266,11 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="work_orders_vs_time_takenTableAdapter" GeneratorDataComponentClassName="work_orders_vs_time_takenTableAdapter" Name="work_orders_vs_time_taken" UserDataComponentName="work_orders_vs_time_takenTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="teemahConnectionString (Settings)" DbObjectName="teemah.work_orders_vs_time_taken" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="itpConnectionString (Settings)" DbObjectName="itp.work_orders_vs_time_taken" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT `Work_Order_Id`, `Product`, `Duration` FROM `teemah`.`work_orders_vs_time_taken`</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Work_Order_Id, Product, Duration
+FROM     work_orders_vs_time_taken</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>

@@ -52,7 +52,7 @@ namespace SalesManagement
             MySqlConnection returnConn = new MySqlConnection();
             returnConn = conn.GetConnection();
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM itp.invoice where invoiceNo = '" + invoiceNum + "' and ", returnConn);
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM itp.invoice where invoiceNo = '" + invoiceNum + "'", returnConn);
             adapter.Fill(DataSetForInvoice.invoice);
 
         }

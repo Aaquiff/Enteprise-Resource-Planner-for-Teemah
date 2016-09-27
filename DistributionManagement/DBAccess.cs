@@ -16,7 +16,6 @@ namespace DistributionManagement
 
         private static void Initialize()
         {
-            string connectionString;
             conn = Connection.getConnection();
         }
 

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="inv_itpDataSet" targetNamespace="http://tempuri.org/inv_itpDataSet.xsd" xmlns:mstns="http://tempuri.org/inv_itpDataSet.xsd" xmlns="http://tempuri.org/inv_itpDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="inv_itpConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="inv_itpConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DistributionManagement.Properties.Settings.GlobalReference.Default.inv_itpConnectionString" Provider="MySql.Data.MySqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="itpConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="itpConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DistributionManagement.Properties.Settings.GlobalReference.Default.itpConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="routeTableAdapter" GeneratorDataComponentClassName="routeTableAdapter" Name="route" UserDataComponentName="routeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="itpConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        ROUTEID, STARTLOCA, ENDLOCA, DISTANCE
+FROM            route</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ROUTEID" DataSetColumn="ROUTEID" />
+              <Mapping SourceColumn="START-LOCA" DataSetColumn="STARTLOCA" />
+              <Mapping SourceColumn="END-LOCA" DataSetColumn="ENDLOCA" />
+              <Mapping SourceColumn="DISTANCE" DataSetColumn="DISTANCE" />
+              <Mapping SourceColumn="STARTLOCA" DataSetColumn="STARTLOCA" />
+              <Mapping SourceColumn="ENDLOCA" DataSetColumn="ENDLOCA" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="inv_itpDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="inv_itpDataSet" msprop:Generator_UserDSName="inv_itpDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="route" msprop:Generator_TableClassName="routeDataTable" msprop:Generator_TableVarName="tableroute" msprop:Generator_RowChangedName="routeRowChanged" msprop:Generator_TablePropName="route" msprop:Generator_RowDeletingName="routeRowDeleting" msprop:Generator_RowChangingName="routeRowChanging" msprop:Generator_RowEvHandlerName="routeRowChangeEventHandler" msprop:Generator_RowDeletedName="routeRowDeleted" msprop:Generator_RowClassName="routeRow" msprop:Generator_UserTableName="route" msprop:Generator_RowEvArgName="routeRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ROUTEID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnROUTEID" msprop:Generator_ColumnPropNameInRow="ROUTEID" msprop:Generator_ColumnPropNameInTable="ROUTEIDColumn" msprop:Generator_UserColumnName="ROUTEID" type="xs:int" />
+              <xs:element name="STARTLOCA" msprop:Generator_ColumnVarNameInTable="columnSTARTLOCA" msprop:Generator_ColumnPropNameInRow="STARTLOCA" msprop:Generator_ColumnPropNameInTable="STARTLOCAColumn" msprop:Generator_UserColumnName="STARTLOCA">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ENDLOCA" msprop:Generator_ColumnVarNameInTable="columnENDLOCA" msprop:Generator_ColumnPropNameInRow="ENDLOCA" msprop:Generator_ColumnPropNameInTable="ENDLOCAColumn" msprop:Generator_UserColumnName="ENDLOCA">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DISTANCE" msprop:Generator_ColumnVarNameInTable="columnDISTANCE" msprop:Generator_ColumnPropNameInRow="DISTANCE" msprop:Generator_ColumnPropNameInTable="DISTANCEColumn" msprop:Generator_UserColumnName="DISTANCE" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:route" />
+      <xs:field xpath="mstns:ROUTEID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

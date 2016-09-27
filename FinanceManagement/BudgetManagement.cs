@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace FinanceManagement
 {
     public partial class BudgetManagement : Form
     {
-        double ptot;
+        double ptot = 0;
         double pemployee = 0;
         double pmaintanance = 0;
         double pmarketing = 0;
@@ -152,22 +153,30 @@ namespace FinanceManagement
 
         private void textBox_employee_TextChanged(object sender, EventArgs e)
         {
-            
+            //pemployee = Convert.ToDouble(textBox_employee.Text);
+            //ptot = pemployee + pmaintanance + pmarketing + ptransport;
+            //textBox_total.Text = ptot.ToString();
         }
 
         private void textBox_maintanance_TextChanged(object sender, EventArgs e)
         {
-            
+            //pmaintanance = Convert.ToDouble(textBox_employee.Text);
+            //ptot = pemployee + pmaintanance + pmarketing + ptransport;
+            //textBox_total.Text = ptot.ToString();
         }
 
         private void textBox_marketing_TextChanged(object sender, EventArgs e)
         {
-          
+            //pmarketing = Convert.ToDouble(textBox_employee.Text);
+            //ptot = pemployee + pmaintanance + pmarketing + ptransport;
+            //textBox_total.Text = ptot.ToString();
         }
 
         private void textBox_transport_TextChanged(object sender, EventArgs e)
         {
-
+            //ptransport = Convert.ToDouble(textBox_employee.Text);
+            //ptot = pemployee + pmaintanance + pmarketing + ptransport;
+            //textBox_total.Text = ptot.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -233,17 +242,13 @@ namespace FinanceManagement
                 else
                     pdescription = richTextBox_description.Text;
 
-                /* if (IsDigit(textBox_total.Text))
-                     pamount = Convert.ToDouble(textBox_total.Text);
-                 else
-                     message += "Total\n";*/
                 ptot = pemployee + pmaintanance + pmarketing + ptransport;
                 textBox_total.Text = ptot.ToString();
 
                 if (message == "")
                 {
                     DialogResult result;
-                    result = MessageBox.Show("You wish to Continue?", "Valid Details", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    result = MetroMessageBox.Show(this,"You wish to Continue?", "Valid Details", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
                         FinManagement fin = new FinManagement();
@@ -252,13 +257,13 @@ namespace FinanceManagement
 
                 }
                 else
-                    MessageBox.Show("" + message, "Please Provide", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MetroMessageBox.Show(this,"" + message, "Please Provide", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 FillGrid();
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MetroMessageBox.Show(this,ex.Message);
             }
         }
 
@@ -269,9 +274,9 @@ namespace FinanceManagement
 
         private void button_update_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
             Budget_Update update = new Budget_Update();
-            update.Show();
+            update.ShowDialog();
         }
 
         private void button_refresh_Click_1(object sender, EventArgs e)

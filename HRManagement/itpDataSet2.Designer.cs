@@ -757,7 +757,7 @@ namespace HRManagement.itpDataSet2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::HRManagement.Properties.Settings.Default.itpConnectionString1;
+            this._connection.ConnectionString = global::HRManagement.Properties.Settings.Default.itpConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -766,7 +766,7 @@ namespace HRManagement.itpDataSet2TableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Month`, `NetSalary` FROM `itp`.`advancesalary`";
+            this._commandCollection[0].CommandText = "SELECT Month, NetSalary\r\nFROM     advancesalary";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

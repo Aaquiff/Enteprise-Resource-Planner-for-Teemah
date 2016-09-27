@@ -29,16 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.button1 = new MetroFramework.Controls.MetroButton();
             this.button_refresh = new MetroFramework.Controls.MetroButton();
             this.button_update = new MetroFramework.Controls.MetroButton();
             this.button_add = new MetroFramework.Controls.MetroButton();
-            this.button_back = new MetroFramework.Controls.MetroButton();
             this.dataGridView1 = new MetroFramework.Controls.MetroGrid();
             this.Budget = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.start_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,21 +66,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.metroButton1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button_refresh);
-            this.panel1.Controls.Add(this.button_update);
-            this.panel1.Controls.Add(this.button_add);
-            this.panel1.Controls.Add(this.button_back);
-            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
@@ -101,25 +96,16 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(944, 546);
             this.panel1.TabIndex = 0;
             // 
-            // metroButton1
-            // 
-            this.metroButton1.Location = new System.Drawing.Point(134, 436);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(113, 27);
-            this.metroButton1.TabIndex = 43;
-            this.metroButton1.Text = "metroButton1";
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(614, 494);
+            this.button1.Location = new System.Drawing.Point(371, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 42);
             this.button1.TabIndex = 42;
@@ -129,7 +115,7 @@
             // 
             // button_refresh
             // 
-            this.button_refresh.Location = new System.Drawing.Point(821, 494);
+            this.button_refresh.Location = new System.Drawing.Point(195, 3);
             this.button_refresh.Name = "button_refresh";
             this.button_refresh.Size = new System.Drawing.Size(82, 42);
             this.button_refresh.TabIndex = 41;
@@ -139,7 +125,7 @@
             // 
             // button_update
             // 
-            this.button_update.Location = new System.Drawing.Point(717, 494);
+            this.button_update.Location = new System.Drawing.Point(283, 3);
             this.button_update.Name = "button_update";
             this.button_update.Size = new System.Drawing.Size(82, 42);
             this.button_update.TabIndex = 40;
@@ -149,7 +135,7 @@
             // 
             // button_add
             // 
-            this.button_add.Location = new System.Drawing.Point(514, 494);
+            this.button_add.Location = new System.Drawing.Point(459, 3);
             this.button_add.Name = "button_add";
             this.button_add.Size = new System.Drawing.Size(82, 42);
             this.button_add.TabIndex = 39;
@@ -157,33 +143,24 @@
             this.button_add.UseSelectable = true;
             this.button_add.Click += new System.EventHandler(this.button_add_Click_1);
             // 
-            // button_back
-            // 
-            this.button_back.Location = new System.Drawing.Point(414, 494);
-            this.button_back.Name = "button_back";
-            this.button_back.Size = new System.Drawing.Size(82, 42);
-            this.button_back.TabIndex = 38;
-            this.button_back.Text = "Back";
-            this.button_back.UseSelectable = true;
-            this.button_back.Click += new System.EventHandler(this.button_back_Click_1);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeight = 40;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Budget,
@@ -195,33 +172,34 @@
             this.transport,
             this.description,
             this.total});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridView1.Location = new System.Drawing.Point(414, 141);
+            this.dataGridView1.Location = new System.Drawing.Point(400, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(489, 336);
+            this.dataGridView1.Size = new System.Drawing.Size(544, 546);
             this.dataGridView1.TabIndex = 37;
             // 
             // Budget
@@ -230,6 +208,7 @@
             this.Budget.HeaderText = "Budget Year";
             this.Budget.Name = "Budget";
             this.Budget.ReadOnly = true;
+            this.Budget.Width = 84;
             // 
             // start_date
             // 
@@ -237,6 +216,7 @@
             this.start_date.HeaderText = "Start Date";
             this.start_date.Name = "start_date";
             this.start_date.ReadOnly = true;
+            this.start_date.Width = 75;
             // 
             // end_date
             // 
@@ -244,6 +224,7 @@
             this.end_date.HeaderText = "End Date";
             this.end_date.Name = "end_date";
             this.end_date.ReadOnly = true;
+            this.end_date.Width = 71;
             // 
             // employee
             // 
@@ -251,6 +232,7 @@
             this.employee.HeaderText = "Employee Cost";
             this.employee.Name = "employee";
             this.employee.ReadOnly = true;
+            this.employee.Width = 96;
             // 
             // maintanance
             // 
@@ -258,6 +240,7 @@
             this.maintanance.HeaderText = "Maintanance Cost";
             this.maintanance.Name = "maintanance";
             this.maintanance.ReadOnly = true;
+            this.maintanance.Width = 112;
             // 
             // marketing
             // 
@@ -272,6 +255,7 @@
             this.transport.HeaderText = "Transport Cost";
             this.transport.Name = "transport";
             this.transport.ReadOnly = true;
+            this.transport.Width = 95;
             // 
             // description
             // 
@@ -279,6 +263,7 @@
             this.description.HeaderText = "Description";
             this.description.Name = "description";
             this.description.ReadOnly = true;
+            this.description.Width = 89;
             // 
             // total
             // 
@@ -286,6 +271,7 @@
             this.total.HeaderText = "Total";
             this.total.Name = "total";
             this.total.ReadOnly = true;
+            this.total.Width = 54;
             // 
             // label12
             // 
@@ -293,7 +279,7 @@
             this.label12.BackColor = System.Drawing.SystemColors.Control;
             this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(748, 20);
+            this.label12.Location = new System.Drawing.Point(30, 209);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(109, 13);
             this.label12.TabIndex = 35;
@@ -306,7 +292,7 @@
             this.label11.BackColor = System.Drawing.SystemColors.Control;
             this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(756, 87);
+            this.label11.Location = new System.Drawing.Point(29, 301);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(90, 13);
             this.label11.TabIndex = 34;
@@ -319,7 +305,7 @@
             this.label10.BackColor = System.Drawing.SystemColors.Control;
             this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(468, 20);
+            this.label10.Location = new System.Drawing.Point(32, 162);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(90, 13);
             this.label10.TabIndex = 33;
@@ -332,7 +318,7 @@
             this.label9.BackColor = System.Drawing.SystemColors.Control;
             this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(468, 87);
+            this.label9.Location = new System.Drawing.Point(30, 254);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(92, 13);
             this.label9.TabIndex = 32;
@@ -341,7 +327,7 @@
             // 
             // textBox_transport
             // 
-            this.textBox_transport.Location = new System.Drawing.Point(698, 115);
+            this.textBox_transport.Location = new System.Drawing.Point(152, 301);
             this.textBox_transport.Name = "textBox_transport";
             this.textBox_transport.Size = new System.Drawing.Size(205, 20);
             this.textBox_transport.TabIndex = 30;
@@ -349,7 +335,7 @@
             // 
             // textBox_marketing
             // 
-            this.textBox_marketing.Location = new System.Drawing.Point(414, 115);
+            this.textBox_marketing.Location = new System.Drawing.Point(152, 251);
             this.textBox_marketing.Name = "textBox_marketing";
             this.textBox_marketing.Size = new System.Drawing.Size(205, 20);
             this.textBox_marketing.TabIndex = 29;
@@ -357,7 +343,7 @@
             // 
             // textBox_maintanance
             // 
-            this.textBox_maintanance.Location = new System.Drawing.Point(698, 49);
+            this.textBox_maintanance.Location = new System.Drawing.Point(152, 206);
             this.textBox_maintanance.Name = "textBox_maintanance";
             this.textBox_maintanance.Size = new System.Drawing.Size(205, 20);
             this.textBox_maintanance.TabIndex = 28;
@@ -365,7 +351,7 @@
             // 
             // textBox_employee
             // 
-            this.textBox_employee.Location = new System.Drawing.Point(414, 49);
+            this.textBox_employee.Location = new System.Drawing.Point(152, 159);
             this.textBox_employee.Name = "textBox_employee";
             this.textBox_employee.Size = new System.Drawing.Size(205, 20);
             this.textBox_employee.TabIndex = 27;
@@ -422,7 +408,7 @@
             // 
             // textBox_total
             // 
-            this.textBox_total.Location = new System.Drawing.Point(152, 305);
+            this.textBox_total.Location = new System.Drawing.Point(152, 502);
             this.textBox_total.Name = "textBox_total";
             this.textBox_total.ReadOnly = true;
             this.textBox_total.Size = new System.Drawing.Size(205, 20);
@@ -432,7 +418,7 @@
             // 
             // richTextBox_description
             // 
-            this.richTextBox_description.Location = new System.Drawing.Point(152, 162);
+            this.richTextBox_description.Location = new System.Drawing.Point(152, 359);
             this.richTextBox_description.Name = "richTextBox_description";
             this.richTextBox_description.Size = new System.Drawing.Size(205, 118);
             this.richTextBox_description.TabIndex = 11;
@@ -446,7 +432,7 @@
             this.label6.BackColor = System.Drawing.SystemColors.Control;
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(36, 305);
+            this.label6.Location = new System.Drawing.Point(36, 502);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 6;
@@ -458,7 +444,7 @@
             this.label5.BackColor = System.Drawing.SystemColors.Control;
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(31, 165);
+            this.label5.Location = new System.Drawing.Point(31, 362);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 5;
@@ -480,6 +466,30 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.flowLayoutPanel1);
+            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(400, 0, 0, 0);
+            this.panel2.Size = new System.Drawing.Size(944, 546);
+            this.panel2.TabIndex = 43;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.button_add);
+            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.button_update);
+            this.flowLayoutPanel1.Controls.Add(this.button_refresh);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(400, 489);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(544, 57);
+            this.flowLayoutPanel1.TabIndex = 38;
+            // 
             // BudgetManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,6 +507,8 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -525,7 +537,6 @@
         private System.Windows.Forms.TextBox textBox_maintanance;
         private System.Windows.Forms.TextBox textBox_employee;
         private MetroFramework.Controls.MetroGrid dataGridView1;
-        private MetroFramework.Controls.MetroButton button_back;
         private System.Windows.Forms.DataGridViewTextBoxColumn Budget;
         private System.Windows.Forms.DataGridViewTextBoxColumn start_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn end_date;
@@ -539,6 +550,7 @@
         private MetroFramework.Controls.MetroButton button1;
         private MetroFramework.Controls.MetroButton button_refresh;
         private MetroFramework.Controls.MetroButton button_update;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

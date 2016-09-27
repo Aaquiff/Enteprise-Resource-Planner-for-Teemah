@@ -43,10 +43,10 @@ namespace ProductProcessManagement
 
         private void resizeWindowD()
         {
-            tableLayoutPanel1.Width = (int)(this.Width * 1684 / 1920) - 20;
-            tableLayoutPanel1.Height = (int)(this.Height * 948 / 1080) - 40;
-            tableLayoutPanel1.Location = new Point((int)((this.Width * 236 / 1920)), (int)((this.Height * 132 / 1080)));
-            tableLayoutPanel1.AutoScroll = true;
+            //tableLayoutPanel1.Width = (int)(this.Width * 1684 / 1920) - 20;
+            //tableLayoutPanel1.Height = (int)(this.Height * 948 / 1080) - 40;
+            //tableLayoutPanel1.Location = new Point((int)((this.Width * 236 / 1920)), (int)((this.Height * 132 / 1080)));
+            //tableLayoutPanel1.AutoScroll = true;
             //tableLayoutPanel1.AutoScrollPosition = new Point(0,0);
 
 

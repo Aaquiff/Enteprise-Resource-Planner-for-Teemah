@@ -278,15 +278,15 @@ namespace FinanceManagement
         private void metroButton1_Click(object sender, EventArgs e)
         {
             Asset_US asset = new Asset_US();
-            this.Close();
-            asset.Show();
+            //this.Close();
+            asset.ShowDialog();
         }
 
         private void button_refresh_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
             AssetRepair repair = new AssetRepair();
-            repair.Show();
+            repair.ShowDialog();
         }
 
     }

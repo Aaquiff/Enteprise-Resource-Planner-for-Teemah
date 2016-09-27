@@ -42,6 +42,7 @@
             this.Dist = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -56,7 +57,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(15, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 17);
+            this.label1.Size = new System.Drawing.Size(125, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Route ID        :";
             // 
@@ -66,7 +67,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 77);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 17);
+            this.label2.Size = new System.Drawing.Size(148, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "Start Location    :";
             // 
@@ -76,7 +77,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(15, 127);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 17);
+            this.label3.Size = new System.Drawing.Size(138, 23);
             this.label3.TabIndex = 2;
             this.label3.Text = "End Location    :";
             // 
@@ -86,7 +87,7 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(15, 174);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 17);
+            this.label4.Size = new System.Drawing.Size(108, 23);
             this.label4.TabIndex = 3;
             this.label4.Text = "Distance     :";
             // 
@@ -144,7 +145,7 @@
             this.RouteId.Location = new System.Drawing.Point(163, 17);
             this.RouteId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RouteId.Name = "RouteId";
-            this.RouteId.Size = new System.Drawing.Size(212, 25);
+            this.RouteId.Size = new System.Drawing.Size(212, 29);
             this.RouteId.TabIndex = 8;
             // 
             // StrtLo
@@ -152,7 +153,7 @@
             this.StrtLo.Location = new System.Drawing.Point(163, 68);
             this.StrtLo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.StrtLo.Name = "StrtLo";
-            this.StrtLo.Size = new System.Drawing.Size(212, 25);
+            this.StrtLo.Size = new System.Drawing.Size(212, 29);
             this.StrtLo.TabIndex = 9;
             this.StrtLo.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -161,7 +162,7 @@
             this.EndLo.Location = new System.Drawing.Point(163, 123);
             this.EndLo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EndLo.Name = "EndLo";
-            this.EndLo.Size = new System.Drawing.Size(212, 25);
+            this.EndLo.Size = new System.Drawing.Size(212, 29);
             this.EndLo.TabIndex = 10;
             // 
             // Dist
@@ -169,7 +170,7 @@
             this.Dist.Location = new System.Drawing.Point(163, 174);
             this.Dist.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Dist.Name = "Dist";
-            this.Dist.Size = new System.Drawing.Size(212, 25);
+            this.Dist.Size = new System.Drawing.Size(212, 29);
             this.Dist.TabIndex = 11;
             // 
             // textBox5
@@ -177,12 +178,13 @@
             this.textBox5.Location = new System.Drawing.Point(100, 276);
             this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(191, 25);
+            this.textBox5.Size = new System.Drawing.Size(191, 29);
             this.textBox5.TabIndex = 13;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
@@ -205,12 +207,22 @@
             this.panel1.TabIndex = 15;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(351, 323);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 23);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "label6";
+            this.label6.Visible = false;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(24, 284);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 17);
+            this.label5.Size = new System.Drawing.Size(61, 23);
             this.label5.TabIndex = 14;
             this.label5.Text = "Search";
             // 
@@ -235,7 +247,7 @@
             // 
             // RouteDetails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(863, 462);
@@ -273,6 +285,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 

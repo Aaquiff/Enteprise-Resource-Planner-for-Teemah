@@ -16,13 +16,13 @@ namespace ProductProcessManagement
         public productRequets()
         {
             InitializeComponent();
-            resizeWindowD();
+            //resizeWindowD();
             bindResults();
         }
 
         private void resizeWindow(object sender, EventArgs e)
         {
-            resizeWindowD();
+            //resizeWindowD();
         }
 
         private void resizeWindowD()

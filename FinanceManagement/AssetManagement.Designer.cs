@@ -29,10 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.button1 = new MetroFramework.Controls.MetroButton();
+            this.button_add = new MetroFramework.Controls.MetroButton();
+            this.dataGridView2 = new MetroFramework.Controls.MetroGrid();
+            this.asset = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.property = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ownership = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.insurance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warranty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkBox_status = new System.Windows.Forms.CheckBox();
             this.checkBox_warranty = new System.Windows.Forms.CheckBox();
             this.checkBox_insurance = new System.Windows.Forms.CheckBox();
@@ -60,40 +75,21 @@
             this.teemahDataSet = new FinanceManagement.teemahDataSet();
             this.assetTableAdapter = new FinanceManagement.teemahDataSetTableAdapters.assetTableAdapter();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dataGridView2 = new MetroFramework.Controls.MetroGrid();
-            this.asset = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.property = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ownership = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.insurance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warranty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button_back = new MetroFramework.Controls.MetroButton();
-            this.button_add = new MetroFramework.Controls.MetroButton();
-            this.button1 = new MetroFramework.Controls.MetroButton();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.button_refresh = new MetroFramework.Controls.MetroButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teemahDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teemahDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.button_refresh);
-            this.panel1.Controls.Add(this.metroButton1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button_add);
-            this.panel1.Controls.Add(this.button_back);
-            this.panel1.Controls.Add(this.dataGridView2);
             this.panel1.Controls.Add(this.checkBox_status);
             this.panel1.Controls.Add(this.checkBox_warranty);
             this.panel1.Controls.Add(this.checkBox_insurance);
@@ -116,11 +112,190 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(984, 461);
+            this.panel1.Size = new System.Drawing.Size(1043, 478);
             this.panel1.TabIndex = 1;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(407, 3);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(87, 42);
+            this.metroButton1.TabIndex = 61;
+            this.metroButton1.Text = "Search, Update";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(500, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 42);
+            this.button1.TabIndex = 60;
+            this.button1.Text = "Refresh";
+            this.button1.UseSelectable = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button_add
+            // 
+            this.button_add.Location = new System.Drawing.Point(593, 3);
+            this.button_add.Name = "button_add";
+            this.button_add.Size = new System.Drawing.Size(87, 42);
+            this.button_add.TabIndex = 59;
+            this.button_add.Text = "Add";
+            this.button_add.UseSelectable = true;
+            this.button_add.Click += new System.EventHandler(this.button_add_Click_1);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridView2.ColumnHeadersHeight = 40;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.asset,
+            this.property,
+            this.serial,
+            this.ownership,
+            this.value,
+            this.insurance,
+            this.warranty,
+            this.status,
+            this.time,
+            this.usage,
+            this.description});
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.EnableHeadersVisualStyles = false;
+            this.dataGridView2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridView2.Location = new System.Drawing.Point(360, 0);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(683, 478);
+            this.dataGridView2.TabIndex = 57;
+            // 
+            // asset
+            // 
+            this.asset.DataPropertyName = "Asset_ID";
+            this.asset.HeaderText = "Asset ID";
+            this.asset.Name = "asset";
+            this.asset.ReadOnly = true;
+            this.asset.Width = 66;
+            // 
+            // property
+            // 
+            this.property.DataPropertyName = "Property";
+            this.property.HeaderText = "Property";
+            this.property.Name = "property";
+            this.property.ReadOnly = true;
+            this.property.Width = 73;
+            // 
+            // serial
+            // 
+            this.serial.DataPropertyName = "Serial_Number";
+            this.serial.HeaderText = "Serial Number";
+            this.serial.Name = "serial";
+            this.serial.ReadOnly = true;
+            this.serial.Width = 94;
+            // 
+            // ownership
+            // 
+            this.ownership.DataPropertyName = "Ownership";
+            this.ownership.HeaderText = "Ownership";
+            this.ownership.Name = "ownership";
+            this.ownership.ReadOnly = true;
+            this.ownership.Width = 87;
+            // 
+            // value
+            // 
+            this.value.DataPropertyName = "Asset_Value";
+            this.value.HeaderText = "Value";
+            this.value.Name = "value";
+            this.value.ReadOnly = true;
+            this.value.Width = 58;
+            // 
+            // insurance
+            // 
+            this.insurance.DataPropertyName = "Insurance";
+            this.insurance.HeaderText = "Insurance";
+            this.insurance.Name = "insurance";
+            this.insurance.ReadOnly = true;
+            this.insurance.Width = 80;
+            // 
+            // warranty
+            // 
+            this.warranty.DataPropertyName = "Warranty";
+            this.warranty.HeaderText = "Warranty";
+            this.warranty.Name = "warranty";
+            this.warranty.ReadOnly = true;
+            this.warranty.Width = 77;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "Active_Status";
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Width = 62;
+            // 
+            // time
+            // 
+            this.time.DataPropertyName = "Life_Time";
+            this.time.HeaderText = "Life Time";
+            this.time.Name = "time";
+            this.time.ReadOnly = true;
+            this.time.Width = 68;
+            // 
+            // usage
+            // 
+            this.usage.DataPropertyName = "Year_Usage";
+            this.usage.HeaderText = "Usage";
+            this.usage.Name = "usage";
+            this.usage.ReadOnly = true;
+            this.usage.Width = 62;
+            // 
+            // description
+            // 
+            this.description.DataPropertyName = "Description";
+            this.description.HeaderText = "Description";
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            this.description.Width = 89;
             // 
             // checkBox_status
             // 
@@ -392,197 +567,35 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // dataGridView2
+            // panel2
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToResizeRows = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView2.ColumnHeadersHeight = 40;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.asset,
-            this.property,
-            this.serial,
-            this.ownership,
-            this.value,
-            this.insurance,
-            this.warranty,
-            this.status,
-            this.time,
-            this.usage,
-            this.description});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView2.EnableHeadersVisualStyles = false;
-            this.dataGridView2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridView2.Location = new System.Drawing.Point(368, 15);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(604, 386);
-            this.dataGridView2.TabIndex = 57;
+            this.panel2.Controls.Add(this.flowLayoutPanel1);
+            this.panel2.Controls.Add(this.dataGridView2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(360, 0, 0, 0);
+            this.panel2.Size = new System.Drawing.Size(1043, 478);
+            this.panel2.TabIndex = 63;
             // 
-            // asset
+            // flowLayoutPanel1
             // 
-            this.asset.DataPropertyName = "Asset_ID";
-            this.asset.HeaderText = "Asset ID";
-            this.asset.Name = "asset";
-            this.asset.ReadOnly = true;
-            // 
-            // property
-            // 
-            this.property.DataPropertyName = "Property";
-            this.property.HeaderText = "Property";
-            this.property.Name = "property";
-            this.property.ReadOnly = true;
-            // 
-            // serial
-            // 
-            this.serial.DataPropertyName = "Serial_Number";
-            this.serial.HeaderText = "Serial Number";
-            this.serial.Name = "serial";
-            this.serial.ReadOnly = true;
-            // 
-            // ownership
-            // 
-            this.ownership.DataPropertyName = "Ownership";
-            this.ownership.HeaderText = "Ownership";
-            this.ownership.Name = "ownership";
-            this.ownership.ReadOnly = true;
-            // 
-            // value
-            // 
-            this.value.DataPropertyName = "Asset_Value";
-            this.value.HeaderText = "Value";
-            this.value.Name = "value";
-            this.value.ReadOnly = true;
-            // 
-            // insurance
-            // 
-            this.insurance.DataPropertyName = "Insurance";
-            this.insurance.HeaderText = "Insurance";
-            this.insurance.Name = "insurance";
-            this.insurance.ReadOnly = true;
-            // 
-            // warranty
-            // 
-            this.warranty.DataPropertyName = "Warranty";
-            this.warranty.HeaderText = "Warranty";
-            this.warranty.Name = "warranty";
-            this.warranty.ReadOnly = true;
-            // 
-            // status
-            // 
-            this.status.DataPropertyName = "Active_Status";
-            this.status.HeaderText = "Status";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            // 
-            // time
-            // 
-            this.time.DataPropertyName = "Life_Time";
-            this.time.HeaderText = "Life Time";
-            this.time.Name = "time";
-            this.time.ReadOnly = true;
-            // 
-            // usage
-            // 
-            this.usage.DataPropertyName = "Year_Usage";
-            this.usage.HeaderText = "Usage";
-            this.usage.Name = "usage";
-            this.usage.ReadOnly = true;
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "Description";
-            this.description.HeaderText = "Description";
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            // 
-            // button_back
-            // 
-            this.button_back.Location = new System.Drawing.Point(368, 407);
-            this.button_back.Name = "button_back";
-            this.button_back.Size = new System.Drawing.Size(87, 42);
-            this.button_back.TabIndex = 58;
-            this.button_back.Text = "Back";
-            this.button_back.UseSelectable = true;
-            this.button_back.Click += new System.EventHandler(this.button_back_Click_1);
-            // 
-            // button_add
-            // 
-            this.button_add.Location = new System.Drawing.Point(496, 407);
-            this.button_add.Name = "button_add";
-            this.button_add.Size = new System.Drawing.Size(87, 42);
-            this.button_add.TabIndex = 59;
-            this.button_add.Text = "Add";
-            this.button_add.UseSelectable = true;
-            this.button_add.Click += new System.EventHandler(this.button_add_Click_1);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(628, 407);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 42);
-            this.button1.TabIndex = 60;
-            this.button1.Text = "Refresh";
-            this.button1.UseSelectable = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // metroButton1
-            // 
-            this.metroButton1.Location = new System.Drawing.Point(757, 407);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(87, 42);
-            this.metroButton1.TabIndex = 61;
-            this.metroButton1.Text = "Search, Update";
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
-            // 
-            // button_refresh
-            // 
-            this.button_refresh.Location = new System.Drawing.Point(885, 407);
-            this.button_refresh.Name = "button_refresh";
-            this.button_refresh.Size = new System.Drawing.Size(87, 42);
-            this.button_refresh.TabIndex = 62;
-            this.button_refresh.Text = "Repair";
-            this.button_refresh.UseSelectable = true;
-            this.button_refresh.Click += new System.EventHandler(this.button_refresh_Click);
+            this.flowLayoutPanel1.Controls.Add(this.button_add);
+            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.metroButton1);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(360, 418);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(683, 60);
+            this.flowLayoutPanel1.TabIndex = 59;
             // 
             // AssetManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(984, 461);
+            this.ClientSize = new System.Drawing.Size(1043, 478);
             this.Controls.Add(this.panel1);
             this.Name = "AssetManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -590,11 +603,13 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teemahDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teemahDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -649,11 +664,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn time;
         private System.Windows.Forms.DataGridViewTextBoxColumn usage;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
-        private MetroFramework.Controls.MetroButton button_back;
         private MetroFramework.Controls.MetroButton button_add;
         private MetroFramework.Controls.MetroButton button1;
         private MetroFramework.Controls.MetroButton metroButton1;
-        private MetroFramework.Controls.MetroButton button_refresh;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         //private teemahDataSet2 teemahDataSet2;
         //private teemahDataSet2TableAdapters.assetTableAdapter assetTableAdapter1;
         //private teemahDataSet3 teemahDataSet3;

@@ -35,25 +35,14 @@ CREATE TABLE `leave` (
 
 
 CREATE TABLE `salary` (
-  `SalId` int(11) NOT NULL AUTO_INCREMENT,
-  `EmpId` int(11) DEFAULT NULL,
-  `OTHours` float DEFAULT NULL,
+  `EmpId` int(11) NOT NULL,
   `NetSalary` double DEFAULT NULL,
   `GivenDate` date DEFAULT NULL,
-  PRIMARY KEY (`SalId`),
+  `Month` varchar(45) NOT NULL,
+  PRIMARY KEY (`EmpId`,`Month`),
   KEY `EmpId_idx` (`EmpId`),
-  CONSTRAINT `EmpId` FOREIGN KEY (`EmpId`) REFERENCES `employee` (`EmpId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
-
-
-
-
-
-
-
-
-
-
+  CONSTRAINT `sal-EmpId` FOREIGN KEY (`EmpId`) REFERENCES `employee` (`EmpId`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `ot` (
   `EmpId` int(11) NOT NULL,

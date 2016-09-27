@@ -64,14 +64,18 @@
             this.warranty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.insurance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_refresh = new MetroFramework.Controls.MetroButton();
-            this.button_back = new MetroFramework.Controls.MetroButton();
             this.button_add = new MetroFramework.Controls.MetroButton();
             this.button_search = new MetroFramework.Controls.MetroButton();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.assetrepairBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teemahDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkBox_warranty
@@ -285,6 +289,7 @@
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AllowUserToResizeRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -315,10 +320,11 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.EnableHeadersVisualStyles = false;
             this.dataGridView2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridView2.Location = new System.Drawing.Point(372, 35);
+            this.dataGridView2.Location = new System.Drawing.Point(380, 0);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -332,7 +338,7 @@
             this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(520, 366);
+            this.dataGridView2.Size = new System.Drawing.Size(677, 461);
             this.dataGridView2.TabIndex = 77;
             // 
             // repair
@@ -341,6 +347,7 @@
             this.repair.HeaderText = "Repair ID";
             this.repair.Name = "repair";
             this.repair.ReadOnly = true;
+            this.repair.Width = 71;
             // 
             // asset
             // 
@@ -348,6 +355,7 @@
             this.asset.HeaderText = "Asset ID";
             this.asset.Name = "asset";
             this.asset.ReadOnly = true;
+            this.asset.Width = 66;
             // 
             // date
             // 
@@ -355,6 +363,7 @@
             this.date.HeaderText = "Date";
             this.date.Name = "date";
             this.date.ReadOnly = true;
+            this.date.Width = 54;
             // 
             // status
             // 
@@ -362,6 +371,7 @@
             this.status.HeaderText = "Status";
             this.status.Name = "status";
             this.status.ReadOnly = true;
+            this.status.Width = 62;
             // 
             // Problem
             // 
@@ -369,6 +379,7 @@
             this.Problem.HeaderText = "Problem";
             this.Problem.Name = "Problem";
             this.Problem.ReadOnly = true;
+            this.Problem.Width = 72;
             // 
             // serial
             // 
@@ -376,6 +387,7 @@
             this.serial.HeaderText = "Serial Number";
             this.serial.Name = "serial";
             this.serial.ReadOnly = true;
+            this.serial.Width = 94;
             // 
             // warranty
             // 
@@ -383,6 +395,7 @@
             this.warranty.HeaderText = "Warranty";
             this.warranty.Name = "warranty";
             this.warranty.ReadOnly = true;
+            this.warranty.Width = 77;
             // 
             // insurance
             // 
@@ -390,10 +403,11 @@
             this.insurance.HeaderText = "Insurance";
             this.insurance.Name = "insurance";
             this.insurance.ReadOnly = true;
+            this.insurance.Width = 80;
             // 
             // button_refresh
             // 
-            this.button_refresh.Location = new System.Drawing.Point(805, 407);
+            this.button_refresh.Location = new System.Drawing.Point(215, 3);
             this.button_refresh.Name = "button_refresh";
             this.button_refresh.Size = new System.Drawing.Size(87, 42);
             this.button_refresh.TabIndex = 13;
@@ -401,19 +415,9 @@
             this.button_refresh.UseSelectable = true;
             this.button_refresh.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button_back
-            // 
-            this.button_back.Location = new System.Drawing.Point(483, 407);
-            this.button_back.Name = "button_back";
-            this.button_back.Size = new System.Drawing.Size(87, 42);
-            this.button_back.TabIndex = 78;
-            this.button_back.Text = "Back";
-            this.button_back.UseSelectable = true;
-            this.button_back.Click += new System.EventHandler(this.metroButton1_Click);
-            // 
             // button_add
             // 
-            this.button_add.Location = new System.Drawing.Point(594, 407);
+            this.button_add.Location = new System.Drawing.Point(401, 3);
             this.button_add.Name = "button_add";
             this.button_add.Size = new System.Drawing.Size(87, 42);
             this.button_add.TabIndex = 11;
@@ -423,7 +427,7 @@
             // 
             // button_search
             // 
-            this.button_search.Location = new System.Drawing.Point(702, 407);
+            this.button_search.Location = new System.Drawing.Point(308, 3);
             this.button_search.Name = "button_search";
             this.button_search.Size = new System.Drawing.Size(87, 42);
             this.button_search.TabIndex = 12;
@@ -433,25 +437,54 @@
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(372, 407);
+            this.metroButton1.Location = new System.Drawing.Point(494, 3);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(87, 42);
             this.metroButton1.TabIndex = 79;
-            this.metroButton1.Text = "Report";
+            this.metroButton1.Text = "Specific Report";
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click_1);
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(587, 3);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(87, 42);
+            this.metroButton2.TabIndex = 80;
+            this.metroButton2.Text = "Full Report";
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
+            this.panel1.Controls.Add(this.dataGridView2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(380, 0, 0, 0);
+            this.panel1.Size = new System.Drawing.Size(1057, 461);
+            this.panel1.TabIndex = 81;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.metroButton2);
+            this.flowLayoutPanel1.Controls.Add(this.metroButton1);
+            this.flowLayoutPanel1.Controls.Add(this.button_add);
+            this.flowLayoutPanel1.Controls.Add(this.button_search);
+            this.flowLayoutPanel1.Controls.Add(this.button_refresh);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(380, 399);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(677, 62);
+            this.flowLayoutPanel1.TabIndex = 78;
             // 
             // AssetRepair
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 461);
-            this.Controls.Add(this.metroButton1);
-            this.Controls.Add(this.button_search);
-            this.Controls.Add(this.button_add);
-            this.Controls.Add(this.button_refresh);
-            this.Controls.Add(this.button_back);
-            this.Controls.Add(this.dataGridView2);
+            this.ClientSize = new System.Drawing.Size(1057, 461);
             this.Controls.Add(this.radioButton_cannot);
             this.Controls.Add(this.radioButton_done);
             this.Controls.Add(this.radioButton_pending);
@@ -470,6 +503,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.Name = "AssetRepair";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " Asset Repairs";
@@ -478,6 +512,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.teemahDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -517,9 +553,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn warranty;
         private System.Windows.Forms.DataGridViewTextBoxColumn insurance;
         private MetroFramework.Controls.MetroButton button_refresh;
-        private MetroFramework.Controls.MetroButton button_back;
         private MetroFramework.Controls.MetroButton button_search;
         private MetroFramework.Controls.MetroButton button_add;
         private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton metroButton2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

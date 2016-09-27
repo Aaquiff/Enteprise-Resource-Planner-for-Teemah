@@ -477,13 +477,14 @@ namespace Explorer
 
         private void button22_Click(object sender, EventArgs e)
         {
-            panel1.BackColor = Color.OliveDrab;
+            panel1.BackColor = System.Drawing.SystemColors.HotTrack;
             loadForm(new Dashboard());
         }
 
         private void button21_Click(object sender, EventArgs e)
         {
             loadForm(new productRequets());
+            panel1.BackColor = System.Drawing.SystemColors.HotTrack;
         }
 
         #endregion
@@ -566,16 +567,19 @@ namespace Explorer
         private void button19_Click(object sender, EventArgs e)
         {
             loadForm(new viewProducts());
+            panel1.BackColor = System.Drawing.SystemColors.HotTrack;
         }
 
         private void button20_Click(object sender, EventArgs e)
         {
             loadForm(new remarks());
+            panel1.BackColor = System.Drawing.SystemColors.HotTrack;
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
             loadForm(new workOrders());
+            panel1.BackColor = System.Drawing.SystemColors.HotTrack;
         }
 
         private void button17_Click(object sender, EventArgs e)

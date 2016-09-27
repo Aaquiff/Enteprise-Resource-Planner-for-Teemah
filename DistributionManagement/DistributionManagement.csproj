@@ -55,10 +55,24 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FrameworkControls">
+      <HintPath>..\FrameworkControls\bin\Debug\FrameworkControls.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.Design, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.Design.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlXml" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,6 +91,17 @@
     <Compile Include="DeliveryDetails.Designer.cs">
       <DependentUpon>DeliveryDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="inv_itpDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inv_itpDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportviewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportviewer.Designer.cs">
+      <DependentUpon>Reportviewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="RouteDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +118,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DeliveryDetails.resx">
       <DependentUpon>DeliveryDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportviewer.resx">
+      <DependentUpon>Reportviewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RouteDetails.resx">
       <DependentUpon>RouteDetails.cs</DependentUpon>
@@ -112,6 +140,17 @@
     </Compile>
     <None Include="App.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="inv_itpDataSet.xsc">
+      <DependentUpon>inv_itpDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="inv_itpDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>inv_itpDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="inv_itpDataSet.xss">
+      <DependentUpon>inv_itpDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -156,7 +195,7 @@
       <Name>MySQLDatabaseAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\RawMaterialManagement\RawMaterialManagement.csproj">
-      <Project>{075cc06a-38b4-4f27-84ba-29078bb5c4a8}</Project>
+      <Project>{075CC06A-38B4-4F27-84BA-29078BB5C4A8}</Project>
       <Name>RawMaterialManagement</Name>
     </ProjectReference>
   </ItemGroup>

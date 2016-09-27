@@ -42,5 +42,15 @@ namespace HRManagement.Properties {
                 return ((string)(this["itpConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;database=itp;allowuservariables=True")]
+        public string itpConnectionString2 {
+            get {
+                return ((string)(this["itpConnectionString2"]));
+            }
+        }
     }
 }

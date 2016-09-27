@@ -168,12 +168,26 @@ namespace FinanceManagement
         private void button_search_Click_1(object sender, EventArgs e)
         {
             Asset_Repair_US asset = new Asset_Repair_US();
-            asset.Show();
-            this.Close();
+            asset.ShowDialog();
+            //this.Close();
         }
 
         private void metroButton1_Click_1(object sender, EventArgs e)
         {
+            if (textBox_assetID.Text == "" || textBox_assetID.Text == " ")
+                MetroMessageBox.Show(this, "Please Enter a Asset ID");
+            else
+            {
+                String assetid = textBox_assetID.Text;
+                AssetRepairReport rep = new AssetRepairReport(assetid);
+                rep.Show();
+            }
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            AssetRepairReport rep = new AssetRepairReport();
+            rep.Show(); 
         }
     }
 }

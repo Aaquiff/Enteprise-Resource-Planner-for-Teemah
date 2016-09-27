@@ -192,7 +192,7 @@ namespace SalesManagement.Purchase_Records
         //confirm order method
         private void button3_Click(object sender, EventArgs e)
         {
-            string query;
+            string query, query2;
             string mailOrder = null;
 
             try
@@ -218,8 +218,14 @@ namespace SalesManagement.Purchase_Records
                             + "'" + this.tempDate + "',"
                             + "'" + this.tempAgent + "');";
 
+                        #region !!!!!!!!
+                        query2 = "INSERT INTO itp.payment (invoiceNo, paid, description) VALUES ('" + textBox1.Text + "', 0, 'Order received - Payment yet be received')";
+
                         MySqlCommand cmd = new MySqlCommand(query, returnConn);
                         cmd.ExecuteNonQuery();
+                        MySqlCommand cmd2 = new MySqlCommand(query2, returnConn);
+                        cmd2.ExecuteNonQuery(); 
+                        #endregion
 
                         mailOrder += "" + metroGrid1.Rows[i].Cells[0].Value + " (" + metroGrid1.Rows[i].Cells[3].Value + ") =" + metroGrid1.Rows[i].Cells[4].Value + " \n";
 
@@ -246,8 +252,9 @@ namespace SalesManagement.Purchase_Records
                         }
                     }
 
-                    //invoiceViewer.method1(textBox1.Text);
-                    //invoiceViewer.method2(textBox2.Text);
+                    //invoiceViewer a = new invoiceViewer();
+                    //a.method1(textBox1.Text);
+                    //a.method2(textBox2.Text);
                 }
 
                 else
@@ -258,7 +265,7 @@ namespace SalesManagement.Purchase_Records
             }
             catch (MySqlException ex)
             {
-                PanException.Show(this.MdiParent, "Error", "Invoice duplicating is not allowed");
+                PanException.Show(this.MdiParent, "Error", "Invoice duplicating is not allowed\n"+ex);
 
             }
         }
@@ -326,8 +333,8 @@ namespace SalesManagement.Purchase_Records
 
         private void button5_Click(object sender, EventArgs e)
         {
-            invoiceViewer inv = new invoiceViewer(textBox1.Text);
-            inv.Show();
+            //invoiceViewer inv = new invoiceViewer(textBox1.Text);
+            //inv.Show();
         }
     }
 }

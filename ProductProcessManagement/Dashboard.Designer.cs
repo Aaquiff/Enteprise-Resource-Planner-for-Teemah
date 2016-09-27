@@ -46,8 +46,9 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1108, 651);
+            this.pictureBox1.Size = new System.Drawing.Size(1477, 801);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -60,9 +61,10 @@
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(235, 138);
+            this.button1.Location = new System.Drawing.Point(313, 170);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(235, 202);
+            this.button1.Size = new System.Drawing.Size(313, 249);
             this.button1.TabIndex = 23;
             this.button1.Text = "Product Vs Time";
             this.button1.UseVisualStyleBackColor = false;
@@ -76,9 +78,10 @@
             this.button2.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(621, 138);
+            this.button2.Location = new System.Drawing.Point(828, 170);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(235, 202);
+            this.button2.Size = new System.Drawing.Size(313, 249);
             this.button2.TabIndex = 24;
             this.button2.Text = "Product Vs Time Taken";
             this.button2.UseVisualStyleBackColor = false;
@@ -92,9 +95,10 @@
             this.button3.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(235, 437);
+            this.button3.Location = new System.Drawing.Point(313, 538);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(235, 202);
+            this.button3.Size = new System.Drawing.Size(313, 249);
             this.button3.TabIndex = 25;
             this.button3.Text = "Work Orders Vs Time";
             this.button3.UseVisualStyleBackColor = false;
@@ -108,9 +112,10 @@
             this.button4.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(621, 428);
+            this.button4.Location = new System.Drawing.Point(828, 527);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(235, 202);
+            this.button4.Size = new System.Drawing.Size(313, 249);
             this.button4.TabIndex = 26;
             this.button4.Text = "Work Order Vs Time Taken";
             this.button4.UseVisualStyleBackColor = false;
@@ -124,9 +129,10 @@
             this.button5.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(417, 278);
+            this.button5.Location = new System.Drawing.Point(556, 342);
+            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(235, 202);
+            this.button5.Size = new System.Drawing.Size(313, 249);
             this.button5.TabIndex = 27;
             this.button5.Text = "Remarks";
             this.button5.UseVisualStyleBackColor = false;
@@ -138,18 +144,19 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(92, 28);
+            this.label1.Location = new System.Drawing.Point(607, 47);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 65);
+            this.label1.Size = new System.Drawing.Size(236, 81);
             this.label1.TabIndex = 28;
             this.label1.Text = "Reports";
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1108, 651);
+            this.ClientSize = new System.Drawing.Size(1477, 801);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -157,6 +164,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Dashboard";
             this.Text = "Reports";
             this.Load += new System.EventHandler(this.Dashboard_Load);

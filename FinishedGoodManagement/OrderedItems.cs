@@ -141,21 +141,12 @@ namespace FinishedGoodManagement
                     if (status.Text == "Approved")
                     {
                         //MessageBox.Show(pro_quantity.Text);
-                       // MessageBox.Show(quantityy.Text);
+                        // MessageBox.Show(quantityy.Text);
 
-                        int quantity1 = Int32.Parse(pro_quantity.Text);
-                        int quantity2 = Int32.Parse(quantityy.Text);
 
-                        int quantity3 = quantity2 - quantity1;
-                        //MessageBox.Show("Converted");
-
-                        if (quantity3 < 0)
+                        if ((pro_id.Text != "" && pro_name.Text != "" && pro_quantity.Text != "" && pro_amound.Text != ""))
                         {
-                            MetroMessageBox.Show(this.MdiParent, "Not Having Enough Quantity! Sent a Work Order Request");
-                            //invoice(); 
-                        }
-                        if ((pro_id.Text != "" && pro_name.Text != "" && pro_quantity.Text != "" && pro_amound.Text != "" && quantity3 > 0))
-                        {
+                            // MessageBox.Show("if success");
                             try
                             {
                                 DBConnect connection = new DBConnect();
@@ -164,45 +155,54 @@ namespace FinishedGoodManagement
                                 returnConn = connection.GetConnection();
                                 string query;
 
-
-                                query = ("update inv_inventoryout set status=@1 where orderId=@2");
-
+                                query = "INSERT INTO inv_inventoryout (orderid, orderdate, deliverydate, productid, productname, quantity, unitprice, status) VALUES (@1, @2, @3, @4, @5, @6, @7, @8)";
+                                //query = "insert into inv_inventoryout(orderid,orderdate,deliverydate,productid,productname,quantity,unitprice,status) values (@1,@2,@3,@4,@5,@6,@7,@8)";
                                 MySqlCommand cmd = new MySqlCommand(query, returnConn);
 
-                                cmd.Parameters.AddWithValue("@1", status.Text);
-                                cmd.Parameters.AddWithValue("@2", txitid.Text);
-
-                                //cmd.Parameters.AddWithValue("@2", date_order.Value.ToString("yyyy-MM-dd"));
-                                //cmd.Parameters.AddWithValue("@3", date_delivery.Value.ToString("yyyy-MM-dd"));
-                                //cmd.Parameters.AddWithValue("@4", pro_id.Text);
-                                //cmd.Parameters.AddWithValue("@5", pro_name.Text);
-                                //cmd.Parameters.AddWithValue("@6", pro_quantity.Text);
-                                //cmd.Parameters.AddWithValue("@7", pro_amound.Text);
-                                //  cmd.Parameters.AddWithValue("@8", txt_amound.Text);
+                                cmd.Parameters.AddWithValue("@1", txitid.Text);
+                                cmd.Parameters.AddWithValue("@2", date_order.Value.ToString("yyyy/MM/dd"));
+                                cmd.Parameters.AddWithValue("@3", date_delivery.Value.ToString("yyyy/MM/dd"));
+                                cmd.Parameters.AddWithValue("@4", pro_id.Text);
+                                cmd.Parameters.AddWithValue("@5", pro_name.Text);
+                                cmd.Parameters.AddWithValue("@6", Convert.ToInt32(pro_quantity.Text));
+                                cmd.Parameters.AddWithValue("@7", Convert.ToInt32(pro_amound.Text));
+                                cmd.Parameters.AddWithValue("@8", status.Text);
 
                                 cmd.ExecuteNonQuery();
                                 MetroMessageBox.Show(this.MdiParent, "Record Updated Sucessfully!");
-                                invoice(); 
+                                int quantity1 = Int32.Parse(pro_quantity.Text);
+                                int quantity2 = Int32.Parse(quantityy.Text);
+
+                                int quantity3 = quantity2 - quantity1;
+                                //MessageBox.Show("Converted");
+
+                                if (quantity3 < 0)
+                                {
+                                    MetroMessageBox.Show(this.MdiParent, "Not Having Enough Quantity! Sent a Work Order Request");
+                                    //invoice(); 
+                                }
                                 connection.CloseConnection();
+                                invoice();
+
                                 DisplayData();
                                 ClearData();
 
                             }
                             catch (Exception ex)
                             {
-                                MetroMessageBox.Show(this.MdiParent, ex.Message);
+                                MetroMessageBox.Show(this, ex.Message);
 
                             }
                         }
                         else
                         {
-                            MetroMessageBox.Show(this.MdiParent,"Select the Field to Update");
+                            MetroMessageBox.Show(this.MdiParent, "Select the Field to Update");
 
                         }
-                      
+
                     }
-                     
-                    
+
+
                 }
                 catch (Exception ex)
                 {
@@ -210,8 +210,8 @@ namespace FinishedGoodManagement
                     MetroMessageBox.Show(this.MdiParent, ex.Message);
 
                 }
-                 
-             }
+
+            }
              
         }
 

@@ -46,6 +46,8 @@
     <Reference Include="MetroFramework.Fonts">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -66,6 +68,12 @@
     </Compile>
     <Compile Include="AssetRepair.Designer.cs">
       <DependentUpon>AssetRepair.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssetRepairReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssetRepairReport.Designer.cs">
+      <DependentUpon>AssetRepairReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Asset_Repair_US.cs">
       <SubType>Form</SubType>
@@ -134,8 +142,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>teemahDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="teemahDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>teemahDataSet3.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AssetRepair.resx">
       <DependentUpon>AssetRepair.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssetRepairReport.resx">
+      <DependentUpon>AssetRepairReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Asset_Repair_US.resx">
       <DependentUpon>Asset_Repair_US.cs</DependentUpon>
@@ -173,6 +189,8 @@
     <EmbeddedResource Include="Asset_US.resx">
       <DependentUpon>Asset_US.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RepairReport.rdlc" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -214,6 +232,17 @@
     </None>
     <None Include="teemahDataSet2.xss">
       <DependentUpon>teemahDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="teemahDataSet3.xsc">
+      <DependentUpon>teemahDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="teemahDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>teemahDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="teemahDataSet3.xss">
+      <DependentUpon>teemahDataSet3.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

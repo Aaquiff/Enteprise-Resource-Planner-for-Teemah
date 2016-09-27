@@ -141,19 +141,19 @@ namespace HRManagement
                         }
                         else
                         {
-                            MessageBox.Show(null, "invalid email id", "error");
+                            PanException.Show(null, "invalid email id", "error");
                             return false;
                         }
                 }
                     else
                     {
-                        MessageBox.Show(null, "enter a valid email id", "error");
+                        PanException.Show(null, "enter a valid email id", "error");
                         return false;
                     }
                 }
                 else
                 {
-                    MessageBox.Show(null, "enter a valid email id", "error");
+                    PanException.Show(null, "enter a valid email id", "error");
                     return false;
                 }
 
@@ -225,7 +225,7 @@ namespace HRManagement
             try
             {
                 String a = "select COALESCE(sum(NoOfDays),0) from itp.leave_view where EmpId = '" + Connection.getUserIdFromConnectionString() + "' and Status = 'Accepted' and Type = 'Annual' ;";
-                String c = "select COALESCE(sum(NoOfDays),0) from itp.leave_view where EmpId = " + Connection.getUserIdFromConnectionString() + " and Status = 'Accepted' and Type = 'Casual';";
+                String c = "select COALESCE(sum(NoOfDays),0) from itp.leave_view where EmpId = '" + Connection.getUserIdFromConnectionString() + "' and Status = 'Accepted' and Type = 'Casual';";
             MySqlConnection MyConn = ConnectionOld.getConnection();
             MySqlCommand SelectCommandAnnual = new MySqlCommand(a, MyConn);
             MySqlCommand SelectCommandCasual = new MySqlCommand(c, MyConn);

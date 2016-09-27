@@ -37,7 +37,6 @@
             this.button_update = new MetroFramework.Controls.MetroButton();
             this.button_search = new MetroFramework.Controls.MetroButton();
             this.button_add = new MetroFramework.Controls.MetroButton();
-            this.button_back = new MetroFramework.Controls.MetroButton();
             this.dataGridView1 = new MetroFramework.Controls.MetroGrid();
             this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.year = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,20 +61,18 @@
             this.textBox_aproved = new System.Windows.Forms.TextBox();
             this.textBox_budgetyear = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.button_refresh);
-            this.panel1.Controls.Add(this.button_update);
-            this.panel1.Controls.Add(this.button_search);
-            this.panel1.Controls.Add(this.button_add);
-            this.panel1.Controls.Add(this.button_back);
-            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -90,6 +87,7 @@
             this.panel1.Controls.Add(this.textBox_amount);
             this.panel1.Controls.Add(this.textBox_aproved);
             this.panel1.Controls.Add(this.textBox_budgetyear);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -98,7 +96,7 @@
             // 
             // button_refresh
             // 
-            this.button_refresh.Location = new System.Drawing.Point(738, 407);
+            this.button_refresh.Location = new System.Drawing.Point(73, 3);
             this.button_refresh.Name = "button_refresh";
             this.button_refresh.Size = new System.Drawing.Size(87, 42);
             this.button_refresh.TabIndex = 42;
@@ -108,7 +106,7 @@
             // 
             // button_update
             // 
-            this.button_update.Location = new System.Drawing.Point(645, 407);
+            this.button_update.Location = new System.Drawing.Point(166, 3);
             this.button_update.Name = "button_update";
             this.button_update.Size = new System.Drawing.Size(87, 42);
             this.button_update.TabIndex = 41;
@@ -118,7 +116,7 @@
             // 
             // button_search
             // 
-            this.button_search.Location = new System.Drawing.Point(551, 407);
+            this.button_search.Location = new System.Drawing.Point(259, 3);
             this.button_search.Name = "button_search";
             this.button_search.Size = new System.Drawing.Size(87, 42);
             this.button_search.TabIndex = 40;
@@ -128,7 +126,7 @@
             // 
             // button_add
             // 
-            this.button_add.Location = new System.Drawing.Point(457, 407);
+            this.button_add.Location = new System.Drawing.Point(352, 3);
             this.button_add.Name = "button_add";
             this.button_add.Size = new System.Drawing.Size(87, 42);
             this.button_add.TabIndex = 39;
@@ -136,19 +134,10 @@
             this.button_add.UseSelectable = true;
             this.button_add.Click += new System.EventHandler(this.button_add_Click);
             // 
-            // button_back
-            // 
-            this.button_back.Location = new System.Drawing.Point(362, 407);
-            this.button_back.Name = "button_back";
-            this.button_back.Size = new System.Drawing.Size(87, 42);
-            this.button_back.TabIndex = 38;
-            this.button_back.Text = "Back";
-            this.button_back.UseSelectable = true;
-            this.button_back.Click += new System.EventHandler(this.button_back_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -179,10 +168,11 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridView1.Location = new System.Drawing.Point(362, 8);
+            this.dataGridView1.Location = new System.Drawing.Point(400, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -196,7 +186,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(463, 393);
+            this.dataGridView1.Size = new System.Drawing.Size(442, 461);
             this.dataGridView1.TabIndex = 37;
             // 
             // number
@@ -211,42 +201,49 @@
             this.year.DataPropertyName = "Budget_Year";
             this.year.HeaderText = "Budget Year";
             this.year.Name = "year";
+            this.year.Width = 84;
             // 
             // approved
             // 
             this.approved.DataPropertyName = "Aproved_By";
             this.approved.HeaderText = "Approved By";
             this.approved.Name = "approved";
+            this.approved.Width = 87;
             // 
             // category
             // 
             this.category.DataPropertyName = "Expense_Category";
             this.category.HeaderText = "Category";
             this.category.Name = "category";
+            this.category.Width = 76;
             // 
             // specification
             // 
             this.specification.DataPropertyName = "Expense_Specification";
             this.specification.HeaderText = "Specification";
             this.specification.Name = "specification";
+            this.specification.Width = 96;
             // 
             // amount
             // 
             this.amount.DataPropertyName = "Expense_Amount";
             this.amount.HeaderText = "Amount";
             this.amount.Name = "amount";
+            this.amount.Width = 71;
             // 
             // date
             // 
             this.date.DataPropertyName = "Expense_Date";
             this.date.HeaderText = "Date";
             this.date.Name = "date";
+            this.date.Width = 54;
             // 
             // description
             // 
             this.description.DataPropertyName = "Description";
             this.description.HeaderText = "Description";
             this.description.Name = "description";
+            this.description.Width = 89;
             // 
             // label8
             // 
@@ -401,6 +398,30 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.flowLayoutPanel1);
+            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(400, 0, 0, 0);
+            this.panel2.Size = new System.Drawing.Size(842, 461);
+            this.panel2.TabIndex = 43;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.button_add);
+            this.flowLayoutPanel1.Controls.Add(this.button_search);
+            this.flowLayoutPanel1.Controls.Add(this.button_update);
+            this.flowLayoutPanel1.Controls.Add(this.button_refresh);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(400, 406);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(442, 55);
+            this.flowLayoutPanel1.TabIndex = 38;
+            // 
             // ExpensesManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,6 +437,8 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -439,7 +462,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private MetroFramework.Controls.MetroGrid dataGridView1;
-        private MetroFramework.Controls.MetroButton button_back;
         private MetroFramework.Controls.MetroButton button_add;
         private MetroFramework.Controls.MetroButton button_search;
         private MetroFramework.Controls.MetroButton button_update;
@@ -452,6 +474,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 
     }
 }

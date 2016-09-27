@@ -35,8 +35,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_refresh = new MetroFramework.Controls.MetroButton();
             this.button_update = new MetroFramework.Controls.MetroButton();
-            this.button_back = new MetroFramework.Controls.MetroButton();
             this.dataGridView1 = new MetroFramework.Controls.MetroGrid();
+            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approved = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specification = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox_ecount = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -54,14 +61,6 @@
             this.textBox_aproved = new System.Windows.Forms.TextBox();
             this.textBox_budgetyear = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.year = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.approved = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specification = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -72,7 +71,6 @@
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.button_refresh);
             this.panel1.Controls.Add(this.button_update);
-            this.panel1.Controls.Add(this.button_back);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.textBox_ecount);
             this.panel1.Controls.Add(this.label7);
@@ -115,16 +113,6 @@
             this.button_update.Text = "Update";
             this.button_update.UseSelectable = true;
             this.button_update.Click += new System.EventHandler(this.button_update_Click_1);
-            // 
-            // button_back
-            // 
-            this.button_back.Location = new System.Drawing.Point(540, 415);
-            this.button_back.Name = "button_back";
-            this.button_back.Size = new System.Drawing.Size(87, 42);
-            this.button_back.TabIndex = 39;
-            this.button_back.Text = "Back";
-            this.button_back.UseSelectable = true;
-            this.button_back.Click += new System.EventHandler(this.button_back_Click_1);
             // 
             // dataGridView1
             // 
@@ -182,6 +170,63 @@
             this.dataGridView1.Size = new System.Drawing.Size(463, 402);
             this.dataGridView1.TabIndex = 38;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            // 
+            // number
+            // 
+            this.number.DataPropertyName = "ECount";
+            this.number.HeaderText = "Number";
+            this.number.Name = "number";
+            this.number.ReadOnly = true;
+            this.number.Visible = false;
+            // 
+            // year
+            // 
+            this.year.DataPropertyName = "Budget_Year";
+            this.year.HeaderText = "Budget Year";
+            this.year.Name = "year";
+            this.year.ReadOnly = true;
+            // 
+            // approved
+            // 
+            this.approved.DataPropertyName = "Aproved_By";
+            this.approved.HeaderText = "Approved By";
+            this.approved.Name = "approved";
+            this.approved.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "Expense_Category";
+            this.category.HeaderText = "Category";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // specification
+            // 
+            this.specification.DataPropertyName = "Expense_Specification";
+            this.specification.HeaderText = "Specification";
+            this.specification.Name = "specification";
+            this.specification.ReadOnly = true;
+            // 
+            // amount
+            // 
+            this.amount.DataPropertyName = "Expense_Amount";
+            this.amount.HeaderText = "Amount";
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
+            // 
+            // date
+            // 
+            this.date.DataPropertyName = "Expense_Date";
+            this.date.HeaderText = "Date";
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
+            // 
+            // description
+            // 
+            this.description.DataPropertyName = "Description";
+            this.description.HeaderText = "Description";
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
             // 
             // textBox_ecount
             // 
@@ -355,63 +400,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // number
-            // 
-            this.number.DataPropertyName = "ECount";
-            this.number.HeaderText = "Number";
-            this.number.Name = "number";
-            this.number.ReadOnly = true;
-            this.number.Visible = false;
-            // 
-            // year
-            // 
-            this.year.DataPropertyName = "Budget_Year";
-            this.year.HeaderText = "Budget Year";
-            this.year.Name = "year";
-            this.year.ReadOnly = true;
-            // 
-            // approved
-            // 
-            this.approved.DataPropertyName = "Aproved_By";
-            this.approved.HeaderText = "Approved By";
-            this.approved.Name = "approved";
-            this.approved.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "Expense_Category";
-            this.category.HeaderText = "Category";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // specification
-            // 
-            this.specification.DataPropertyName = "Expense_Specification";
-            this.specification.HeaderText = "Specification";
-            this.specification.Name = "specification";
-            this.specification.ReadOnly = true;
-            // 
-            // amount
-            // 
-            this.amount.DataPropertyName = "Expense_Amount";
-            this.amount.HeaderText = "Amount";
-            this.amount.Name = "amount";
-            this.amount.ReadOnly = true;
-            // 
-            // date
-            // 
-            this.date.DataPropertyName = "Expense_Date";
-            this.date.HeaderText = "Date";
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "Description";
-            this.description.HeaderText = "Description";
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            // 
             // Expenses_Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,7 +408,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Expenses_Update";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Expenses_Update";
+            this.Text = "Expenses Update";
             this.Load += new System.EventHandler(this.Expenses_Update_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -451,7 +439,6 @@
         private MetroFramework.Controls.MetroGrid dataGridView1;
         private System.Windows.Forms.TextBox textBox_ecount;
         private System.Windows.Forms.Label label7;
-        private MetroFramework.Controls.MetroButton button_back;
         private MetroFramework.Controls.MetroButton button_update;
         private MetroFramework.Controls.MetroButton button_refresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn number;

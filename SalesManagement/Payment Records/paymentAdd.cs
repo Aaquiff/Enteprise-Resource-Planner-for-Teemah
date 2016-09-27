@@ -29,10 +29,7 @@ namespace SalesManagement.Payment_Records
             label9.Text = DateTime.Now.ToShortDateString();
 
             purchaseAdd2 add = new purchaseAdd2();
-            add.getColumn("invoice", "invoiceNo", comboBox1);
-
-            
-            
+            add.getColumn("invoice", "invoiceNo", comboBox1);   
         }
         
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -72,6 +69,7 @@ namespace SalesManagement.Payment_Records
             label17.Text = this.pcredit;
 
             string due = adb.getData("due", "invoiceNo", comboBox1.Text, "totalPaid");
+            //MessageBox.Show("Total = "+ this.ptotal+"\n totalPaid= "+tempOut+ "\n Credit = "+this.pcredit +"\n due ="+due);
 
             if (double.Parse(this.ptotal) - double.Parse(due)==0)
             {
@@ -124,7 +122,6 @@ namespace SalesManagement.Payment_Records
                 {
                     amount = textBox6.Text;
                     int n;
-                    //bool isNumeric = int.TryParse(amount, out n);
 
                     if (!string.IsNullOrEmpty(amount) || !string.IsNullOrWhiteSpace(amount) || int.TryParse(amount, out n))
                     {
@@ -136,7 +133,6 @@ namespace SalesManagement.Payment_Records
                     {
                         PanException.Show(this.MdiParent, "Invalid Input", "Invalid value for amount");
                     }
-                    
                 }
                 else if (radioButton2.Checked)
                 {
@@ -164,7 +160,6 @@ namespace SalesManagement.Payment_Records
                 connection.CloseConnection();
 
                 PanMessage.Show(this.MdiParent,"Success");
-
             }
             
             catch (MySqlException ex)

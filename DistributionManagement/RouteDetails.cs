@@ -211,5 +211,11 @@ namespace DistributionManagement
         {
 
         }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            ReportViewer rx = new ReportViewer(RouteId.Text);
+            rx.Show();
+        }
     }
 }

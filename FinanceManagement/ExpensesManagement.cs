@@ -171,9 +171,9 @@ namespace FinanceManagement
 
         private void button_update_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
             Expenses_Update expense = new Expenses_Update();
-            expense.Show();
+            expense.ShowDialog();
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
